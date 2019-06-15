@@ -9,9 +9,9 @@
 #SBATCH -N 1
 ##SBATCH --exclusive
 ## Can change partition from general to west
-#SBATCH --partition=general
+#SBATCH --partition=west 
 #SBATCH --mem=16GbOB
-#SBATCH --time=23:59:59
+##SBATCH --time=23:59:59
 #SBATCH --error=error.log
 
 

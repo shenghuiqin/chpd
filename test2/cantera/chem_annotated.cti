@@ -1,0 +1,943 @@
+units(length='cm', time='s', quantity='mol', act_energy='kcal/mol')
+
+ideal_gas(name='gas',
+          elements="H D T C Ci O Oi N Ne Ar He Si S Cl X",
+          species="""N2          Ne          C7H10(1)    CO(2)
+                     CO2(3)      CH4(4)      C2H2(5)     C4H4(6)
+                     C5H6(7)     C5H5(8)     O2(9)       H(10)
+                     O(11)       OH(12)      H2(13)      H2O(14)
+                     Ar(15)      He(16)      HO2(17)     H2O2(18)
+                     C7H10(51)   C7H10(56)   C7H10(59)   C7H10(157)
+                     C7H10(162)  C7H10(219)""",
+          reactions='all',
+          transport='Mix',
+          initial_state=state(temperature=300.0, pressure=OneAtm))
+
+#-------------------------------------------------------------------------------
+# Element data
+#-------------------------------------------------------------------------------
+
+element(symbol=u'X', atomic_mass=195.083)
+element(symbol=u'Ci', atomic_mass=13.003)
+element(symbol=u'D', atomic_mass=2.014)
+element(symbol=u'Oi', atomic_mass=18.0)
+element(symbol=u'T', atomic_mass=3.016)
+#-------------------------------------------------------------------------------
+# Species data
+#-------------------------------------------------------------------------------
+
+species(name=u'N2',
+        atoms='N:2',
+        thermo=(NASA([100.00, 1817.03],
+                     [ 3.61262601E+00, -1.00893171E-03,  2.49898870E-06,
+                      -1.43375933E-09,  2.58636537E-13, -1.05110289E+03,
+                       2.65270306E+00]),
+                NASA([1817.03, 5000.00],
+                     [ 2.97588935E+00,  1.64142694E-03, -7.19729855E-07,
+                       1.25379300E-10, -7.91538495E-15, -1.02583652E+03,
+                       5.53764124E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.621,
+                                well_depth=97.53,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+species(name=u'Ne',
+        atoms='Ne:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       3.35532000E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       3.35532000E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=3.758,
+                                well_depth=148.6))
+
+species(name=u'C7H10(1)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 968.93],
+                     [ 1.98725126E+00,  2.14489469E-02,  9.22318715E-05,
+                      -1.30113689E-07,  4.97548266E-11,  8.28500640E+03,
+                       1.85909546E+01]),
+                NASA([968.93, 5000.00],
+                     [ 1.37238274E+01,  3.05101602E-02, -1.08311926E-05,
+                       2.05834034E-09, -1.53811277E-13,  3.31088409E+03,
+                      -5.15923206E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.556,
+                                well_depth=464.59))
+
+species(name=u'CO(2)',
+        atoms='C:1 O:1',
+        thermo=(NASA([100.00, 1669.93],
+                     [ 3.59709667E+00, -1.02423789E-03,  2.83336370E-06,
+                      -1.75825209E-09,  3.42587015E-13, -1.43431899E+04,
+                       3.45822172E+00]),
+                NASA([1669.93, 5000.00],
+                     [ 2.92795613E+00,  1.81930646E-03, -8.35308465E-07,
+                       1.51269167E-10, -9.88872164E-15, -1.42927084E+04,
+                       6.51157034E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.69,
+                                well_depth=91.7,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+species(name=u'CO2(3)',
+        atoms='C:1 O:2',
+        thermo=(NASA([100.00, 988.19],
+                     [ 3.27789539E+00,  2.75791006E-03,  7.12756746E-06,
+                      -1.07850566E-08,  4.14210403E-12, -4.84756028E+04,
+                       5.97858362E+00]),
+                NASA([988.19, 5000.00],
+                     [ 4.55074021E+00,  2.90723561E-03, -1.14640372E-06,
+                       2.25791273E-10, -1.69520894E-14, -4.89860208E+04,
+                      -1.45677548E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.941,
+                                well_depth=195.201))
+
+species(name=u'CH4(4)',
+        atoms='H:4 C:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 5.14911000E+00, -1.36622000E-02,  4.91454000E-05,
+                      -4.84247000E-08,  1.66603000E-11, -1.02466000E+04,
+                      -4.63849000E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 1.65326000E+00,  1.00263000E-02, -3.31661000E-06,
+                       5.36483000E-10, -3.14697000E-14, -1.00096000E+04,
+                       9.90506000E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.746,
+                                well_depth=141.4,
+                                polar=2.6,
+                                rot_relax=13.0))
+
+species(name=u'C2H2(5)',
+        atoms='H:2 C:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 8.08680000E-01,  2.33616000E-02, -3.55172000E-05,
+                       2.80153000E-08, -8.50075000E-12,  2.64290000E+04,
+                       1.39397000E+01]),
+                NASA([1000.00, 6000.00],
+                     [ 4.65878000E+00,  4.88397000E-03, -1.60829000E-06,
+                       2.46975000E-10, -1.38606000E-14,  2.57594000E+04,
+                      -3.99838000E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=4.1,
+                                well_depth=209.001,
+                                rot_relax=2.5))
+
+species(name=u'C4H4(6)',
+        atoms='H:4 C:4',
+        thermo=(NASA([100.00, 955.24],
+                     [ 2.87085772E+00,  1.82039429E-02,  1.06721800E-05,
+                      -2.72506849E-08,  1.19484444E-11,  3.30238440E+04,
+                       1.12933491E+01]),
+                NASA([955.24, 5000.00],
+                     [ 8.52644289E+00,  1.08962971E-02, -3.56573015E-06,
+                       6.31263733E-10, -4.51907829E-14,  3.11962732E+04,
+                      -1.96430410E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.18,
+                                well_depth=357.002,
+                                rot_relax=1.0))
+
+species(name=u'C5H6(7)',
+        atoms='H:6 C:5',
+        thermo=(NASA([100.00, 950.13],
+                     [ 3.12623087E+00,  3.28852101E-04,  9.46853348E-05,
+                      -1.21999816E-07,  4.63037881E-11,  1.43877885E+04,
+                       1.17374294E+01]),
+                NASA([950.13, 5000.00],
+                     [ 1.11604152E+01,  1.47332413E-02, -4.19407485E-06,
+                       8.03031139E-10, -6.51346897E-14,  1.06842002E+04,
+                      -3.80675719E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.711,
+                                well_depth=410.336))
+
+species(name=u'C5H5(8)',
+        atoms='H:5 C:5',
+        thermo=(NASA([100.00, 1967.44],
+                     [ 2.42228022E+00,  3.01663143E-02, -1.61778340E-05,
+                       4.46987389E-09, -5.07557517E-13,  3.05334420E+04,
+                       8.11603389E+00]),
+                NASA([1967.44, 5000.00],
+                     [ 9.15727112E+00,  1.64732642E-02, -5.73797476E-06,
+                       9.32291407E-10, -5.80367357E-14,  2.78833325E+04,
+                      -2.89341233E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.711,
+                                well_depth=410.336))
+
+species(name=u'O2(9)',
+        atoms='O:2',
+        thermo=(NASA([100.00, 1087.71],
+                     [ 3.53763685E+00, -1.22827502E-03,  5.36758598E-06,
+                      -4.93128083E-09,  1.45955105E-12, -1.03799025E+03,
+                       4.67179812E+00]),
+                NASA([1087.71, 5000.00],
+                     [ 3.16427281E+00,  1.69453626E-03, -8.00335163E-07,
+                       1.59029930E-10, -1.14890920E-14, -1.04844565E+03,
+                       6.08302704E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.467,
+                                well_depth=106.7))
+
+species(name=u'H(10)',
+        atoms='H:1',
+        thermo=(NASA([100.00, 3459.60],
+                     [ 2.50000000E+00,  9.24384602E-15, -1.36779837E-17,
+                       6.66184769E-21, -1.00106912E-24,  2.54727081E+04,
+                      -4.59566246E-01]),
+                NASA([3459.60, 5000.00],
+                     [ 2.49999999E+00,  9.20455546E-12, -3.58608293E-15,
+                       6.15198922E-19, -3.92041801E-23,  2.54727081E+04,
+                      -4.59566192E-01])),
+        transport=gas_transport(geom='atom',
+                                diam=2.05,
+                                well_depth=145.0))
+
+species(name=u'O(11)',
+        atoms='O:1',
+        thermo=(NASA([100.00, 3459.60],
+                     [ 2.50000000E+00,  9.24384602E-15, -1.36779837E-17,
+                       6.66184769E-21, -1.00106912E-24,  2.92267216E+04,
+                       5.11106770E+00]),
+                NASA([3459.60, 5000.00],
+                     [ 2.49999999E+00,  9.20455546E-12, -3.58608293E-15,
+                       6.15198922E-19, -3.92041801E-23,  2.92267216E+04,
+                       5.11106776E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=2.75,
+                                well_depth=80.0))
+
+species(name=u'OH(12)',
+        atoms='H:1 O:1',
+        thermo=(NASA([100.00, 1005.25],
+                     [ 3.48579709E+00,  1.33395222E-03, -4.70037681E-06,
+                       5.64371912E-09, -2.06314555E-12,  3.41195697E+03,
+                       1.99787227E+00]),
+                NASA([1005.25, 5000.00],
+                     [ 2.88224721E+00,  1.03869692E-03, -2.35657098E-07,
+                       1.40241789E-11,  6.34478804E-16,  3.66956233E+03,
+                       5.59056257E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.75,
+                                well_depth=80.0))
+
+species(name=u'H2(13)',
+        atoms='H:2',
+        thermo=(NASA([100.00, 1962.85],
+                     [ 3.42253738E+00,  2.86649654E-04, -4.14670547E-07,
+                       4.27547869E-10, -9.38118580E-14, -1.02978490E+03,
+                      -3.86364742E+00]),
+                NASA([1962.85, 5000.00],
+                     [ 2.74218715E+00,  5.79540044E-04,  1.97202501E-07,
+                      -6.41094027E-11,  4.96002772E-15, -5.52037536E+02,
+                       4.14099992E-01])),
+        transport=gas_transport(geom='linear',
+                                diam=2.833,
+                                well_depth=59.7))
+
+species(name=u'H2O(14)',
+        atoms='H:2 O:1',
+        thermo=(NASA([100.00, 1281.44],
+                     [ 3.99882011E+00, -5.54832046E-04,  2.76774485E-06,
+                      -1.55665196E-09,  3.02331026E-13, -3.02745569E+04,
+                      -3.08946082E-02]),
+                NASA([1281.44, 5000.00],
+                     [ 3.19560441E+00,  1.95239884E-03, -1.67117516E-07,
+                      -2.97940163E-11,  4.45140583E-15, -3.00687025E+04,
+                       4.04334103E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=2.641,
+                                well_depth=809.102,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+species(name=u'Ar(15)',
+        atoms='Ar:1',
+        thermo=(NASA([100.00, 3459.60],
+                     [ 2.50000000E+00,  9.24384602E-15, -1.36779837E-17,
+                       6.66184769E-21, -1.00106912E-24, -7.45000000E+02,
+                       4.36630363E+00]),
+                NASA([3459.60, 5000.00],
+                     [ 2.49999999E+00,  9.20455546E-12, -3.58608293E-15,
+                       6.15198922E-19, -3.92041801E-23, -7.44999993E+02,
+                       4.36630369E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=3.33,
+                                well_depth=136.501))
+
+species(name=u'He(16)',
+        atoms='He:1',
+        thermo=(NASA([100.00, 3459.60],
+                     [ 2.50000000E+00,  9.24384602E-15, -1.36779837E-17,
+                       6.66184769E-21, -1.00106912E-24, -7.45000000E+02,
+                       9.14221530E-01]),
+                NASA([3459.60, 5000.00],
+                     [ 2.49999999E+00,  9.20455546E-12, -3.58608293E-15,
+                       6.15198922E-19, -3.92041801E-23, -7.44999993E+02,
+                       9.14221584E-01])),
+        transport=gas_transport(geom='atom',
+                                diam=2.576,
+                                well_depth=10.2))
+
+species(name=u'HO2(17)',
+        atoms='H:1 O:2',
+        thermo=(NASA([100.00, 923.90],
+                     [ 4.02956810E+00, -2.63995243E-03,  1.52234048E-05,
+                      -1.71676623E-08,  6.26762277E-12,  3.22676931E+02,
+                       4.84425088E+00]),
+                NASA([923.90, 5000.00],
+                     [ 4.15130842E+00,  1.91150223E-03, -4.11298861E-07,
+                       6.35016037E-11, -4.86434305E-15,  8.34305473E+01,
+                       3.09354230E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                rot_relax=1.0))
+
+species(name=u'H2O2(18)',
+        atoms='H:2 O:2',
+        thermo=(NASA([100.00, 923.27],
+                     [ 3.72866718E+00,  4.13381107E-03,  5.67483605E-06,
+                      -1.01863743E-08,  4.28603298E-12, -1.76963958E+04,
+                       5.35912610E+00]),
+                NASA([923.27, 5000.00],
+                     [ 4.95152709E+00,  3.54228195E-03, -1.01039763E-06,
+                       1.61939656E-10, -1.10207608E-14, -1.81227978E+04,
+                      -1.52917036E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=4.196,
+                                well_depth=289.3))
+
+species(name=u'C7H10(51)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 967.65],
+                     [ 2.33763312E+00,  8.75842601E-03,  1.32709539E-04,
+                      -1.72329319E-07,  6.44575812E-11,  2.81318695E+04,
+                       1.53203443E+01]),
+                NASA([967.65, 5000.00],
+                     [ 1.42907832E+01,  3.02463209E-02, -1.05033624E-05,
+                       2.05611436E-09, -1.58630571E-13,  2.24992683E+04,
+                      -5.91049823E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.773,
+                                well_depth=463.423))
+
+species(name=u'C7H10(56)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 978.36],
+                     [ 9.92989043E-01,  5.25503253E-02,  3.92262595E-06,
+                      -4.15537183E-08,  1.95232633E-11,  3.89113769E+04,
+                       2.86567145E+01]),
+                NASA([978.36, 5000.00],
+                     [ 1.42852717E+01,  3.02044080E-02, -1.08771483E-05,
+                       1.96081997E-09, -1.38208945E-13,  3.47789691E+04,
+                      -4.30067964E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.11,
+                                well_depth=423.308))
+
+species(name=u'C7H10(59)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 958.83],
+                     [ 2.30700664E+00,  9.01903125E-03,  1.32148223E-04,
+                      -1.74470808E-07,  6.61690204E-11,  1.31394332E+04,
+                       1.80522028E+01]),
+                NASA([958.83, 5000.00],
+                     [ 1.51121551E+01,  2.74004363E-02, -8.93448441E-06,
+                       1.72289654E-09, -1.34171857E-13,  7.38330576E+03,
+                      -6.03981756E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.443,
+                                well_depth=448.04))
+
+species(name=u'C7H10(157)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 968.10],
+                     [ 1.85068842E+00,  2.51388947E-02,  8.29942825E-05,
+                      -1.21730166E-07,  4.71150703E-11,  9.31949157E+03,
+                       2.10387114E+01]),
+                NASA([968.10, 5000.00],
+                     [ 1.41361064E+01,  2.99511494E-02, -1.05690569E-05,
+                       1.99737194E-09, -1.48775223E-13,  4.33659497E+03,
+                      -5.12831017E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.253,
+                                well_depth=440.036))
+
+species(name=u'C7H10(162)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 980.78],
+                     [ 1.51961023E+00,  3.68125419E-02,  4.71718652E-05,
+                      -8.31518068E-08,  3.31390469E-11,  2.20899737E+04,
+                       2.24963693E+01]),
+                NASA([980.78, 5000.00],
+                     [ 1.34282339E+01,  3.18025923E-02, -1.17827935E-05,
+                       2.20266644E-09, -1.59767475E-13,  1.76590207E+04,
+                      -4.54049990E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.126,
+                                well_depth=430.781))
+
+species(name=u'C7H10(219)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 996.93],
+                     [ 1.92024905E+00,  2.83869469E-02,  6.30026766E-05,
+                      -9.23789071E-08,  3.45631173E-11,  3.13707407E+04,
+                       2.52892832E+01]),
+                NASA([996.93, 5000.00],
+                     [ 1.07646284E+01,  3.62072885E-02, -1.39241002E-05,
+                       2.63733463E-09, -1.91069939E-13,  2.74552265E+04,
+                      -2.81460117E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=6.588,
+                                well_depth=453.574))
+
+#-------------------------------------------------------------------------------
+# Reaction data
+#-------------------------------------------------------------------------------
+#  Reaction index: Chemkin #1; RMG #1
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O2(9), OH(12); H(10), O(11);
+
+# Reaction 1
+reaction('O2(9) + H(10) <=> O(11) + OH(12)', [1.040000e+14, 0.0, 15.286])
+#  Reaction index: Chemkin #2; RMG #2
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 2
+reaction('O(11) + H2(13) <=> H(10) + OH(12)', [3.818000e+12, 0.0, 7.948],
+         options='duplicate')
+#  Reaction index: Chemkin #3; RMG #2
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 3
+reaction('O(11) + H2(13) <=> H(10) + OH(12)', [8.792000e+14, 0.0, 19.17],
+         options='duplicate')
+#  Reaction index: Chemkin #4; RMG #3
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: OH(12), H2O(14); H2(13), H(10);
+
+# Reaction 4
+reaction('OH(12) + H2(13) <=> H(10) + H2O(14)', [2.160000e+08, 1.51, 3.43])
+#  Reaction index: Chemkin #5; RMG #4
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: OH(12), H2O(14); OH(12), O(11);
+
+# Reaction 5
+reaction('OH(12) + OH(12) <=> O(11) + H2O(14)', [3.340000e+04, 2.42, -1.93])
+#  Reaction index: Chemkin #6; RMG #5
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2(13), H(10); H2(13), H(10);
+
+# Reaction 6
+three_body_reaction('H2(13) + M <=> H(10) + H(10) + M', [4.577000e+19, -1.4, 104.38],
+                    efficiencies='CO2(3):3.8 Ar(15):0.0 H2(13):2.5 H2O(14):12.0 CO(2):1.9 He(16):0.0')
+#  Reaction index: Chemkin #7; RMG #6
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: Ar(15), Ar(15); H2(13), H(10); H2(13), H(10);
+
+# Reaction 7
+reaction('H2(13) + Ar(15) <=> H(10) + H(10) + Ar(15)', [5.840000e+18, -1.1, 104.38])
+#  Reaction index: Chemkin #8; RMG #7
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: He(16), He(16); H2(13), H(10); H2(13), H(10);
+
+# Reaction 8
+reaction('H2(13) + He(16) <=> H(10) + H(10) + He(16)', [5.840000e+18, -1.1, 104.38])
+#  Reaction index: Chemkin #9; RMG #8
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O(11), O2(9); O(11), O2(9);
+
+# Reaction 9
+three_body_reaction('O(11) + O(11) + M <=> O2(9) + M', [6.165000e+15, -0.5, 0.0],
+                    efficiencies='CO2(3):3.8 Ar(15):0.0 H2(13):2.5 H2O(14):12.0 CO(2):1.9 He(16):0.0')
+#  Reaction index: Chemkin #10; RMG #9
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O(11), O2(9); Ar(15), Ar(15); O(11), Ar(15);
+
+# Reaction 10
+reaction('O(11) + O(11) + Ar(15) <=> O2(9) + Ar(15)', [1.886000e+13, 0.0, -1.788])
+#  Reaction index: Chemkin #11; RMG #10
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O(11), O2(9); He(16), He(16); O(11), He(16);
+
+# Reaction 11
+reaction('O(11) + O(11) + He(16) <=> O2(9) + He(16)', [1.886000e+13, 0.0, -1.788])
+#  Reaction index: Chemkin #12; RMG #11
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H(10), OH(12); O(11), OH(12);
+
+# Reaction 12
+three_body_reaction('H(10) + O(11) + M <=> OH(12) + M', [4.714000e+18, -1.0, 0.0],
+                    efficiencies='CO2(3):3.8 Ar(15):0.75 H2(13):2.5 H2O(14):12.0 CO(2):1.9 He(16):0.75')
+#  Reaction index: Chemkin #13; RMG #12
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O(14), H(10); H2O(14), OH(12);
+
+# Reaction 13
+three_body_reaction('H2O(14) + M <=> H(10) + OH(12) + M', [6.064000e+27, -3.322, 120.79],
+                    efficiencies='CO2(3):3.8 H2(13):3.0 H2O(14):0.0 CO(2):1.9 He(16):1.1 N2:2.0 O2(9):1.5')
+#  Reaction index: Chemkin #14; RMG #13
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O(14), H2O(14); H2O(14), H(10); H2O(14), OH(12);
+
+# Reaction 14
+reaction('H2O(14) + H2O(14) <=> H(10) + OH(12) + H2O(14)', [1.006000e+26, -2.44, 120.18])
+#  Reaction index: Chemkin #15; RMG #14
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O2(9), HO2(17); H(10), HO2(17);
+
+# Reaction 15
+falloff_reaction('O2(9) + H(10) (+ M) <=> HO2(17) (+ M)',
+                 kf=[4.651000e+12, 0.44, 0.0],
+                 kf0=[6.366000e+20, -1.72, 0.525],
+                 efficiencies='CO2(3):3.8 Ar(15):0.67 H2(13):2.0 H2O(14):14.0 CO(2):1.9 He(16):0.8 O2(9):0.78',
+                 falloff=Troe(A=0.5, T3=1e-30, T1=1e+30))
+#  Reaction index: Chemkin #16; RMG #15
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: HO2(17), O2(9); H(10), H2(13);
+
+# Reaction 16
+reaction('H(10) + HO2(17) <=> O2(9) + H2(13)', [2.750000e+06, 2.09, -1.451])
+#  Reaction index: Chemkin #17; RMG #16
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: HO2(17), OH(12); H(10), OH(12);
+
+# Reaction 17
+reaction('H(10) + HO2(17) <=> OH(12) + OH(12)', [7.079000e+13, 0.0, 0.295])
+#  Reaction index: Chemkin #18; RMG #17
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: HO2(17), O2(9); O(11), OH(12);
+
+# Reaction 18
+reaction('O(11) + HO2(17) <=> O2(9) + OH(12)', [2.850000e+10, 1.0, -0.724])
+#  Reaction index: Chemkin #19; RMG #18
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: HO2(17), O2(9); OH(12), H2O(14);
+
+# Reaction 19
+reaction('OH(12) + HO2(17) <=> O2(9) + H2O(14)', [2.890000e+13, 0.0, -0.497])
+#  Reaction index: Chemkin #20; RMG #19
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 20
+reaction('HO2(17) + HO2(17) <=> O2(9) + H2O2(18)', [4.200000e+14, 0.0, 11.982],
+         options='duplicate')
+#  Reaction index: Chemkin #21; RMG #19
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 21
+reaction('HO2(17) + HO2(17) <=> O2(9) + H2O2(18)', [1.300000e+11, 0.0, -1.629],
+         options='duplicate')
+#  Reaction index: Chemkin #22; RMG #20
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O2(18), OH(12); H2O2(18), OH(12);
+
+# Reaction 22
+falloff_reaction('H2O2(18) (+ M) <=> OH(12) + OH(12) (+ M)',
+                 kf=[2.000000e+12, 0.9, 48.749],
+                 kf0=[2.490000e+24, -2.3, 48.749],
+                 efficiencies='CO2(3):1.6 H2(13):3.7 H2O(14):7.5 He(16):0.65 CO(2):2.8 H2O2(18):7.7 N2:1.5 O2(9):1.2',
+                 falloff=Troe(A=0.43, T3=1e-30, T1=1e+30))
+#  Reaction index: Chemkin #23; RMG #21
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O2(18), H2O(14); H(10), OH(12);
+
+# Reaction 23
+reaction('H(10) + H2O2(18) <=> OH(12) + H2O(14)', [2.410000e+13, 0.0, 3.97])
+#  Reaction index: Chemkin #24; RMG #22
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O2(18), HO2(17); H(10), H2(13);
+
+# Reaction 24
+reaction('H(10) + H2O2(18) <=> H2(13) + HO2(17)', [4.820000e+13, 0.0, 7.95])
+#  Reaction index: Chemkin #25; RMG #23
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O2(18), HO2(17); O(11), OH(12);
+
+# Reaction 25
+reaction('O(11) + H2O2(18) <=> OH(12) + HO2(17)', [9.550000e+06, 2.0, 3.97])
+#  Reaction index: Chemkin #26; RMG #24
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 26
+reaction('OH(12) + H2O2(18) <=> H2O(14) + HO2(17)', [1.740000e+12, 0.0, 0.318],
+         options='duplicate')
+#  Reaction index: Chemkin #27; RMG #24
+#  Library reaction: BurkeH2O2inN2
+
+# Reaction 27
+reaction('OH(12) + H2O2(18) <=> H2O(14) + HO2(17)', [7.590000e+13, 0.0, 7.27],
+         options='duplicate')
+#  Reaction index: Chemkin #28; RMG #25
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: HO2(17), H2O(14); H(10), O(11);
+
+# Reaction 28
+reaction('H(10) + HO2(17) <=> O(11) + H2O(14)', [2.900000e+08, 1.55, -0.16])
+#  Reaction index: Chemkin #29; RMG #26
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H(10), H2O2(18); HO2(17), H2O2(18);
+
+# Reaction 29
+three_body_reaction('H(10) + HO2(17) + M <=> H2O2(18) + M', [6.000000e+14, 1.25, -0.27])
+#  Reaction index: Chemkin #30; RMG #27
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: OH(12), O2(9); OH(12), H2(13);
+
+# Reaction 30
+reaction('OH(12) + OH(12) <=> O2(9) + H2(13)', [2.000000e+11, 0.51, 50.5])
+#  Reaction index: Chemkin #31; RMG #28
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O(14), O2(9); O(11), H2(13);
+
+# Reaction 31
+reaction('O(11) + H2O(14) <=> O2(9) + H2(13)', [1.070000e+10, 0.97, 68.7])
+#  Reaction index: Chemkin #32; RMG #29
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: H2O2(18), O2(9); O(11), H2O(14);
+
+# Reaction 32
+reaction('O(11) + H2O2(18) <=> O2(9) + H2O(14)', [8.430000e+11, 0.0, 3.97])
+#  Reaction index: Chemkin #33; RMG #30
+#  Library reaction: BurkeH2O2inN2
+#  Flux pairs: O(11), HO2(17); OH(12), HO2(17);
+
+# Reaction 33
+three_body_reaction('O(11) + OH(12) + M <=> HO2(17) + M', [1.000000e+15, 0.0, 0.0])
+#  Reaction index: Chemkin #34; RMG #31
+#  Library reaction: FFCM1(-)
+#  Flux pairs: CO(2), CO2(3); O(11), CO2(3);
+
+# Reaction 34
+falloff_reaction('CO(2) + O(11) (+ M) <=> CO2(3) (+ M)',
+                 kf=[1.880000e+11, 0.0, 2.43],
+                 kf0=[1.400000e+21, -2.1, 5.5],
+                 efficiencies='CO2(3):3.8 Ar(15):0.87 H2O(14):12.0 CH4(4):2.0 CO(2):1.9 He(16):2.5')
+#  Reaction index: Chemkin #35; RMG #33
+#  Library reaction: FFCM1(-)
+
+# Reaction 35
+reaction('CO(2) + OH(12) <=> CO2(3) + H(10)', [6.187000e+04, 2.053, -0.356],
+         options='duplicate')
+#  Reaction index: Chemkin #36; RMG #33
+#  Library reaction: FFCM1(-)
+
+# Reaction 36
+reaction('CO(2) + OH(12) <=> CO2(3) + H(10)', [5.017000e+12, -0.664, 0.332],
+         options='duplicate')
+#  Reaction index: Chemkin #37; RMG #34
+#  Library reaction: FFCM1(-)
+#  Flux pairs: CO(2), CO2(3); HO2(17), OH(12);
+
+# Reaction 37
+reaction('CO(2) + HO2(17) <=> CO2(3) + OH(12)', [1.570000e+05, 2.18, 17.944])
+#  Reaction index: Chemkin #38; RMG #32
+#  Library reaction: FFCM1(-)
+#  Flux pairs: CO(2), CO2(3); O2(9), O(11);
+
+# Reaction 38
+reaction('CO(2) + O2(9) <=> CO2(3) + O(11)', [1.533000e+12, 0.0, 47.7])
+#  Reaction index: Chemkin #39; RMG #856
+#  PDep reaction: PDepNetwork #13
+#  Flux pairs: C7H10(51), C7H10(1);
+
+# Reaction 39
+chebyshev_reaction('C7H10(51) (+ M) <=> C7H10(1) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 7.77300e+00,  7.92100e-01, -2.06700e-01,  8.47500e-03],
+                           [ 1.02100e+00,  1.00700e+00, -1.69100e-01, -5.40200e-02],
+                           [-4.71700e-01,  4.51500e-01,  6.05200e-02, -1.67300e-02],
+                           [-4.77400e-01,  2.03600e-01,  8.44800e-02,  2.69100e-02],
+                           [-2.84900e-01,  1.25200e-01,  1.75700e-02,  1.91300e-02],
+                           [-1.31200e-01,  9.47000e-02, -6.20200e-03, -1.86200e-03]])
+#  Reaction index: Chemkin #40; RMG #314
+#  PDep reaction: PDepNetwork #5
+#  Flux pairs: C7H10(1), C7H10(59);
+
+# Reaction 40
+chebyshev_reaction('C7H10(1) (+ M) <=> C7H10(59) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-3.40600e-01,  5.52500e-01, -1.14700e-01, -2.65600e-03],
+                           [ 8.79600e+00,  9.19100e-01, -1.60900e-01, -1.67500e-02],
+                           [-5.34600e-01,  5.38000e-01, -3.79400e-02, -2.76800e-02],
+                           [-2.97400e-01,  2.35200e-01,  3.05100e-02, -1.89200e-02],
+                           [-1.69900e-01,  1.03800e-01,  3.09200e-02, -2.58200e-03],
+                           [-1.16000e-01,  7.18400e-02,  1.10300e-02,  4.63400e-03]])
+#  Reaction index: Chemkin #41; RMG #583
+#  PDep reaction: PDepNetwork #13
+#  Flux pairs: C7H10(51), C7H10(59);
+
+# Reaction 41
+chebyshev_reaction('C7H10(51) (+ M) <=> C7H10(59) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 8.62300e+00,  2.33200e+00, -2.29200e-01, -4.57000e-02],
+                           [-4.14800e-01,  6.41500e-01, -1.54800e-02, -4.33200e-02],
+                           [-6.37700e-01,  2.08600e-01,  8.22400e-02, -2.48400e-02],
+                           [-4.18100e-01,  6.74700e-02,  5.03200e-02,  1.84900e-02],
+                           [-3.00100e-01,  7.47500e-02, -6.96000e-03,  2.86300e-02],
+                           [-1.90300e-01,  6.87100e-02, -2.30700e-02,  1.07200e-02]])
+#  Reaction index: Chemkin #42; RMG #670
+#  PDep reaction: PDepNetwork #6
+#  Flux pairs: C7H10(1), C7H10(51); O2(9), O2(9);
+
+# Reaction 42
+chebyshev_reaction('C7H10(1) + O2(9) (+ M) <=> O2(9) + C7H10(51) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-4.06500e+00, -8.38700e-05, -5.83700e-05, -3.24100e-05],
+                           [ 1.29100e+01,  1.76300e-05,  1.22700e-05,  6.81400e-06],
+                           [ 6.93100e-02, -2.20200e-06, -1.53300e-06, -8.51000e-07],
+                           [ 4.72500e-02,  5.45300e-07,  3.79500e-07,  2.10700e-07],
+                           [ 2.20200e-02, -3.61500e-07, -2.51600e-07, -1.39700e-07],
+                           [ 9.80000e-03, -4.59100e-07, -3.19500e-07, -1.77400e-07]])
+#  Reaction index: Chemkin #43; RMG #1170
+#  PDep reaction: PDepNetwork #15
+#  Flux pairs: C7H10(162), C7H10(1);
+
+# Reaction 43
+chebyshev_reaction('C7H10(162) (+ M) <=> C7H10(1) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-1.27400e+00,  3.61500e-01, -1.96200e-01, -4.61800e-02],
+                           [ 1.09200e+01,  1.10000e+00, -4.08700e-02,  2.25500e-02],
+                           [-7.59300e-01,  6.06200e-01, -4.42100e-02, -6.49000e-03],
+                           [-5.05600e-01,  2.76000e-01, -3.56800e-03, -1.28800e-02],
+                           [-2.74800e-01,  1.26000e-01,  2.13600e-02, -2.53400e-03],
+                           [-1.59500e-01,  6.02600e-02,  1.23200e-02,  2.95800e-03]])
+#  Reaction index: Chemkin #44; RMG #2148
+#  PDep reaction: PDepNetwork #13
+#  Flux pairs: C7H10(51), C7H10(162);
+
+# Reaction 44
+chebyshev_reaction('C7H10(51) (+ M) <=> C7H10(162) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 4.37100e-01,  1.62200e+00,  6.77000e-02, -1.07700e-01],
+                           [ 8.84100e+00,  1.20500e+00, -2.06400e-01,  3.65400e-02],
+                           [-8.98200e-01,  4.36000e-01, -5.97300e-03,  2.54900e-02],
+                           [-7.86800e-01,  2.27900e-01,  5.85500e-03, -2.70600e-03],
+                           [-4.03300e-01,  6.33800e-02,  1.93000e-02,  7.97000e-03],
+                           [-1.60200e-01, -5.59400e-04,  6.84300e-03,  5.25500e-03]])
+#  Reaction index: Chemkin #45; RMG #1172
+#  PDep reaction: PDepNetwork #15
+#  Flux pairs: C7H10(162), C7H10(59);
+
+# Reaction 45
+chebyshev_reaction('C7H10(162) (+ M) <=> C7H10(59) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-3.46900e+00, -4.70400e-01, -4.57300e-01, -4.72900e-02],
+                           [ 1.16100e+01,  1.76200e+00,  8.93300e-03, -5.03400e-02],
+                           [-6.82600e-01,  6.45000e-01,  1.10800e-02,  3.12400e-03],
+                           [-5.86600e-01,  2.39000e-01,  5.12700e-03,  4.15200e-03],
+                           [-3.42100e-01,  1.47500e-01,  2.41900e-02, -1.41900e-03],
+                           [-1.73400e-01,  9.73000e-02,  2.28700e-02, -1.64500e-04]])
+#  Reaction index: Chemkin #46; RMG #2757
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(1);
+
+# Reaction 46
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(1) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 8.29200e+00,  1.86800e+00, -1.77600e-01, -4.36900e-02],
+                           [-1.39600e-01,  4.71900e-01, -2.65400e-02,  3.03900e-02],
+                           [-4.66500e-01,  4.24000e-01, -1.01700e-01, -1.63600e-03],
+                           [-3.64700e-01,  3.51300e-01, -2.81300e-02, -2.68600e-02],
+                           [-2.80600e-01,  1.82200e-01,  5.68700e-02, -1.73300e-02],
+                           [-1.48700e-01,  3.75700e-02,  5.00600e-02,  5.27500e-03]])
+#  Reaction index: Chemkin #47; RMG #2767
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(51);
+
+# Reaction 47
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(51) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 2.06900e+00,  2.85000e+00,  1.24300e-01, -7.93600e-02],
+                           [ 1.67900e+00,  3.37900e-01, -2.31400e-01,  5.28800e-02],
+                           [-5.83600e-01,  1.67700e-01, -7.37900e-02,  3.67500e-02],
+                           [-6.48000e-01,  2.99800e-01, -1.06600e-02, -3.30000e-02],
+                           [-3.80400e-01,  9.39300e-02,  5.55100e-02, -1.24400e-02],
+                           [-1.10600e-01, -2.91800e-02,  2.68500e-02,  7.15400e-03]])
+#  Reaction index: Chemkin #48; RMG #2777
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(162);
+
+# Reaction 48
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(162) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 9.19400e+00,  2.18000e+00, -1.87700e-01, -4.37100e-02],
+                           [-9.10700e-01,  8.85700e-01,  4.26000e-03,  2.21000e-02],
+                           [-7.15300e-01,  3.93600e-01, -2.23200e-02, -3.06700e-03],
+                           [-3.15600e-01,  1.36000e-01,  1.07200e-02, -1.28500e-02],
+                           [-1.75500e-01,  4.09500e-02,  3.09000e-02, -3.64800e-03],
+                           [-9.72600e-02,  1.08800e-02,  1.66500e-02,  2.99600e-03]])
+#  Reaction index: Chemkin #49; RMG #2842
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(59);
+
+# Reaction 49
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(59) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 6.11200e+00,  1.01600e+00, -4.32700e-01, -4.64200e-02],
+                           [ 6.39400e-01,  1.14600e+00,  2.31800e-02, -4.71900e-02],
+                           [-3.70600e-01,  4.82400e-01, -3.69900e-02,  6.93300e-03],
+                           [-4.63100e-01,  3.10300e-01, -7.34400e-03, -4.79800e-03],
+                           [-3.62200e-01,  1.83000e-01,  6.42500e-02, -9.54300e-03],
+                           [-1.65900e-01,  5.96300e-02,  5.69700e-02,  4.74700e-03]])
+#  Reaction index: Chemkin #50; RMG #979
+#  PDep reaction: PDepNetwork #5
+#  Flux pairs: C7H10(1), C7H10(157);
+
+# Reaction 50
+chebyshev_reaction('C7H10(1) (+ M) <=> C7H10(157) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-1.15300e+01,  5.44600e-02, -2.03400e-01, -3.96600e-02],
+                           [ 2.10100e+01,  7.26600e-01, -1.06100e-01,  3.87700e-02],
+                           [-4.31500e-01,  6.35100e-01, -1.29000e-01, -5.00700e-03],
+                           [-5.04600e-01,  4.25100e-01, -1.55900e-02, -3.25300e-02],
+                           [-3.14800e-01,  1.76500e-01,  6.99700e-02, -1.45600e-02],
+                           [-1.60000e-01,  3.12800e-02,  4.49400e-02,  1.16100e-02]])
+#  Reaction index: Chemkin #51; RMG #1207
+#  PDep reaction: PDepNetwork #15
+#  Flux pairs: C7H10(162), C7H10(157);
+
+# Reaction 51
+chebyshev_reaction('C7H10(162) (+ M) <=> C7H10(157) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-1.40600e+00,  3.78100e-01, -2.12900e-01, -4.16100e-02],
+                           [ 1.09600e+01,  1.12700e+00, -7.11500e-02,  2.82700e-02],
+                           [-7.11400e-01,  6.10400e-01, -5.78700e-02, -4.41400e-03],
+                           [-4.69300e-01,  2.61800e-01, -5.21200e-03, -1.29800e-02],
+                           [-2.44400e-01,  1.04600e-01,  2.45200e-02, -3.25800e-03],
+                           [-1.36100e-01,  4.17400e-02,  1.56700e-02,  2.53700e-03]])
+#  Reaction index: Chemkin #52; RMG #2183
+#  PDep reaction: PDepNetwork #13
+#  Flux pairs: C7H10(51), C7H10(157);
+
+# Reaction 52
+chebyshev_reaction('C7H10(51) (+ M) <=> C7H10(157) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-5.00100e-01,  1.22400e+00,  6.88000e-02, -9.32600e-02],
+                           [ 9.63600e+00,  7.44400e-01, -2.67500e-01,  6.85100e-02],
+                           [-6.83800e-01,  5.14200e-01, -1.01000e-01,  2.05600e-02],
+                           [-8.23300e-01,  3.93600e-01,  8.50600e-04, -3.21400e-02],
+                           [-4.24300e-01,  1.00300e-01,  6.38000e-02, -4.95300e-03],
+                           [-1.30500e-01, -2.10900e-02,  2.15100e-02,  1.18400e-02]])
+#  Reaction index: Chemkin #53; RMG #2770
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(157);
+
+# Reaction 53
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(157) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 8.18500e+00,  1.86400e+00, -1.92000e-01, -4.03500e-02],
+                           [-4.81200e-02,  4.80900e-01, -6.17400e-02,  3.71600e-02],
+                           [-3.81400e-01,  4.01500e-01, -1.05900e-01, -4.91600e-03],
+                           [-3.09600e-01,  3.22100e-01, -1.96600e-02, -3.11900e-02],
+                           [-2.36800e-01,  1.47600e-01,  6.89700e-02, -2.01900e-02],
+                           [-1.20500e-01,  1.61500e-02,  5.46800e-02,  5.81400e-03]])
+#  Reaction index: Chemkin #54; RMG #6314
+#  PDep reaction: PDepNetwork #42
+#  Flux pairs: C7H10(219), C7H10(1);
+
+# Reaction 54
+chebyshev_reaction('C7H10(219) (+ M) <=> C7H10(1) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-8.13500e-01, -6.42200e-02, -3.81400e-01, -9.29900e-02],
+                           [ 7.93500e+00,  1.39700e+00, -1.54700e-02,  4.46200e-02],
+                           [-4.14800e-01,  9.56100e-01, -5.02700e-02,  3.23600e-03],
+                           [-7.89500e-01,  4.21400e-01,  5.39000e-02, -2.42200e-02],
+                           [-4.37900e-01,  6.41400e-02,  7.24400e-02,  5.55800e-03],
+                           [-1.75400e-01, -8.56000e-03,  9.42300e-03,  1.66800e-02]])
+#  Reaction index: Chemkin #55; RMG #6315
+#  PDep reaction: PDepNetwork #42
+#  Flux pairs: C7H10(219), C7H10(51);
+
+# Reaction 55
+chebyshev_reaction('C7H10(219) (+ M) <=> C7H10(51) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-6.65400e+00,  1.08900e+00, -1.50600e-01, -1.53600e-01],
+                           [ 9.28900e+00,  1.09300e+00, -1.74600e-01,  1.06200e-01],
+                           [-6.28600e-01,  7.50600e-01, -4.10500e-02,  1.13900e-02],
+                           [-1.01800e+00,  3.50300e-01,  6.26100e-02, -2.60200e-02],
+                           [-5.02700e-01,  1.37500e-02,  6.57200e-02,  9.39600e-03],
+                           [-1.33300e-01, -3.14600e-02,  1.82300e-03,  9.11200e-03]])
+#  Reaction index: Chemkin #56; RMG #6317
+#  PDep reaction: PDepNetwork #42
+#  Flux pairs: C7H10(219), C7H10(162);
+
+# Reaction 56
+chebyshev_reaction('C7H10(219) (+ M) <=> C7H10(162) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-5.70100e-02,  3.21100e-01, -4.05100e-01, -9.12800e-02],
+                           [ 7.10500e+00,  1.77700e+00,  2.78400e-02,  3.24900e-02],
+                           [-5.54600e-01,  8.08700e-01,  2.67600e-02,  6.64800e-03],
+                           [-6.56000e-01,  2.30500e-01,  4.01300e-02, -4.79500e-03],
+                           [-3.41100e-01,  3.28600e-02,  2.83600e-02,  3.47100e-03],
+                           [-1.57700e-01,  1.41400e-02,  7.71600e-03,  2.53000e-03]])
+#  Reaction index: Chemkin #57; RMG #3789
+#  PDep reaction: PDepNetwork #26
+#  Flux pairs: C7H10(56), C7H10(219);
+
+# Reaction 57
+chebyshev_reaction('C7H10(56) (+ M) <=> C7H10(219) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 3.51100e+00,  1.76100e+00, -3.21800e-01, -9.51700e-02],
+                           [ 2.56700e+00,  7.69000e-01, -2.89600e-02,  5.49600e-02],
+                           [-1.42100e-01,  6.35500e-01, -4.82100e-02, -6.62900e-03],
+                           [-5.50500e-01,  3.08600e-01,  6.81900e-02, -3.13000e-02],
+                           [-3.52100e-01,  2.05100e-02,  9.40400e-02,  1.83600e-03],
+                           [-1.36900e-01, -3.52700e-02,  2.25000e-02,  2.09700e-02]])
+#  Reaction index: Chemkin #58; RMG #6191
+#  PDep reaction: PDepNetwork #42
+#  Flux pairs: C7H10(219), C7H10(157);
+
+# Reaction 58
+chebyshev_reaction('C7H10(219) (+ M) <=> C7H10(157) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[ 7.93500e+00,  1.42300e+00, -2.07800e-01, -1.02700e-02],
+                           [ 8.40000e-01,  9.31900e-01, -5.70900e-02, -2.54400e-02],
+                           [-6.77300e-01,  4.77500e-01,  5.48200e-02, -3.00800e-03],
+                           [-3.36500e-01,  1.89200e-01,  3.70400e-03,  1.91000e-02],
+                           [-1.65300e-01,  8.49600e-02, -1.44700e-02,  5.34200e-03],
+                           [-1.03900e-01,  5.30400e-02, -4.77800e-04, -5.00600e-03]])
+#  Reaction index: Chemkin #59; RMG #6316
+#  PDep reaction: PDepNetwork #42
+#  Flux pairs: C7H10(219), C7H10(59);
+
+# Reaction 59
+chebyshev_reaction('C7H10(219) (+ M) <=> C7H10(59) (+ M)',
+                   Tmin=300.0, Tmax=3000.0,
+                   Pmin=(0.01, 'atm'), Pmax=(98.692, 'atm'),
+                   coeffs=[[-2.87400e+00, -8.09200e-01, -6.24000e-01, -1.00100e-01],
+                           [ 8.65200e+00,  2.07000e+00,  5.42000e-02, -2.46600e-02],
+                           [-3.96500e-01,  9.52600e-01,  2.02800e-03,  2.02900e-02],
+                           [-8.97500e-01,  3.50600e-01,  5.57300e-02, -5.11000e-03],
+                           [-5.08500e-01,  6.96500e-02,  6.77400e-02,  4.69800e-03],
+                           [-1.87500e-01,  2.69100e-02,  1.68400e-02,  1.07000e-02]])
