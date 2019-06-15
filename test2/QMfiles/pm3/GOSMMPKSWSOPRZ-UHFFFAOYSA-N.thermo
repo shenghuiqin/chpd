@@ -1,0 +1,14 @@
+InChI = "InChI=1S/C4H4/c1-4-2-3-4/h2-3H,1H2"
+thermoData = ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([15.5368,19.5232,22.8253,25.4903,29.5262,32.4743,37.0879],'cal/mol/K'), H298=(92.4609,'kcal/mol'), S298=(62.8649,'cal/mol/K'), Cp0=(33.2579,'J/(mol*K)'), CpInf=(182.918,'J/(mol*K)'), Tmin=(300,'K'), Tmax=(2000,'K'), comment="""QM MopacMolPM3 calculation attempt 1""")
+pointGroup = PointGroup("C2v", symmetryNumber=2, chiral=False)
+qmData = QMData(groundStateDegeneracy=1, numberOfAtoms=8, stericEnergy=None, molecularMass=(52.0756,'amu'), energy=(4.00948,'eV/molecule'), atomicNumbers=array([6, 6, 6, 6, 1, 1, 1, 1], dtype=int32), rotationalConstants=([0.962891,0.243264,0.194201],'cm^-1'), atomCoords=([[0.131924,-0.0244415,-0.0366394],[-1.02362,-0.251347,0.787457],[-1.12945,0.6478,-0.187979],[1.37702,-0.253559,-0.383372],[-1.44832,-0.792101,1.61284],[-1.7028,1.37274,-0.735483],[1.99867,-0.974311,0.13634],[1.85181,0.265524,-1.20867]],'angstrom'), frequencies=([358.4,418.83,606.43,800.89,894.65,904.18,946.92,951.41,1054.68,1078.19,1226.39,1323.92,1765.8,2167.31,3144.08,3152.47,3262.08,3297.51],'cm^-1'), source='QM MopacMolPM3 calculation attempt 1')
+adjacencyList = """
+1 C u0 p0 c0 {2,S} {3,S} {4,D}
+2 C u0 p0 c0 {1,S} {3,D} {5,S}
+3 C u0 p0 c0 {1,S} {2,D} {6,S}
+4 C u0 p0 c0 {1,D} {7,S} {8,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+"""

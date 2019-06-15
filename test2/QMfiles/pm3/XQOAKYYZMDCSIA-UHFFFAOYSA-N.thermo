@@ -1,0 +1,9 @@
+InChI = "InChI=1S/O3/c1-2-3-1"
+thermoData = ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([11.2042,12.0078,12.5308,12.8774,13.2803,13.4908,13.7162],'cal/mol/K'), H298=(75.4492,'kcal/mol'), S298=(56.6596,'cal/mol/K'), Cp0=(33.2579,'J/(mol*K)'), CpInf=(58.2013,'J/(mol*K)'), Tmin=(300,'K'), Tmax=(2000,'K'), comment="""QM MopacMolPM3 calculation attempt 1""")
+pointGroup = PointGroup("D3h", symmetryNumber=6, chiral=False)
+qmData = QMData(groundStateDegeneracy=1, numberOfAtoms=3, stericEnergy=None, molecularMass=(47.9982,'amu'), energy=(3.27179,'eV/molecule'), atomicNumbers=array([8, 8, 8], dtype=int32), rotationalConstants=([0.957433,0.957353,0.478697],'cm^-1'), atomCoords=([[-0.317133,0.795365,-0.0228336],[-0.528739,-0.673004,-0.0340192],[0.845873,-0.122361,0.0568528]],'angstrom'), frequencies=([423.77,423.81,979.73],'cm^-1'), source='QM MopacMolPM3 calculation attempt 1')
+adjacencyList = """
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {3,S}
+3 O u0 p2 c0 {1,S} {2,S}
+"""
