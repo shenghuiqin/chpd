@@ -104,15 +104,6 @@ model(
     maxNumObjsPerIter=2,
 )
 
-quantumMechanics(
-    software='mopac',
-    method='pm3',
-    # fileStore='QMfiles', # relative to where it is run. Defaults within the output folder.
-    scratchDirectory = None, # not currently used
-    onlyCyclics = True,
-    maxRadicalNumber = 0, 
-)
-
 pressureDependence(
     method='modified strong collision',
     maximumGrainSize=(0.5,'kcal/mol'),
