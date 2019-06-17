@@ -109,7 +109,7 @@ options(
     # saveRestartPeriod=(1,'hour'),
     generateOutputHTML=True,
     generatePlots=True,
-    saveSimulationProfiles=False,
+    saveSimulationProfiles=True,
     saveEdgeSpecies=True,
 )
 
