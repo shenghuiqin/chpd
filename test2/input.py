@@ -96,10 +96,10 @@ simulator(
 )
 
 model(
-    toleranceKeepInEdge=0.008,
+    toleranceKeepInEdge=0.0,
     toleranceMoveToCore=0.08,
-    toleranceInterruptSimulation=1E8,
-    maximumEdgeSpecies=100000,
+    toleranceInterruptSimulation=0.08,
+    maximumEdgeSpecies=200000,
     filterReactions=True,
     maxNumObjsPerIter=2,
 )
