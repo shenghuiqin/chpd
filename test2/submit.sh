@@ -16,4 +16,4 @@
 
 
 source activate rmg_env
-python  /home/qin.she/Code/RMG-Py/rmg.py input.py
+python  /home/qin.she/Code/RMG-Py/rmg.py -p input.py
