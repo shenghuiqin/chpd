@@ -78,9 +78,9 @@ simpleReactor(
     pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
-        "C7H10": 0.010,
-        "O2":    0.095, # phi=1 means 9.5 O2 per C7H10
-        "N2":    0.095 * 8.1, # 8.1 times as much N2 as O2
+        "C7H10": 0.006249,
+        "O2":    0.109306, # phi=1 means 9.5 O2 per C7H10
+        "N2":     0.88444498, # 8.1 times as much N2 as O2
         "C2H2": 0,
         "C4H4": 0,
         "C5H6": 0,
@@ -96,30 +96,12 @@ simulator(
 )
 
 model(
-    toleranceKeepInEdge=0.0008,
-    toleranceMoveToCore=0.008,
-    toleranceInterruptSimulation=1E8,
-    maximumEdgeSpecies=100000,
+    toleranceKeepInEdge=0.0,
+    toleranceMoveToCore=0.08,
+    toleranceInterruptSimulation=0.08,
+    maximumEdgeSpecies=200000,
     filterReactions=True,
     maxNumObjsPerIter=2,
-)
-
-quantumMechanics(
-    software='mopac',
-    method='pm3',
-    # fileStore='QMfiles', # relative to where it is run. Defaults within the output folder.
-    scratchDirectory = None, # not currently used
-    onlyCyclics = True,
-    maxRadicalNumber = 0, 
-)
-
-pressureDependence(
-    method='modified strong collision',
-    maximumGrainSize=(0.5,'kcal/mol'),
-    minimumNumberOfGrains=250,
-    temperatures=(300,3000,'K',8),
-    pressures=(0.01,100,'bar',5),
-    interpolation=('Chebyshev', 6, 4),
 )
 
 options(
@@ -127,7 +109,7 @@ options(
     # saveRestartPeriod=(1,'hour'),
     generateOutputHTML=True,
     generatePlots=True,
-    saveSimulationProfiles=False,
+    saveSimulationProfiles=True,
     saveEdgeSpecies=True,
 )
 
