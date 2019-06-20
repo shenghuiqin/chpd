@@ -1,0 +1,9 @@
+Using Theano backend.
+:root:Removing old /scratch/qin.she/Code/chpd/test2/RMG_backup.log
+:root:Moving /scratch/qin.she/Code/chpd/test2/RMG.log to /scratch/qin.she/Code/chpd/test2/RMG_backup.log
+
+/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
+  'Attempted to set non-positive xlimits for log-scale axis; '
+[20:53:04] Explicit valence for atom # 8 C greater than permitted
+[20:53:06] Explicit valence for atom # 8 C greater than permitted
+[20:53:06] Explicit valence for atom # 8 C greater than permitted
