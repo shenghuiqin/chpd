@@ -12,7 +12,7 @@
 #SBATCH --mem=16Gb
 ##SBATCH --time=23:59:59
 #SBATCH --error=error.log
-
+#SBATCH --exclude=c5003
 
 source activate rmg_env
 python  /home/qin.she/Code/RMG-Py/rmg.py -p input.py

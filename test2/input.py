@@ -71,6 +71,13 @@ species(
     reactive=False,
     structure=SMILES("N#N"),
 )
+species(
+    label='C7H16',
+    reactive=True,
+    structure=SMILES("CCCCCCC"),
+)
+
+
 
 # Reaction systems
 simpleReactor(
@@ -78,9 +85,10 @@ simpleReactor(
     pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
-        "C7H10": 0.006249,
-        "O2":    0.109306, # phi=1 means 9.5 O2 per C7H10
-        "N2":     0.88444498, # 8.1 times as much N2 as O2
+        "C7H10": 0.00463,
+	"C7H16": 0.00463,
+        "O2":    0.10880, # phi=1 means 9.5 O2 per C7H10
+        "N2":     0.88035, # 8.1 times as much N2 as O2
         "C2H2": 0,
         "C4H4": 0,
         "C5H6": 0,
@@ -104,6 +112,18 @@ model(
     maxNumObjsPerIter=2,
 )
 
+uncertainty(
+    localAnalysis=False,
+    globalAnalysis=False,
+    uncorrelated=True,
+    correlated=True,
+    localNumber=10,
+    globalNumber=5,
+    terminationTime=None,
+    pceRunTime=1800,
+    logx=True
+)
+
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
@@ -112,5 +132,23 @@ options(
     saveSimulationProfiles=True,
     saveEdgeSpecies=True,
 )
+
+#quantumMechanics(
+#    software='mopac',
+#    method='pm3',
+    # fileStore='QMfiles', # relative to where you run it from. Defaults to inside the output folder if not defined.
+#    scratchDirectory = None, # not currently used
+#    onlyCyclics = True,
+#    maxRadicalNumber = 0,
+#    )
+
+#pressureDependence(
+#    method='modified strong collision',
+#    maximumGrainSize=(0.5,'kcal/mol'),
+#    minimumNumberOfGrains=250,
+#    temperatures=(300,2000,'K',8),
+#    pressures=(0.01,100,'bar',5),
+#    interpolation=('Chebyshev', 6, 4),
+#)
 
 
