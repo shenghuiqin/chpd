@@ -558,442 +558,16604 @@ Originally from reaction library: FFCM1(-)
 
 entry(
     index = 34,
-    label = "[CH]1C=C[CH]CCC1 <=> C7H10",
+    label = "C7H10 <=> C1=CC2CCCC12",
     degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [7.77282, 0.792117, -0.206702, 0.00847509],
-            [1.02143, 1.00712, -0.169062, -0.0540197],
-            [-0.471717, 0.451469, 0.0605186, -0.0167321],
-            [-0.47741, 0.20358, 0.0844826, 0.0269059],
-            [-0.284927, 0.125192, 0.0175704, 0.0191254],
-            [-0.131212, 0.0946967, -0.00620185, -0.00186228],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    kinetics = Arrhenius(
+        A = (4.99998e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH(C)_2]\nEuclidian distance = 1.41421356237\nfamily: Intra_2+2_cycloaddition_Cd',
     ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH(C)_2]
+Euclidian distance = 1.41421356237
+family: Intra_2+2_cycloaddition_Cd
+""",
 )
 
 entry(
     index = 35,
-    label = "C7H10 <=> C1=CC2CCCC12",
+    label = "[CH2]C=CC=CC[CH2] <=> C7H10",
     degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-0.340598, 0.552457, -0.114671, -0.0026564],
-            [8.79588, 0.919065, -0.160942, -0.0167519],
-            [-0.53455, 0.537967, -0.0379394, -0.0276801],
-            [-0.297403, 0.235209, 0.0305079, -0.0189152],
-            [-0.169879, 0.103808, 0.0309201, -0.00258223],
-            [-0.115972, 0.0718371, 0.0110305, 0.00463352],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    kinetics = Arrhenius(
+        A = (7.38971e+10, 's^-1'),
+        n = 0.0476667,
+        Ea = (8.08907, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn;C_rad_out_2H;Cpri_rad_out_2H] for rate rule [R7;C_rad_out_2H;Cpri_rad_out_2H]\nEuclidian distance = 1.0\nfamily: Birad_recombination',
     ),
+    longDesc = 
+u"""
+Estimated using template [Rn;C_rad_out_2H;Cpri_rad_out_2H] for rate rule [R7;C_rad_out_2H;Cpri_rad_out_2H]
+Euclidian distance = 1.0
+family: Birad_recombination
+""",
 )
 
 entry(
     index = 36,
-    label = "[CH]1C=C[CH]CCC1 <=> C1=CC2CCCC12",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [8.62347, 2.332, -0.229174, -0.0456973],
-            [-0.414776, 0.641543, -0.0154792, -0.0433183],
-            [-0.637663, 0.208634, 0.0822427, -0.0248382],
-            [-0.4181, 0.0674665, 0.050322, 0.0184925],
-            [-0.300115, 0.0747453, -0.00696038, 0.0286291],
-            [-0.19034, 0.0687099, -0.0230732, 0.0107207],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "H + [CH]1C=CC=CCC1 <=> C7H10",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for C_rad/H/CdCs;H_rad\nExact match found for rate rule [C_rad/H/CdCs;H_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
     ),
+    longDesc = 
+u"""
+From training reaction 36 used for C_rad/H/CdCs;H_rad
+Exact match found for rate rule [C_rad/H/CdCs;H_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
 )
 
 entry(
     index = 37,
-    label = "C7H10 + O2 <=> O2 + [CH]1C=C[CH]CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-4.06506, -8.3866e-05, -5.83748e-05, -3.2411e-05],
-            [12.9094, 1.76323e-05, 1.22725e-05, 6.81354e-06],
-            [0.0693079, -2.2024e-06, -1.53289e-06, -8.51011e-07],
-            [0.0472468, 5.45254e-07, 3.79485e-07, 2.10663e-07],
-            [0.0220168, -3.61516e-07, -2.51624e-07, -1.39699e-07],
-            [0.00979976, -4.59079e-07, -3.19531e-07, -1.77401e-07],
-        ],
-        kunits = 'cm^3/(mol*s)',
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CCCCC1 <=> C7H10 + C7H10",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
         Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
 )
 
 entry(
     index = 38,
-    label = "C=CC=CC1CC1 <=> C7H10",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-1.27368, 0.361462, -0.196206, -0.0461776],
-            [10.9162, 1.10028, -0.0408687, 0.0225523],
-            [-0.759309, 0.606207, -0.0442111, -0.00648963],
-            [-0.505645, 0.27604, -0.00356844, -0.0128774],
-            [-0.274848, 0.125986, 0.0213559, -0.00253398],
-            [-0.159497, 0.0602568, 0.0123202, 0.0029581],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[CH]1C=CC=CCC1 + HO2 <=> C7H10 + O2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.13791e-07, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (88.7725, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
     ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
 )
 
 entry(
     index = 39,
-    label = "[CH]1C=C[CH]CCC1 <=> C=CC=CC1CC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [0.437119, 1.62186, 0.0677002, -0.107712],
-            [8.84095, 1.20451, -0.206424, 0.0365431],
-            [-0.898246, 0.435998, -0.00597326, 0.0254851],
-            [-0.786777, 0.227876, 0.00585469, -0.00270586],
-            [-0.403299, 0.0633779, 0.0192995, 0.0079696],
-            [-0.160205, -0.000559391, 0.00684342, 0.00525475],
-        ],
-        kunits = 's^-1',
+    label = "C7H10 + H <=> [CH]1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.7e+08, 'cm^3/(mol*s)'),
+        n = 1.64,
+        Ea = (1.58992, 'kJ/mol'),
+        T0 = (1, 'K'),
         Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 2557 used for Cds-CsH_Cds-CdH;HJ\nExact match found for rate rule [Cds-CsH_Cds-CdH;HJ]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond',
     ),
+    longDesc = 
+u"""
+From training reaction 2557 used for Cds-CsH_Cds-CdH;HJ
+Exact match found for rate rule [Cds-CsH_Cds-CdH;HJ]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+""",
 )
 
 entry(
     index = 40,
-    label = "C=CC=CC1CC1 <=> C1=CC2CCCC12",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-3.46946, -0.470353, -0.457261, -0.0472892],
-            [11.6122, 1.76244, 0.00893278, -0.0503406],
-            [-0.682561, 0.644989, 0.0110779, 0.00312363],
-            [-0.58662, 0.238978, 0.00512696, 0.00415153],
-            [-0.342079, 0.147511, 0.0241895, -0.00141868],
-            [-0.173376, 0.0973009, 0.0228697, -0.000164548],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "O2 + [CH]1C=CCCCC1 <=> C7H10 + HO2",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (3.666e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (62.1324, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (900, 'K'),
+        comment = 'Estimated using template [O2b;C/H2/Nd_Csrad] for rate rule [O2b;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [O2b;C/H2/Nd_Csrad] for rate rule [O2b;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
 )
 
 entry(
     index = 41,
-    label = "[CH2]C=CC=CC[CH2] <=> C7H10",
+    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CC1CC1",
     degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [8.29238, 1.8684, -0.177638, -0.043687],
-            [-0.139636, 0.471933, -0.0265391, 0.0303945],
-            [-0.466536, 0.423965, -0.101709, -0.00163645],
-            [-0.364678, 0.35132, -0.0281257, -0.0268572],
-            [-0.280594, 0.182199, 0.0568721, -0.0173343],
-            [-0.148698, 0.0375697, 0.0500641, 0.00527491],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    kinetics = Arrhenius(
+        A = (2e+12, 's^-1'),
+        n = 0,
+        Ea = (7.5312, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (550, 'K'),
+        Tmax = (650, 'K'),
+        comment = 'Estimated using template [Rn;C_rad_out_H/OneDe;Cpri_rad_out_2H] for rate rule [R3_SS;C_rad_out_H/OneDe;Cpri_rad_out_2H]\nEuclidian distance = 2.0\nfamily: Birad_recombination',
     ),
+    longDesc = 
+u"""
+Estimated using template [Rn;C_rad_out_H/OneDe;Cpri_rad_out_2H] for rate rule [R3_SS;C_rad_out_H/OneDe;Cpri_rad_out_2H]
+Euclidian distance = 2.0
+family: Birad_recombination
+""",
 )
 
 entry(
     index = 42,
-    label = "[CH2]C=CC=CC[CH2] <=> [CH]1C=C[CH]CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [2.0685, 2.85012, 0.124291, -0.0793598],
-            [1.67905, 0.337934, -0.231434, 0.0528779],
-            [-0.583586, 0.167713, -0.0737867, 0.0367512],
-            [-0.648041, 0.299818, -0.0106565, -0.0329965],
-            [-0.380376, 0.0939323, 0.0555123, -0.0124418],
-            [-0.110647, -0.0291756, 0.0268512, 0.00715385],
-        ],
-        kunits = 's^-1',
+    label = "OH + [CH]1C=CCCCC1 <=> C7H10 + H2O",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
         Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_pri_rad;C/H2/Nd_Csrad] for rate rule [O_pri_rad;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [O_pri_rad;C/H2/Nd_Csrad] for rate rule [O_pri_rad;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
 )
 
 entry(
     index = 43,
-    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CC1CC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [9.19443, 2.17989, -0.187744, -0.0437073],
-            [-0.910708, 0.885737, 0.00426049, 0.0220993],
-            [-0.715311, 0.393583, -0.0223159, -0.00306687],
-            [-0.315617, 0.13599, 0.0107221, -0.0128532],
-            [-0.175521, 0.0409489, 0.0308994, -0.0036481],
-            [-0.0972562, 0.0108838, 0.016646, 0.00299592],
-        ],
-        kunits = 's^-1',
+    label = "C7H10 + OH <=> H2O + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (134, 'cm^3/(mol*s)'),
+        n = 3.475,
+        Ea = (-11.7152, 'kJ/mol'),
+        T0 = (1, 'K'),
         Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;O_pri_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
     ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;O_pri_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
 )
 
 entry(
     index = 44,
-    label = "[CH2]C=CC=CC[CH2] <=> C1=CC2CCCC12",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [6.11201, 1.01627, -0.432717, -0.0464224],
-            [0.639376, 1.14646, 0.023176, -0.0471855],
-            [-0.37059, 0.482444, -0.0369909, 0.00693289],
-            [-0.463115, 0.310301, -0.00734406, -0.00479774],
-            [-0.362185, 0.183018, 0.064247, -0.00954281],
-            [-0.165914, 0.0596256, 0.0569738, 0.00474729],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "C7H10 + HO2 <=> [CH]1C=CC=CCC1 + H2O2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.48764e-09, 'm^3/(mol*s)'),
+        n = 4.4515,
+        Ea = (31.7482, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;O_rad/NonDeO]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
     ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;O_rad/NonDeO]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
 )
 
 entry(
     index = 45,
-    label = "C7H10 <=> C=CC1C=CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-11.529, 0.0544618, -0.203366, -0.0396561],
-            [21.0084, 0.72656, -0.106145, 0.0387669],
-            [-0.431521, 0.635125, -0.128976, -0.00500681],
-            [-0.504647, 0.425106, -0.0155883, -0.0325293],
-            [-0.314763, 0.17651, 0.0699747, -0.0145551],
-            [-0.159968, 0.0312753, 0.0449418, 0.0116142],
-        ],
-        kunits = 's^-1',
+    label = "[CH]1C=CCCCC1 + HO2 <=> C7H10 + H2O2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
         Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
 )
 
 entry(
     index = 46,
-    label = "C=CC=CC1CC1 <=> C=CC1C=CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-1.40636, 0.378074, -0.212875, -0.0416139],
-            [10.9634, 1.12686, -0.0711472, 0.0282687],
-            [-0.711352, 0.610363, -0.0578683, -0.00441353],
-            [-0.46931, 0.261771, -0.00521205, -0.0129779],
-            [-0.244428, 0.104598, 0.0245167, -0.00325786],
-            [-0.136076, 0.0417445, 0.0156735, 0.00253712],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CCC=C",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (8.96625e+08, 's^-1'),
+        n = 0.311,
+        Ea = (39.225, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R4;Y_rad_De;XH_Rrad] for rate rule [R4radExo;Y_rad_De;XH_Rrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [R4;Y_rad_De;XH_Rrad] for rate rule [R4radExo;Y_rad_De;XH_Rrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_Disproportionation
+""",
 )
 
 entry(
     index = 47,
-    label = "[CH]1C=C[CH]CCC1 <=> C=CC1C=CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-0.500123, 1.22366, 0.0688029, -0.0932578],
-            [9.63608, 0.74437, -0.267521, 0.0685115],
-            [-0.683805, 0.514239, -0.100976, 0.0205645],
-            [-0.823271, 0.39362, 0.000850569, -0.0321371],
-            [-0.424318, 0.100322, 0.0638042, -0.00495257],
-            [-0.130518, -0.0210923, 0.0215061, 0.0118389],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CCC=C",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (3.898e+11, 's^-1'),
+        n = 0.486,
+        Ea = (22.8614, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [R2radExo;Y_rad_De;XH_Rrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [R2radExo;Y_rad_De;XH_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_Disproportionation
+""",
 )
 
 entry(
     index = 48,
-    label = "[CH2]C=CC=CC[CH2] <=> C=CC1C=CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [8.18529, 1.86373, -0.19204, -0.0403514],
-            [-0.0481206, 0.480922, -0.0617379, 0.037159],
-            [-0.381395, 0.401503, -0.105912, -0.00491608],
-            [-0.309568, 0.322064, -0.0196593, -0.0311929],
-            [-0.236845, 0.14763, 0.0689714, -0.0201948],
-            [-0.120504, 0.0161504, 0.0546796, 0.00581388],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CCC=C",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (3.898e+11, 's^-1'),
+        n = 0.486,
+        Ea = (22.8614, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [R2radExo;Y_rad_De;XH_Rrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [R2radExo;Y_rad_De;XH_Rrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_Disproportionation
+""",
 )
 
 entry(
     index = 49,
-    label = "C=C[C]1C[CH]CC1 <=> C7H10",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-0.81349, -0.0642226, -0.381426, -0.0929922],
-            [7.93541, 1.39652, -0.0154693, 0.0446165],
-            [-0.414794, 0.956072, -0.050268, 0.00323599],
-            [-0.789507, 0.421397, 0.0539021, -0.0242212],
-            [-0.437905, 0.0641438, 0.0724368, 0.00555839],
-            [-0.175382, -0.00855953, 0.00942294, 0.0166814],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[CH2]C=CC=CC[CH2] <=> C=CC=CCC=C",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (8.96625e+08, 's^-1'),
+        n = 0.311,
+        Ea = (39.225, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R4;Y_rad_De;XH_Rrad] for rate rule [R4radExo;Y_rad_De;XH_Rrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [R4;Y_rad_De;XH_Rrad] for rate rule [R4radExo;Y_rad_De;XH_Rrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_Disproportionation
+""",
 )
 
 entry(
     index = 50,
-    label = "C=C[C]1C[CH]CC1 <=> [CH]1C=C[CH]CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-6.65396, 1.08864, -0.150575, -0.153626],
-            [9.28921, 1.09313, -0.174576, 0.106184],
-            [-0.628593, 0.750585, -0.0410467, 0.01139],
-            [-1.01791, 0.35026, 0.0626065, -0.0260238],
-            [-0.502701, 0.0137469, 0.0657198, 0.00939642],
-            [-0.133254, -0.0314598, 0.00182272, 0.00911216],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "O2 + [CH]1C=CCCCC1 <=> [O]OC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.08586e+08, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
     ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
 )
 
 entry(
     index = 51,
-    label = "C=C[C]1C[CH]CC1 <=> C=CC=CC1CC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-0.0570114, 0.321136, -0.405116, -0.0912791],
-            [7.10535, 1.7773, 0.0278412, 0.0324913],
-            [-0.55461, 0.808744, 0.0267622, 0.00664751],
-            [-0.655962, 0.23049, 0.0401254, -0.0047946],
-            [-0.341127, 0.0328566, 0.0283551, 0.00347121],
-            [-0.157652, 0.014143, 0.00771578, 0.00252989],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[O]OC1C=CCCCC1 <=> C7H10 + HO2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.00406e+10, 's^-1'),
+        n = 0.563333,
+        Ea = (124.683, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R2OO_HNd] for rate rule [R2OO_HNd_HDe]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: HO2_Elimination_from_PeroxyRadical',
     ),
+    longDesc = 
+u"""
+Estimated using template [R2OO_HNd] for rate rule [R2OO_HNd_HDe]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: HO2_Elimination_from_PeroxyRadical
+""",
 )
 
 entry(
     index = 52,
-    label = "[CH2]C=CC=CC[CH2] <=> C=C[C]1C[CH]CC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [3.51093, 1.76086, -0.321754, -0.0951697],
-            [2.56656, 0.769045, -0.0289587, 0.0549616],
-            [-0.142074, 0.635542, -0.0482059, -0.0066293],
-            [-0.5505, 0.308638, 0.0681899, -0.0313042],
-            [-0.352101, 0.0205052, 0.094039, 0.00183624],
-            [-0.13692, -0.0352723, 0.0224993, 0.0209681],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "O2 + [CH]1C=CC=CCC1 <=> [O]OC1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.08586e+08, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
     ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
 )
 
 entry(
     index = 53,
-    label = "C=C[C]1C[CH]CC1 <=> C=CC1C=CCC1",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [7.93453, 1.42299, -0.207765, -0.010268],
-            [0.840032, 0.931858, -0.0570854, -0.0254449],
-            [-0.677283, 0.477542, 0.05482, -0.00300822],
-            [-0.336484, 0.189151, 0.00370383, 0.0190998],
-            [-0.165341, 0.084956, -0.0144747, 0.00534234],
-            [-0.103945, 0.0530385, -0.000477753, -0.00500588],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "[C]1CC=CCCC1 <=> C7H10",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (6.84965e+11, 's^-1'),
+        n = 0.4135,
+        Ea = (17.2276, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [singletcarbene_CH;CsJ2C;CH2(C=C)] for rate rule [CsJ2-C;CsJ2(CsC);CH2(C=C)]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: Singlet_Carbene_Intra_Disproportionation',
     ),
+    longDesc = 
+u"""
+Estimated using template [singletcarbene_CH;CsJ2C;CH2(C=C)] for rate rule [CsJ2-C;CsJ2(CsC);CH2(C=C)]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: Singlet_Carbene_Intra_Disproportionation
+""",
 )
 
 entry(
     index = 54,
-    label = "C=C[C]1C[CH]CC1 <=> C1=CC2CCCC12",
-    degeneracy = 1.0,
-    kinetics = Chebyshev(
-        coeffs = [
-            [-2.87415, -0.809193, -0.624008, -0.100106],
-            [8.65162, 2.07001, 0.0541994, -0.0246571],
-            [-0.396514, 0.952601, 0.00202845, 0.0202903],
-            [-0.897544, 0.350562, 0.0557342, -0.00511026],
-            [-0.508461, 0.0696478, 0.0677382, 0.00469848],
-            [-0.18754, 0.0269118, 0.0168361, 0.0107044],
-        ],
-        kunits = 's^-1',
-        Tmin = (300, 'K'),
-        Tmax = (3000, 'K'),
-        Pmin = (0.01, 'bar'),
-        Pmax = (100, 'bar'),
+    label = "C7H10 + O <=> OH + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.5448e-06, 'm^3/(mol*s)'),
+        n = 3.69217,
+        Ea = (14.3081, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/CdCs;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCs;O_atom_triplet]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
     ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/CdCs;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCs;O_atom_triplet]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 55,
+    label = "O2 + [CH]1C=CC=CCC1 <=> [O]OC1C=CCCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.9277e+07, 'm^3/(mol*s)'),
+        n = -0.00388889,
+        Ea = (-0.926059, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 56,
+    label = "[O]OC1C=CCCCC1 <=> [CH]1CCCCC2OOC12",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.99832e+10, 's^-1'),
+        n = 0.37247,
+        Ea = (49.4918, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]\nEuclidian distance = 3.16227766017\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]
+Euclidian distance = 3.16227766017
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 57,
+    label = "C1=CCCC=CC1 + [CH]1C=CC=CCC1 <=> C7H10 + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.003924, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (26.3592, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs\nExact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs
+Exact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 58,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CCCCC1 <=> C7H10 + C1=CCCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.0525937, 'm^3/(mol*s)'),
+        n = 2,
+        Ea = (2.38488, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H2/Nd_Csrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H2/Nd_Csrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 59,
+    label = "C1=CCCC=CC1 + OH <=> H2O + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (9.16971e-06, 'm^3/(mol*s)'),
+        n = 3.61325,
+        Ea = (-3.94634, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/CdCd;Y_rad] for rate rule [C/H2/CdCd;O_pri_rad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/CdCd;Y_rad] for rate rule [C/H2/CdCd;O_pri_rad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 60,
+    label = "[CH]1C=CC=CCC1 + HO2 <=> O2 + C1=CCCC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.50804e-07, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (122.567, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCd] for rate rule [Orad_O_H;C_rad/H/CdCd]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCd] for rate rule [Orad_O_H;C_rad/H/CdCd]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 61,
+    label = "C1=CCCC=CC1 + HO2 <=> [CH]1C=CC=CCC1 + H2O2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.00592455, 'm^3/(mol*s)'),
+        n = 2.62006,
+        Ea = (47.0114, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_sec;O_rad/NonDeO] for rate rule [C/H2/CdCd;O_rad/NonDeO]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;O_rad/NonDeO] for rate rule [C/H2/CdCd;O_rad/NonDeO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 62,
+    label = "C1=CCCC=CC1 + O <=> OH + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.02402e-05, 'm^3/(mol*s)'),
+        n = 3.5845,
+        Ea = (17.7545, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec;O_atom_triplet] + [C/H2/CdCd;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCd;O_atom_triplet]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec;O_atom_triplet] + [C/H2/CdCd;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCd;O_atom_triplet]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 63,
+    label = "H + [CH]1C=CC=CCC1 <=> C1=CCCC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.14e-13, 'cm^3/(molecule*s)'),
+        n = 0.611,
+        Ea = (-1.82422, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 53 used for C_rad/H/CdCd;H_rad\nExact match found for rate rule [C_rad/H/CdCd;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 53 used for C_rad/H/CdCd;H_rad
+Exact match found for rate rule [C_rad/H/CdCd;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 64,
+    label = "[C]1CC=CCCC1 <=> C1=CCCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.23663e+16, 's^-1'),
+        n = -0.885455,
+        Ea = (87.4392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [CsJ2-C;CsJ2(CsC);CH] for rate rule [CsJ2-C;CsJ2(CsC);CH2(C)]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Singlet_Carbene_Intra_Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [CsJ2-C;CsJ2(CsC);CH] for rate rule [CsJ2-C;CsJ2(CsC);CH2(C)]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Singlet_Carbene_Intra_Disproportionation
+""",
+)
+
+entry(
+    index = 65,
+    label = "[O]OC1C=CCCC=C1 <=> [CH]1CCC=CC2OOC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.99665e+10, 's^-1'),
+        n = 0.37247,
+        Ea = (49.4918, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]\nEuclidian distance = 3.16227766017\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]
+Euclidian distance = 3.16227766017
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 66,
+    label = "[CH]1C=CC=CCC1 <=> H + C1=CC=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.58e+10, 's^-1'),
+        n = 1.38,
+        Ea = (48.4, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 20 C7H9-12 <=> C7H8-8 + H in R_Addition_MultipleBond/training\nThis reaction matched rate rule [Cds-CsH_Cds-(Cd-Cd-Cd)H;HJ]\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Matched reaction 20 C7H9-12 <=> C7H8-8 + H in R_Addition_MultipleBond/training
+This reaction matched rate rule [Cds-CsH_Cds-(Cd-Cd-Cd)H;HJ]
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 67,
+    label = "O2 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + HO2",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (3.666e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (62.1324, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (900, 'K'),
+        comment = 'Estimated using template [O2b;C/H2/Nd_Csrad] for rate rule [O2b;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O2b;C/H2/Nd_Csrad] for rate rule [O2b;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 68,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CCC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.0525937, 'm^3/(mol*s)'),
+        n = 2,
+        Ea = (2.38488, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H2/Nd_Csrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H2/Nd_Csrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 69,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CCC1 <=> C7H10 + C1=CC=CCC=C1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 70,
+    label = "[CH]1C=CC=CCC1 + HO2 <=> C1=CC=CCC=C1 + H2O2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 71,
+    label = "[O]OC1C=CC=CCC1 <=> C1=CC=CCC=C1 + HO2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.00406e+10, 's^-1'),
+        n = 0.563333,
+        Ea = (124.683, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R2OO_HNd] for rate rule [R2OO_HNd_HDe]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO_HNd] for rate rule [R2OO_HNd_HDe]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 72,
+    label = "OH + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + H2O",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_pri_rad;C/H2/Nd_Csrad] for rate rule [O_pri_rad;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_pri_rad;C/H2/Nd_Csrad] for rate rule [O_pri_rad;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 73,
+    label = "[CH2]CCC=CC=C <=> [CH]1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (114000, 's^-1'),
+        n = 1.2,
+        Ea = (27.196, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 46 used for R7_linear;doublebond_intra_pri_2H;radadd_intra_cs2H\nExact match found for rate rule [R7_linear;doublebond_intra_pri_2H;radadd_intra_cs2H]\nEuclidian distance = 0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+From training reaction 46 used for R7_linear;doublebond_intra_pri_2H;radadd_intra_cs2H
+Exact match found for rate rule [R7_linear;doublebond_intra_pri_2H;radadd_intra_cs2H]
+Euclidian distance = 0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 74,
+    label = "OH + [CH2]CCC=CC=C <=> C=CC=CCC=C + H2O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 33 used for O_pri_rad;C/H2/Nd_Csrad\nExact match found for rate rule [O_pri_rad;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 33 used for O_pri_rad;C/H2/Nd_Csrad
+Exact match found for rate rule [O_pri_rad;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 75,
+    label = "O2 + [CH2]CCC=CC=C <=> C=CC=CCC=C + HO2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.833e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (62.1324, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (900, 'K'),
+        comment = 'From training reaction 15 used for O2b;C/H2/Nd_Csrad\nExact match found for rate rule [O2b;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 15 used for O2b;C/H2/Nd_Csrad
+Exact match found for rate rule [O2b;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 76,
+    label = "HO2 + [CH2]CCC=CC=C <=> C=CC=CCC=C + H2O2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 77,
+    label = "[CH]1C=CC=CCC1 + [CH2]CCC=CC=C <=> C7H10 + C=CC=CCC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 78,
+    label = "O + [CH2]CCC=CC=C <=> C=CC=CCC=C + OH",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 79,
+    label = "[CH]1C=CC=CCC1 + [CH2]CCC=CC=C <=> C1=CCCC=CC1 + C=CC=CCC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (319.424, 'm^3/(mol*s)'),
+        n = 1,
+        Ea = (1.94556, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;C/H2/Nd_Csrad] + [C_rad/H/TwoDe;C/H2/Nd_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;C/H2/Nd_Csrad] + [C_rad/H/TwoDe;C/H2/Nd_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 80,
+    label = "H + C=CC=CCC=C <=> [CH2]CCC=CC=C",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.01e+08, 'cm^3/(mol*s)'),
+        n = 1.6,
+        Ea = (10.0416, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 10 used for Cds-CsH_Cds-HH;HJ\nExact match found for rate rule [Cds-CsH_Cds-HH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 10 used for Cds-CsH_Cds-HH;HJ
+Exact match found for rate rule [Cds-CsH_Cds-HH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 81,
+    label = "H + [CH2]C=CC=CC[CH2] <=> [CH2]CCC=CC=C",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.71464e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for C_rad/H/CdCs;H_rad\nExact match found for rate rule [C_rad/H/CdCs;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for C_rad/H/CdCs;H_rad
+Exact match found for rate rule [C_rad/H/CdCs;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 82,
+    label = "[CH]1C=CCCCC1 + [CH2]C=CC=CC[CH2] <=> C7H10 + [CH2]CCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 83,
+    label = "[CH2]C=CC=CC[CH2] + HO2 <=> O2 + [CH2]CCC=CC=C",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (5.68954e-08, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (88.7725, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 84,
+    label = "C1=CCCC=CC1 + [CH2]C=CC=CC[CH2] <=> [CH]1C=CC=CCC1 + [CH2]CCC=CC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.001962, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (26.3592, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs\nExact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs
+Exact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 85,
+    label = "C7H10 + [CH2]C=CC=CC[CH2] <=> [CH]1C=CC=CCC1 + [CH2]CCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00916, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (48.9528, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 86,
+    label = "[CH2]C=CC=CC[CH2] + [CH2]CCC=CC=C <=> C=CC=CCC=C + [CH2]CCC=CC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 87,
+    label = "[CH]1C=CC=CCC1 + [CH2]C=CC=CC[CH2] <=> C1=CC=CCC=C1 + [CH2]CCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 88,
+    label = "C2H4 + [CH2]C=CC=C <=> [CH2]CCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2700, 'cm^3/(mol*s)', '*|/', 2),
+        n = 2.7,
+        Ea = (47.2792, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 3 used for Cds-HH_Cds-HH;CsJ-CdHH\nExact match found for rate rule [Cds-HH_Cds-HH;CsJ-CdHH]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for Cds-HH_Cds-HH;CsJ-CdHH
+Exact match found for rate rule [Cds-HH_Cds-HH;CsJ-CdHH]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 89,
+    label = "O2 + [CH2]C=CC=C <=> C=CC(C=C)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.9277e+07, 'm^3/(mol*s)'),
+        n = -0.00388889,
+        Ea = (-0.926059, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 90,
+    label = "O2 + [CH2]C=CC=C <=> C=CC=CCO[O]",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (365930, 'm^3/(mol*s)'),
+        n = 0.489115,
+        Ea = (-0.453403, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_pri_rad;O2_birad] + [C_rad/H2/Cd;Y_rad] for rate rule [C_rad/H2/Cd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_pri_rad;O2_birad] + [C_rad/H2/Cd;Y_rad] for rate rule [C_rad/H2/Cd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 91,
+    label = "[CH2]C=CC=C + [CH2]C=CC=C <=> C=CC(C=C)C(C=C)C=C",
+    degeneracy = 0.5,
+    kinetics = Arrhenius(
+        A = (2.5e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C_rad/H/CdCd;C_rad/H/CdCd]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C_rad/H/CdCd;C_rad/H/CdCd]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 92,
+    label = "C=CC=CCC=C <=> C=CCC1C=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.99998e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]\nEuclidian distance = 1.41421356237\nfamily: Intra_2+2_cycloaddition_Cd',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]
+Euclidian distance = 1.41421356237
+family: Intra_2+2_cycloaddition_Cd
+""",
+)
+
+entry(
+    index = 93,
+    label = "[CH2]C=CC=C + [CH2]C=CC=C <=> C=CC=CCCC=CC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.04e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.08784, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 125 used for C_rad/H2/Cd;C_rad/H2/Cd\nExact match found for rate rule [C_rad/H2/Cd;C_rad/H2/Cd]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 125 used for C_rad/H2/Cd;C_rad/H2/Cd
+Exact match found for rate rule [C_rad/H2/Cd;C_rad/H2/Cd]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 94,
+    label = "C=CC(C=C)C(C=C)C=C <=> C=CC=CCCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.48474e+11, 's^-1'),
+        n = 0.288169,
+        Ea = (147.049, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1_5_unsaturated_hexane] for rate rule [1_5_hexadiene]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: 6_membered_central_C-C_shift',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1_5_unsaturated_hexane] for rate rule [1_5_hexadiene]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: 6_membered_central_C-C_shift
+""",
+)
+
+entry(
+    index = 95,
+    label = "[CH2]C=CC=C + [CH2]C=CC=C <=> C=CC=CCC(C=C)C=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.04e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.08784, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 130 used for C_rad/H2/Cd;C_rad/H/CdCd\nExact match found for rate rule [C_rad/H/CdCd;C_rad/H2/Cd]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 130 used for C_rad/H2/Cd;C_rad/H/CdCd
+Exact match found for rate rule [C_rad/H/CdCd;C_rad/H2/Cd]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 96,
+    label = "[CH]1C=CCCCC1 + HO2 <=> OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.55885e+07, 'm^3/(mol*s)'),
+        n = 0.0538607,
+        Ea = (2.88191, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_rad/NonDe] + [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O_rad/NonDe]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_rad/NonDe] + [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O_rad/NonDe]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 97,
+    label = "HO2 + OOC1C=CCCCC1 <=> [O]OC1C=CCCCC1 + H2O2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41000, 'cm^3/(mol*s)'),
+        n = 2.5,
+        Ea = (42.7019, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO\nExact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 98,
+    label = "C7H10 + [O]OC1C=CCCCC1 <=> [CH]1C=CC=CCC1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 99,
+    label = "[O]OC1C=CCCCC1 + [CH]1C=CCCCC1 <=> C7H10 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 100,
+    label = "[O]OC1C=CCCCC1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 101,
+    label = "[O]OC1C=CCCCC1 + HO2 <=> O2 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 102,
+    label = "[O]OC1C=CCCCC1 + C1=CCCC=CC1 <=> [CH]1C=CC=CCC1 + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 103,
+    label = "H + [O]OC1C=CCCCC1 <=> OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 104,
+    label = "[O]OC1C=CCCCC1 + [CH2]CCC=CC=C <=> C=CC=CCC=C + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 105,
+    label = "H + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.71464e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for C_rad/H/CdCs;H_rad\nExact match found for rate rule [C_rad/H/CdCs;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for C_rad/H/CdCs;H_rad
+Exact match found for rate rule [C_rad/H/CdCs;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 106,
+    label = "[CH]1C=CCCCC1 + [O]OC1C=C[CH]CC=C1 <=> C7H10 + [O]OC1C=CCCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 107,
+    label = "HO2 + [O]OC1C=C[CH]CC=C1 <=> O2 + [O]OC1C=CCCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (5.68954e-08, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (88.7725, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 108,
+    label = "C1=CCCC=CC1 + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCCC=C1 + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.001962, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (26.9142, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs\nExact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs
+Exact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 109,
+    label = "[O]OC1C=CCCC=C1 + [CH]1C=CC=CCC1 <=> C7H10 + [O]OC1C=C[CH]CC=C1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.01832, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (48.9528, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 110,
+    label = "[CH2]CCC=CC=C + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCCC=C1 + C=CC=CCC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 111,
+    label = "O2 + C1=CC=CCC=C1 <=> [O]OC1C=C[CH]CC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.35384, 'm^3/(mol*s)'),
+        n = 2.24862,
+        Ea = (54.3131, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Addition_MultipleBond\nEa raised from 40.3 to 54.3 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Addition_MultipleBond
+Ea raised from 40.3 to 54.3 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 112,
+    label = "C1=CC=CCC=C1 <=> C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (9.99996e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH(C)_2]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_2+2_cycloaddition_Cd',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH(C)_2]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: Intra_2+2_cycloaddition_Cd
+""",
+)
+
+entry(
+    index = 113,
+    label = "C7H10 + [CH2]C=CC=C <=> [CH]1C=CC=CCC1 + C=CC=CC",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.03616, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (46.8608, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 114,
+    label = "[CH]1C=CC=CCC1 + [CH2]C=CC=C <=> C1=CC=CCC=C1 + C=CC=CC",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (1.16e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cd;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cd;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 115,
+    label = "OH + C=CC=CC <=> H2O + [CH2]C=CC=C",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.04483e-06, 'm^3/(mol*s)'),
+        n = 3.684,
+        Ea = (-5.35552, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;O_pri_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;O_pri_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 116,
+    label = "HO2 + [CH2]C=CC=C <=> O2 + C=CC=CC",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.57789e-06, 'm^3/(mol*s)'),
+        n = 3.62211,
+        Ea = (79.6291, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H2/Cd\\H_Cd\\H2] for rate rule [Orad_O_H;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H2/Cd\H_Cd\H2] for rate rule [Orad_O_H;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 117,
+    label = "H2O2 + [CH2]C=CC=C <=> HO2 + C=CC=CC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.0351, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.22,
+        Ea = (41.2542, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 39 used for H2O2;C_rad/H2/Cd\\H_Cd\\H2\nExact match found for rate rule [H2O2;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 39 used for H2O2;C_rad/H2/Cd\H_Cd\H2
+Exact match found for rate rule [H2O2;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 118,
+    label = "[CH]1C=CCCCC1 + [CH2]C=CC=C <=> C7H10 + C=CC=CC",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (1.16e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cd;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cd;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 119,
+    label = "C1=CCCC=CC1 + [CH2]C=CC=C <=> [CH]1C=CC=CCC1 + C=CC=CC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00772, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (28.0328, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1131 used for C/H2/CdCd;C_rad/H2/Cd\\H_Cd\\H2\nExact match found for rate rule [C/H2/CdCd;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1131 used for C/H2/CdCd;C_rad/H2/Cd\H_Cd\H2
+Exact match found for rate rule [C/H2/CdCd;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 120,
+    label = "[O]OC1C=CCCCC1 + C=CC=CC <=> [CH2]C=CC=C + OOC1C=CCCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 121,
+    label = "H + [CH2]C=CC=C <=> C=CC=CC",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (6.312e+12, 'cm^3/(mol*s)'),
+        n = 0.461,
+        Ea = (-0.004184, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 15 used for C_rad/H2/Cd;H_rad\nExact match found for rate rule [C_rad/H2/Cd;H_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 15 used for C_rad/H2/Cd;H_rad
+Exact match found for rate rule [C_rad/H2/Cd;H_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 122,
+    label = "C=CC=CC1CC1 <=> C1=CC(C1)C1CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.99998e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]\nEuclidian distance = 1.41421356237\nfamily: Intra_2+2_cycloaddition_Cd',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]
+Euclidian distance = 1.41421356237
+family: Intra_2+2_cycloaddition_Cd
+""",
+)
+
+entry(
+    index = 123,
+    label = "[CH2]CCC=CC=C + [CH2]C=CC=C <=> C=CC=CCC=C + C=CC=CC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 23 used for C_rad/H2/Cd;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 23 used for C_rad/H2/Cd;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 124,
+    label = "[O]C1C=CCCCC1 + O <=> [O]OC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 3 used for O_rad/NonDe;O_birad\nExact match found for rate rule [O_rad/NonDe;O_birad]\nEuclidian distance = 0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for O_rad/NonDe;O_birad
+Exact match found for rate rule [O_rad/NonDe;O_birad]
+Euclidian distance = 0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 125,
+    label = "[O]C1C=CCCCC1 + OH <=> OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 103 used for O_pri_rad;O_rad/NonDe\nExact match found for rate rule [O_pri_rad;O_rad/NonDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 103 used for O_pri_rad;O_rad/NonDe
+Exact match found for rate rule [O_pri_rad;O_rad/NonDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 126,
+    label = "O + [CH]1C=CCCCC1 <=> [O]C1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (83156.7, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H/OneDeC;O_birad]\nEuclidian distance = 4.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H/OneDeC;O_birad]
+Euclidian distance = 4.0
+Multiplied by reaction path degeneracy 2.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 127,
+    label = "O + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + OH",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.24e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 128,
+    label = "[CH2]CCCC=CC=O <=> [O]C1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.19e+11, 's^-1'),
+        n = 0.08,
+        Ea = (69.8728, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R8;multiplebond_intra;radadd_intra_cs2H] for rate rule [R8;carbonylbond_intra_H;radadd_intra_cs2H]\nEuclidian distance = 2.0\nfamily: Intra_R_Add_Exocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R8;multiplebond_intra;radadd_intra_cs2H] for rate rule [R8;carbonylbond_intra_H;radadd_intra_cs2H]
+Euclidian distance = 2.0
+family: Intra_R_Add_Exocyclic
+""",
+)
+
+entry(
+    index = 129,
+    label = "O + [CH]1C=CCCCC1 <=> C7H10 + OH",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.24e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_1centerbirad;C/H2/Nd_Csrad] for rate rule [O_atom_triplet;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 130,
+    label = "O + C=CC=CC <=> OH + [CH2]C=CC=C",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (0.00788, 'cm^3/(mol*s)'),
+        n = 4.29278,
+        Ea = (47.0729, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/OneDe;O_atom_triplet] for rate rule [C/H3/Cd;O_atom_triplet]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/OneDe;O_atom_triplet] for rate rule [C/H3/Cd;O_atom_triplet]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 131,
+    label = "OH + OOC1C=CCCCC1 <=> [O]OC1C=CCCCC1 + H2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 206 used for O/H/NonDeO;O_pri_rad\nExact match found for rate rule [O/H/NonDeO;O_pri_rad]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 206 used for O/H/NonDeO;O_pri_rad
+Exact match found for rate rule [O/H/NonDeO;O_pri_rad]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 132,
+    label = "[CH]1C=CC=CCC1 + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCCC=C1 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 133,
+    label = "[CH2]CCCC=CC=O <=> O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.3294e+07, 's^-1'),
+        n = 0.933333,
+        Ea = (21.0943, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6_SSS_D;doublebond_intra;radadd_intra_cs2H] for rate rule [R6_SSS_D;doublebond_intra_HDe_pri;radadd_intra_cs2H]\nEuclidian distance = 2.0\nfamily: Intra_R_Add_Exocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6_SSS_D;doublebond_intra;radadd_intra_cs2H] for rate rule [R6_SSS_D;doublebond_intra_HDe_pri;radadd_intra_cs2H]
+Euclidian distance = 2.0
+family: Intra_R_Add_Exocyclic
+""",
+)
+
+entry(
+    index = 134,
+    label = "O2 + O=C[CH]C1CCCC1 <=> [O]OC(C=O)C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.19343e+07, 'm^3/(mol*s)'),
+        n = 0.0113737,
+        Ea = (2.96199, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Y_rad] for rate rule [C_rad/H/OneDeC;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Y_rad] for rate rule [C_rad/H/OneDeC;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 135,
+    label = "O=CCC1C[CH]CC1 <=> O=C[CH]C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.502, 's^-1'),
+        n = 3.86,
+        Ea = (41.6308, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [R4H_SSS;C_rad_out_H/NonDeC;Cs_H_out_H/OneDe] for rate rule [R4H_SSS;C_rad_out_H/NonDeC;Cs_H_out_H/CO]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R4H_SSS;C_rad_out_H/NonDeC;Cs_H_out_H/OneDe] for rate rule [R4H_SSS;C_rad_out_H/NonDeC;Cs_H_out_H/CO]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 136,
+    label = "O2 + O=CCC1C[CH]CC1 <=> [O]OC1CCC(CC=O)C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 137,
+    label = "O=CCC1C[CH]CC1 <=> [CH]1CC2CCC(C2)O1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (487000, 's^-1'),
+        n = 1.17,
+        Ea = (26.3592, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6_SSS;multiplebond_intra;radadd_intra_csHCs] for rate rule [R6_SSS_CO;carbonyl_intra_H;radadd_intra_csHCs]\nEuclidian distance = 2.2360679775\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6_SSS;multiplebond_intra;radadd_intra_csHCs] for rate rule [R6_SSS_CO;carbonyl_intra_H;radadd_intra_csHCs]
+Euclidian distance = 2.2360679775
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 138,
+    label = "OC=CC1C[CH]CC1 <=> O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (46.1, 's^-1'),
+        n = 3.21,
+        Ea = (60.7935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6H;C_rad_out_H/NonDeC;XH_out] for rate rule [R6H_RSSMS;C_rad_out_H/NonDeC;O_H_out]\nEuclidian distance = 1.41421356237\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6H;C_rad_out_H/NonDeC;XH_out] for rate rule [R6H_RSSMS;C_rad_out_H/NonDeC;O_H_out]
+Euclidian distance = 1.41421356237
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 139,
+    label = "OC=CC1C[CH]CC1 <=> O=CCC1C[CH]CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (605.045, 's^-1'),
+        n = 2.96,
+        Ea = (143.867, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R_ROR;R1_doublebond;R2_doublebond_H;R_O_H] for rate rule [R_ROR;R1_doublebond_CHR;R2_doublebond_H;R_O_H]\nEuclidian distance = 1.0\nfamily: ketoenol',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R_ROR;R1_doublebond;R2_doublebond_H;R_O_H] for rate rule [R_ROR;R1_doublebond_CHR;R2_doublebond_H;R_O_H]
+Euclidian distance = 1.0
+family: ketoenol
+""",
+)
+
+entry(
+    index = 140,
+    label = "OH + OC=CC1CCCC1 <=> H2O + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+06, 'cm^3/(mol*s)'),
+        n = 2,
+        Ea = (-1.046, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 693 used for O/H/OneDeC;O_pri_rad\nExact match found for rate rule [O/H/OneDeC;O_pri_rad]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 693 used for O/H/OneDeC;O_pri_rad
+Exact match found for rate rule [O/H/OneDeC;O_pri_rad]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 141,
+    label = "HO2 + O=C[CH]C1CCCC1 <=> O2 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (5.12664e-11, 'm^3/(mol*s)'),
+        n = 4.76,
+        Ea = (47.9696, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;O_rad/Cd\\H_Cd\\H\\Cs] for rate rule [Orad_O_H;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;O_rad/Cd\H_Cd\H\Cs] for rate rule [Orad_O_H;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 142,
+    label = "H2O2 + O=C[CH]C1CCCC1 <=> HO2 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.0699, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.75,
+        Ea = (45.5638, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for H2O2;O_rad/Cd\\H_Cd\\H\\Cs\nExact match found for rate rule [H2O2;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for H2O2;O_rad/Cd\H_Cd\H\Cs
+Exact match found for rate rule [H2O2;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 143,
+    label = "C7H10 + O=C[CH]C1CCCC1 <=> [CH]1C=CC=CCC1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.66507e-11, 'm^3/(mol*s)'),
+        n = 5.14537,
+        Ea = (40.6141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Cs_H;O_rad/Cd\\H_Cd\\H\\Cs] + [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 4.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Cs_H;O_rad/Cd\H_Cd\H\Cs] + [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 4.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 144,
+    label = "C1=CCCC=CC1 + O=C[CH]C1CCCC1 <=> [CH]1C=CC=CCC1 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.504e-07, 'cm^3/(mol*s)'),
+        n = 5.77,
+        Ea = (50.3754, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Cs_H;O_rad/Cd\\H_Cd\\H\\Cs] for rate rule [C/H2/CdCd;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_H;O_rad/Cd\H_Cd\H\Cs] for rate rule [C/H2/CdCd;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 145,
+    label = "O=C[CH]C1CCCC1 + C=CC=CC <=> [CH2]C=CC=C + OC=CC1CCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (2.256e-07, 'cm^3/(mol*s)'),
+        n = 5.77,
+        Ea = (50.3754, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 146,
+    label = "O + OC=CC1CCCC1 <=> OH + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.7e+08, 'cm^3/(mol*s)'),
+        n = 1.5,
+        Ea = (17.2799, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 692 used for O/H/OneDeC;O_atom_triplet\nExact match found for rate rule [O/H/OneDeC;O_atom_triplet]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 692 used for O/H/OneDeC;O_atom_triplet
+Exact match found for rate rule [O/H/OneDeC;O_atom_triplet]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 147,
+    label = "[CH]1C=CCCCC1 + O=C[CH]C1CCCC1 <=> C7H10 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 148,
+    label = "[CH]1C=CC=CCC1 + O=C[CH]C1CCCC1 <=> C1=CC=CCC=C1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 149,
+    label = "[O]OC1C=CCCCC1 + OC=CC1CCCC1 <=> O=C[CH]C1CCCC1 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 150,
+    label = "OH + OC=CC1CCCC1 <=> H2O + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.56971e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (55.04, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC_5ring;O_pri_rad]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC_5ring;O_pri_rad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 151,
+    label = "H2O2 + OC=CC1C[CH]CC1 <=> HO2 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.1011e-09, 'm^3/(mol*s)'),
+        n = 4.1328,
+        Ea = (2.26773, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 152,
+    label = "C7H10 + OC=CC1C[CH]CC1 <=> [CH]1C=CC=CCC1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 153,
+    label = "C1=CCCC=CC1 + OC=CC1C[CH]CC1 <=> [CH]1C=CC=CCC1 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.3552e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (23.5141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 154,
+    label = "OOC1C=CCCCC1 + OC=CC1C[CH]CC1 <=> [O]OC1C=CCCCC1 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 155,
+    label = "C=CC=CC + OC=CC1C[CH]CC1 <=> [CH2]C=CC=C + OC=CC1CCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (9.78193e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (27.7818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 156,
+    label = "H + O=C[CH]C1CCCC1 <=> OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (7e+11, 'cm^3/(mol*s)'),
+        n = 0.493,
+        Ea = (-1.2301, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (200, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 25 used for H_rad;O_rad/OneDe\nExact match found for rate rule [H_rad;O_rad/OneDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 25 used for H_rad;O_rad/OneDe
+Exact match found for rate rule [H_rad;O_rad/OneDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 157,
+    label = "H + OC=CC1C[CH]CC1 <=> OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '*|/', 3.16),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 59 used for H_rad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for H_rad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 158,
+    label = "HO2 + OC=CC1C[CH]CC1 <=> O2 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.75906e-08, 'm^3/(mol*s)'),
+        n = 3.80154,
+        Ea = (26.4597, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 159,
+    label = "[CH2]CCC=CC=C + OC=CC1C[CH]CC1 <=> C=CC=CCC=C + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 160,
+    label = "[CH2]CCC=CC=C + O=C[CH]C1CCCC1 <=> C=CC=CCC=C + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 161,
+    label = "[CH]1C=CC=CCC1 + OC=CC1C[CH]CC1 <=> C1=CC=CCC=C1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 162,
+    label = "[O]OC1CCC(C=CO)C1 <=> [O]OC1CCC(CC=O)C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (605.045, 's^-1'),
+        n = 2.96,
+        Ea = (143.867, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R_ROR;R1_doublebond;R2_doublebond_H;R_O_H] for rate rule [R_ROR;R1_doublebond_CHR;R2_doublebond_H;R_O_H]\nEuclidian distance = 1.0\nfamily: ketoenol',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R_ROR;R1_doublebond;R2_doublebond_H;R_O_H] for rate rule [R_ROR;R1_doublebond_CHR;R2_doublebond_H;R_O_H]
+Euclidian distance = 1.0
+family: ketoenol
+""",
+)
+
+entry(
+    index = 163,
+    label = "O2 + OC=CC1C[CH]CC1 <=> [O]OC1CCC(C=CO)C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 164,
+    label = "[CH]1C=CCCCC1 + OC=CC1C[CH]CC1 <=> C7H10 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 165,
+    label = "OC=CC1C[CH]CC1 + OC=CC1CCCC1 <=> O=C[CH]C1CCCC1 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 166,
+    label = "[O]OC1CCC(C=CO)C1 <=> OC=C[C]1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.17e+11, 's^-1'),
+        n = 0.43,
+        Ea = (64.4336, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_noH] for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_Cd]\nEuclidian distance = 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_noH] for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_Cd]
+Euclidian distance = 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 167,
+    label = "O2 + OC=C[C]1CCC(C1)OO <=> [O]OC1(C=CO)CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.84e+13, 'cm^3/(mol*s)'),
+        n = 0.18,
+        Ea = (0.518816, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (200, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/OneDeCs2;Y_rad] for rate rule [C_rad/OneDeCs2;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/OneDeCs2;Y_rad] for rate rule [C_rad/OneDeCs2;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 168,
+    label = "O2 + OC=C[C]1CCC(C1)OO <=> [O]OC(O)C=C1CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.19343e+07, 'm^3/(mol*s)'),
+        n = 0.0113737,
+        Ea = (2.96199, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDe;Y_rad] for rate rule [C_rad/H/OneDeO;O2_birad]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDe;Y_rad] for rate rule [C_rad/H/OneDeO;O2_birad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 169,
+    label = "H + O=CC=C1CCC(C1)OO <=> OC=C[C]1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (373000, 'cm^3/(mol*s)'),
+        n = 2.53,
+        Ea = (20.92, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 2834 used for Od_CO-CdH;HJ\nExact match found for rate rule [Od_CO-CdH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 2834 used for Od_CO-CdH;HJ
+Exact match found for rate rule [Od_CO-CdH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 170,
+    label = "HO2 + OC=C[C]1CCC(C1)OO <=> H2O2 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 171,
+    label = "O2 + OC=C[C]1CCC(C1)OO <=> HO2 + O=CC=C1CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.14418e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 53 used for O2b;O_Csrad\nExact match found for rate rule [O2b;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 53 used for O2b;O_Csrad
+Exact match found for rate rule [O2b;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 172,
+    label = "[CH]1C=CC=CCC1 + OC=C[C]1CCC(C1)OO <=> C1=CCCC=CC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 173,
+    label = "[CH]1C=CC=CCC1 + OC=C[C]1CCC(C1)OO <=> C7H10 + O=CC=C1CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 174,
+    label = "[O]OC1C=CCCCC1 + OC=C[C]1CCC(C1)OO <=> OOC1C=CCCCC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 175,
+    label = "[CH2]C=CC=C + OC=C[C]1CCC(C1)OO <=> C=CC=CC + O=CC=C1CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+13, 'cm^3/(mol*s)', '*|/', 2.5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 59 used for C_rad/H2/Cd;O_Csrad\nExact match found for rate rule [C_rad/H2/Cd;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for C_rad/H2/Cd;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 176,
+    label = "OC=C[C]1CCC(C1)OO + O=C[CH]C1CCCC1 <=> OC=CC1CCCC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 177,
+    label = "[O]OC(O)C=C1CCC(C1)OO <=> HO2 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.813e+10, 's^-1', '*|/', 10),
+        n = 0.493,
+        Ea = (123.219, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 13 used for R2OO_O_HNd\nExact match found for rate rule [R2OO_O_HNd]\nEuclidian distance = 0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+From training reaction 13 used for R2OO_O_HNd
+Exact match found for rate rule [R2OO_O_HNd]
+Euclidian distance = 0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 178,
+    label = "O + OC=C[C]1CCC(C1)OO <=> OH + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.04e+13, 'cm^3/(mol*s)', '+|-', 3.01e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 54 used for O_atom_triplet;O_Csrad\nExact match found for rate rule [O_atom_triplet;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 54 used for O_atom_triplet;O_Csrad
+Exact match found for rate rule [O_atom_triplet;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 179,
+    label = "OH + OC=C[C]1CCC(C1)OO <=> H2O + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 65 used for O_pri_rad;O_Csrad\nExact match found for rate rule [O_pri_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 65 used for O_pri_rad;O_Csrad
+Exact match found for rate rule [O_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 180,
+    label = "OC=C[C]1CCC(C1)OO + OC=CC1C[CH]CC1 <=> OC=CC1CCCC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 181,
+    label = "H + O=CC=C1CCCC1 <=> O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (89.419, 'm^3/(mol*s)'),
+        n = 1.598,
+        Ea = (7.0333, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CsCs_Cds-OneDeH;HJ] for rate rule [Cds-CsCs_Cds-COH;HJ]\nEuclidian distance = 1.0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CsCs_Cds-OneDeH;HJ] for rate rule [Cds-CsCs_Cds-COH;HJ]
+Euclidian distance = 1.0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 182,
+    label = "HO2 + O=C[CH]C1CCCC1 <=> H2O2 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 183,
+    label = "O2 + O=C[CH]C1CCCC1 <=> HO2 + O=CC=C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.4088e+10, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'From training reaction 34 used for O2b;C/H/NdNd_Csrad\nExact match found for rate rule [O2b;C/H/NdNd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 34 used for O2b;C/H/NdNd_Csrad
+Exact match found for rate rule [O2b;C/H/NdNd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 184,
+    label = "[CH2]C=CC=C + O=C[CH]C1CCCC1 <=> O=CC=C1CCCC1 + C=CC=CC",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.566e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 40 used for C_rad/H2/Cd;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H2/Cd;C/H/NdNd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 40 used for C_rad/H2/Cd;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;C/H/NdNd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 185,
+    label = "O=C[CH]C1CCCC1 + O=C[CH]C1CCCC1 <=> O=CC=C1CCCC1 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/OneDe;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/OneDe;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 186,
+    label = "[O]OC(C=O)C1CCCC1 <=> HO2 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.00545e+13, 's^-1'),
+        n = -0.00666667,
+        Ea = (127.612, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R2OO_NdNd] for rate rule [R2OO_NdNd_HDe]\nEuclidian distance = 1.0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO_NdNd] for rate rule [R2OO_NdNd_HDe]
+Euclidian distance = 1.0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 187,
+    label = "OH + O=C[CH]C1CCCC1 <=> H2O + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 44 used for O_pri_rad;C/H/NdNd_Csrad\nExact match found for rate rule [O_pri_rad;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 44 used for O_pri_rad;C/H/NdNd_Csrad
+Exact match found for rate rule [O_pri_rad;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 188,
+    label = "[CH]1C=CC=CCC1 + O=C[CH]C1CCCC1 <=> C1=CCCC=CC1 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/TwoDe;C/H/NdNd_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/TwoDe;C/H/NdNd_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 189,
+    label = "[CH]1C=CC=CCC1 + O=C[CH]C1CCCC1 <=> C7H10 + O=CC=C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.12e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 190,
+    label = "[O]OC1C=CCCCC1 + O=C[CH]C1CCCC1 <=> O=CC=C1CCCC1 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 191,
+    label = "O=C[CH]C1CCCC1 + OC=CC1C[CH]CC1 <=> O=CC=C1CCCC1 + OC=CC1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 192,
+    label = "O + O=C[CH]C1CCCC1 <=> OH + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (269267, 'm^3/(mol*s)'),
+        n = -0.16,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad_birad_trirad_quadrad;C/H/NdNd_Csrad] for rate rule [O_atom_triplet;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad_birad_trirad_quadrad;C/H/NdNd_Csrad] for rate rule [O_atom_triplet;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 193,
+    label = "H + [CH2]CCCCCC <=> C7H16",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.48677e-12, 'cm^3/(molecule*s)'),
+        n = 0.6,
+        Ea = (-3.3472, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 18 used for C_rad/H2/Cs;H_rad\nExact match found for rate rule [C_rad/H2/Cs;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 18 used for C_rad/H2/Cs;H_rad
+Exact match found for rate rule [C_rad/H2/Cs;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 194,
+    label = "[CH]1C=CCCCC1 + [CH2]CCCCCC <=> C7H10 + C7H16",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cs;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cs;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 195,
+    label = "[CH2]CCCCCC + HO2 <=> O2 + C7H16",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.06232e-06, 'm^3/(mol*s)'),
+        n = 3.29519,
+        Ea = (39.1374, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H2/Cs] for rate rule [Orad_O_H;C_rad/H2/Cs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H2/Cs] for rate rule [Orad_O_H;C_rad/H2/Cs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 196,
+    label = "C1=CCCC=CC1 + [CH2]CCCCCC <=> C7H16 + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.00244, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (4.184, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 197,
+    label = "C7H10 + [CH2]CCCCCC <=> C7H16 + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.612e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (14.644, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 198,
+    label = "C7H16 + OH <=> H2O + [CH2]CCCCCC",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (18800, 'cm^3/(mol*s)'),
+        n = 2.67,
+        Ea = (-4.20074, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cs\\OneNonDe;O_pri_rad] for rate rule [C/H3/Cs\\H2\\Cs;O_pri_rad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 6.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cs\OneNonDe;O_pri_rad] for rate rule [C/H3/Cs\H2\Cs;O_pri_rad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 6.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 199,
+    label = "[CH2]CCCCCC + H2O2 <=> C7H16 + HO2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.7739e-06, 'm^3/(mol*s)'),
+        n = 3.32833,
+        Ea = (4.78371, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 200,
+    label = "[CH2]CCCCCC + [CH2]CCC=CC=C <=> C7H16 + C=CC=CCC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.9e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 21 used for C_rad/H2/Cs;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 21 used for C_rad/H2/Cs;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 201,
+    label = "[CH2]CCCCCC + OOC1C=CCCCC1 <=> C7H16 + [O]OC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.3914e-10, 'm^3/(mol*s)'),
+        n = 4.35167,
+        Ea = (-7.26621, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -7.3 to -7.3 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -7.3 to -7.3 kJ/mol.
+""",
+)
+
+entry(
+    index = 202,
+    label = "[CH]1C=CC=CCC1 + [CH2]CCCCCC <=> C7H16 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cs;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cs;C/H2/Nd_Csrad] for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 203,
+    label = "[CH2]CCCCCC + C=CC=CC <=> C7H16 + [CH2]C=CC=C",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.34436e-10, 'm^3/(mol*s)'),
+        n = 4.64875,
+        Ea = (18.9431, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 204,
+    label = "C7H16 + O <=> OH + [CH2]CCCCCC",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (1940, 'cm^3/(mol*s)'),
+        n = 3.23,
+        Ea = (19.4974, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cs\\OneNonDe;O_atom_triplet] for rate rule [C/H3/Cs\\H2\\Cs;O_atom_triplet]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 6.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cs\OneNonDe;O_atom_triplet] for rate rule [C/H3/Cs\H2\Cs;O_atom_triplet]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 6.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 205,
+    label = "[CH2]CCCCCC + OC=CC1CCCC1 <=> C7H16 + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.0065, 'cm^3/(mol*s)'),
+        n = 4.245,
+        Ea = (30.1248, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cs]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cs]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 206,
+    label = "[CH2]CCCCCC + OC=CC1CCCC1 <=> C7H16 + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.08948e-09, 'm^3/(mol*s)'),
+        n = 4.24,
+        Ea = (33.7754, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 207,
+    label = "[CH2]CCCCCC + OC=C[C]1CCC(C1)OO <=> C7H16 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 58 used for C_rad/H2/Cs;O_Csrad\nExact match found for rate rule [C_rad/H2/Cs;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 58 used for C_rad/H2/Cs;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 208,
+    label = "[CH2]CCCCCC + O=C[CH]C1CCCC1 <=> C7H16 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.43e+11, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 38 used for C_rad/H2/Cs;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H2/Cs;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 38 used for C_rad/H2/Cs;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 209,
+    label = "O2 + [CH2]CCCCCC <=> CCCCCCCO[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.31799e+09, 'm^3/(mol*s)'),
+        n = -1.05294,
+        Ea = (7.23436, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 1 used for O2_birad;C_rad/H2/Cs\nExact match found for rate rule [C_rad/H2/Cs;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 1 used for O2_birad;C_rad/H2/Cs
+Exact match found for rate rule [C_rad/H2/Cs;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 210,
+    label = "H + C[CH]CCCCC <=> C7H16",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '*|/', 3.16),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 59 used for H_rad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for H_rad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 211,
+    label = "C[CH]CCCCC + [CH]1C=CCCCC1 <=> C7H10 + C7H16",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 212,
+    label = "C[CH]CCCCC + HO2 <=> O2 + C7H16",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.75906e-08, 'm^3/(mol*s)'),
+        n = 3.80154,
+        Ea = (26.4597, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 213,
+    label = "C1=CCCC=CC1 + C[CH]CCCCC <=> C7H16 + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.3552e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (23.5141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 214,
+    label = "C7H10 + C[CH]CCCCC <=> C7H16 + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 215,
+    label = "C7H16 + OH <=> H2O + C[CH]CCCCC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (91.1707, 'm^3/(mol*s)'),
+        n = 1.44375,
+        Ea = (21.502, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 216,
+    label = "C[CH]CCCCC + H2O2 <=> C7H16 + HO2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.1011e-09, 'm^3/(mol*s)'),
+        n = 4.1328,
+        Ea = (2.26773, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 217,
+    label = "C[CH]CCCCC + [CH2]CCC=CC=C <=> C7H16 + C=CC=CCC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 218,
+    label = "C[CH]CCCCC + OOC1C=CCCCC1 <=> C7H16 + [O]OC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 219,
+    label = "[CH]1C=CC=CCC1 + C[CH]CCCCC <=> C7H16 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 220,
+    label = "C[CH]CCCCC + C=CC=CC <=> C7H16 + [CH2]C=CC=C",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (9.78193e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (27.7818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 221,
+    label = "C7H16 + O <=> OH + C[CH]CCCCC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00221869, 'm^3/(mol*s)'),
+        n = 3.19,
+        Ea = (59.0662, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 222,
+    label = "C[CH]CCCCC + OC=CC1CCCC1 <=> C7H16 + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 223,
+    label = "C[CH]CCCCC + OC=CC1CCCC1 <=> C7H16 + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.65801e-09, 'm^3/(mol*s)'),
+        n = 4.24,
+        Ea = (33.1582, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 224,
+    label = "C[CH]CCCCC + OC=C[C]1CCC(C1)OO <=> C7H16 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 225,
+    label = "C[CH]CCCCC + O=C[CH]C1CCCC1 <=> C7H16 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 226,
+    label = "[CH2]CCCCCC <=> C[CH]CCCCC",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (25800, 's^-1'),
+        n = 1.67,
+        Ea = (10.2, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training\nThis reaction matched rate rule [R2H_S;C_rad_out_2H;Cs_H_out_H/(NonDeC/Cs)]\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training
+This reaction matched rate rule [R2H_S;C_rad_out_2H;Cs_H_out_H/(NonDeC/Cs)]
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 227,
+    label = "[CH2]CCCCCC <=> C[CH]CCCCC",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (25800, 's^-1'),
+        n = 1.67,
+        Ea = (10.2, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training\nThis reaction matched rate rule [R6H_SSSSS;C_rad_out_2H;Cs_H_out_H/NonDeC]\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training
+This reaction matched rate rule [R6H_SSSSS;C_rad_out_2H;Cs_H_out_H/NonDeC]
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 228,
+    label = "C7H16 + [CH2]CCCCCC <=> C7H16 + C[CH]CCCCC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (4.32773e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (31.5317, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 229,
+    label = "[CH2]CCCCCC <=> C[CH]CCCCC",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (25800, 's^-1'),
+        n = 1.67,
+        Ea = (10.2, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training\nThis reaction matched rate rule [R2H_S;C_rad_out_H/NonDeC;Cs_H_out_2H]\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training
+This reaction matched rate rule [R2H_S;C_rad_out_H/NonDeC;Cs_H_out_2H]
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 230,
+    label = "[CH2]CCCCCC <=> C[CH]CCCCC",
+    degeneracy = 2.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (25800, 's^-1'),
+        n = 1.67,
+        Ea = (10.2, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training\nThis reaction matched rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out_2H]\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Matched reaction 114 CCCCCC[CH2]-1 <=> C[CH]CCCCC in intra_H_migration/training
+This reaction matched rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out_2H]
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 231,
+    label = "O2 + C[CH]CCCCC <=> CCCCCC(C)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 232,
+    label = "C[CH]CCCCC + HO2 <=> CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.03e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 84 used for C_rad/H/NonDeC;O_rad/NonDe\nExact match found for rate rule [C_rad/H/NonDeC;O_rad/NonDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 84 used for C_rad/H/NonDeC;O_rad/NonDe
+Exact match found for rate rule [C_rad/H/NonDeC;O_rad/NonDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 233,
+    label = "O + CCCCCC(C)OO <=> OH + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.7e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_sec;O_atom_triplet]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_sec;O_atom_triplet]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 234,
+    label = "OH + CCCCCC(C)OO <=> H2O + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_sec;O_pri_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_sec;O_pri_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 235,
+    label = "HO2 + CCCCCC(C)O[O] <=> O2 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 236,
+    label = "H2O2 + CCCCCC(C)O[O] <=> HO2 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.184, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 37 used for H2O2;OOC\nExact match found for rate rule [H2O2;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 37 used for H2O2;OOC
+Exact match found for rate rule [H2O2;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 237,
+    label = "C7H10 + CCCCCC(C)O[O] <=> [CH]1C=CC=CCC1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 238,
+    label = "C[CH]CCCCC + CCCCCC(C)OO <=> C7H16 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 239,
+    label = "[CH2]CCCCCC + CCCCCC(C)OO <=> C7H16 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 240,
+    label = "[CH]1C=CCCCC1 + CCCCCC(C)O[O] <=> C7H10 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 241,
+    label = "[CH]1C=CC=CCC1 + CCCCCC(C)O[O] <=> C1=CC=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 242,
+    label = "C1=CCCC=CC1 + CCCCCC(C)O[O] <=> [CH]1C=CC=CCC1 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 243,
+    label = "[O]OC1C=CCCCC1 + CCCCCC(C)OO <=> OOC1C=CCCCC1 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_sec;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_sec;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 244,
+    label = "C=CC=CC + CCCCCC(C)O[O] <=> [CH2]C=CC=C + CCCCCC(C)OO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 245,
+    label = "O=C[CH]C1CCCC1 + CCCCCC(C)O[O] <=> O=CC=C1CCCC1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 246,
+    label = "OC=CC1CCCC1 + CCCCCC(C)O[O] <=> O=C[CH]C1CCCC1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 247,
+    label = "OC=CC1C[CH]CC1 + CCCCCC(C)OO <=> OC=CC1CCCC1 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 248,
+    label = "H + CCCCCC(C)O[O] <=> CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 249,
+    label = "[CH2]CCC=CC=C + CCCCCC(C)O[O] <=> C=CC=CCC=C + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 250,
+    label = "OC=C[C]1CCC(C1)OO + CCCCCC(C)O[O] <=> O=CC=C1CCC(C1)OO + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 251,
+    label = "[CH2]CCCCCC + HO2 <=> CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.58895e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]\nEuclidian distance = 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]
+Euclidian distance = 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 252,
+    label = "H2O2 + CCCCCCCO[O] <=> HO2 + CCCCCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.184, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 37 used for H2O2;OOC\nExact match found for rate rule [H2O2;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 37 used for H2O2;OOC
+Exact match found for rate rule [H2O2;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 253,
+    label = "C[CH]CCCCC + CCCCCCCOO <=> C7H16 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 254,
+    label = "[CH2]CCCCCC + CCCCCCCOO <=> C7H16 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 255,
+    label = "C1=CCCC=CC1 + CCCCCCCO[O] <=> [CH]1C=CC=CCC1 + CCCCCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 256,
+    label = "C=CC=CC + CCCCCCCO[O] <=> [CH2]C=CC=C + CCCCCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 257,
+    label = "O + CCCCCCCOO <=> OH + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.7e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 258,
+    label = "OH + CCCCCCCOO <=> H2O + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 259,
+    label = "HO2 + CCCCCCCO[O] <=> O2 + CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 260,
+    label = "C7H10 + CCCCCCCO[O] <=> [CH]1C=CC=CCC1 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 261,
+    label = "[CH]1C=CCCCC1 + CCCCCCCO[O] <=> C7H10 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 262,
+    label = "[CH]1C=CC=CCC1 + CCCCCCCO[O] <=> C1=CC=CCC=C1 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 263,
+    label = "[O]OC1C=CCCCC1 + CCCCCCCOO <=> OOC1C=CCCCC1 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 264,
+    label = "O=C[CH]C1CCCC1 + CCCCCCCO[O] <=> O=CC=C1CCCC1 + CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 265,
+    label = "OC=CC1CCCC1 + CCCCCCCO[O] <=> O=C[CH]C1CCCC1 + CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 266,
+    label = "OC=CC1C[CH]CC1 + CCCCCCCOO <=> OC=CC1CCCC1 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 267,
+    label = "CCCCCC(C)O[O] + CCCCCCCOO <=> CCCCCCCO[O] + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 268,
+    label = "H + CCCCCCCO[O] <=> CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 269,
+    label = "[CH2]CCC=CC=C + CCCCCCCO[O] <=> C=CC=CCC=C + CCCCCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 270,
+    label = "OC=C[C]1CCC(C1)OO + CCCCCCCO[O] <=> O=CC=C1CCC(C1)OO + CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 271,
+    label = "C=CC=CCCC=CC=C <=> C=CC=CCCC1C=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (9.99996e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_2+2_cycloaddition_Cd',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: Intra_2+2_cycloaddition_Cd
+""",
+)
+
+entry(
+    index = 272,
+    label = "[O]OC1C=CCCCC1 <=> OOC1C=CC[CH]CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.24e+06, 's^-1'),
+        n = 1.22,
+        Ea = (69.4544, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 264 used for R6H_SSSSS_OOCCC(Cs/Cs);O_rad_out;Cs_H_out_H/NonDeC\nExact match found for rate rule [R6H_SSSSS_OOCCC(Cs/Cs);O_rad_out;Cs_H_out_H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+From training reaction 264 used for R6H_SSSSS_OOCCC(Cs/Cs);O_rad_out;Cs_H_out_H/NonDeC
+Exact match found for rate rule [R6H_SSSSS_OOCCC(Cs/Cs);O_rad_out;Cs_H_out_H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 273,
+    label = "H + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '*|/', 3.16),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 59 used for H_rad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for H_rad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 274,
+    label = "H2O2 + OOC1C=CC[CH]CC1 <=> HO2 + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.1011e-09, 'm^3/(mol*s)'),
+        n = 4.1328,
+        Ea = (2.26773, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 275,
+    label = "[CH]1C=CCCCC1 + OOC1C=CC[CH]CC1 <=> C7H10 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 276,
+    label = "HO2 + OOC1C=CC[CH]CC1 <=> O2 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.75906e-08, 'm^3/(mol*s)'),
+        n = 3.80154,
+        Ea = (26.4597, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 277,
+    label = "C1=CCCC=CC1 + OOC1C=CC[CH]CC1 <=> [CH]1C=CC=CCC1 + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.3552e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (23.5141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 278,
+    label = "C7H10 + OOC1C=CC[CH]CC1 <=> [CH]1C=CC=CCC1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 279,
+    label = "[CH2]CCC=CC=C + OOC1C=CC[CH]CC1 <=> C=CC=CCC=C + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 280,
+    label = "OOC1C=CCCCC1 + OOC1C=CC[CH]CC1 <=> [O]OC1C=CCCCC1 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 281,
+    label = "[CH]1C=CC=CCC1 + OOC1C=CC[CH]CC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 282,
+    label = "C=CC=CC + OOC1C=CC[CH]CC1 <=> [CH2]C=CC=C + OOC1C=CCCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (9.78193e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (27.7818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 283,
+    label = "OH + OOC1C=CCCCC1 <=> H2O + OOC1C=CC[CH]CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (45.5853, 'm^3/(mol*s)'),
+        n = 1.44375,
+        Ea = (21.502, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 284,
+    label = "OOC1C=CC[CH]CC1 + OC=CC1CCCC1 <=> O=C[CH]C1CCCC1 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 285,
+    label = "OOC1C=CC[CH]CC1 + OC=CC1CCCC1 <=> OOC1C=CCCCC1 + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.65801e-09, 'm^3/(mol*s)'),
+        n = 4.24,
+        Ea = (33.1582, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 286,
+    label = "OC=C[C]1CCC(C1)OO + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 287,
+    label = "O=C[CH]C1CCCC1 + OOC1C=CC[CH]CC1 <=> O=CC=C1CCCC1 + OOC1C=CCCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 288,
+    label = "[CH2]CCCCCC + OOC1C=CCCCC1 <=> C7H16 + OOC1C=CC[CH]CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.16387e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (31.5317, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 289,
+    label = "OOC1C=CC[CH]CC1 + CCCCCCCOO <=> OOC1C=CCCCC1 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 290,
+    label = "C7H16 + OOC1C=CC[CH]CC1 <=> C[CH]CCCCC + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.1475e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 291,
+    label = "OOC1C=CC[CH]CC1 + CCCCCC(C)OO <=> OOC1C=CCCCC1 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 292,
+    label = "OOC1C=CC[CH]CC1 <=> OOC1[CH]C2CC2CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.1e+12, 's^-1'),
+        n = 0.14,
+        Ea = (50.0313, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCs]\nEuclidian distance = 3.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCs]
+Euclidian distance = 3.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 293,
+    label = "OOC1C=CC[CH]CC1 <=> [CH2]C1C=CC(CC1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.53e+06, 's^-1'),
+        n = 1.73,
+        Ea = (245.601, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [cCs(-HH)CJ;CsJ;C] for rate rule [cCs(-HH)CJ;CsJ-CsH;C]\nEuclidian distance = 1.0\nfamily: 1,2_shiftC',
+    ),
+    longDesc = 
+u"""
+Estimated using template [cCs(-HH)CJ;CsJ;C] for rate rule [cCs(-HH)CJ;CsJ-CsH;C]
+Euclidian distance = 1.0
+family: 1,2_shiftC
+""",
+)
+
+entry(
+    index = 294,
+    label = "[CH2]C1C=CC(CC1)OO <=> OOC1[CH]C2CC2CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.76771e+11, 's^-1'),
+        n = 0.21,
+        Ea = (65.1503, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [R7_cyclic;doublebond_intra_pri;radadd_intra_cs2H] + [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs2H]\nEuclidian distance = 1.0\nfamily: Intra_R_Add_Endocyclic\nEa raised from 65.0 to 65.2 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [R7_cyclic;doublebond_intra_pri;radadd_intra_cs2H] + [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs2H]
+Euclidian distance = 1.0
+family: Intra_R_Add_Endocyclic
+Ea raised from 65.0 to 65.2 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 295,
+    label = "[CH2]C1C=CC(CC1)OO <=> OH + C1=CC2CCC1CO2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.17e+09, 's^-1'),
+        n = 0,
+        Ea = (7.5312, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 25 used for R5OO_SSSS;C_pri_rad_intra;OOH\nExact match found for rate rule [R5OO_SSSS;C_pri_rad_intra;OOH]\nEuclidian distance = 0\nfamily: Cyclic_Ether_Formation',
+    ),
+    longDesc = 
+u"""
+From training reaction 25 used for R5OO_SSSS;C_pri_rad_intra;OOH
+Exact match found for rate rule [R5OO_SSSS;C_pri_rad_intra;OOH]
+Euclidian distance = 0
+family: Cyclic_Ether_Formation
+""",
+)
+
+entry(
+    index = 296,
+    label = "O + CCCCCCC[O] <=> CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 3 used for O_rad/NonDe;O_birad\nExact match found for rate rule [O_rad/NonDe;O_birad]\nEuclidian distance = 0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for O_rad/NonDe;O_birad
+Exact match found for rate rule [O_rad/NonDe;O_birad]
+Euclidian distance = 0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 297,
+    label = "OH + CCCCCCC[O] <=> CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 103 used for O_pri_rad;O_rad/NonDe\nExact match found for rate rule [O_pri_rad;O_rad/NonDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 103 used for O_pri_rad;O_rad/NonDe
+Exact match found for rate rule [O_pri_rad;O_rad/NonDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 298,
+    label = "O + [CH2]CCCCCC <=> CCCCCCC[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41578.4, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cs;O_birad]\nEuclidian distance = 3.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cs;O_birad]
+Euclidian distance = 3.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 299,
+    label = "CCCCCCC[O] <=> CCC[CH]CCCO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8e+10, 's^-1'),
+        n = 0,
+        Ea = (25.7316, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (200, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using template [R5H_CCC;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R5H_CCC;O_rad_out;Cs_H_out_H/(NonDeC/Cs)]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R5H_CCC;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R5H_CCC;O_rad_out;Cs_H_out_H/(NonDeC/Cs)]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 300,
+    label = "O2 + CCC[CH]CCCO <=> CCCC(CCCO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 301,
+    label = "CCCC(CCCO)O[O] <=> C[CH]CC(CCCO)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (6.76e+10, 's^-1'),
+        n = 0.21,
+        Ea = (77.404, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 261 used for R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_H/NonDeC\nExact match found for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+From training reaction 261 used for R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_H/NonDeC
+Exact match found for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 302,
+    label = "O2 + C[CH]CC(CCCO)OO <=> CC(CC(CCCO)OO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 303,
+    label = "CCCC(CC[CH]O)OO <=> CCCC(CCCO)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (46.1, 's^-1'),
+        n = 3.21,
+        Ea = (60.7935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6H_SSSSS;C_rad_out_1H;XH_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeO;O_H_out]\nEuclidian distance = 1.41421356237\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6H_SSSSS;C_rad_out_1H;XH_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeO;O_H_out]
+Euclidian distance = 1.41421356237
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 304,
+    label = "C[CH]CC(CCCO)OO <=> CCCC(CC[CH]O)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (92.2, 's^-1'),
+        n = 3.21,
+        Ea = (60.7935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out_H/NonDeO]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;Cs_H_out_H/NonDeO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 305,
+    label = "H + CCCC(CCC=O)OO <=> CCCC(CC[CH]O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4e+09, 'cm^3/(mol*s)'),
+        n = 1.39,
+        Ea = (35.8862, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 2818 used for Od_CO-CsH;HJ\nExact match found for rate rule [Od_CO-CsH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 2818 used for Od_CO-CsH;HJ
+Exact match found for rate rule [Od_CO-CsH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 306,
+    label = "HO2 + CCCC(CC[CH]O)OO <=> H2O2 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 307,
+    label = "O2 + CCCC(CC[CH]O)OO <=> HO2 + CCCC(CCC=O)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.14418e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 53 used for O2b;O_Csrad\nExact match found for rate rule [O2b;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 53 used for O2b;O_Csrad
+Exact match found for rate rule [O2b;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 308,
+    label = "[CH2]C=CC=C + CCCC(CC[CH]O)OO <=> C=CC=CC + CCCC(CCC=O)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+13, 'cm^3/(mol*s)', '*|/', 2.5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 59 used for C_rad/H2/Cd;O_Csrad\nExact match found for rate rule [C_rad/H2/Cd;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for C_rad/H2/Cd;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 309,
+    label = "CCCC(CC[CH]O)OO + CCCCCC(C)O[O] <=> CCCCCC(C)OO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 310,
+    label = "O + CCCC(CC[CH]O)OO <=> OH + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.04e+13, 'cm^3/(mol*s)', '+|-', 3.01e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 54 used for O_atom_triplet;O_Csrad\nExact match found for rate rule [O_atom_triplet;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 54 used for O_atom_triplet;O_Csrad
+Exact match found for rate rule [O_atom_triplet;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 311,
+    label = "OH + CCCC(CC[CH]O)OO <=> H2O + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 65 used for O_pri_rad;O_Csrad\nExact match found for rate rule [O_pri_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 65 used for O_pri_rad;O_Csrad
+Exact match found for rate rule [O_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 312,
+    label = "[CH]1C=CC=CCC1 + CCCC(CC[CH]O)OO <=> C7H10 + CCCC(CCC=O)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 313,
+    label = "C[CH]CCCCC + CCCC(CC[CH]O)OO <=> C7H16 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 314,
+    label = "[CH2]CCCCCC + CCCC(CC[CH]O)OO <=> C7H16 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 58 used for C_rad/H2/Cs;O_Csrad\nExact match found for rate rule [C_rad/H2/Cs;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 58 used for C_rad/H2/Cs;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 315,
+    label = "[CH]1C=CC=CCC1 + CCCC(CC[CH]O)OO <=> C1=CCCC=CC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 316,
+    label = "OOC1C=CC[CH]CC1 + CCCC(CC[CH]O)OO <=> OOC1C=CCCCC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 317,
+    label = "[O]OC1C=CCCCC1 + CCCC(CC[CH]O)OO <=> OOC1C=CCCCC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 318,
+    label = "OC=CC1C[CH]CC1 + CCCC(CC[CH]O)OO <=> OC=CC1CCCC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 319,
+    label = "O=C[CH]C1CCCC1 + CCCC(CC[CH]O)OO <=> OC=CC1CCCC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 320,
+    label = "CCCC(CC[CH]O)OO + CCCCCCCO[O] <=> CCCCCCCOO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 321,
+    label = "[O]OC1C=CCCC=C1 <=> OOC1C=C[CH]CC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (6.24e+09, 's^-1'),
+        n = 0,
+        Ea = (79.7052, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [R6H;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R6H_RSSMS;O_rad_out;Cs_H_out_H/NonDeC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6H;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R6H_RSSMS;O_rad_out;Cs_H_out_H/NonDeC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 322,
+    label = "C1=CC=CCC=C1 + HO2 <=> OOC1C=C[CH]CC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.676919, 'm^3/(mol*s)'),
+        n = 2.24862,
+        Ea = (7.77083, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;OJ-O2s]\nEuclidian distance = 5.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;OJ-O2s]
+Euclidian distance = 5.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 323,
+    label = "H + [O]OC1C=C[CH]CC=C1 <=> OOC1C=C[CH]CC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 324,
+    label = "HO2 + [O]OC1C=C[CH]CC=C1 <=> O2 + OOC1C=C[CH]CC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 325,
+    label = "[CH2]CCC=CC=C + [O]OC1C=C[CH]CC=C1 <=> C=CC=CCC=C + OOC1C=C[CH]CC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 326,
+    label = "O2 + OOC1C=C[CH]CC=C1 <=> [O]OC1C=CCC=CC1OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 327,
+    label = "O2 + OOC1C=C[CH]CC=C1 <=> [O]OC1C=CC(C=CC1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 328,
+    label = "HO2 + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCC=CC1OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.27942e+07, 'm^3/(mol*s)'),
+        n = 0.0538607,
+        Ea = (2.88191, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;C_rad/H/CdCs] + [O_rad/NonDe;C_sec_rad] for rate rule [O_rad/NonDe;C_rad/H/CdCs]\nEuclidian distance = 3.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;C_rad/H/CdCs] + [O_rad/NonDe;C_sec_rad] for rate rule [O_rad/NonDe;C_rad/H/CdCs]
+Euclidian distance = 3.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 329,
+    label = "HO2 + OOC1C=C[CH]CC=C1 <=> H2O2 + [O]OC1C=C[CH]CC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41000, 'cm^3/(mol*s)'),
+        n = 2.5,
+        Ea = (42.7019, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO\nExact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 330,
+    label = "[CH]1C=CCCCC1 + [O]OC1C=C[CH]CC=C1 <=> C7H10 + OOC1C=C[CH]CC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 331,
+    label = "[CH]1C=CC=CCC1 + [O]OC1C=C[CH]CC=C1 <=> C1=CC=CCC=C1 + OOC1C=C[CH]CC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 332,
+    label = "[O]OC1C=C[CH]CC=C1 + C=CC=CC <=> [CH2]C=CC=C + OOC1C=C[CH]CC=C1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 333,
+    label = "OC=C[C]1CCC(C1)OO + [O]OC1C=C[CH]CC=C1 <=> OOC1C=C[CH]CC=C1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 334,
+    label = "[O]OC1C=C[CH]CC=C1 + O=C[CH]C1CCCC1 <=> O=CC=C1CCCC1 + OOC1C=C[CH]CC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 335,
+    label = "[O]OC1C=C[CH]CC=C1 + CCCCCCCOO <=> OOC1C=C[CH]CC=C1 + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 336,
+    label = "OOC1C=C[CH]CC=C1 + CCCCCC(C)O[O] <=> [O]OC1C=C[CH]CC=C1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 337,
+    label = "[O]OC1C=C[CH]CC=C1 + CCCC(CC[CH]O)OO <=> OOC1C=C[CH]CC=C1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 338,
+    label = "[O]OC1C=C[CH]CC=C1 <=> O + C1=CC2OC2C=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.27e+09, 's^-1'),
+        n = 1.06,
+        Ea = (129.704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [R2OO_S;C_sec_rad_intra;OOJ] for rate rule [R2OO_S;C_rad/H/OneDe_intra;OOJ]\nEuclidian distance = 1.0\nfamily: Cyclic_Ether_Formation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO_S;C_sec_rad_intra;OOJ] for rate rule [R2OO_S;C_rad/H/OneDe_intra;OOJ]
+Euclidian distance = 1.0
+family: Cyclic_Ether_Formation
+""",
+)
+
+entry(
+    index = 339,
+    label = "OOC1C=C[CH]CC=C1 <=> OH + C1=CC2OC2C=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.38e+12, 's^-1', '*|/', 1.2),
+        n = 0,
+        Ea = (53.1774, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [R2OO_S;C_sec_rad_intra;OOH] for rate rule [R2OO_S;C_rad/H/OneDe_intra;OOH]\nEuclidian distance = 1.0\nfamily: Cyclic_Ether_Formation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO_S;C_sec_rad_intra;OOH] for rate rule [R2OO_S;C_rad/H/OneDe_intra;OOH]
+Euclidian distance = 1.0
+family: Cyclic_Ether_Formation
+""",
+)
+
+entry(
+    index = 340,
+    label = "C=CC=CC <=> CC1C=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.99998e+11, 's^-1'),
+        n = 0.0559095,
+        Ea = (122.413, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]\nEuclidian distance = 1.41421356237\nfamily: Intra_2+2_cycloaddition_Cd',
+    ),
+    longDesc = 
+u"""
+Estimated using template [1,3-butadiene_backbone;C=C_1;C=C_2] for rate rule [1,3-butadiene_backbone;CdH(C)_1;CdH2_2]
+Euclidian distance = 1.41421356237
+family: Intra_2+2_cycloaddition_Cd
+""",
+)
+
+entry(
+    index = 341,
+    label = "CC[CH]CCC(C)OO <=> CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (46.1, 's^-1'),
+        n = 3.21,
+        Ea = (60.7935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6H_SSSSS;C_rad_out_H/NonDeC;XH_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;O_H_out]\nEuclidian distance = 1.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6H_SSSSS;C_rad_out_H/NonDeC;XH_out] for rate rule [R6H_SSSSS;C_rad_out_H/NonDeC;O_H_out]
+Euclidian distance = 1.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 342,
+    label = "H + CC[CH]CCC(C)OO <=> CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '*|/', 3.16),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 59 used for H_rad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for H_rad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 343,
+    label = "OH + CCCCCC(C)OO <=> H2O + CC[CH]CCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (45.5853, 'm^3/(mol*s)'),
+        n = 1.44375,
+        Ea = (21.502, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec;O_pri_rad] + [C/H2/NonDeC;O_rad] for rate rule [C/H2/NonDeC;O_pri_rad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 344,
+    label = "H2O2 + CC[CH]CCC(C)OO <=> HO2 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.1011e-09, 'm^3/(mol*s)'),
+        n = 4.1328,
+        Ea = (2.26773, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 345,
+    label = "[CH]1C=CCCCC1 + CC[CH]CCC(C)OO <=> C7H10 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 346,
+    label = "HO2 + CC[CH]CCC(C)OO <=> O2 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.75906e-08, 'm^3/(mol*s)'),
+        n = 3.80154,
+        Ea = (26.4597, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 347,
+    label = "C1=CCCC=CC1 + CC[CH]CCC(C)OO <=> [CH]1C=CC=CCC1 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.3552e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (23.5141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 348,
+    label = "C7H10 + CC[CH]CCC(C)OO <=> [CH]1C=CC=CCC1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 349,
+    label = "[CH2]CCC=CC=C + CC[CH]CCC(C)OO <=> C=CC=CCC=C + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 350,
+    label = "OOC1C=CCCCC1 + CC[CH]CCC(C)OO <=> [O]OC1C=CCCCC1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 351,
+    label = "[CH]1C=CC=CCC1 + CC[CH]CCC(C)OO <=> C1=CC=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 352,
+    label = "C=CC=CC + CC[CH]CCC(C)OO <=> [CH2]C=CC=C + CCCCCC(C)OO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (9.78193e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (27.7818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 353,
+    label = "OC=CC1CCCC1 + CC[CH]CCC(C)OO <=> O=C[CH]C1CCCC1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 354,
+    label = "OC=C[C]1CCC(C1)OO + CC[CH]CCC(C)OO <=> O=CC=C1CCC(C1)OO + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 355,
+    label = "O=C[CH]C1CCCC1 + CC[CH]CCC(C)OO <=> O=CC=C1CCCC1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 356,
+    label = "[CH2]CCCCCC + CCCCCC(C)OO <=> C7H16 + CC[CH]CCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.16387e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (31.5317, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 357,
+    label = "CC[CH]CCC(C)OO + CCCCCCCOO <=> CCCCCCCO[O] + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 358,
+    label = "C7H16 + CC[CH]CCC(C)OO <=> C[CH]CCCCC + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.1475e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 359,
+    label = "CC[CH]CCC(C)OO + CCCCCC(C)OO <=> CCCCCC(C)O[O] + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 360,
+    label = "CCCC(CC[CH]O)OO + CC[CH]CCC(C)OO <=> CCCCCC(C)OO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 361,
+    label = "O2 + CC[CH]CCC(C)OO <=> CCC(CCC(C)OO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 362,
+    label = "OOC1C=CC[CH]CC1 + CCCCCC(C)OO <=> OOC1C=CCCCC1 + CC[CH]CCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.57375e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 363,
+    label = "OC=CC1CCCC1 + CC[CH]CCC(C)OO <=> OC=CC1C[CH]CC1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.65801e-09, 'm^3/(mol*s)'),
+        n = 4.24,
+        Ea = (33.1582, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 364,
+    label = "[CH]1C=CCC=CC1 <=> [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (570153, 's^-1'),
+        n = 1.88833,
+        Ea = (191.836, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [R4H;C_rad_out_H/NonDeC;Cs_H_out_H/Cd] + [R4H_SDS;C_rad_out_single;Cs_H_out_H/Cd] + [R4H_SDS;C_rad_out_H/NonDeC;Cs_H_out_1H] for rate rule [R4H_SDS;C_rad_out_H/NonDeC;Cs_H_out_H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [R4H;C_rad_out_H/NonDeC;Cs_H_out_H/Cd] + [R4H_SDS;C_rad_out_single;Cs_H_out_H/Cd] + [R4H_SDS;C_rad_out_H/NonDeC;Cs_H_out_1H] for rate rule [R4H_SDS;C_rad_out_H/NonDeC;Cs_H_out_H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 365,
+    label = "H + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for C_rad/H/CdCs;H_rad\nExact match found for rate rule [C_rad/H/CdCs;H_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for C_rad/H/CdCs;H_rad
+Exact match found for rate rule [C_rad/H/CdCs;H_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 366,
+    label = "C1=CCCC=CC1 + OH <=> H2O + [CH]1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (134, 'cm^3/(mol*s)'),
+        n = 3.475,
+        Ea = (-11.7152, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;O_pri_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;O_pri_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 367,
+    label = "C1=CCCC=CC1 + HO2 <=> H2O2 + [CH]1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.48764e-09, 'm^3/(mol*s)'),
+        n = 4.4515,
+        Ea = (31.7482, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;O_rad/NonDeO]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;O_rad/NonDeO]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 368,
+    label = "[CH]1C=CCCCC1 + [CH]1C=CCC=CC1 <=> C7H10 + C1=CCCC=CC1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 369,
+    label = "HO2 + [CH]1C=CCC=CC1 <=> O2 + C1=CCCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.13791e-07, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (88.7725, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 370,
+    label = "C1=CCCC=CC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + [CH]1C=CC=CCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.003924, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (26.3592, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs\nExact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1132 used for C/H2/CdCd;C_rad/H/CdCs
+Exact match found for rate rule [C/H2/CdCd;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 371,
+    label = "C7H10 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + [CH]1C=CC=CCC1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.01832, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (48.9528, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 372,
+    label = "[CH]1C=CCC=CC1 + [CH2]CCC=CC=C <=> C1=CCCC=CC1 + C=CC=CCC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 373,
+    label = "[O]OC1C=CCCCC1 + C1=CCCC=CC1 <=> [CH]1C=CCC=CC1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 374,
+    label = "C[CH]CCCCC + [CH]1C=CCC=CC1 <=> C7H16 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 375,
+    label = "[CH2]CCCCCC + [CH]1C=CCC=CC1 <=> C7H16 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cs;Cpri_Rrad] for rate rule [C_rad/H2/Cs;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cs;Cpri_Rrad] for rate rule [C_rad/H2/Cs;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 376,
+    label = "OH + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + H2O",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_pri_rad;Cpri_Rrad] for rate rule [O_pri_rad;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_pri_rad;Cpri_Rrad] for rate rule [O_pri_rad;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 377,
+    label = "O2 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + HO2",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (8e+10, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O2b;C/H2/De_Csrad] for rate rule [O2b;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O2b;C/H2/De_Csrad] for rate rule [O2b;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 378,
+    label = "HO2 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + H2O2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 379,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C7H10 + C1=CC=CCC=C1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 380,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    degeneracy = 8.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 381,
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (6.104e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 382,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (7.76e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (1.50624, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/TwoDe;Cpri_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/TwoDe;Cpri_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 383,
+    label = "[CH2]C=CC=CC[CH2] + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + [CH2]CCC=CC=C",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 384,
+    label = "[CH]1C=CCC=CC1 + C=CC=CC <=> C1=CCCC=CC1 + [CH2]C=CC=C",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (0.005382, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (59.8312, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 6.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 6.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 385,
+    label = "[CH]1C=CCC=CC1 + OOC1C=CC[CH]CC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 386,
+    label = "[O]OC1C=CCCCC1 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 387,
+    label = "[CH]1C=CCC=CC1 + [CH2]C=CC=C <=> C1=CC=CCC=C1 + C=CC=CC",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (1.16e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cd;Cpri_Rrad] for rate rule [C_rad/H2/Cd;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 8.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cd;Cpri_Rrad] for rate rule [C_rad/H2/Cd;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 8.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 388,
+    label = "O + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + OH",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (40000, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [O_atom_triplet;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [O_atom_triplet;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 389,
+    label = "[CH]1C=CCC=CC1 + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCCC=C1 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 390,
+    label = "[CH]1C=CCC=CC1 + OC=CC1CCCC1 <=> C1=CCCC=CC1 + O=C[CH]C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.5712e-16, 'm^3/(mol*s)'),
+        n = 6.375,
+        Ea = (0.349948, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec;C_rad/H/OneDeC] for rate rule [O/H/OneDeC;C_rad/H/CdCs]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction\nEa raised from -1.9 to 0.3 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;C_rad/H/OneDeC] for rate rule [O/H/OneDeC;C_rad/H/CdCs]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+Ea raised from -1.9 to 0.3 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 391,
+    label = "C1=CCCC=CC1 + OC=CC1C[CH]CC1 <=> [CH]1C=CCC=CC1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 392,
+    label = "[CH]1C=CCC=CC1 + OC=CC1C[CH]CC1 <=> C1=CC=CCC=C1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 393,
+    label = "[CH]1C=CCC=CC1 + O=C[CH]C1CCCC1 <=> C1=CC=CCC=C1 + OC=CC1CCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 394,
+    label = "[CH]1C=CCC=CC1 + OC=C[C]1CCC(C1)OO <=> C1=CCCC=CC1 + O=CC=C1CCC(C1)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 395,
+    label = "[CH]1C=CCC=CC1 + O=C[CH]C1CCCC1 <=> C1=CCCC=CC1 + O=CC=C1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.12e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 396,
+    label = "C1=CCCC=CC1 + [CH2]CCCCCC <=> C7H16 + [CH]1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.612e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (14.644, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H2/Cs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 397,
+    label = "C1=CCCC=CC1 + CCCCCCCO[O] <=> [CH]1C=CCC=CC1 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 398,
+    label = "C1=CCCC=CC1 + C[CH]CCCCC <=> C7H16 + [CH]1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 399,
+    label = "C1=CCCC=CC1 + CCCCCC(C)O[O] <=> [CH]1C=CCC=CC1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 400,
+    label = "[CH]1C=CCC=CC1 + CC[CH]CCC(C)OO <=> C1=CC=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 401,
+    label = "[CH]1C=CCC=CC1 + CCCCCC(C)O[O] <=> C1=CC=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 402,
+    label = "[CH]1C=CCC=CC1 + CCCCCCCO[O] <=> C1=CC=CCC=C1 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 403,
+    label = "[CH]1C=CCC=CC1 + CCCC(CC[CH]O)OO <=> C1=CCCC=CC1 + CCCC(CCC=O)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 404,
+    label = "[CH]1C=CCC=CC1 + [O]OC1C=C[CH]CC=C1 <=> C1=CC=CCC=C1 + OOC1C=C[CH]CC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 405,
+    label = "C1=CCCC=CC1 + CC[CH]CCC(C)OO <=> [CH]1C=CCC=CC1 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 406,
+    label = "H + C1=CC=CCC=C1 <=> [CH]1C=CCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (9.22566, 'm^3/(mol*s)'),
+        n = 2.04274,
+        Ea = (10.5229, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 101 used for Cds-CdH_Cds-CdH;HJ\nExact match found for rate rule [Cds-CdH_Cds-CdH;HJ]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 101 used for Cds-CdH_Cds-CdH;HJ
+Exact match found for rate rule [Cds-CdH_Cds-CdH;HJ]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 407,
+    label = "[O]OC1C=CCC=CC1 <=> C1=CC=CCC=C1 + HO2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.91635e+11, 's^-1'),
+        n = 0.573333,
+        Ea = (139.369, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R2OO] for rate rule [R2OO_HDe_HDe]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO] for rate rule [R2OO_HDe_HDe]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 408,
+    label = "[O]OC1C=CCC=CC1 <=> OOC1C=C[CH]CC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (657459, 's^-1'),
+        n = 1.87237,
+        Ea = (102.584, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R4H_SSS;Y_rad_out;Cs_H_out_H/Cd] for rate rule [R4H_SSS_OCs;O_rad_out;Cs_H_out_H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R4H_SSS;Y_rad_out;Cs_H_out_H/Cd] for rate rule [R4H_SSS_OCs;O_rad_out;Cs_H_out_H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 409,
+    label = "O2 + [CH]1C=CCC=CC1 <=> [O]OC1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.08586e+08, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 410,
+    label = "H + [O]OC1C=C[CH]CC=C1 <=> [O]OC1C=CCC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.71464e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 36 used for C_rad/H/CdCs;H_rad\nExact match found for rate rule [C_rad/H/CdCs;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for C_rad/H/CdCs;H_rad
+Exact match found for rate rule [C_rad/H/CdCs;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 411,
+    label = "[CH]1C=CCCCC1 + [O]OC1C=C[CH]CC=C1 <=> C7H10 + [O]OC1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 412,
+    label = "HO2 + [O]OC1C=C[CH]CC=C1 <=> O2 + [O]OC1C=CCC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (5.68954e-08, 'm^3/(mol*s)'),
+        n = 4.12615,
+        Ea = (88.7725, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/CdCs] for rate rule [Orad_O_H;C_rad/H/CdCs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 413,
+    label = "[CH2]CCC=CC=C + [O]OC1C=C[CH]CC=C1 <=> C=CC=CCC=C + [O]OC1C=CCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 414,
+    label = "[CH]1C=CC=CCC1 + [O]OC1C=C[CH]CC=C1 <=> C1=CC=CCC=C1 + [O]OC1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 415,
+    label = "[CH]1C=CCC=CC1 + [O]OC1C=C[CH]CC=C1 <=> C1=CC=CCC=C1 + [O]OC1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 416,
+    label = "C1=CCCC=CC1 + OOC1C=CC[CH]CC1 <=> [CH]1C=CCC=CC1 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 417,
+    label = "[O]OC1C=C[CH]CC=C1 + O=C[CH]C1CCCC1 <=> [O]OC1C=CCC=CC1 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 418,
+    label = "[O]OC1C=C[CH]CC=C1 + CCCC(CC[CH]O)OO <=> [O]OC1C=CCC=CC1 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.33905e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 419,
+    label = "[O]OC1C=CCC=CC1 <=> [CH]1CC=CC2CC1OO2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.95208e+10, 's^-1'),
+        n = 0.228823,
+        Ea = (43.0818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6plus;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn2c7_beta_long;doublebond_intra_pri_HNd_Cs;radadd_intra_O]\nEuclidian distance = 3.16227766017\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6plus;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn2c7_beta_long;doublebond_intra_pri_HNd_Cs;radadd_intra_O]
+Euclidian distance = 3.16227766017
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 420,
+    label = "[O]OC1C=CCC=CC1 + CCCCCCCO[O] <=> [O]OC1C=C[CH]CC=C1 + CCCCCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 421,
+    label = "[O]OC1C=CCC=CC1 + CCCCCC(C)O[O] <=> [O]OC1C=C[CH]CC=C1 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 422,
+    label = "[O]OC1C=CCC=CC1 <=> [CH]1CC=CCC2OOC12",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.99832e+10, 's^-1'),
+        n = 0.37247,
+        Ea = (49.4918, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]\nEuclidian distance = 3.16227766017\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn2c7_alpha_long;doublebond_intra_pri;radadd_intra_O]
+Euclidian distance = 3.16227766017
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 423,
+    label = "O + CCCCCC(C)OO <=> OH + CC[CH]CCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.00110935, 'm^3/(mol*s)'),
+        n = 3.19,
+        Ea = (59.0662, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 424,
+    label = "[CH]1C=CCC=CC1 <=> [CH]1CC=CC2CC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.2e+12, 's^-1'),
+        n = 0.14,
+        Ea = (73.8271, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCs]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn0c7_beta_long_SS_D;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCs]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 425,
+    label = "[CH2]C1C=CCC=C1 <=> [CH]1C=CCC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.31121e+11, 's^-1'),
+        n = 0.64,
+        Ea = (159.935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [cCs(-HC)CJ;CsJ;C] for rate rule [cCs(-HC)CJ;CsJ-HH;C]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: 1,2_shiftC',
+    ),
+    longDesc = 
+u"""
+Estimated using template [cCs(-HC)CJ;CsJ;C] for rate rule [cCs(-HC)CJ;CsJ-HH;C]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: 1,2_shiftC
+""",
+)
+
+entry(
+    index = 426,
+    label = "[CH2]C1C=CCC=C1 <=> [CH]1CC=CC2CC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.53542e+11, 's^-1'),
+        n = 0.21,
+        Ea = (35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [R7_cyclic;doublebond_intra_pri;radadd_intra_cs2H] + [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs2H]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [R7_cyclic;doublebond_intra_pri;radadd_intra_cs2H] + [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn1c6_alpha_long;doublebond_intra_pri;radadd_intra_cs2H]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 427,
+    label = "C2H2 + [CH2]C=CC=C <=> [CH2]C1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (4.88e-07, 'm^3/(mol*s)'),
+        n = 2.98,
+        Ea = (117.57, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Diels_alder_addition',
+    ),
+    longDesc = 
+u"""
+Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Diels_alder_addition
+""",
+)
+
+entry(
+    index = 428,
+    label = "O2 + [CH2]C1C=CCC=C1 <=> [O]OCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.31799e+09, 'm^3/(mol*s)'),
+        n = -1.05294,
+        Ea = (7.23436, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 1 used for O2_birad;C_rad/H2/Cs\nExact match found for rate rule [C_rad/H2/Cs;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 1 used for O2_birad;C_rad/H2/Cs
+Exact match found for rate rule [C_rad/H2/Cs;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 429,
+    label = "C2H2 + C=CC=CCO[O] <=> [O]OCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.44e-07, 'm^3/(mol*s)'),
+        n = 2.98,
+        Ea = (117.57, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Diels_alder_addition',
+    ),
+    longDesc = 
+u"""
+Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Diels_alder_addition
+""",
+)
+
+entry(
+    index = 430,
+    label = "[O]OC1C=C[CH]CC=C1 + O=C[CH]C1CCCC1 <=> [O]OC1C=CCCC=C1 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;C/H/NdNd_Csrad] for rate rule [C_rad/H/OneDeC;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 431,
+    label = "[O]OCC1C=CCC=C1 <=> [CH]1CC=CC2COOC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.99665e+10, 's^-1'),
+        n = 0.37247,
+        Ea = (49.4918, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn3c6_alpha_long;doublebond_intra_pri;radadd_intra_O]\nEuclidian distance = 3.16227766017\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6plus;doublebond_intra_pri;radadd_intra] for rate rule [Rn3c6_alpha_long;doublebond_intra_pri;radadd_intra_O]
+Euclidian distance = 3.16227766017
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 432,
+    label = "[CH]1CC2C=CCC12 + C[CH]CCCCC <=> C7H16 + C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 433,
+    label = "[CH]1CC2C=CCC12 + [CH2]CCCCCC <=> C7H16 + C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.9e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 21 used for C_rad/H2/Cs;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 21 used for C_rad/H2/Cs;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 434,
+    label = "[CH]1CC2C=CCC12 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC2C=CC2C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 435,
+    label = "[CH]1CC2C=CCC12 + [CH]1C=CC=CCC1 <=> C1=CCCC=CC1 + C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (319.424, 'm^3/(mol*s)'),
+        n = 1,
+        Ea = (1.94556, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;C/H2/Nd_Csrad] + [C_rad/H/TwoDe;C/H2/Nd_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;C/H2/Nd_Csrad] + [C_rad/H/TwoDe;C/H2/Nd_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 436,
+    label = "[CH]1CC2C=CCC12 + OH <=> H2O + C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 33 used for O_pri_rad;C/H2/Nd_Csrad\nExact match found for rate rule [O_pri_rad;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 33 used for O_pri_rad;C/H2/Nd_Csrad
+Exact match found for rate rule [O_pri_rad;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 437,
+    label = "[CH]1CC2C=CCC12 + HO2 <=> H2O2 + C1=CC2C=CC2C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 438,
+    label = "[CH]1CC2C=CCC12 + [CH]1C=CC=CCC1 <=> C7H10 + C1=CC2C=CC2C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;C/H2/Nd_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 439,
+    label = "[CH]1CC2C=CCC12 + OOC1C=CC[CH]CC1 <=> C1=CC2C=CC2C1 + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 440,
+    label = "[O]OC1C=CCCCC1 + [CH]1CC2C=CCC12 <=> C1=CC2C=CC2C1 + OOC1C=CCCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 441,
+    label = "[CH]1CC2C=CCC12 + OC=CC1C[CH]CC1 <=> C1=CC2C=CC2C1 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 442,
+    label = "[CH]1CC2C=CCC12 + O=C[CH]C1CCCC1 <=> C1=CC2C=CC2C1 + OC=CC1CCCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 443,
+    label = "[CH]1CC2C=CCC12 + CC[CH]CCC(C)OO <=> C1=CC2C=CC2C1 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 444,
+    label = "[CH]1CC2C=CCC12 + CCCCCC(C)O[O] <=> C1=CC2C=CC2C1 + CCCCCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 445,
+    label = "[CH]1C=CCC=CC1 <=> [CH]1CC2C=CCC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.08454e+19, 's^-1'),
+        n = -0.859165,
+        Ea = (130.857, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn0c7_gamma_short;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn0c7_gamma_short;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCd]\nEuclidian distance = 2.82842712475\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Rn0c7_gamma_short;doublebond_intra_pri;radadd_intra_cs] for rate rule [Rn0c7_gamma_short;doublebond_intra_pri_HNd_Cs;radadd_intra_csHCd]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 446,
+    label = "[CH]1CC2C=CCC12 <=> [CH]1CC=CC2CC12",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.55606e+10, 's^-1'),
+        n = 0.64,
+        Ea = (159.935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [cCs(-HC)CJ;CsJ;C] for rate rule [cCs(-HC)CJ;CsJ-CsH;C]\nEuclidian distance = 1.0\nfamily: 1,2_shiftC',
+    ),
+    longDesc = 
+u"""
+Estimated using template [cCs(-HC)CJ;CsJ;C] for rate rule [cCs(-HC)CJ;CsJ-CsH;C]
+Euclidian distance = 1.0
+family: 1,2_shiftC
+""",
+)
+
+entry(
+    index = 447,
+    label = "H + C1=CC2C=CC2C1 <=> [CH]1CC2C=CCC12",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.46e+08, 'cm^3/(mol*s)'),
+        n = 1.64,
+        Ea = (5.73208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 2555 used for Cds-CsH_Cds-CsH;HJ\nExact match found for rate rule [Cds-CsH_Cds-CsH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 2555 used for Cds-CsH_Cds-CsH;HJ
+Exact match found for rate rule [Cds-CsH_Cds-CsH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 448,
+    label = "O + OOCC1C=CCC=C1 <=> OH + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.7e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 449,
+    label = "OH + OOCC1C=CCC=C1 <=> H2O + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 450,
+    label = "HO2 + [O]OCC1C=CCC=C1 <=> O2 + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 451,
+    label = "H2O2 + [O]OCC1C=CCC=C1 <=> HO2 + OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.184, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 37 used for H2O2;OOC\nExact match found for rate rule [H2O2;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 37 used for H2O2;OOC
+Exact match found for rate rule [H2O2;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 452,
+    label = "C7H10 + [O]OCC1C=CCC=C1 <=> [CH]1C=CC=CCC1 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 453,
+    label = "C[CH]CCCCC + OOCC1C=CCC=C1 <=> C7H16 + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 454,
+    label = "[CH2]CCCCCC + OOCC1C=CCC=C1 <=> C7H16 + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 455,
+    label = "[CH]1C=CCCCC1 + [O]OCC1C=CCC=C1 <=> C7H10 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 456,
+    label = "[CH]1C=CC=CCC1 + [O]OCC1C=CCC=C1 <=> C1=CC=CCC=C1 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 457,
+    label = "C1=CCCC=CC1 + [O]OCC1C=CCC=C1 <=> [CH]1C=CCC=CC1 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 458,
+    label = "C1=CCCC=CC1 + [O]OCC1C=CCC=C1 <=> [CH]1C=CC=CCC1 + OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 459,
+    label = "[O]OC1C=CCCCC1 + OOCC1C=CCC=C1 <=> OOC1C=CCCCC1 + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 460,
+    label = "OOC1C=CC[CH]CC1 + OOCC1C=CCC=C1 <=> OOC1C=CCCCC1 + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 461,
+    label = "C=CC=CC + [O]OCC1C=CCC=C1 <=> [CH2]C=CC=C + OOCC1C=CCC=C1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 462,
+    label = "O=C[CH]C1CCCC1 + [O]OCC1C=CCC=C1 <=> O=CC=C1CCCC1 + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 463,
+    label = "OC=CC1CCCC1 + [O]OCC1C=CCC=C1 <=> O=C[CH]C1CCCC1 + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 464,
+    label = "OC=CC1C[CH]CC1 + OOCC1C=CCC=C1 <=> OC=CC1CCCC1 + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 465,
+    label = "CCCCCC(C)O[O] + OOCC1C=CCC=C1 <=> [O]OCC1C=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 466,
+    label = "CC[CH]CCC(C)OO + OOCC1C=CCC=C1 <=> [O]OCC1C=CCC=C1 + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 467,
+    label = "CCCCCCCO[O] + OOCC1C=CCC=C1 <=> [O]OCC1C=CCC=C1 + CCCCCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 468,
+    label = "[CH]1C=CCC=CC1 + [O]OCC1C=CCC=C1 <=> C1=CC=CCC=C1 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 469,
+    label = "[O]OC1C=CCC=CC1 + [O]OCC1C=CCC=C1 <=> [O]OC1C=C[CH]CC=C1 + OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 470,
+    label = "HO2 + [CH2]C1C=CCC=C1 <=> OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.58895e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]\nEuclidian distance = 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]
+Euclidian distance = 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 471,
+    label = "H + [O]OCC1C=CCC=C1 <=> OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 472,
+    label = "[CH2]CCC=CC=C + [O]OCC1C=CCC=C1 <=> C=CC=CCC=C + OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 473,
+    label = "OC=C[C]1CCC(C1)OO + [O]OCC1C=CCC=C1 <=> O=CC=C1CCC(C1)OO + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 474,
+    label = "CCCC(CC[CH]O)OO + [O]OCC1C=CCC=C1 <=> CCCC(CCC=O)OO + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 475,
+    label = "O + [O]CC1C=CCC=C1 <=> [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 3 used for O_rad/NonDe;O_birad\nExact match found for rate rule [O_rad/NonDe;O_birad]\nEuclidian distance = 0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for O_rad/NonDe;O_birad
+Exact match found for rate rule [O_rad/NonDe;O_birad]
+Euclidian distance = 0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 476,
+    label = "OH + [O]CC1C=CCC=C1 <=> OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 103 used for O_pri_rad;O_rad/NonDe\nExact match found for rate rule [O_pri_rad;O_rad/NonDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 103 used for O_pri_rad;O_rad/NonDe
+Exact match found for rate rule [O_pri_rad;O_rad/NonDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 477,
+    label = "O + [CH2]C1C=CCC=C1 <=> [O]CC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41578.4, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cs;O_birad]\nEuclidian distance = 3.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cs;O_birad]
+Euclidian distance = 3.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 478,
+    label = "CH2O <=> CO + H2",
+    degeneracy = 1.0,
+    elementary_high_p = True,
+    kinetics = Troe(
+        arrheniusHigh = Arrhenius(A=(3.7e+13, 's^-1'), n=0, Ea=(71976, 'cal/mol'), T0=(1, 'K')),
+        arrheniusLow = Arrhenius(
+            A = (4.4e+38, 'cm^3/(mol*s)'),
+            n = -6.1,
+            Ea = (94000, 'cal/mol'),
+            T0 = (1, 'K'),
+        ),
+        alpha = 0.932,
+        T3 = (197, 'K'),
+        T1 = (1540, 'K'),
+        T2 = (10300, 'K'),
+        efficiencies = {'C': 2, 'CO': 3, 'O=C=O': 2, 'CC': 3, 'O': 6, 'C=O': 2.5, '[He]': 0.7, '[C-]#[O+]': 1.5, '[Ar]': 0.7},
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 479,
+    label = "CH2O + [CH]1C=CC=CC1 <=> [O]CC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.00680897, 'm^3/(mol*s)'),
+        n = 2.41541,
+        Ea = (73.4467, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cd_R;CsJ-CdCdH] for rate rule [CO-HH_O;CsJ-CdCdH]\nEuclidian distance = 2.0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cd_R;CsJ-CdCdH] for rate rule [CO-HH_O;CsJ-CdCdH]
+Euclidian distance = 2.0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 480,
+    label = "O2 + [CH]1C=CC=CC1 <=> [O]OC1C=CC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.08586e+08, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 481,
+    label = "O2 + [CH]1C=CC=CC1 <=> [O]OC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.9277e+07, 'm^3/(mol*s)'),
+        n = -0.00388889,
+        Ea = (-0.926059, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 482,
+    label = "[CH]1C=CC=CC1 <=> [CH]1CC2C=CC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.08454e+19, 's^-1'),
+        n = -0.859165,
+        Ea = (130.857, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn0cx_gamma;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn0c6_gamma;doublebond_intra_pri_HCd;radadd_intra_csHCd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Rn0cx_gamma;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn0c6_gamma;doublebond_intra_pri_HCd;radadd_intra_csHCd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 483,
+    label = "H + c1ccccc1 <=> [CH]1C=CC=CC1",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (9.221e+08, 'cm^3/(mol*s)'),
+        n = 1.608,
+        Ea = (4.599, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 67 C6H6-2 + H <=> C6H7-8 in R_Addition_MultipleBond/training\nThis reaction matched rate rule [Cds-CdH_Cds-CdH;HJ]\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Matched reaction 67 C6H6-2 + H <=> C6H7-8 in R_Addition_MultipleBond/training
+This reaction matched rate rule [Cds-CdH_Cds-CdH;HJ]
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 484,
+    label = "OH + [CH]1C=CC=CC1 <=> H2O + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_pri_rad;Cpri_Rrad] for rate rule [O_pri_rad;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_pri_rad;Cpri_Rrad] for rate rule [O_pri_rad;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 485,
+    label = "HO2 + [CH]1C=CC=CC1 <=> H2O2 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 486,
+    label = "O2 + [CH]1C=CC=CC1 <=> HO2 + c1ccccc1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (4e+10, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O2b;C/H2/De_Csrad] for rate rule [O2b;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O2b;C/H2/De_Csrad] for rate rule [O2b;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 487,
+    label = "[CH2]C=CC=C + [CH]1C=CC=CC1 <=> C=CC=CC + c1ccccc1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cd;Cpri_Rrad] for rate rule [C_rad/H2/Cd;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cd;Cpri_Rrad] for rate rule [C_rad/H2/Cd;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 488,
+    label = "O=C[CH]C1CCCC1 + [CH]1C=CC=CC1 <=> OC=CC1CCCC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 489,
+    label = "[CH2]CCCCCC + [CH]1C=CC=CC1 <=> C7H16 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.9e+12, 'cm^3/(mol*s)', '*|/', 1.4),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cs;Cpri_Rrad] for rate rule [C_rad/H2/Cs;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cs;Cpri_Rrad] for rate rule [C_rad/H2/Cs;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 490,
+    label = "[CH]1C=CC=CC1 + CCCCCCCO[O] <=> CCCCCCCOO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 491,
+    label = "C[CH]CCCCC + [CH]1C=CC=CC1 <=> C7H16 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 492,
+    label = "[CH]1C=CC=CC1 + CCCCCC(C)O[O] <=> CCCCCC(C)OO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 493,
+    label = "[CH]1C=CC=CC1 + CC[CH]CCC(C)OO <=> CCCCCC(C)OO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 494,
+    label = "[CH]1C=CC=CC1 + [O]OCC1C=CCC=C1 <=> c1ccccc1 + OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 495,
+    label = "[O]OC1C=CC=CC1 <=> HO2 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.91635e+11, 's^-1'),
+        n = 0.573333,
+        Ea = (139.369, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R2OO] for rate rule [R2OO_HDe_HDe]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R2OO] for rate rule [R2OO_HDe_HDe]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 496,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CC1 <=> C1=CCCC=CC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.88e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (1.50624, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/TwoDe;Cpri_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/TwoDe;Cpri_Rrad] for rate rule [C_rad/H/TwoDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 497,
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CC1 <=> C7H10 + c1ccccc1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 498,
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CC=CC1 <=> C1=CCCC=CC1 + c1ccccc1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.052e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 499,
+    label = "[O]OC1C=CCCCC1 + [CH]1C=CC=CC1 <=> OOC1C=CCCCC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 500,
+    label = "butyl_1 + C3H6 <=> C[CH]CCCCC",
+    degeneracy = 1.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (2130, 'cm^3/(mol*s)'),
+        n = 2.41,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 238 used for Cds-HH_Cds-Cs\\H3/H;CsJ-CsHH\nExact match found for rate rule [Cds-HH_Cds-Cs\\H3/H;CsJ-CsHH]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 238 used for Cds-HH_Cds-Cs\H3/H;CsJ-CsHH
+Exact match found for rate rule [Cds-HH_Cds-Cs\H3/H;CsJ-CsHH]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 501,
+    label = "O + [CH]1C=CC=CC1 <=> OH + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (20000, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [O_atom_triplet;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [O_atom_triplet;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 502,
+    label = "H + [CH2]CCC=CC=C <=> C=CC=CCC=C + H2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+12, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 18 used for H_rad;C/H2/Nd_Csrad\nExact match found for rate rule [H_rad;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 18 used for H_rad;C/H2/Nd_Csrad
+Exact match found for rate rule [H_rad;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 503,
+    label = "H + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + H2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (136566, 'm^3/(mol*s)'),
+        n = 0.595,
+        Ea = (1.06692, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;C/H2/Nd_Csrad/H/Cd] + [H_rad;C/H2/Nd_Csrad] for rate rule [H_rad;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;C/H2/Nd_Csrad/H/Cd] + [H_rad;C/H2/Nd_Csrad] for rate rule [H_rad;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 504,
+    label = "H + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + H2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (40000, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [H_rad;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [H_rad;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 505,
+    label = "H + O=C[CH]C1CCCC1 <=> H2 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.04e+11, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 36 used for H_rad;C/H/NdNd_Csrad\nExact match found for rate rule [H_rad;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 36 used for H_rad;C/H/NdNd_Csrad
+Exact match found for rate rule [H_rad;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 506,
+    label = "H + CCCCCC(C)OO <=> H2 + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.40637e-05, 'm^3/(mol*s)'),
+        n = 2.8,
+        Ea = (42.6, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O/H/NonDeO;H_rad] + [ROOH_sec;Y_rad] for rate rule [ROOH_sec;H_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O/H/NonDeO;H_rad] + [ROOH_sec;Y_rad] for rate rule [ROOH_sec;H_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 507,
+    label = "H + CCCC(CC[CH]O)OO <=> H2 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '+|-', 1e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (295, 'K'),
+        comment = 'From training reaction 56 used for H_rad;O_Csrad\nExact match found for rate rule [H_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 56 used for H_rad;O_Csrad
+Exact match found for rate rule [H_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 508,
+    label = "H + [CH]1C=CC=CC1 <=> H2 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (20000, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [H_rad;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] for rate rule [H_rad;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 509,
+    label = "OOC1C=CC[CH]CC1 + [CH]1C=CC=CC1 <=> OOC1C=CCCCC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 510,
+    label = "OC=CC1C[CH]CC1 + [CH]1C=CC=CC1 <=> OC=CC1CCCC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 511,
+    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CC=CC1 <=> [O]OC1C=CCC=CC1 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;Cpri_Rrad] for rate rule [C_rad/H/OneDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 512,
+    label = "butyl_1 + C3H6 <=> C[CH]CCCCC",
+    degeneracy = 1.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (2130, 'cm^3/(mol*s)'),
+        n = 2.41,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 238 used for Cds-HH_Cds-Cs\\H3/H;CsJ-CsHH\nExact match found for rate rule [Cds-HH_Cds-Cs\\H3/H;CsJ-CsHH]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 238 used for Cds-HH_Cds-Cs\H3/H;CsJ-CsHH
+Exact match found for rate rule [Cds-HH_Cds-Cs\H3/H;CsJ-CsHH]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 513,
+    label = "O2 + butyl_1 <=> CCCCO[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.31799e+09, 'm^3/(mol*s)'),
+        n = -1.05294,
+        Ea = (7.23436, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 1 used for O2_birad;C_rad/H2/Cs\nExact match found for rate rule [C_rad/H2/Cs;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 1 used for O2_birad;C_rad/H2/Cs
+Exact match found for rate rule [C_rad/H2/Cs;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 514,
+    label = "CCCCO[O] <=> C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.788e+07, 's^-1'),
+        n = 1.26,
+        Ea = (76.0233, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Matched reaction 260 C4H9O2-13 <=> C4H9O2-14 in intra_H_migration/training\nThis reaction matched rate rule [R5H_SSSS_OCC;O_rad_out;Cs_H_out_H/NonDeC]\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Matched reaction 260 C4H9O2-13 <=> C4H9O2-14 in intra_H_migration/training
+This reaction matched rate rule [R5H_SSSS_OCC;O_rad_out;Cs_H_out_H/NonDeC]
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 515,
+    label = "O2 + C[CH]CCOO <=> CC(CCOO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (7.54e+12, 'cm^3/(mol*s)', '+|-', 1e+12),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 112 used for O2_birad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;O2_birad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 112 used for O2_birad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;O2_birad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 516,
+    label = "[CH2]C1C=CCC=C1 <=> CC1C=C[CH]C=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (62296.1, 's^-1'),
+        n = 1.86,
+        Ea = (59.4128, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R5H;C_rad_out_2H;Cs_H_out_H/Cd] for rate rule [R5H_SSMS;C_rad_out_2H;Cs_H_out_H/Cd]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R5H;C_rad_out_2H;Cs_H_out_H/Cd] for rate rule [R5H_SSMS;C_rad_out_2H;Cs_H_out_H/Cd]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 517,
+    label = "O2 + CC1C=C[CH]C=C1 <=> CC1C=CC=CC1O[O]",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.08586e+08, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 518,
+    label = "CC1C=C[CH]C=C1 <=> CC1[CH]C2C=CC12",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.08454e+19, 's^-1'),
+        n = -0.859165,
+        Ea = (130.857, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Rn0cx_gamma;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn0c6_gamma;doublebond_intra_pri_HCd;radadd_intra_csHCd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Rn0cx_gamma;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn0c6_gamma;doublebond_intra_pri_HCd;radadd_intra_csHCd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 519,
+    label = "O2 + CC1C=C[CH]C=C1 <=> CC1C=CC(C=C1)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.9277e+07, 'm^3/(mol*s)'),
+        n = -0.00388889,
+        Ea = (-0.926059, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 520,
+    label = "H + CH3 <=> CH4",
+    degeneracy = 1.0,
+    elementary_high_p = True,
+    kinetics = Troe(
+        arrheniusHigh = Arrhenius(A=(1.801e+14, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+        arrheniusLow = Arrhenius(
+            A = (7.93e+24, 'cm^6/(mol^2*s)'),
+            n = -2.17,
+            Ea = (0, 'cal/mol'),
+            T0 = (1, 'K'),
+        ),
+        alpha = 0.124,
+        T3 = (1801, 'K'),
+        T1 = (33.1, 'K'),
+        T2 = (90000, 'K'),
+        efficiencies = {'C': 2, 'CO': 3, 'O=C=O': 2, 'CC': 3, 'O': 3.42, 'C=O': 2.5, '[He]': 0.42, '[O][O]': 0.59, 'N#N': 0.59, '[C-]#[O+]': 0.89, '[Ar]': 0.36},
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 521,
+    label = "O + CH3 <=> H + CH2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(5.722e+13, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 522,
+    label = "O + CH3 <=> CO + H + H2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(2.384e+13, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 523,
+    label = "OH + CH3 <=> H2 + CH2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.735e+09, 'cm^3/(mol*s)'),
+        n = 0.734,
+        Ea = (-2177, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 524,
+    label = "HO2 + CH3 <=> CH4 + O2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (126900, 'cm^3/(mol*s)'),
+        n = 2.228,
+        Ea = (-3022, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 525,
+    label = "O2 + CH3 <=> OH + CH2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(99.77, 'cm^3/(mol*s)'), n=2.86, Ea=(9768, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 526,
+    label = "CH4 + H <=> H2 + CH3",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(478100, 'cm^3/(mol*s)'), n=2.5, Ea=(9588, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 527,
+    label = "CH4 + O <=> OH + CH3",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.786e+08, 'cm^3/(mol*s)'),
+        n = 1.56,
+        Ea = (8485, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 528,
+    label = "CH4 + OH <=> H2O + CH3",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (983900, 'cm^3/(mol*s)'),
+        n = 2.182,
+        Ea = (2446, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 529,
+    label = "CH4 + HO2 <=> H2O2 + CH3",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(47780, 'cm^3/(mol*s)'), n=2.5, Ea=(21000, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 530,
+    label = "C2H2 + OH <=> CO + CH3",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(614000, 'cm^3/(mol*s)'), n=1.62, Ea=(-731, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 531,
+    label = "OH + C2H4 <=> CH3 + CH2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(178000, 'cm^3/(mol*s)'), n=1.68, Ea=(2060, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 532,
+    label = "CC1C=C[CH]C=C1 <=> CH3 + c1ccccc1",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (2.07e+11, 's^-1'),
+        n = 0.83,
+        Ea = (22.8, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 16 C7H9-8 <=> C6H6-2 + CH3 in R_Addition_MultipleBond/training\nThis reaction matched rate rule [Cds-CdH_Cds-CdH;CsJ-HHH]\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Matched reaction 16 C7H9-8 <=> C6H6-2 + CH3 in R_Addition_MultipleBond/training
+This reaction matched rate rule [Cds-CdH_Cds-CdH;CsJ-HHH]
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 533,
+    label = "H + [CH]1C=CCCCC1 <=> C7H10 + H2",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (136566, 'm^3/(mol*s)'),
+        n = 0.595,
+        Ea = (1.06692, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;C/H2/Nd_Csrad/H/Cd] + [H_rad;C/H2/Nd_Csrad] for rate rule [H_rad;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;C/H2/Nd_Csrad/H/Cd] + [H_rad;C/H2/Nd_Csrad] for rate rule [H_rad;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 534,
+    label = "H2 + [CH2]C=CC=C <=> H + C=CC=CC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.1212, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (102.332, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 790 used for H2;C_rad/H2/Cd\\H_Cd\\H2\nExact match found for rate rule [H2;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction\nEa raised from 101.3 to 102.3 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+From training reaction 790 used for H2;C_rad/H2/Cd\H_Cd\H2
+Exact match found for rate rule [H2;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+Ea raised from 101.3 to 102.3 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 535,
+    label = "H + OC=C[C]1CCC(C1)OO <=> H2 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '+|-', 1e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (295, 'K'),
+        comment = 'From training reaction 56 used for H_rad;O_Csrad\nExact match found for rate rule [H_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 56 used for H_rad;O_Csrad
+Exact match found for rate rule [H_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 536,
+    label = "[CH]1C=CCCCC1 + CH3 <=> C7H10 + CH4",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (56729.9, 'm^3/(mol*s)'),
+        n = 0.416667,
+        Ea = (0.734524, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 537,
+    label = "CH4 + [CH]1C=CC=CCC1 <=> C7H10 + CH3",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.0848, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (113.113, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 831 used for C_methane;C_rad/H/CdCs\nExact match found for rate rule [C_methane;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 831 used for C_methane;C_rad/H/CdCs
+Exact match found for rate rule [C_methane;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 538,
+    label = "CH3 + [CH2]CCC=CC=C <=> CH4 + C=CC=CCC=C",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (28364.9, 'm^3/(mol*s)'),
+        n = 0.416667,
+        Ea = (0.734524, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 539,
+    label = "[CH]1C=CC=CCC1 + CH3 <=> CH4 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (56729.9, 'm^3/(mol*s)'),
+        n = 0.416667,
+        Ea = (0.734524, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;C/H2/Nd_Csrad] for rate rule [C_methyl;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 540,
+    label = "CH3 + [CH]1C=CCC=CC1 <=> CH4 + C1=CC=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (210738, 'm^3/(mol*s)'),
+        n = 0.0479167,
+        Ea = (0.130285, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] + [Cs_rad;Cpri_Rrad] for rate rule [C_methyl;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.16227766017\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] + [Cs_rad;Cpri_Rrad] for rate rule [C_methyl;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.16227766017
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 541,
+    label = "CH4 + [CH2]C=CC=C <=> CH3 + C=CC=CC",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.112, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (104.578, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 830 used for C_methane;C_rad/H2/Cd\\H_Cd\\H2\nExact match found for rate rule [C_methane;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 830 used for C_methane;C_rad/H2/Cd\H_Cd\H2
+Exact match found for rate rule [C_methane;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 542,
+    label = "CH3 + OC=CC1CCCC1 <=> CH4 + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (820000, 'cm^3/(mol*s)'),
+        n = 1.87,
+        Ea = (27.6981, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 694 used for O/H/OneDeC;C_methyl\nExact match found for rate rule [O/H/OneDeC;C_methyl]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 694 used for O/H/OneDeC;C_methyl
+Exact match found for rate rule [O/H/OneDeC;C_methyl]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 543,
+    label = "CH3 + OC=C[C]1CCC(C1)OO <=> CH4 + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.69258e+07, 'm^3/(mol*s)'),
+        n = -0.25,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 544,
+    label = "CH3 + O=C[CH]C1CCCC1 <=> CH4 + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.14422e+07, 'm^3/(mol*s)'),
+        n = -0.366667,
+        Ea = (-0.0604356, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;C/H/NdNd_Csrad] for rate rule [C_methyl;C/H/NdNd_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;C/H/NdNd_Csrad] for rate rule [C_methyl;C/H/NdNd_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 545,
+    label = "CH4 + CCCCCCCO[O] <=> CH3 + CCCCCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00445, 'cm^3/(mol*s)'),
+        n = 4.691,
+        Ea = (83.1277, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (400, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 209 used for C_methane;OOC\nExact match found for rate rule [C_methane;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 209 used for C_methane;OOC
+Exact match found for rate rule [C_methane;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 546,
+    label = "C7H16 + CH3 <=> CH4 + C[CH]CCCCC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.03212, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (27.6562, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 547,
+    label = "CH4 + CCCCCC(C)O[O] <=> CH3 + CCCCCC(C)OO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00445, 'cm^3/(mol*s)'),
+        n = 4.691,
+        Ea = (83.1277, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (400, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 209 used for C_methane;OOC\nExact match found for rate rule [C_methane;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 209 used for C_methane;OOC
+Exact match found for rate rule [C_methane;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 548,
+    label = "CH3 + CCCC(CC[CH]O)OO <=> CH4 + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.69258e+07, 'm^3/(mol*s)'),
+        n = -0.25,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 549,
+    label = "CH4 + [O]OCC1C=CCC=C1 <=> CH3 + OOCC1C=CCC=C1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00445, 'cm^3/(mol*s)'),
+        n = 4.691,
+        Ea = (83.1277, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (400, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 209 used for C_methane;OOC\nExact match found for rate rule [C_methane;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 209 used for C_methane;OOC
+Exact match found for rate rule [C_methane;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 550,
+    label = "CH3 + [CH]1C=CC=CC1 <=> CH4 + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (105369, 'm^3/(mol*s)'),
+        n = 0.0479167,
+        Ea = (0.130285, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] + [Cs_rad;Cpri_Rrad] for rate rule [C_methyl;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.16227766017\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad_birad_trirad_quadrad;C/H2/De_Csrad] + [Cs_rad;Cpri_Rrad] for rate rule [C_methyl;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.16227766017
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 551,
+    label = "C7H16 + CH3 <=> CH4 + [CH2]CCCCCC",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (4, 'cm^3/(mol*s)'),
+        n = 3.57,
+        Ea = (32.2879, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cs\\OneNonDe;C_methyl] for rate rule [C/H3/Cs\\H2\\Cs;C_methyl]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 6.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cs\OneNonDe;C_methyl] for rate rule [C/H3/Cs\H2\Cs;C_methyl]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 6.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 552,
+    label = "CH4 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + CH3",
+    degeneracy = 8.0,
+    kinetics = Arrhenius(
+        A = (0.0848, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (104.182, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 831 used for C_methane;C_rad/H/CdCs\nExact match found for rate rule [C_methane;C_rad/H/CdCs]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 8.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 831 used for C_methane;C_rad/H/CdCs
+Exact match found for rate rule [C_methane;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 553,
+    label = "C1=CCCC=CC1 + CH3 <=> CH4 + [CH]1C=CC=CCC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.0212, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (7.1128, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 1127 used for C/H2/CdCd;C_methyl\nExact match found for rate rule [C/H2/CdCd;C_methyl]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 1127 used for C/H2/CdCd;C_methyl
+Exact match found for rate rule [C/H2/CdCd;C_methyl]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 554,
+    label = "CH4 + [O]OC1C=CCCCC1 <=> CH3 + OOC1C=CCCCC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00445, 'cm^3/(mol*s)'),
+        n = 4.691,
+        Ea = (83.1277, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (400, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 209 used for C_methane;OOC\nExact match found for rate rule [C_methane;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 209 used for C_methane;OOC
+Exact match found for rate rule [C_methane;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 555,
+    label = "CH3 + OOC1C=CCCCC1 <=> CH4 + OOC1C=CC[CH]CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01606, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (27.6562, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 556,
+    label = "CH3 + OC=CC1CCCC1 <=> CH4 + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (1.57935e-08, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (46.1763, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C/H2/NonDeC;C_methyl] + [C/H2/NonDeC_5ring;Cs_rad] for rate rule [C/H2/NonDeC_5ring;C_methyl]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C/H2/NonDeC;C_methyl] + [C/H2/NonDeC_5ring;Cs_rad] for rate rule [C/H2/NonDeC_5ring;C_methyl]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 557,
+    label = "CH3 + CCCCCC(C)OO <=> CH4 + CC[CH]CCC(C)OO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01606, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (27.6562, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_methyl]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 558,
+    label = "[O]OCC1C=CCC=C1 <=> [CH]1C2C=CCC1OOC2",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.85317e+11, 's^-1'),
+        n = 0.0609759,
+        Ea = (92.8718, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6_cyclic;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn3c6_beta_short;doublebond_intra_pri_HNd_Cs;radadd_intra_O]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6_cyclic;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn3c6_beta_short;doublebond_intra_pri_HNd_Cs;radadd_intra_O]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 559,
+    label = "CH3O2 <=> O2 + CH3",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.09e+14, 's^-1'),
+        n = 0.25,
+        Ea = (33.3, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 0 CH3O2 <=> O2 + CH3 in R_Recombination/training\nThis reaction matched rate rule [C_methyl;O2_birad]\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Matched reaction 0 CH3O2 <=> O2 + CH3 in R_Recombination/training
+This reaction matched rate rule [C_methyl;O2_birad]
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 560,
+    label = "CC(CC(CCCO)OO)O[O] <=> CC(C[C](CCCO)OO)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (175, 's^-1'),
+        n = 3.1,
+        Ea = (73.22, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 299 used for R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_OOH/Cs\nExact match found for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_OOH/Cs]\nEuclidian distance = 0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+From training reaction 299 used for R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_OOH/Cs
+Exact match found for rate rule [R5H_SSSS_OCC_C;O_rad_out;Cs_H_out_OOH/Cs]
+Euclidian distance = 0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 561,
+    label = "OH + CC(CC(=O)CCCO)OO <=> CC(C[C](CCCO)OO)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (32300, 'cm^3/(mol*s)'),
+        n = 2.98,
+        Ea = (173.088, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [Od_CO-CsCs;YJ] for rate rule [Od_CO-CsCs;OJ_pri]\nEuclidian distance = 2.0\nfamily: R_Addition_MultipleBond\nEa raised from 167.6 to 173.1 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Od_CO-CsCs;YJ] for rate rule [Od_CO-CsCs;OJ_pri]
+Euclidian distance = 2.0
+family: R_Addition_MultipleBond
+Ea raised from 167.6 to 173.1 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 562,
+    label = "CH3 + CH3 <=> H + C2H5",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (7.621e+12, 'cm^3/(mol*s)'),
+        n = 0.1,
+        Ea = (10600, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 563,
+    label = "H + C2H4 <=> C2H5",
+    degeneracy = 1.0,
+    elementary_high_p = True,
+    kinetics = Troe(
+        arrheniusHigh = Arrhenius(
+            A = (1.232e+09, 'cm^3/(mol*s)'),
+            n = 1.463,
+            Ea = (1355, 'cal/mol'),
+            T0 = (1, 'K'),
+        ),
+        arrheniusLow = Arrhenius(
+            A = (2.9e+39, 'cm^6/(mol^2*s)'),
+            n = -6.642,
+            Ea = (5769, 'cal/mol'),
+            T0 = (1, 'K'),
+        ),
+        alpha = 1.569,
+        T3 = (-9147, 'K'),
+        T1 = (299, 'K'),
+        T2 = (152.4, 'K'),
+        efficiencies = {'C': 2, 'CO': 3, 'O=C=O': 2, 'CC': 3, 'O': 4.92, 'C=O': 2.5, '[He]': 0.7, 'N#N': 0.86, '[C-]#[O+]': 1.5, '[Ar]': 0.7},
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 564,
+    label = "H + C2H5 <=> H2 + C2H4",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(1.81e+12, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 565,
+    label = "O + C2H5 <=> CH3 + CH2O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(4.42e+13, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 566,
+    label = "O + C2H5 <=> OH + C2H4",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(2.94e+13, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 567,
+    label = "O2 + C2H5 <=> C2H4 + HO2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.355e+07, 'cm^3/(mol*s)'),
+        n = 1.09,
+        Ea = (-1975, 'cal/mol'),
+        T0 = (1, 'K'),
+    ),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 568,
+    label = "C2H5 + CH3 <=> CH4 + C2H4",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(A=(9e+11, 'cm^3/(mol*s)'), n=0, Ea=(0, 'cal/mol'), T0=(1, 'K')),
+    longDesc = 
+u"""
+Originally from reaction library: FFCM1(-)
+""",
+)
+
+entry(
+    index = 569,
+    label = "C2H5 + [CH]1C=CC=CCC1 <=> C7H10 + C2H4",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (4.71105e+06, 'm^3/(mol*s)'),
+        n = -0.116667,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 6.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 570,
+    label = "C2H5 + C[CH]CCCCC <=> C7H16 + C2H4",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.33e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.7,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 571,
+    label = "C2H5 + [CH2]CCCCCC <=> C7H16 + C2H4",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.9e+13, 'cm^3/(mol*s)', '*|/', 1.1),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 6 used for C_rad/H2/Cs;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H2/Cs;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 6 used for C_rad/H2/Cs;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 572,
+    label = "OH + C2H5 <=> H2O + C2H4",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (7.23e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Matched reaction 13 HO + C2H5 <=> H2O + C2H4 in Disproportionation/training\nThis reaction matched rate rule [O_pri_rad;Cmethyl_Csrad]\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Matched reaction 13 HO + C2H5 <=> H2O + C2H4 in Disproportionation/training
+This reaction matched rate rule [O_pri_rad;Cmethyl_Csrad]
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 573,
+    label = "C2H5 + HO2 <=> C2H4 + H2O2",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 574,
+    label = "C2H5 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C2H4",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (4.71105e+06, 'm^3/(mol*s)'),
+        n = -0.116667,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 6.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 575,
+    label = "C2H5 + [CH]1C=CC=CCC1 <=> C1=CCCC=CC1 + C2H4",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.5e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using an average for rate rule [C_rad/H/TwoDe;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C_rad/H/TwoDe;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 576,
+    label = "C2H5 + OOC1C=CC[CH]CC1 <=> C2H4 + OOC1C=CCCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.33e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.7,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 577,
+    label = "[O]OC1C=CCCCC1 + C2H5 <=> C2H4 + OOC1C=CCCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 578,
+    label = "C2H5 + [CH2]C=CC=C <=> C2H4 + C=CC=CC",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (1.374e+14, 'cm^3/(mol*s)', '*|/', 3),
+        n = -0.35,
+        Ea = (-0.54392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 7 used for C_rad/H2/Cd;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H2/Cd;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 6.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 7 used for C_rad/H2/Cd;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 6.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 579,
+    label = "C2H5 + OC=CC1C[CH]CC1 <=> C2H4 + OC=CC1CCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.33e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.7,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 580,
+    label = "C2H5 + O=C[CH]C1CCCC1 <=> C2H4 + OC=CC1CCCC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (7.23e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 581,
+    label = "C2H5 + CC[CH]CCC(C)OO <=> C2H4 + CCCCCC(C)OO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.33e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.7,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 582,
+    label = "C2H5 + CCCCCC(C)O[O] <=> C2H4 + CCCCCC(C)OO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 583,
+    label = "C2H5 + CCCCCCCO[O] <=> C2H4 + CCCCCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 584,
+    label = "C2H5 + [O]OC1C=C[CH]CC=C1 <=> C2H4 + OOC1C=C[CH]CC=C1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 585,
+    label = "C2H5 + [O]OC1C=C[CH]CC=C1 <=> C2H4 + [O]OC1C=CCC=CC1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (2.35552e+06, 'm^3/(mol*s)'),
+        n = -0.116667,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;Cmethyl_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 586,
+    label = "C2H5 + [O]OCC1C=CCC=C1 <=> C2H4 + OOCC1C=CCC=C1",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 587,
+    label = "C2H4 + C2H5 <=> butyl_1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4240, 'cm^3/(mol*s)'),
+        n = 2.41,
+        Ea = (21.171, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Matched reaction 220 C2H4 + C2H5 <=> C4H9-2 in R_Addition_MultipleBond/training\nThis reaction matched rate rule [Cds-HH_Cds-HH;CsJ-CsHH]\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Matched reaction 220 C2H4 + C2H5 <=> C4H9-2 in R_Addition_MultipleBond/training
+This reaction matched rate rule [Cds-HH_Cds-HH;CsJ-CsHH]
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 588,
+    label = "[CH2]OOC1C=CC=CC1 <=> [CH]1C2C=CCC1OOC2",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.125e+09, 's^-1'),
+        n = 0.76,
+        Ea = (25.9408, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R6_cyclic;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn3c6_beta_short;doublebond_intra_pri_HCd;radadd_intra_cs2H]\nEuclidian distance = 2.2360679775\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6_cyclic;doublebond_intra_pri_HCd;radadd_intra_cs] for rate rule [Rn3c6_beta_short;doublebond_intra_pri_HCd;radadd_intra_cs2H]
+Euclidian distance = 2.2360679775
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 589,
+    label = "O + [O]C1C=CC=CC1 <=> [O]OC1C=CC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 3 used for O_rad/NonDe;O_birad\nExact match found for rate rule [O_rad/NonDe;O_birad]\nEuclidian distance = 0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for O_rad/NonDe;O_birad
+Exact match found for rate rule [O_rad/NonDe;O_birad]
+Euclidian distance = 0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 590,
+    label = "CH2O + [O]C1C=CC=CC1 <=> [CH2]OOC1C=CC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (228035, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (153.72, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R_R;OJ-Cs] for rate rule [Od_CO-HH;OJ-Cs]\nEuclidian distance = 3.0\nfamily: R_Addition_MultipleBond\nEa raised from 150.1 to 153.7 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R_R;OJ-Cs] for rate rule [Od_CO-HH;OJ-Cs]
+Euclidian distance = 3.0
+family: R_Addition_MultipleBond
+Ea raised from 150.1 to 153.7 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 591,
+    label = "O + [CH]1C=CC=CC1 <=> [O]C1C=CC=CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (83156.7, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H/OneDeC;O_birad]\nEuclidian distance = 4.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H/OneDeC;O_birad]
+Euclidian distance = 4.0
+Multiplied by reaction path degeneracy 2.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 592,
+    label = "[CH2]C=CC=CC=O <=> [O]C1C=CC=CC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.21347e+10, 's^-1'),
+        n = 0.43,
+        Ea = (141.419, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R7_SMSM;multiplebond_intra;radadd_intra_cs2H] for rate rule [R7_SMSM_CO;carbonylbond_intra_H;radadd_intra_cs2H]\nEuclidian distance = 2.2360679775\nfamily: Intra_R_Add_Exocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R7_SMSM;multiplebond_intra;radadd_intra_cs2H] for rate rule [R7_SMSM_CO;carbonylbond_intra_H;radadd_intra_cs2H]
+Euclidian distance = 2.2360679775
+family: Intra_R_Add_Exocyclic
+""",
+)
+
+entry(
+    index = 593,
+    label = "CO + [CH2]C=CC=C <=> [CH2]C=CC=CC=O",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.236794, 'm^3/(mol*s)'),
+        n = 2.3675,
+        Ea = (305.306, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: 1,2_Insertion_CO',
+    ),
+    longDesc = 
+u"""
+Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: 1,2_Insertion_CO
+""",
+)
+
+entry(
+    index = 594,
+    label = "O2 + [CH2]C=CC=CC=O <=> C=CC(C=CC=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.9277e+07, 'm^3/(mol*s)'),
+        n = -0.00388889,
+        Ea = (-0.926059, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCd;Y_rad] for rate rule [C_rad/H/CdCd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 595,
+    label = "CO + C=CC(C=C)O[O] <=> C=CC(C=CC=O)O[O]",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.236794, 'm^3/(mol*s)'),
+        n = 2.3675,
+        Ea = (305.306, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: 1,2_Insertion_CO',
+    ),
+    longDesc = 
+u"""
+Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: 1,2_Insertion_CO
+""",
+)
+
+entry(
+    index = 596,
+    label = "O2 + [CH2]C=CC=CC=O <=> C=CC=CC(C=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (6.34662e+06, 'm^3/(mol*s)'),
+        n = -0.0521589,
+        Ea = (-5.03536, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O2_birad] + [C_rad/H/TwoDe;Y_rad] for rate rule [C_rad/H/TwoDe;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O2_birad] + [C_rad/H/TwoDe;Y_rad] for rate rule [C_rad/H/TwoDe;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 597,
+    label = "CO + C=CC=CCO[O] <=> C=CC=CC(C=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.532e+06, 'cm^3/(mol*s)'),
+        n = 2.07,
+        Ea = (343.925, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [CO;C_sec] for rate rule [CO;C/H2/OneDeO]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: 1,2_Insertion_CO',
+    ),
+    longDesc = 
+u"""
+Estimated using template [CO;C_sec] for rate rule [CO;C/H2/OneDeO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: 1,2_Insertion_CO
+""",
+)
+
+entry(
+    index = 598,
+    label = "CH3CH2OO <=> C2H4 + HO2",
+    degeneracy = 3.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (4.68e+07, 's^-1'),
+        n = 1.69,
+        Ea = (124.683, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Matched reaction 2 C2H5O2 <=> C2H4 + HO2 in HO2_Elimination_from_PeroxyRadical/training\nThis reaction matched rate rule [R2OO_2H_2H]\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Matched reaction 2 C2H5O2 <=> C2H4 + HO2 in HO2_Elimination_from_PeroxyRadical/training
+This reaction matched rate rule [R2OO_2H_2H]
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 599,
+    label = "CH3CH2OO <=> O2 + C2H5",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (9.49e+21, 's^-1'),
+        n = -2.41,
+        Ea = (35.8, 'kcal/mol'),
+        T0 = (1, 'K'),
+        comment = 'Matched reaction 1 C2H5O2 <=> O2 + C2H5 in R_Recombination/training\nThis reaction matched rate rule [C_rad/H2/Cs;O2_birad]\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Matched reaction 1 C2H5O2 <=> O2 + C2H5 in R_Recombination/training
+This reaction matched rate rule [C_rad/H2/Cs;O2_birad]
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 600,
+    label = "CH3CH2OO <=> C2H4 + HO2",
+    degeneracy = 3.0,
+    duplicate = True,
+    kinetics = Arrhenius(
+        A = (4.68e+07, 's^-1'),
+        n = 1.69,
+        Ea = (124.683, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Matched reaction 2 C2H5O2 <=> C2H4 + HO2 in HO2_Elimination_from_PeroxyRadical/training\nThis reaction matched rate rule [R2OO_2H_2H]\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Matched reaction 2 C2H5O2 <=> C2H4 + HO2 in HO2_Elimination_from_PeroxyRadical/training
+This reaction matched rate rule [R2OO_2H_2H]
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 601,
+    label = "O2 + [CH2]C=CC=CC=O <=> [O]OCC=CC=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (182965, 'm^3/(mol*s)'),
+        n = 0.489115,
+        Ea = (-0.453403, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_pri_rad;O2_birad] + [C_rad/H2/Cd;Y_rad] for rate rule [C_rad/H2/Cd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_pri_rad;O2_birad] + [C_rad/H2/Cd;Y_rad] for rate rule [C_rad/H2/Cd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 602,
+    label = "CO + C=CC=CCO[O] <=> [O]OCC=CC=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.118397, 'm^3/(mol*s)'),
+        n = 2.3675,
+        Ea = (305.306, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: 1,2_Insertion_CO',
+    ),
+    longDesc = 
+u"""
+Estimated using template [CO;R_H] for rate rule [CO;Cd_pri]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: 1,2_Insertion_CO
+""",
+)
+
+entry(
+    index = 603,
+    label = "[CH2]C=CC=CC=O <=> [CH]1C=CC=CCO1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (5.16404e+09, 's^-1'),
+        n = 0.622603,
+        Ea = (78.7572, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [R7_SDSD_D;multiplebond_intra;radadd_intra_cs2H] + [R7_SDSD_D;carbonyl_intra_H;radadd_intra] for rate rule [R7_SDSD_D;carbonyl_intra_H;radadd_intra_cs2H]\nEuclidian distance = 2.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [R7_SDSD_D;multiplebond_intra;radadd_intra_cs2H] + [R7_SDSD_D;carbonyl_intra_H;radadd_intra] for rate rule [R7_SDSD_D;carbonyl_intra_H;radadd_intra_cs2H]
+Euclidian distance = 2.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 604,
+    label = "C=CC=CC(C=O)O[O] <=> O=CC1C=C[CH]COO1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.76476e+07, 's^-1'),
+        n = 0.815689,
+        Ea = (78.927, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R7_linear;doublebond_intra_pri_2H;radadd_intra] for rate rule [R7_linear;doublebond_intra_pri_2H;radadd_intra_O]\nEuclidian distance = 1.0\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R7_linear;doublebond_intra_pri_2H;radadd_intra] for rate rule [R7_linear;doublebond_intra_pri_2H;radadd_intra_O]
+Euclidian distance = 1.0
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 605,
+    label = "[O]OCC=CC=CC=O <=> O=CC1C=C[CH]COO1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.54269e+17, 's^-1'),
+        n = -0.500262,
+        Ea = (96.3509, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R7;doublebond_intra_pri_HDe;radadd_intra] for rate rule [R7_linear;doublebond_intra_pri_HCO;radadd_intra_O]\nEuclidian distance = 1.73205080757\nfamily: Intra_R_Add_Endocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R7;doublebond_intra_pri_HDe;radadd_intra] for rate rule [R7_linear;doublebond_intra_pri_HCO;radadd_intra_O]
+Euclidian distance = 1.73205080757
+family: Intra_R_Add_Endocyclic
+""",
+)
+
+entry(
+    index = 606,
+    label = "HO2 + [CH2]C=CC=C <=> C=CC=CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.74095e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;O_rad/NonDe] for rate rule [C_rad/H2/Cd;O_rad/NonDe]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;O_rad/NonDe] for rate rule [C_rad/H2/Cd;O_rad/NonDe]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 607,
+    label = "C[CH]CCCCC + C=CC=CCOO <=> C7H16 + C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 608,
+    label = "[CH2]CCCCCC + C=CC=CCOO <=> C7H16 + C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.3914e-10, 'm^3/(mol*s)'),
+        n = 4.35167,
+        Ea = (-7.26621, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -7.3 to -7.3 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -7.3 to -7.3 kJ/mol.
+""",
+)
+
+entry(
+    index = 609,
+    label = "C1=CCCC=CC1 + C=CC=CCO[O] <=> [CH]1C=CCC=CC1 + C=CC=CCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 610,
+    label = "C1=CCCC=CC1 + C=CC=CCO[O] <=> [CH]1C=CC=CCC1 + C=CC=CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 611,
+    label = "OH + C=CC=CCOO <=> H2O + C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 206 used for O/H/NonDeO;O_pri_rad\nExact match found for rate rule [O/H/NonDeO;O_pri_rad]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 206 used for O/H/NonDeO;O_pri_rad
+Exact match found for rate rule [O/H/NonDeO;O_pri_rad]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 612,
+    label = "C=CC=CCOO + CCCCCC(C)O[O] <=> C=CC=CCO[O] + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 613,
+    label = "C=CC=CCOO + CC[CH]CCC(C)OO <=> C=CC=CCO[O] + CCCCCC(C)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 614,
+    label = "C2H2 + C=CC=CCOO <=> OOCC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.44e-07, 'm^3/(mol*s)'),
+        n = 2.98,
+        Ea = (117.57, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Diels_alder_addition',
+    ),
+    longDesc = 
+u"""
+Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Diels_alder_addition
+""",
+)
+
+entry(
+    index = 615,
+    label = "H + C=CC=CCO[O] <=> C=CC=CCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 616,
+    label = "HO2 + C=CC=CCOO <=> H2O2 + C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41000, 'cm^3/(mol*s)'),
+        n = 2.5,
+        Ea = (42.7019, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO\nExact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 617,
+    label = "[CH]1C=CCCCC1 + C=CC=CCO[O] <=> C7H10 + C=CC=CCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 618,
+    label = "HO2 + C=CC=CCO[O] <=> O2 + C=CC=CCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 619,
+    label = "[CH2]CCC=CC=C + C=CC=CCO[O] <=> C=CC=CCC=C + C=CC=CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 620,
+    label = "[CH]1C=CC=CCC1 + C=CC=CCO[O] <=> C1=CC=CCC=C1 + C=CC=CCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 621,
+    label = "[CH]1C=CCC=CC1 + C=CC=CCO[O] <=> C1=CC=CCC=C1 + C=CC=CCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 622,
+    label = "C2H5 + C=CC=CCO[O] <=> C2H4 + C=CC=CCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 623,
+    label = "C=CC=CC + C=CC=CCO[O] <=> [CH2]C=CC=C + C=CC=CCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 624,
+    label = "C=CC=CCO[O] + OC=CC1CCCC1 <=> O=C[CH]C1CCCC1 + C=CC=CCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 625,
+    label = "OC=C[C]1CCC(C1)OO + C=CC=CCO[O] <=> C=CC=CCOO + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 626,
+    label = "O=C[CH]C1CCCC1 + C=CC=CCO[O] <=> O=CC=C1CCCC1 + C=CC=CCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 627,
+    label = "C=CC=CCO[O] + CCCCCCCOO <=> C=CC=CCOO + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 628,
+    label = "C=CC=CCO[O] + CCCC(CC[CH]O)OO <=> C=CC=CCOO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 629,
+    label = "C=CC=CCO[O] + OOCC1C=CCC=C1 <=> C=CC=CCOO + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 630,
+    label = "C=CC=CCO[O] + [CH]1C=CC=CC1 <=> C=CC=CCOO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 631,
+    label = "O + C=CC=CC[O] <=> C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 3 used for O_rad/NonDe;O_birad\nExact match found for rate rule [O_rad/NonDe;O_birad]\nEuclidian distance = 0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 3 used for O_rad/NonDe;O_birad
+Exact match found for rate rule [O_rad/NonDe;O_birad]
+Euclidian distance = 0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 632,
+    label = "C2H2 + C=CC=CC[O] <=> [O]CC1C=CCC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.44e-07, 'm^3/(mol*s)'),
+        n = 2.98,
+        Ea = (117.57, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Diels_alder_addition',
+    ),
+    longDesc = 
+u"""
+Estimated using template [diene_out;diene_in_2H;yne] for rate rule [diene_out;diene_in_2H;yne_unsub_unsub]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: Diels_alder_addition
+""",
+)
+
+entry(
+    index = 633,
+    label = "OH + C=CC=CC[O] <=> C=CC=CCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 103 used for O_pri_rad;O_rad/NonDe\nExact match found for rate rule [O_pri_rad;O_rad/NonDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 103 used for O_pri_rad;O_rad/NonDe
+Exact match found for rate rule [O_pri_rad;O_rad/NonDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 634,
+    label = "O + [CH2]C=CC=C <=> C=CC=CC[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (83156.7, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cd;O_birad]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [C_rad/H2/Cd;O_birad]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 635,
+    label = "C=CC=CC[O] <=> C=[C]C=CCO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.658e+09, 's^-1'),
+        n = 0.699,
+        Ea = (29.5516, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R5H_RSMS;Y_rad_out;Cd_H_out_doubleC] for rate rule [R5H_SSMS;O_rad_out;Cd_H_out_doubleC]\nEuclidian distance = 1.41421356237\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R5H_RSMS;Y_rad_out;Cd_H_out_doubleC] for rate rule [R5H_SSMS;O_rad_out;Cd_H_out_doubleC]
+Euclidian distance = 1.41421356237
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 636,
+    label = "O2 + C=[C]C=CCO <=> C=C(C=CCO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.2234e+15, 'cm^3/(mol*s)'),
+        n = -0.152,
+        Ea = (4.19655, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cd_rad/Cd;Y_rad] for rate rule [Cd_rad/Cd;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cd_rad/Cd;Y_rad] for rate rule [Cd_rad/Cd;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 637,
+    label = "C=C(C=CCO)O[O] <=> [CH2]C1(C=CCO)OO1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (7.1786e+12, 's^-1'),
+        n = -0.0937843,
+        Ea = (66.7967, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R4_S_D;doublebond_intra_2H_secDe;radadd_intra] for rate rule [R4_S_D;doublebond_intra_2H_secDe;radadd_intra_O]\nEuclidian distance = 1.0\nfamily: Intra_R_Add_Exocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R4_S_D;doublebond_intra_2H_secDe;radadd_intra] for rate rule [R4_S_D;doublebond_intra_2H_secDe;radadd_intra_O]
+Euclidian distance = 1.0
+family: Intra_R_Add_Exocyclic
+""",
+)
+
+entry(
+    index = 638,
+    label = "O2 + C=[C]C=CCO <=> C=C=CC(CO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 639,
+    label = "O + C=C([O])C=CCO <=> C=C(C=CCO)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (54738.4, 'm^3/(mol*s)'),
+        n = 0.884925,
+        Ea = (-2.91916, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_birad] for rate rule [O_rad/OneDe;O_birad]\nEuclidian distance = 1.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_birad] for rate rule [O_rad/OneDe;O_birad]
+Euclidian distance = 1.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 640,
+    label = "O + C=[C]C=CCO <=> C=C([O])C=CCO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (41578.4, 'm^3/(mol*s)'),
+        n = 1.09561,
+        Ea = (163.888, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [Y_rad;O_birad] for rate rule [Cd_rad/OneDe;O_birad]\nEuclidian distance = 3.0\nfamily: Birad_R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;O_birad] for rate rule [Cd_rad/OneDe;O_birad]
+Euclidian distance = 3.0
+family: Birad_R_Recombination
+""",
+)
+
+entry(
+    index = 641,
+    label = "C1=CCCC=CC1 + O <=> OH + [CH]1C=CCC=CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.5448e-06, 'm^3/(mol*s)'),
+        n = 3.69217,
+        Ea = (14.3081, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/CdCs;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCs;O_atom_triplet]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/CdCs;Y_rad_birad_trirad_quadrad] for rate rule [C/H2/CdCs;O_atom_triplet]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 642,
+    label = "O + OOC1C=CCCCC1 <=> [O]OC1C=CCCCC1 + OH",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.7e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 205 used for O/H/NonDeO;O_atom_triplet\nExact match found for rate rule [O/H/NonDeO;O_atom_triplet]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 205 used for O/H/NonDeO;O_atom_triplet
+Exact match found for rate rule [O/H/NonDeO;O_atom_triplet]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 643,
+    label = "O + OOC1C=CCCCC1 <=> OH + OOC1C=CC[CH]CC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.00110935, 'm^3/(mol*s)'),
+        n = 3.19,
+        Ea = (59.0662, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;O_atom_triplet]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 644,
+    label = "O + OC=CC1CCCC1 <=> OH + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00221869, 'm^3/(mol*s)'),
+        n = 3.19,
+        Ea = (59.0662, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;O_atom_triplet] for rate rule [C/H2/NonDeC_5ring;O_atom_triplet]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;O_atom_triplet] for rate rule [C/H2/NonDeC_5ring;O_atom_triplet]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 645,
+    label = "C7H10 + C=CC=CCO[O] <=> [CH]1C=CC=CCC1 + C=CC=CCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 646,
+    label = "O2 + C=C([O])C=CCO <=> [O]OCC(=O)C=CCO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1068.42, 'm^3/(mol*s)'),
+        n = 0.903354,
+        Ea = (-0.564765, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_pri_rad;O2_birad] for rate rule [C_rad/H2/CO;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_pri_rad;O2_birad] for rate rule [C_rad/H2/CO;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 647,
+    label = "[O]OCC(=O)C=CCO <=> O=C1COOC1[CH]CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.72e+06, 's^-1'),
+        n = 1.2,
+        Ea = (17.9912, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [R6_SSS_D;doublebond_intra_HNd_pri;radadd_intra] for rate rule [R6_SSS_D;doublebond_intra_HNd_pri;radadd_intra_O]\nEuclidian distance = 1.0\nfamily: Intra_R_Add_Exocyclic',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R6_SSS_D;doublebond_intra_HNd_pri;radadd_intra] for rate rule [R6_SSS_D;doublebond_intra_HNd_pri;radadd_intra_O]
+Euclidian distance = 1.0
+family: Intra_R_Add_Exocyclic
+""",
+)
+
+entry(
+    index = 648,
+    label = "C=C([O])C=CCO <=> CC(=O)C=C[CH]O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (423178, 's^-1'),
+        n = 1.77,
+        Ea = (78.0316, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [R5H_SSMS;C_rad_out_2H;Cs_H_out] for rate rule [R5H_SSMS;C_rad_out_2H;Cs_H_out_H/NonDeO]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: intra_H_migration',
+    ),
+    longDesc = 
+u"""
+Estimated using template [R5H_SSMS;C_rad_out_2H;Cs_H_out] for rate rule [R5H_SSMS;C_rad_out_2H;Cs_H_out_H/NonDeO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration
+""",
+)
+
+entry(
+    index = 649,
+    label = "C7H16 + H <=> H2 + C[CH]CCCCC",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00012765, 'm^3/(mol*s)'),
+        n = 3.68,
+        Ea = (19.6648, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;H_rad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;H_rad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 650,
+    label = "C7H16 + H <=> H2 + [CH2]CCCCCC",
+    degeneracy = 6.0,
+    kinetics = Arrhenius(
+        A = (0.0166382, 'm^3/(mol*s)'),
+        n = 2.718,
+        Ea = (27.1788, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C/H3/Cs\\OneNonDe;H_rad] + [C/H3/Cs\\H2\\Cs;Y_rad] for rate rule [C/H3/Cs\\H2\\Cs;H_rad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 6.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C/H3/Cs\OneNonDe;H_rad] + [C/H3/Cs\H2\Cs;Y_rad] for rate rule [C/H3/Cs\H2\Cs;H_rad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 6.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 651,
+    label = "O2 + CC(=O)C=C[CH]O <=> CC(=O)C=CC(O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.19343e+07, 'm^3/(mol*s)'),
+        n = 0.0113737,
+        Ea = (2.96199, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDe;Y_rad] for rate rule [C_rad/H/OneDeO;O2_birad]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDe;Y_rad] for rate rule [C_rad/H/OneDeO;O2_birad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 652,
+    label = "H + CC(=O)C=CC=O <=> CC(=O)C=C[CH]O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (373000, 'cm^3/(mol*s)'),
+        n = 2.53,
+        Ea = (20.92, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 2834 used for Od_CO-CdH;HJ\nExact match found for rate rule [Od_CO-CdH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 2834 used for Od_CO-CdH;HJ
+Exact match found for rate rule [Od_CO-CdH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 653,
+    label = "O + CC(=O)C=C[CH]O <=> OH + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.04e+13, 'cm^3/(mol*s)', '+|-', 3.01e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 54 used for O_atom_triplet;O_Csrad\nExact match found for rate rule [O_atom_triplet;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 54 used for O_atom_triplet;O_Csrad
+Exact match found for rate rule [O_atom_triplet;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 654,
+    label = "OH + CC(=O)C=C[CH]O <=> H2O + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 65 used for O_pri_rad;O_Csrad\nExact match found for rate rule [O_pri_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 65 used for O_pri_rad;O_Csrad
+Exact match found for rate rule [O_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 655,
+    label = "HO2 + CC(=O)C=C[CH]O <=> H2O2 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 656,
+    label = "O2 + CC(=O)C=C[CH]O <=> HO2 + CC(=O)C=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.14418e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (298, 'K'),
+        comment = 'From training reaction 53 used for O2b;O_Csrad\nExact match found for rate rule [O2b;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 53 used for O2b;O_Csrad
+Exact match found for rate rule [O2b;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 657,
+    label = "[CH]1C=CC=CCC1 + CC(=O)C=C[CH]O <=> C1=CCCC=CC1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 658,
+    label = "[CH]1C=CC=CCC1 + CC(=O)C=C[CH]O <=> C7H10 + CC(=O)C=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 659,
+    label = "[CH2]C=CC=C + CC(=O)C=C[CH]O <=> C=CC=CC + CC(=O)C=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+13, 'cm^3/(mol*s)', '*|/', 2.5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 59 used for C_rad/H2/Cd;O_Csrad\nExact match found for rate rule [C_rad/H2/Cd;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for C_rad/H2/Cd;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 660,
+    label = "[CH2]CCCCCC + CC(=O)C=C[CH]O <=> C7H16 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 58 used for C_rad/H2/Cs;O_Csrad\nExact match found for rate rule [C_rad/H2/Cs;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 58 used for C_rad/H2/Cs;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 661,
+    label = "CCCCCCCO[O] + CC(=O)C=C[CH]O <=> CCCCCCCOO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 662,
+    label = "C[CH]CCCCC + CC(=O)C=C[CH]O <=> C7H16 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 663,
+    label = "CCCCCC(C)O[O] + CC(=O)C=C[CH]O <=> CCCCCC(C)OO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 664,
+    label = "[O]OCC1C=CCC=C1 + CC(=O)C=C[CH]O <=> OOCC1C=CCC=C1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 665,
+    label = "CH3 + CC(=O)C=C[CH]O <=> CH4 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.69258e+07, 'm^3/(mol*s)'),
+        n = -0.25,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 666,
+    label = "CC(=O)C=CC(O)O[O] <=> HO2 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.813e+10, 's^-1', '*|/', 10),
+        n = 0.493,
+        Ea = (123.219, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 13 used for R2OO_O_HNd\nExact match found for rate rule [R2OO_O_HNd]\nEuclidian distance = 0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+From training reaction 13 used for R2OO_O_HNd
+Exact match found for rate rule [R2OO_O_HNd]
+Euclidian distance = 0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 667,
+    label = "H + CC(=O)C=C[CH]O <=> H2 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '+|-', 1e+13),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (295, 'K'),
+        comment = 'From training reaction 56 used for H_rad;O_Csrad\nExact match found for rate rule [H_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 56 used for H_rad;O_Csrad
+Exact match found for rate rule [H_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 668,
+    label = "[CH]1C=CCC=CC1 + CC(=O)C=C[CH]O <=> C1=CCCC=CC1 + CC(=O)C=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 669,
+    label = "OOC1C=CC[CH]CC1 + CC(=O)C=C[CH]O <=> OOC1C=CCCCC1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 670,
+    label = "[O]OC1C=CCCCC1 + CC(=O)C=C[CH]O <=> OOC1C=CCCCC1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 671,
+    label = "OC=CC1C[CH]CC1 + CC(=O)C=C[CH]O <=> OC=CC1CCCC1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 672,
+    label = "O=C[CH]C1CCCC1 + CC(=O)C=C[CH]O <=> OC=CC1CCCC1 + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 673,
+    label = "CC[CH]CCC(C)OO + CC(=O)C=C[CH]O <=> CCCCCC(C)OO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 674,
+    label = "C=CC=CCO[O] + CC(=O)C=C[CH]O <=> C=CC=CCOO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 675,
+    label = "O + C=CC=CC=CO <=> OH + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.7e+08, 'cm^3/(mol*s)'),
+        n = 1.5,
+        Ea = (17.2799, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 692 used for O/H/OneDeC;O_atom_triplet\nExact match found for rate rule [O/H/OneDeC;O_atom_triplet]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 692 used for O/H/OneDeC;O_atom_triplet
+Exact match found for rate rule [O/H/OneDeC;O_atom_triplet]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 676,
+    label = "H + C=CC=CC=CO <=> H2 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.4e+08, 'cm^3/(mol*s)'),
+        n = 1.5,
+        Ea = (27.6981, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 691 used for O/H/OneDeC;H_rad\nExact match found for rate rule [O/H/OneDeC;H_rad]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 691 used for O/H/OneDeC;H_rad
+Exact match found for rate rule [O/H/OneDeC;H_rad]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 677,
+    label = "OH + C=CC=CC=CO <=> H2O + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+06, 'cm^3/(mol*s)'),
+        n = 2,
+        Ea = (-1.046, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 693 used for O/H/OneDeC;O_pri_rad\nExact match found for rate rule [O/H/OneDeC;O_pri_rad]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 693 used for O/H/OneDeC;O_pri_rad
+Exact match found for rate rule [O/H/OneDeC;O_pri_rad]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 678,
+    label = "HO2 + [CH2]C=CC=CC=O <=> O2 + C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.99854e-10, 'm^3/(mol*s)'),
+        n = 4.539,
+        Ea = (78.7995, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;O_rad/Cd] for rate rule [Orad_O_H;O_rad/Cd]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;O_rad/Cd] for rate rule [Orad_O_H;O_rad/Cd]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 679,
+    label = "HO2 + C=CC=CC=CO <=> H2O2 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.00448683, 'm^3/(mol*s)'),
+        n = 2.72,
+        Ea = (24.7295, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;O_rad/NonDeO] + [O/H/OneDeC;O_rad] for rate rule [O/H/OneDeC;O_rad/NonDeO]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;O_rad/NonDeO] + [O/H/OneDeC;O_rad] for rate rule [O/H/OneDeC;O_rad/NonDeO]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 680,
+    label = "C7H10 + [CH2]C=CC=CC=O <=> [CH]1C=CC=CCC1 + C=CC=CC=CO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.36124e-09, 'm^3/(mol*s)'),
+        n = 4.52075,
+        Ea = (30.8528, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 681,
+    label = "CH3 + C=CC=CC=CO <=> CH4 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (820000, 'cm^3/(mol*s)'),
+        n = 1.87,
+        Ea = (27.6981, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 694 used for O/H/OneDeC;C_methyl\nExact match found for rate rule [O/H/OneDeC;C_methyl]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 694 used for O/H/OneDeC;C_methyl
+Exact match found for rate rule [O/H/OneDeC;C_methyl]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 682,
+    label = "C[CH]CCCCC + C=CC=CC=CO <=> C7H16 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 683,
+    label = "[CH2]CCCCCC + C=CC=CC=CO <=> C7H16 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.0065, 'cm^3/(mol*s)'),
+        n = 4.245,
+        Ea = (30.1248, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cs]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cs]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 684,
+    label = "[CH]1C=CCCCC1 + [CH2]C=CC=CC=O <=> C7H10 + C=CC=CC=CO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 685,
+    label = "[CH]1C=CC=CCC1 + [CH2]C=CC=CC=O <=> C1=CC=CCC=C1 + C=CC=CC=CO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 686,
+    label = "[CH]1C=CCC=CC1 + C=CC=CC=CO <=> C1=CCCC=CC1 + [CH2]C=CC=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.5712e-16, 'm^3/(mol*s)'),
+        n = 6.375,
+        Ea = (-1.92464, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec;C_rad/H/OneDeC] for rate rule [O/H/OneDeC;C_rad/H/CdCs]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;C_rad/H/OneDeC] for rate rule [O/H/OneDeC;C_rad/H/CdCs]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 687,
+    label = "C1=CCCC=CC1 + [CH2]C=CC=CC=O <=> [CH]1C=CC=CCC1 + C=CC=CC=CO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.504e-13, 'm^3/(mol*s)'),
+        n = 5.77,
+        Ea = (50.3754, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_H;O_rad/Cd] for rate rule [C/H2/CdCd;O_rad/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_H;O_rad/Cd] for rate rule [C/H2/CdCd;O_rad/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 688,
+    label = "[O]OC1C=CCCCC1 + C=CC=CC=CO <=> OOC1C=CCCCC1 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 689,
+    label = "OOC1C=CC[CH]CC1 + C=CC=CC=CO <=> OOC1C=CCCCC1 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 690,
+    label = "[CH2]C=CC=C + C=CC=CC=CO <=> C=CC=CC + [CH2]C=CC=CC=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.51046e-08, 'm^3/(mol*s)'),
+        n = 4.2325,
+        Ea = (35.6895, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H2/Cd\\H_Cd\\H2] + [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cd\\H_Cd\\H2]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H2/Cd\H_Cd\H2] + [O/H/OneDeC;C_pri_rad] for rate rule [O/H/OneDeC;C_rad/H2/Cd\H_Cd\H2]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 691,
+    label = "O=C[CH]C1CCCC1 + [CH2]C=CC=CC=O <=> O=CC=C1CCCC1 + C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/OneDe;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/OneDe;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 692,
+    label = "O=C[CH]C1CCCC1 + C=CC=CC=CO <=> OC=CC1CCCC1 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.03495, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.75,
+        Ea = (45.5638, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;O_rad/Cd\\H_Cd\\H\\Cs] for rate rule [O/H/OneDeC;O_rad/Cd\\H_Cd\\H\\Cs]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;O_rad/Cd\H_Cd\H\Cs] for rate rule [O/H/OneDeC;O_rad/Cd\H_Cd\H\Cs]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 693,
+    label = "OC=CC1C[CH]CC1 + C=CC=CC=CO <=> OC=CC1CCCC1 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 694,
+    label = "CCCCCC(C)O[O] + C=CC=CC=CO <=> CCCCCC(C)OO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 695,
+    label = "CC[CH]CCC(C)OO + C=CC=CC=CO <=> CCCCCC(C)OO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 696,
+    label = "CCCCCCCO[O] + C=CC=CC=CO <=> CCCCCCCOO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 697,
+    label = "[O]OCC1C=CCC=C1 + C=CC=CC=CO <=> OOCC1C=CCC=C1 + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 698,
+    label = "C2H5 + [CH2]C=CC=CC=O <=> C2H4 + C=CC=CC=CO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (7.23e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 699,
+    label = "[O]OC1C=CCC=CC1 + [CH2]C=CC=CC=O <=> [O]OC1C=C[CH]CC=C1 + C=CC=CC=CO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.18062e-09, 'm^3/(mol*s)'),
+        n = 4.52075,
+        Ea = (30.8528, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/CdCs;O_sec_rad] for rate rule [C/H2/CdCs;O_rad/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 700,
+    label = "[CH]1C=CC=CC1 + [CH2]C=CC=CC=O <=> c1ccccc1 + C=CC=CC=CO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 701,
+    label = "C=CC=CCO[O] + C=CC=CC=CO <=> C=CC=CCOO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 702,
+    label = "[CH2]C=CC=CC=O + CC(=O)C=C[CH]O <=> C=CC=CC=CO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 703,
+    label = "H + [CH2]C=CC=CC=O <=> C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (7e+11, 'cm^3/(mol*s)'),
+        n = 0.493,
+        Ea = (-1.2301, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (200, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 25 used for H_rad;O_rad/OneDe\nExact match found for rate rule [H_rad;O_rad/OneDe]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 25 used for H_rad;O_rad/OneDe
+Exact match found for rate rule [H_rad;O_rad/OneDe]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 704,
+    label = "[CH2]CCC=CC=C + [CH2]C=CC=CC=O <=> C=CC=CCC=C + C=CC=CC=CO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 705,
+    label = "[CH]1C=CCC=CC1 + [CH2]C=CC=CC=O <=> C1=CC=CCC=C1 + C=CC=CC=CO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 706,
+    label = "OC=C[C]1CCC(C1)OO + [CH2]C=CC=CC=O <=> O=CC=C1CCC(C1)OO + C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 707,
+    label = "CCCC(CC[CH]O)OO + [CH2]C=CC=CC=O <=> CCCC(CCC=O)OO + C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 708,
+    label = "C=CC=CCC=C + O <=> C=CC=CC[CH]C[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.06e+08, 'cm^3/(mol*s)'),
+        n = 1.58,
+        Ea = (-8.368, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using an average for rate rule [Cds-HH_Cds-CsH;O_atom_triplet]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [Cds-HH_Cds-CsH;O_atom_triplet]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 709,
+    label = "C=CC=CC[CH]C[O] <=> C=CC=CCC=CO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.898e+11, 's^-1'),
+        n = 0.486,
+        Ea = (22.8614, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [R2radExo;Y_rad;XH_Rrad_NDe]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Intra_Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [R2radExo;Y_rad;XH_Rrad_NDe]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Intra_Disproportionation
+""",
+)
+
+entry(
+    index = 710,
+    label = "O2 + C=CC=CC=CO <=> C=C[CH]C(C=CO)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.676919, 'm^3/(mol*s)'),
+        n = 2.24862,
+        Ea = (47.475, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond\nEa raised from 41.9 to 47.5 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+Ea raised from 41.9 to 47.5 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 711,
+    label = "OH + C=CC(C=C[CH]O)O[O] <=> H2O + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 65 used for O_pri_rad;O_Csrad\nExact match found for rate rule [O_pri_rad;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 65 used for O_pri_rad;O_Csrad
+Exact match found for rate rule [O_pri_rad;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 712,
+    label = "HO2 + C=CC(C=C[CH]O)O[O] <=> H2O2 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 713,
+    label = "[CH]1C=CC=CCC1 + C=CC(C=C[CH]O)O[O] <=> C7H10 + C=CC(C=CC=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 714,
+    label = "CH3 + C=CC(C=C[CH]O)O[O] <=> CH4 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.69258e+07, 'm^3/(mol*s)'),
+        n = -0.25,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;O_Csrad] for rate rule [C_methyl;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 715,
+    label = "C[CH]CCCCC + C=CC(C=C[CH]O)O[O] <=> C7H16 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 716,
+    label = "[CH2]CCCCCC + C=CC(C=C[CH]O)O[O] <=> C7H16 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.41e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 58 used for C_rad/H2/Cs;O_Csrad\nExact match found for rate rule [C_rad/H2/Cs;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 58 used for C_rad/H2/Cs;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cs;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 717,
+    label = "[CH]1C=CCC=CC1 + C=CC(C=C[CH]O)O[O] <=> C1=CCCC=CC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.6781e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.1506, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [C_sec_rad;O_Csrad] + [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;O_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 718,
+    label = "[CH]1C=CC=CCC1 + C=CC(C=C[CH]O)O[O] <=> C1=CCCC=CC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec_rad;O_Csrad] for rate rule [C_rad/H/TwoDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 719,
+    label = "OOC1C=CC[CH]CC1 + C=CC(C=C[CH]O)O[O] <=> OOC1C=CCCCC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 720,
+    label = "[O]OC1C=CCCCC1 + C=CC(C=C[CH]O)O[O] <=> OOC1C=CCCCC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 721,
+    label = "[CH2]C=CC=C + C=CC(C=C[CH]O)O[O] <=> C=CC=CC + C=CC(C=CC=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (3.62e+13, 'cm^3/(mol*s)', '*|/', 2.5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 59 used for C_rad/H2/Cd;O_Csrad\nExact match found for rate rule [C_rad/H2/Cd;O_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for C_rad/H2/Cd;O_Csrad
+Exact match found for rate rule [C_rad/H2/Cd;O_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 722,
+    label = "OC=CC1C[CH]CC1 + C=CC(C=C[CH]O)O[O] <=> OC=CC1CCCC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 723,
+    label = "O=C[CH]C1CCCC1 + C=CC(C=C[CH]O)O[O] <=> OC=CC1CCCC1 + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 724,
+    label = "CC[CH]CCC(C)OO + C=CC(C=C[CH]O)O[O] <=> CCCCCC(C)OO + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 725,
+    label = "CCCCCC(C)O[O] + C=CC(C=C[CH]O)O[O] <=> CCCCCC(C)OO + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 726,
+    label = "CCCCCCCO[O] + C=CC(C=C[CH]O)O[O] <=> CCCCCCCOO + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 727,
+    label = "[O]OCC1C=CCC=C1 + C=CC(C=C[CH]O)O[O] <=> C=CC(C=CC=O)O[O] + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 728,
+    label = "O2 + C=CC=CC=CO <=> C=CC(C=C[CH]O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.676919, 'm^3/(mol*s)'),
+        n = 2.24862,
+        Ea = (47.475, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond\nEa raised from 41.9 to 47.5 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+Ea raised from 41.9 to 47.5 kJ/mol to match endothermicity of reaction.
+""",
+)
+
+entry(
+    index = 729,
+    label = "[CH2]C=CC=CC=O + C=CC(C=C[CH]O)O[O] <=> C=CC(C=CC=O)O[O] + C=CC=CC=CO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.70766e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;O_Csrad] for rate rule [O_rad/OneDe;O_Csrad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 730,
+    label = "H + C=CC(C=CC=O)O[O] <=> C=CC(C=C[CH]O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (373000, 'cm^3/(mol*s)'),
+        n = 2.53,
+        Ea = (20.92, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 2834 used for Od_CO-CdH;HJ\nExact match found for rate rule [Od_CO-CdH;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 2834 used for Od_CO-CdH;HJ
+Exact match found for rate rule [Od_CO-CdH;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 731,
+    label = "O2 + O=CC1C=C[CH]COO1 <=> [O]OC1C=CC(C=O)OOC1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 732,
+    label = "O2 + O=CC1C=C[CH]COO1 <=> [O]OC1C=CCOOC1C=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (5.42928e+07, 'm^3/(mol*s)'),
+        n = 0.107721,
+        Ea = (5.76381, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 733,
+    label = "butyl_1 + HO2 <=> CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.58895e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]\nEuclidian distance = 2.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Cs_rad;O_rad/NonDe] + [C_rad/H2/Cs;O_rad] for rate rule [C_rad/H2/Cs;O_rad/NonDe]
+Euclidian distance = 2.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 734,
+    label = "OH + CCCCOO <=> H2O + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.1e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-1.82841, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction\nEa raised from -1.8 to -1.8 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_pri_rad] for rate rule [ROOH_pri;O_pri_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+Ea raised from -1.8 to -1.8 kJ/mol.
+""",
+)
+
+entry(
+    index = 735,
+    label = "HO2 + CCCCO[O] <=> O2 + CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.2e+11, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-8.1588, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'From training reaction 244 used for Orad_O_H;OOC\nExact match found for rate rule [Orad_O_H;OOC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -8.2 to -8.2 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.
+""",
+)
+
+entry(
+    index = 736,
+    label = "H2O2 + CCCCO[O] <=> HO2 + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.184, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 37 used for H2O2;OOC\nExact match found for rate rule [H2O2;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 37 used for H2O2;OOC
+Exact match found for rate rule [H2O2;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 737,
+    label = "C7H10 + CCCCO[O] <=> [CH]1C=CC=CCC1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 738,
+    label = "C[CH]CCCCC + CCCCOO <=> C7H16 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 739,
+    label = "[CH2]CCCCCC + CCCCOO <=> C7H16 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H2/Cs]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 740,
+    label = "C1=CCCC=CC1 + CCCCO[O] <=> [CH]1C=CCC=CC1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 741,
+    label = "C1=CCCC=CC1 + CCCCO[O] <=> [CH]1C=CC=CCC1 + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_sec;OOC] for rate rule [C/H2/CdCd;OOC]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 742,
+    label = "[O]OC1C=CCCCC1 + CCCCOO <=> OOC1C=CCCCC1 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 743,
+    label = "CCCCOO + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 744,
+    label = "C=CC=CC + CCCCO[O] <=> [CH2]C=CC=C + CCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (1.73499e-09, 'm^3/(mol*s)'),
+        n = 4.65,
+        Ea = (40.9195, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H3/Cd;O_rad/NonDeO] for rate rule [C/H3/Cd;OOC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 745,
+    label = "O=C[CH]C1CCCC1 + CCCCO[O] <=> CCCCOO + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 746,
+    label = "OC=CC1CCCC1 + CCCCO[O] <=> CCCCOO + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 747,
+    label = "CCCCOO + OC=CC1C[CH]CC1 <=> OC=CC1CCCC1 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 748,
+    label = "CCCCOO + CCCCCC(C)O[O] <=> CCCCCC(C)OO + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 749,
+    label = "CCCCOO + CC[CH]CCC(C)OO <=> CCCCCC(C)OO + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 750,
+    label = "CCCCOO + [O]OCC1C=CCC=C1 <=> CCCCO[O] + OOCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 751,
+    label = "O + CCCCOO <=> OH + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.7e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (19.874, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;O_atom_triplet] for rate rule [ROOH_pri;O_atom_triplet]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 752,
+    label = "H + CCCCOO <=> H2 + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.40637e-05, 'm^3/(mol*s)'),
+        n = 2.8,
+        Ea = (42.6, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O/H/NonDeO;H_rad] + [ROOH_pri;Y_rad] for rate rule [ROOH_pri;H_rad]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O/H/NonDeO;H_rad] + [ROOH_pri;Y_rad] for rate rule [ROOH_pri;H_rad]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 753,
+    label = "OH + CCCCOO <=> H2O + C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (784857, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (55.04, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;O_rad] for rate rule [C/H2/Cs/Cs\\Cs|O;O_pri_rad]\nEuclidian distance = 1.41421356237\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;O_rad] for rate rule [C/H2/Cs/Cs\Cs|O;O_pri_rad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 754,
+    label = "HO2 + C[CH]CCOO <=> O2 + CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.75906e-08, 'm^3/(mol*s)'),
+        n = 3.80154,
+        Ea = (26.4597, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [X_H;C_rad/H/NonDeC] for rate rule [Orad_O_H;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 755,
+    label = "H2O2 + C[CH]CCOO <=> HO2 + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.1011e-09, 'm^3/(mol*s)'),
+        n = 4.1328,
+        Ea = (2.26773, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [H2O2;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 756,
+    label = "C7H10 + C[CH]CCOO <=> [CH]1C=CC=CCC1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 757,
+    label = "C7H16 + C[CH]CCOO <=> C[CH]CCCCC + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (5.1475e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 758,
+    label = "[CH2]CCCCCC + CCCCOO <=> C7H16 + C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.16387e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (31.5317, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;C_rad/H2/Cs] for rate rule [C/H2/Cs/Cs\\Cs|O;C_rad/H2/Cs]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;C_rad/H2/Cs] for rate rule [C/H2/Cs/Cs\Cs|O;C_rad/H2/Cs]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 759,
+    label = "[CH]1C=CC=CCC1 + CCCCO[O] <=> C1=CC=CCC=C1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 760,
+    label = "C1=CCCC=CC1 + C[CH]CCOO <=> [CH]1C=CCC=CC1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (3.412e-09, 'm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (12.9704, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 761,
+    label = "C1=CCCC=CC1 + C[CH]CCOO <=> [CH]1C=CC=CCC1 + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (8.3552e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (23.5141, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 762,
+    label = "OOC1C=CCCCC1 + C[CH]CCOO <=> [O]OC1C=CCCCC1 + CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 763,
+    label = "CCCCOO + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.57375e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;C_rad/H/NonDeC] for rate rule [C/H2/Cs/Cs\\Cs|O;C_rad/H/NonDeC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;C_rad/H/NonDeC] for rate rule [C/H2/Cs/Cs\Cs|O;C_rad/H/NonDeC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 764,
+    label = "C=CC=CC + C[CH]CCOO <=> [CH2]C=CC=C + CCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (9.78193e-10, 'm^3/(mol*s)'),
+        n = 4.26,
+        Ea = (27.7818, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H3/Cd;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 765,
+    label = "OC=CC1CCCC1 + C[CH]CCOO <=> CCCCOO + O=C[CH]C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 766,
+    label = "OC=CC1CCCC1 + C[CH]CCOO <=> CCCCOO + OC=CC1C[CH]CC1",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (7.65801e-09, 'm^3/(mol*s)'),
+        n = 4.24,
+        Ea = (33.1582, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/NonDeC_5ring;C_rad/H/NonDeC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 767,
+    label = "CCCCCC(C)OO + C[CH]CCOO <=> CCCCOO + CCCCCC(C)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_sec;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 768,
+    label = "CCCCOO + CC[CH]CCC(C)OO <=> CCCCCC(C)OO + C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (2.57375e-09, 'm^3/(mol*s)'),
+        n = 4.29,
+        Ea = (32.2691, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;C_rad/H/NonDeC] for rate rule [C/H2/Cs/Cs\\Cs|O;C_rad/H/NonDeC]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;C_rad/H/NonDeC] for rate rule [C/H2/Cs/Cs\Cs|O;C_rad/H/NonDeC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 769,
+    label = "CCCCOO + CCCCCCCO[O] <=> CCCCCCCOO + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 770,
+    label = "CCCCCCCOO + C[CH]CCOO <=> CCCCOO + CCCCCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 771,
+    label = "[CH]1C=CCC=CC1 + CCCCO[O] <=> C1=CC=CCC=C1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 772,
+    label = "[O]OC1C=CCC=CC1 + CCCCO[O] <=> CCCCOO + [O]OC1C=C[CH]CC=C1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01482, 'cm^3/(mol*s)', '*|/', 3),
+        n = 4.313,
+        Ea = (33.5389, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using an average for rate rule [C/H2/CdCs;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [C/H2/CdCs;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 773,
+    label = "C[CH]CCOO + OOCC1C=CCC=C1 <=> CCCCOO + [O]OCC1C=CCC=C1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 774,
+    label = "[CH]1C=CC=CC1 + CCCCO[O] <=> CCCCOO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+07, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.60555127546\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 775,
+    label = "CH4 + CCCCO[O] <=> CH3 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (0.00445, 'cm^3/(mol*s)'),
+        n = 4.691,
+        Ea = (83.1277, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (400, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 209 used for C_methane;OOC\nExact match found for rate rule [C_methane;OOC]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 4.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+From training reaction 209 used for C_methane;OOC
+Exact match found for rate rule [C_methane;OOC]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 776,
+    label = "CH3 + CCCCOO <=> CH4 + C[CH]CCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.01606, 'cm^3/(mol*s)'),
+        n = 4.34,
+        Ea = (27.6562, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C/H2/NonDeC;C_methyl] for rate rule [C/H2/Cs/Cs\\Cs|O;C_methyl]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C/H2/NonDeC;C_methyl] for rate rule [C/H2/Cs/Cs\Cs|O;C_methyl]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 777,
+    label = "C2H5 + CCCCO[O] <=> C2H4 + CCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (30034.5, 'm^3/(mol*s)'),
+        n = 1.00875,
+        Ea = (-2.5104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 778,
+    label = "CCCCOO + C=CC=CCO[O] <=> C=CC=CCOO + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]\nEuclidian distance = 1.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O/H/NonDeO;OOC] for rate rule [ROOH_pri;OOC]
+Euclidian distance = 1.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 779,
+    label = "C=CC=CCOO + C[CH]CCOO <=> CCCCOO + C=CC=CCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.64811e-12, 'm^3/(mol*s)'),
+        n = 4.90568,
+        Ea = (-10.3073, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 780,
+    label = "CCCCO[O] + CC(=O)C=C[CH]O <=> CCCCOO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 781,
+    label = "C[CH]CCOO + CC(=O)C=C[CH]O <=> CCCCOO + CC(=O)C=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 782,
+    label = "CCCCO[O] + C=CC=CC=CO <=> CCCCOO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
+        n = 3.96,
+        Ea = (27.7399, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (600, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 783,
+    label = "C[CH]CCOO + C=CC=CC=CO <=> CCCCOO + [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.18902e-07, 'm^3/(mol*s)'),
+        n = 3.52664,
+        Ea = (18.2935, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]\nEuclidian distance = 2.0\nfamily: H_Abstraction',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [O_sec;C_rad/H/NonDeC] + [O/H/OneDeC;Cs_rad] for rate rule [O/H/OneDeC;C_rad/H/NonDeC]
+Euclidian distance = 2.0
+family: H_Abstraction
+""",
+)
+
+entry(
+    index = 784,
+    label = "H + CCCCO[O] <=> CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (8.85448e+06, 'm^3/(mol*s)'),
+        n = 0.215594,
+        Ea = (6.38946, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]\nEuclidian distance = 1.0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+Estimated using average of templates [Y_rad;O_rad/NonDe] + [H_rad;O_sec_rad] for rate rule [H_rad;O_rad/NonDe]
+Euclidian distance = 1.0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 785,
+    label = "H + C[CH]CCOO <=> CCCCOO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2e+13, 'cm^3/(mol*s)', '*|/', 3.16),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 59 used for H_rad;C_rad/H/NonDeC\nExact match found for rate rule [C_rad/H/NonDeC;H_rad]\nEuclidian distance = 0\nfamily: R_Recombination',
+    ),
+    longDesc = 
+u"""
+From training reaction 59 used for H_rad;C_rad/H/NonDeC
+Exact match found for rate rule [C_rad/H/NonDeC;H_rad]
+Euclidian distance = 0
+family: R_Recombination
+""",
+)
+
+entry(
+    index = 786,
+    label = "[CH]1C=CCCCC1 + C[CH]CCOO <=> C7H10 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 787,
+    label = "[CH]1C=CCCCC1 + CCCCO[O] <=> C7H10 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 2.2360679775\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 788,
+    label = "[CH2]CCC=CC=C + C[CH]CCOO <=> C=CC=CCC=C + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 27 used for C_rad/H/NonDeC;C/H2/Nd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 789,
+    label = "[CH2]CCC=CC=C + CCCCO[O] <=> C=CC=CCC=C + CCCCOO",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 790,
+    label = "[CH]1C=CC=CCC1 + C[CH]CCOO <=> C1=CC=CCC=C1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]\nEuclidian distance = 1.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;C/H2/Nd_Csrad] for rate rule [C_rad/H/NonDeC;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 791,
+    label = "[CH]1C=CCC=CC1 + C[CH]CCOO <=> C1=CC=CCC=C1 + CCCCOO",
+    degeneracy = 4.0,
+    kinetics = Arrhenius(
+        A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 4.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 792,
+    label = "C2H5 + C[CH]CCOO <=> C2H4 + CCCCOO",
+    degeneracy = 3.0,
+    kinetics = Arrhenius(
+        A = (6.33e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.7,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]\nEuclidian distance = 0\nMultiplied by reaction path degeneracy 3.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 9 used for C_rad/H/NonDeC;Cmethyl_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;Cmethyl_Csrad]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 793,
+    label = "OC=C[C]1CCC(C1)OO + C[CH]CCOO <=> CCCCOO + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 794,
+    label = "OC=C[C]1CCC(C1)OO + CCCCO[O] <=> CCCCOO + O=CC=C1CCC(C1)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 795,
+    label = "O=C[CH]C1CCCC1 + C[CH]CCOO <=> CCCCOO + O=CC=C1CCCC1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.56e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 41 used for C_rad/H/NonDeC;C/H/NdNd_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;C/H/NdNd_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 796,
+    label = "CCCC(CC[CH]O)OO + C[CH]CCOO <=> CCCCOO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 797,
+    label = "CCCC(CC[CH]O)OO + CCCCO[O] <=> CCCCOO + CCCC(CCC=O)OO",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 798,
+    label = "[CH]1C=CC=CC1 + C[CH]CCOO <=> CCCCOO + c1ccccc1",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.026e+14, 'cm^3/(mol*s)', '*|/', 2),
+        n = -0.35,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]\nEuclidian distance = 3.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cpri_Rrad] for rate rule [C_rad/H/NonDeC;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 799,
+    label = "CCCCOO + C[CH]CCOO <=> CCCCOO + CCCCO[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.51e-11, 'cm^3/(mol*s)'),
+        n = 6.77,
+        Ea = (-35.9824, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (500, 'K'),
+        Tmax = (1000, 'K'),
+        comment = 'Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]\nEuclidian distance = 0\nfamily: H_Abstraction\nEa raised from -36.0 to -36.0 kJ/mol.',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [ROOH_pri;C_rad/H/NonDeC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -36.0 to -36.0 kJ/mol.
+""",
+)
+
+entry(
+    index = 800,
+    label = "CC[CH]CCC(C)OO <=> OH + CCC1CCC(C)O1",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.63e+10, 's^-1', '*|/', 1.41),
+        n = 0,
+        Ea = (54.392, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'From training reaction 16 used for R4OO_SSS;C_rad/H/NonDeC_intra;OOH\nExact match found for rate rule [R4OO_SSS;C_rad/H/NonDeC_intra;OOH]\nEuclidian distance = 0\nfamily: Cyclic_Ether_Formation',
+    ),
+    longDesc = 
+u"""
+From training reaction 16 used for R4OO_SSS;C_rad/H/NonDeC_intra;OOH
+Exact match found for rate rule [R4OO_SSS;C_rad/H/NonDeC_intra;OOH]
+Euclidian distance = 0
+family: Cyclic_Ether_Formation
+""",
+)
+
+entry(
+    index = 801,
+    label = "C[CH]CCOO + C=CC(C=C[CH]O)O[O] <=> CCCCOO + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2.35e+12, 'cm^3/(mol*s)', '*|/', 5),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 61 used for C_rad/H/NonDeC;O_Csrad\nExact match found for rate rule [C_rad/H/NonDeC;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 61 used for C_rad/H/NonDeC;O_Csrad
+Exact match found for rate rule [C_rad/H/NonDeC;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 802,
+    label = "CCCCO[O] + C=CC(C=C[CH]O)O[O] <=> CCCCOO + C=CC(C=CC=O)O[O]",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (0, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'From training reaction 67 used for O_rad/NonDeO;O_Csrad\nExact match found for rate rule [O_rad/NonDeO;O_Csrad]\nEuclidian distance = 0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+From training reaction 67 used for O_rad/NonDeO;O_Csrad
+Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+Euclidian distance = 0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 803,
+    label = "H + C=CC=CC=C=O <=> [CH2]C=CC=CC=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.54607e+06, 'm^3/(mol*s)'),
+        n = 0.466452,
+        Ea = (32.4943, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (303.03, 'K'),
+        Tmax = (2000, 'K'),
+        comment = 'From training reaction 188 used for Ck_O;HJ\nExact match found for rate rule [Ck_O;HJ]\nEuclidian distance = 0\nfamily: R_Addition_MultipleBond',
+    ),
+    longDesc = 
+u"""
+From training reaction 188 used for Ck_O;HJ
+Exact match found for rate rule [Ck_O;HJ]
+Euclidian distance = 0
+family: R_Addition_MultipleBond
+""",
+)
+
+entry(
+    index = 804,
+    label = "OH + [CH2]C=CC=CC=O <=> H2O + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (6.03e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [O_pri_rad;Cdpri_Rrad] for rate rule [O_pri_rad;Cdpri_Orad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_pri_rad;Cdpri_Rrad] for rate rule [O_pri_rad;Cdpri_Orad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 805,
+    label = "HO2 + [CH2]C=CC=CC=O <=> H2O2 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cdpri_Orad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cdpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 806,
+    label = "O2 + [CH2]C=CC=CC=O <=> HO2 + C=CC=CC=C=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.12666e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (40.4446, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O2b;XH_s_Rrad] for rate rule [O2b;COpri_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O2b;XH_s_Rrad] for rate rule [O2b;COpri_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 807,
+    label = "[CH]1C=CC=CCC1 + [CH2]C=CC=CC=O <=> C1=CCCC=CC1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (311448, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (0.75312, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/TwoDe;XH_s_Rrad] for rate rule [C_rad/H/TwoDe;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/TwoDe;XH_s_Rrad] for rate rule [C_rad/H/TwoDe;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 808,
+    label = "[CH]1C=CC=CCC1 + [CH2]C=CC=CC=O <=> C7H10 + C=CC=CC=C=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;COpri_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;COpri_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 809,
+    label = "[CH2]C=CC=C + [CH2]C=CC=CC=O <=> C=CC=CC + C=CC=CC=C=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (4.17565e+06, 'm^3/(mol*s)'),
+        n = -0.07,
+        Ea = (4.69445, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cd;XH_s_Rrad] for rate rule [C_rad/H2/Cd;COpri_Csrad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cd;XH_s_Rrad] for rate rule [C_rad/H2/Cd;COpri_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 810,
+    label = "O=C[CH]C1CCCC1 + [CH2]C=CC=CC=O <=> OC=CC1CCCC1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (25.7788, 'm^3/(mol*s)'),
+        n = 1.79333,
+        Ea = (-4.46293, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;XH_s_Rrad] for rate rule [O_rad/OneDe;COpri_Csrad]\nEuclidian distance = 2.2360679775\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;XH_s_Rrad] for rate rule [O_rad/OneDe;COpri_Csrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 811,
+    label = "[CH2]CCCCCC + [CH2]C=CC=CC=O <=> C7H16 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.64e+11, 'cm^3/(mol*s)', '*|/', 2),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H2/Cs;Cdpri_Rrad] for rate rule [C_rad/H2/Cs;Cdpri_Orad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H2/Cs;Cdpri_Rrad] for rate rule [C_rad/H2/Cs;Cdpri_Orad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 812,
+    label = "CCCCCCCO[O] + [CH2]C=CC=CC=O <=> CCCCCCCOO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 813,
+    label = "C[CH]CCCCC + [CH2]C=CC=CC=O <=> C7H16 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.58e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 814,
+    label = "CCCCCC(C)O[O] + [CH2]C=CC=CC=O <=> CCCCCC(C)OO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 815,
+    label = "CC[CH]CCC(C)OO + [CH2]C=CC=CC=O <=> CCCCCC(C)OO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.97204e+07, 'm^3/(mol*s)'),
+        n = -0.28,
+        Ea = (5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;XH_s_Rrad] for rate rule [C_rad/H/NonDeC;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;XH_s_Rrad] for rate rule [C_rad/H/NonDeC;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 816,
+    label = "[O]OCC1C=CCC=C1 + [CH2]C=CC=CC=O <=> OOCC1C=CCC=C1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 817,
+    label = "CCCCO[O] + [CH2]C=CC=CC=O <=> CCCCOO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 818,
+    label = "C[CH]CCOO + [CH2]C=CC=CC=O <=> CCCCOO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (1.97204e+07, 'm^3/(mol*s)'),
+        n = -0.28,
+        Ea = (5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;XH_s_Rrad] for rate rule [C_rad/H/NonDeC;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;XH_s_Rrad] for rate rule [C_rad/H/NonDeC;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 819,
+    label = "[CH2]C=CC=CC=O + [CH2]C=CC=CC=O <=> C=CC=CC=CO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (25.7788, 'm^3/(mol*s)'),
+        n = 1.79333,
+        Ea = (-4.46293, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_sec_rad;XH_s_Rrad] for rate rule [O_rad/OneDe;COpri_Csrad]\nEuclidian distance = 2.2360679775\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_sec_rad;XH_s_Rrad] for rate rule [O_rad/OneDe;COpri_Csrad]
+Euclidian distance = 2.2360679775
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 820,
+    label = "[O]OC1C=CCCCC1 + [CH2]C=CC=CC=O <=> OOC1C=CCCCC1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;COpri_Csrad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 821,
+    label = "C=CC=CC(C=O)O[O] <=> HO2 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (9.58174e+10, 's^-1'),
+        n = 0.573333,
+        Ea = (139.369, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using an average for rate rule [R2OO]\nEuclidian distance = 0\nfamily: HO2_Elimination_from_PeroxyRadical',
+    ),
+    longDesc = 
+u"""
+Estimated using an average for rate rule [R2OO]
+Euclidian distance = 0
+family: HO2_Elimination_from_PeroxyRadical
+""",
+)
+
+entry(
+    index = 822,
+    label = "CH3 + [CH2]C=CC=CC=O <=> CH4 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.35407e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cs_rad;Cdpri_Rrad] for rate rule [C_methyl;Cdpri_Orad]\nEuclidian distance = 1.41421356237\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cs_rad;Cdpri_Rrad] for rate rule [C_methyl;Cdpri_Orad]
+Euclidian distance = 1.41421356237
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 823,
+    label = "O + [CH2]C=CC=CC=O <=> OH + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (2837.49, 'm^3/(mol*s)'),
+        n = 1.25,
+        Ea = (-1.98043, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_atom_triplet;XH_s_Rrad] for rate rule [O_atom_triplet;Cdpri_Orad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_atom_triplet;XH_s_Rrad] for rate rule [O_atom_triplet;Cdpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 824,
+    label = "H + [CH2]C=CC=CC=O <=> H2 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (3.48031e+06, 'm^3/(mol*s)'),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Y_rad;Cdpri_Rrad] for rate rule [H_rad;Cdpri_Orad]\nEuclidian distance = 1.41421356237\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Y_rad;Cdpri_Rrad] for rate rule [H_rad;Cdpri_Orad]
+Euclidian distance = 1.41421356237
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 825,
+    label = "[CH]1C=CCC=CC1 + [CH2]C=CC=CC=O <=> C1=CCCC=CC1 + C=CC=CC=C=O",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (1.526e+12, 'cm^3/(mol*s)'),
+        n = 0,
+        Ea = (-2.3012, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (1500, 'K'),
+        comment = 'Estimated using template [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cdpri_Orad]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/OneDeC;XH_s_Rrad] for rate rule [C_rad/H/OneDeC;Cdpri_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 826,
+    label = "OOC1C=CC[CH]CC1 + [CH2]C=CC=CC=O <=> OOC1C=CCCCC1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.58e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 827,
+    label = "OC=CC1C[CH]CC1 + [CH2]C=CC=CC=O <=> OC=CC1CCCC1 + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.58e+12, 'cm^3/(mol*s)', '*|/', 3),
+        n = 0,
+        Ea = (25.104, 'kJ/mol'),
+        T0 = (1, 'K'),
+        Tmin = (300, 'K'),
+        Tmax = (2500, 'K'),
+        comment = 'Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]\nEuclidian distance = 1.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [C_rad/H/NonDeC;Cdpri_Rrad] for rate rule [C_rad/H/NonDeC;Cdpri_Orad]
+Euclidian distance = 1.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 828,
+    label = "C=CC=CCO[O] + [CH2]C=CC=CC=O <=> C=CC=CCOO + C=CC=CC=C=O",
+    degeneracy = 1.0,
+    kinetics = Arrhenius(
+        A = (4.15894, 'm^3/(mol*s)'),
+        n = 2.0175,
+        Ea = (-5.0208, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cdpri_Orad]\nEuclidian distance = 2.0\nfamily: Disproportionation',
+    ),
+    longDesc = 
+u"""
+Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cdpri_Orad]
+Euclidian distance = 2.0
+family: Disproportionation
+""",
+)
+
+entry(
+    index = 829,
+    label = "O2 + C=CC=CC=C=O <=> C=C[CH]C(C=C=O)O[O]",
+    degeneracy = 2.0,
+    kinetics = Arrhenius(
+        A = (0.676919, 'm^3/(mol*s)'),
+        n = 2.24862,
+        Ea = (19.7798, 'kJ/mol'),
+        T0 = (1, 'K'),
+        comment = 'Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]\nEuclidian distance = 2.0\nMultiplied by reaction path degeneracy 2.0\nfamily: R_Addition_MultipleBond\nEa raised from 16.4 to 19.8 kJ/mol to match endothermicity of reaction.',
+    ),
+    longDesc = 
+u"""
+Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;O2b]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond
+Ea raised from 16.4 to 19.8 kJ/mol to match endothermicity of reaction.
+""",
 )
 
