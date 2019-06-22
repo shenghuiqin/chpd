@@ -2,4 +2,11 @@
 QMscratch
 QMfiles
 /pyro/
+
+
+
+
+
+/test2/*_backup.log
+/test2/*_OLD.log
 /test2/output_edge.html
