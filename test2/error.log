@@ -4,3 +4,6 @@ Using Theano backend.
 
 /home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
   'Attempted to set non-positive xlimits for log-scale axis; '
+slurmstepd: error: Job 5828032 exceeded memory limit (17419352 > 16777216), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 5828032 ON c3040 CANCELLED AT 2019-06-23T15:39:48 ***
