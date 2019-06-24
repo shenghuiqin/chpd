@@ -15,7 +15,7 @@ generatedSpeciesConstraints(
     maximumCarbonAtoms=10,
     allowSingletO2 = False,
 )
-
+#this is a test#
 # List of species
 species(
     label='C7H10',
@@ -86,7 +86,7 @@ simpleReactor(
     nSims=8,
     initialMoleFractions={
         "C7H10": 0.00463,
-	"C7H16": 0.00463,
+	    "C7H16": 0.00463,
         "O2":    0.10880, # phi=1 means 9.5 O2 per C7H10
         "N2":     0.88035, # 8.1 times as much N2 as O2
         "C2H2": 0,
