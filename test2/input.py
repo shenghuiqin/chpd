@@ -1,8 +1,8 @@
 #Data sources
 database(
-    thermoLibraries = ['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
-    reactionLibraries =[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
-    seedMechanisms = ['BurkeH2O2inN2'],
+    thermoLibraries = ['primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
+    reactionLibraries =[]  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
+    seedMechanisms = []    #['BurkeH2O2inN2'],
     kineticsDepositories = ['training'], 
     kineticsFamilies = 'default',
     kineticsEstimator = 'rate rules',
@@ -16,6 +16,7 @@ generatedSpeciesConstraints(
     allowSingletO2 = False,
 )
 #this is a test#
+#test local vs#
 # List of species
 species(
     label='C7H10',
@@ -31,32 +32,6 @@ species(
     label='CO2',
     reactive=True,
     structure=SMILES("C(=O)=O"),
-)
-species(
-    label='CH4',
-    reactive=True,
-    structure=SMILES("C"),
-)
-species(
-    label='C2H2',
-    reactive=True,
-    structure=SMILES("C#C"),
-)
-species(
-    label='C4H4',
-    reactive=True,
-    structure=SMILES("C#CC=C"),
-)
-species(
-    label='C5H6',
-    reactive=True,
-    structure=SMILES("C1C=CCC=1"),
-)
-species(
-    label='C5H5',
-    reactive=True,
-    structure=SMILES("[CH]1C=CC=C1"),
-)
 species(
     label='O2',
     reactive=True,
@@ -70,8 +45,97 @@ species(
     label='N2',
     reactive=False,
     structure=SMILES("N#N"),
+)   
 )
 species(
+    label = "CH4",
+    reactive=True,
+    structure = SMILES("C"))
+
+species(
+    label = "C2H6",
+    reactive=True,
+    structure = SMILES("CC"))
+
+species(
+    label = "C3H8",
+    reactive=True,
+    structure = SMILES("CCC"))
+
+species(
+    label = "C4H10",
+    structure = SMILES("CCCC"))
+
+species(
+    label = "C5H12",
+    reactive=True,
+    structure = SMILES("CCCCC"))
+
+species(
+    label = "C6H14",
+    reactive=True,
+    structure = SMILES("CCCCCC"))
+
+species(
+    label = "C2H4",
+    reactive=True,
+    structure = SMILES("C=C"))
+
+species(
+    label = "C3H6",
+    reactive=True,
+    structure = SMILES("CC=C"))
+
+species(
+    label = "C4H8",
+    reactive=True,
+    structure = SMILES("CCC=C"))
+
+species(
+    label = "C5H10",
+    reactive=True,
+    structure = SMILES("CCCC=C"))
+
+species(
+    label = "C6H12",
+    reactive=True,
+    structure = SMILES("CCCCC=C"))
+species(
+    label = "METHYL",
+    reactive=True,
+    structure = SMILES("[CH3]"))
+
+species(
+    label = "ETHYL",
+    reactive=True,
+    structure = SMILES("C[CH2]"))
+
+species(
+    label = "PROPYL",
+    reactive=True,
+    structure = SMILES("CC[CH2]"))
+
+species(
+    label = "BUTYL",
+    reactive=True,
+    structure = SMILES("CCC[CH2]"))
+
+species(
+    label = "PENTYL",
+    reactive=True,
+    structure = SMILES("CCCC[CH2]"))
+
+species(
+    label = "HEXYL",
+    reactive=True,
+    structure = SMILES("CCCCC[CH2]"))
+
+species(
+    label = "BENZYL",
+    reactive=True,
+    structure = SMILES("[CH2]c1ccccc1"))
+
+#species(
     label='C7H16',
     reactive=True,
     structure=SMILES("CCCCCCC"),
@@ -86,27 +150,26 @@ simpleReactor(
     nSims=8,
     initialMoleFractions={
         "C7H10": 0.00463,
-	    "C7H16": 0.00463,
+#	    "C7H16": 0.00463,
         "O2":    0.10880, # phi=1 means 9.5 O2 per C7H10
         "N2":     0.88035, # 8.1 times as much N2 as O2
-        "C2H2": 0,
-        "C4H4": 0,
-        "C5H6": 0,
-        "C5H5": 0,
+        
     },
     terminationRateRatio=0.01,
-    terminationTime=(1e0,'s'),
+    #  terminationTime=(1e0,'s'),
 )
 
 simulator(
     atol=1e-16,
     rtol=1e-8,
+    sens_atol=1e-6,
+    sens_rtol=1e-4,
 )
 
 model(
     #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.01,
-    toleranceInterruptSimulation=0.01,
+    toleranceMoveToCore=0.1,
+    toleranceInterruptSimulation=0.1,
     maximumEdgeSpecies=100000,
     filterReactions=True,
     maxNumObjsPerIter=2,
