@@ -277,7 +277,7 @@ family: Intra_R_Add_Endocyclic
 
 entry(
     index = 13,
-    label = "C1=CCCC=CC1 + [CH]1C=CC=CCC1 <=> C7H10 + [CH]1C=CC=CCC1",
+    label = "[CH]1C=CC=CCC1 + C1=CCCC=CC1 <=> C7H10 + [CH]1C=CC=CCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.003924, 'cm^3/(mol*s)'),
@@ -384,7 +384,7 @@ family: Intra_R_Add_Endocyclic
 
 entry(
     index = 18,
-    label = "[CH]1C=CC=CCC1 + [CH2]CCC=CC=C <=> C7H10 + C=CC=CCC=C",
+    label = "[CH2]CCC=CC=C + [CH]1C=CC=CCC1 <=> C7H10 + C=CC=CCC=C",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.052e+12, 'cm^3/(mol*s)'),
@@ -406,7 +406,7 @@ family: Disproportionation
 
 entry(
     index = 19,
-    label = "[CH]1C=CC=CCC1 + [CH2]CCC=CC=C <=> C=CC=CCC=C + C1=CCCC=CC1",
+    label = "[CH2]CCC=CC=C + [CH]1C=CC=CCC1 <=> C=CC=CCC=C + C1=CCCC=CC1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (319.424, 'm^3/(mol*s)'),
@@ -448,7 +448,7 @@ family: Disproportionation
 
 entry(
     index = 21,
-    label = "C1=CCCC=CC1 + [CH2]C=CC=CC[CH2] <=> [CH]1C=CC=CCC1 + [CH2]CCC=CC=C",
+    label = "[CH2]C=CC=CC[CH2] + C1=CCCC=CC1 <=> [CH2]CCC=CC=C + [CH]1C=CC=CCC1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (0.001962, 'cm^3/(mol*s)'),
@@ -471,7 +471,7 @@ family: H_Abstraction
 
 entry(
     index = 22,
-    label = "C7H10 + [CH2]C=CC=CC[CH2] <=> [CH]1C=CC=CCC1 + [CH2]CCC=CC=C",
+    label = "C7H10 + [CH2]C=CC=CC[CH2] <=> [CH2]CCC=CC=C + [CH]1C=CC=CCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.00916, 'cm^3/(mol*s)'),
@@ -493,7 +493,7 @@ family: H_Abstraction
 
 entry(
     index = 23,
-    label = "[CH2]C=CC=CC[CH2] + [CH2]CCC=CC=C <=> C=CC=CCC=C + [CH2]CCC=CC=C",
+    label = "[CH2]CCC=CC=C + [CH2]C=CC=CC[CH2] <=> C=CC=CCC=C + [CH2]CCC=CC=C",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (1.526e+12, 'cm^3/(mol*s)'),
@@ -620,7 +620,7 @@ family: R_Recombination
 
 entry(
     index = 29,
-    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CCC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CC=CCC1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + C1=CCCC=CC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.0525937, 'm^3/(mol*s)'),
@@ -662,7 +662,7 @@ family: Disproportionation
 
 entry(
     index = 31,
-    label = "C7H10 + [CH2]C=CC=C <=> [CH]1C=CC=CCC1 + C=CC=CC",
+    label = "C7H10 + [CH2]C=CC=C <=> C=CC=CC + [CH]1C=CC=CCC1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (0.03616, 'cm^3/(mol*s)'),
@@ -728,7 +728,7 @@ family: Disproportionation
 
 entry(
     index = 34,
-    label = "C1=CCCC=CC1 + [CH2]C=CC=C <=> [CH]1C=CC=CCC1 + C=CC=CC",
+    label = "C1=CCCC=CC1 + [CH2]C=CC=C <=> C=CC=CC + [CH]1C=CC=CCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.00772, 'cm^3/(mol*s)'),
@@ -816,7 +816,7 @@ family: H_Abstraction
 
 entry(
     index = 38,
-    label = "[CH2]CCC=CC=C + [CH2]C=CC=C <=> C=CC=CCC=C + C=CC=CC",
+    label = "[CH2]CCC=CC=C + [CH2]C=CC=C <=> C=CC=CC + C=CC=CCC=C",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (5.8e+12, 'cm^3/(mol*s)', '*|/', 3),
@@ -861,7 +861,7 @@ family: H_Abstraction
 
 entry(
     index = 40,
-    label = "[O]OC1C=CCCCC1 + [CH]1C=CC=CCC1 <=> OOC1C=CCCCC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CC=CCC1 + [O]OC1C=CCCCC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (9.64e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -927,7 +927,7 @@ family: H_Abstraction
 
 entry(
     index = 43,
-    label = "[O]OC1C=CCCCC1 + C=CC=CC <=> OOC1C=CCCCC1 + [CH2]C=CC=C",
+    label = "C=CC=CC + [O]OC1C=CCCCC1 <=> OOC1C=CCCCC1 + [CH2]C=CC=C",
     degeneracy = 3.0,
     kinetics = Arrhenius(
         A = (1.73499e-09, 'm^3/(mol*s)'),
@@ -988,7 +988,7 @@ family: Disproportionation
 
 entry(
     index = 46,
-    label = "[O]OC1C=CCCCC1 + [CH2]CCC=CC=C <=> C=CC=CCC=C + OOC1C=CCCCC1",
+    label = "[CH2]CCC=CC=C + [O]OC1C=CCCCC1 <=> C=CC=CCC=C + OOC1C=CCCCC1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -1074,7 +1074,7 @@ family: Disproportionation
 
 entry(
     index = 50,
-    label = "[O]OC1C=C[CH]CC=C1 + C1=CCCC=CC1 <=> [O]OC1C=CCCC=C1 + [CH]1C=CC=CCC1",
+    label = "[O]OC1C=C[CH]CC=C1 + C1=CCCC=CC1 <=> [CH]1C=CC=CCC1 + [O]OC1C=CCCC=C1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (0.001962, 'cm^3/(mol*s)'),
@@ -1097,7 +1097,7 @@ family: H_Abstraction
 
 entry(
     index = 51,
-    label = "[O]OC1C=CCCC=C1 + [CH]1C=CC=CCC1 <=> C7H10 + [O]OC1C=C[CH]CC=C1",
+    label = "[CH]1C=CC=CCC1 + [O]OC1C=CCCC=C1 <=> C7H10 + [O]OC1C=C[CH]CC=C1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (0.01832, 'cm^3/(mol*s)'),
@@ -1119,7 +1119,7 @@ family: H_Abstraction
 
 entry(
     index = 52,
-    label = "[O]OC1C=CCCC=C1 + [CH2]C=CC=C <=> [O]OC1C=C[CH]CC=C1 + C=CC=CC",
+    label = "[O]OC1C=CCCC=C1 + [CH2]C=CC=C <=> C=CC=CC + [O]OC1C=C[CH]CC=C1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (0.03616, 'cm^3/(mol*s)'),
@@ -1162,7 +1162,7 @@ Ea raised from 40.3 to 54.3 kJ/mol to match endothermicity of reaction.
 
 entry(
     index = 54,
-    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CC=CCC1 <=> [O]OC1C=CCCC=C1 + C1=CC=CCC=C1",
+    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + [O]OC1C=CCCC=C1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.052e+12, 'cm^3/(mol*s)'),
@@ -1397,7 +1397,7 @@ family: H_Abstraction
 
 entry(
     index = 65,
-    label = "OOC1C=CCCCC1 + OOC1C=CC[CH]CC1 <=> [O]OC1C=CCCCC1 + OOC1C=CCCCC1",
+    label = "OOC1C=CCCCC1 + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + [O]OC1C=CCCCC1",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (6.64811e-12, 'm^3/(mol*s)'),
@@ -1439,7 +1439,7 @@ family: Disproportionation
 
 entry(
     index = 67,
-    label = "OOC1C=CC[CH]CC1 + C=CC=CC <=> OOC1C=CCCCC1 + [CH2]C=CC=C",
+    label = "C=CC=CC + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + [CH2]C=CC=C",
     degeneracy = 3.0,
     kinetics = Arrhenius(
         A = (9.78193e-10, 'm^3/(mol*s)'),
@@ -1459,7 +1459,7 @@ family: H_Abstraction
 
 entry(
     index = 68,
-    label = "[CH]1C=CC=CCC1 + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CC=CCC1 + OOC1C=CC[CH]CC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
@@ -1646,7 +1646,7 @@ family: Disproportionation
 
 entry(
     index = 77,
-    label = "[O]OC1C=CCCC=C1 + OH(D) <=> [O]OC1C=C[CH]CC=C1 + H2O",
+    label = "OH(D) + [O]OC1C=CCCC=C1 <=> [O]OC1C=C[CH]CC=C1 + H2O",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (134, 'cm^3/(mol*s)'),
@@ -1668,7 +1668,7 @@ family: H_Abstraction
 
 entry(
     index = 78,
-    label = "C1=CCCC=CC1 + OH(D) <=> [CH]1C=CC=CCC1 + H2O",
+    label = "OH(D) + C1=CCCC=CC1 <=> [CH]1C=CC=CCC1 + H2O",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (9.16971e-06, 'm^3/(mol*s)'),
@@ -1708,7 +1708,7 @@ family: H_Abstraction
 
 entry(
     index = 80,
-    label = "OOC1C=CCCCC1 + OH(D) <=> [O]OC1C=CCCCC1 + H2O",
+    label = "OH(D) + OOC1C=CCCCC1 <=> [O]OC1C=CCCCC1 + H2O",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (1.1e+12, 'cm^3/(mol*s)'),
@@ -1729,7 +1729,7 @@ Ea raised from -1.8 to -1.8 kJ/mol.
 
 entry(
     index = 81,
-    label = "OOC1C=CCCCC1 + OH(D) <=> OOC1C=CC[CH]CC1 + H2O",
+    label = "OH(D) + OOC1C=CCCCC1 <=> OOC1C=CC[CH]CC1 + H2O",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (45.5853, 'm^3/(mol*s)'),
@@ -2204,7 +2204,7 @@ family: Disproportionation
 
 entry(
     index = 104,
-    label = "C1=CCCC=CC1 + HO2 <=> [CH]1C=CC=CCC1 + H2O2",
+    label = "HO2 + C1=CCCC=CC1 <=> [CH]1C=CC=CCC1 + H2O2",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (0.00592455, 'm^3/(mol*s)'),
@@ -2224,7 +2224,7 @@ family: H_Abstraction
 
 entry(
     index = 105,
-    label = "[CH2]C=CC=C + H2O2 <=> HO2 + C=CC=CC",
+    label = "[CH2]C=CC=C + H2O2 <=> C=CC=CC + HO2",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.0351, 'cm^3/(mol*s)', '*|/', 3),
@@ -2348,7 +2348,7 @@ family: Disproportionation
 
 entry(
     index = 111,
-    label = "HO2 + [CH2]CCC=CC=C <=> C=CC=CCC=C + H2O2",
+    label = "[CH2]CCC=CC=C + HO2 <=> C=CC=CCC=C + H2O2",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -2899,7 +2899,7 @@ family: Disproportionation
 
 entry(
     index = 137,
-    label = "O=C[CH]C1CCCC1 + OH(D) <=> H2O + O=CC=C1CCCC1",
+    label = "OH(D) + O=C[CH]C1CCCC1 <=> H2O + O=CC=C1CCCC1",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -2985,7 +2985,7 @@ family: Disproportionation
 
 entry(
     index = 141,
-    label = "[CH2]C=CC=C + OH(D) <=> C=CC=CCO",
+    label = "OH(D) + [CH2]C=CC=C <=> C=CC=CCO",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (1.54e+14, 'cm^3/(mol*s)', '+|-', 1e+13),
@@ -3174,7 +3174,7 @@ family: Intra_2+2_cycloaddition_Cd
 
 entry(
     index = 150,
-    label = "OOC1C=C[CH]CC=C1 <=> C1=CC2OC2C=CC1 + OH(D)",
+    label = "OOC1C=C[CH]CC=C1 <=> OH(D) + C1=CC2OC2C=CC1",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (1.38e+12, 's^-1', '*|/', 1.2),
@@ -3215,7 +3215,7 @@ family: intra_H_migration
 
 entry(
     index = 152,
-    label = "[CH]1C=CCCCC1 + [CH]1C=CCC=CC1 <=> C7H10 + C1=CCCC=CC1",
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CCCCC1 <=> C7H10 + C1=CCCC=CC1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (6.104e+12, 'cm^3/(mol*s)'),
@@ -3237,7 +3237,7 @@ family: Disproportionation
 
 entry(
     index = 153,
-    label = "HO2 + [CH]1C=CCC=CC1 <=> O2 + C1=CCCC=CC1",
+    label = "[CH]1C=CCC=CC1 + HO2 <=> O2 + C1=CCCC=CC1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (1.13791e-07, 'm^3/(mol*s)'),
@@ -3257,7 +3257,7 @@ family: H_Abstraction
 
 entry(
     index = 154,
-    label = "C1=CCCC=CC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + [CH]1C=CC=CCC1",
+    label = "[CH]1C=CCC=CC1 + C1=CCCC=CC1 <=> [CH]1C=CC=CCC1 + C1=CCCC=CC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.003924, 'cm^3/(mol*s)'),
@@ -3280,7 +3280,7 @@ family: H_Abstraction
 
 entry(
     index = 155,
-    label = "C7H10 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + [CH]1C=CC=CCC1",
+    label = "C7H10 + [CH]1C=CCC=CC1 <=> [CH]1C=CC=CCC1 + C1=CCCC=CC1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (0.01832, 'cm^3/(mol*s)'),
@@ -3302,7 +3302,7 @@ family: H_Abstraction
 
 entry(
     index = 156,
-    label = "C1=CCCC=CC1 + [O]OC1C=CCCCC1 <=> OOC1C=CCCCC1 + [CH]1C=CCC=CC1",
+    label = "C1=CCCC=CC1 + [O]OC1C=CCCCC1 <=> [CH]1C=CCC=CC1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (0.02964, 'cm^3/(mol*s)', '*|/', 3),
@@ -3388,7 +3388,7 @@ family: H_Abstraction
 
 entry(
     index = 160,
-    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C7H10 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CC=CCC1 <=> C7H10 + C1=CC=CCC=C1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (6.104e+12, 'cm^3/(mol*s)'),
@@ -3410,7 +3410,7 @@ family: Disproportionation
 
 entry(
     index = 161,
-    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + C1=CCCC=CC1",
     degeneracy = 8.0,
     duplicate = True,
     kinetics = Arrhenius(
@@ -3433,7 +3433,7 @@ family: Disproportionation
 
 entry(
     index = 162,
-    label = "[CH]1C=CCC=CC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + C1=CCCC=CC1",
     degeneracy = 8.0,
     kinetics = Arrhenius(
         A = (6.104e+12, 'cm^3/(mol*s)'),
@@ -3455,7 +3455,7 @@ family: Disproportionation
 
 entry(
     index = 163,
-    label = "[CH]1C=CC=CCC1 + [CH]1C=CCC=CC1 <=> C1=CCCC=CC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + C1=CCCC=CC1",
     degeneracy = 4.0,
     duplicate = True,
     kinetics = Arrhenius(
@@ -3501,7 +3501,7 @@ family: H_Abstraction
 
 entry(
     index = 165,
-    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CCC=CC1 <=> [O]OC1C=CCCC=C1 + C1=CC=CCC=C1",
+    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + [O]OC1C=CCCC=C1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.052e+12, 'cm^3/(mol*s)'),
@@ -3545,7 +3545,7 @@ family: Disproportionation
 
 entry(
     index = 167,
-    label = "OOC1C=CC[CH]CC1 + [CH]1C=CCC=CC1 <=> OOC1C=CCCCC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + OOC1C=CC[CH]CC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (2.052e+14, 'cm^3/(mol*s)', '*|/', 2),
@@ -3567,7 +3567,7 @@ family: Disproportionation
 
 entry(
     index = 168,
-    label = "[O]OC1C=CCCCC1 + [CH]1C=CCC=CC1 <=> OOC1C=CCCCC1 + C1=CC=CCC=C1",
+    label = "[CH]1C=CCC=CC1 + [O]OC1C=CCCCC1 <=> C1=CC=CCC=C1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (9.64e+07, 'm^3/(mol*s)'),
@@ -3587,7 +3587,7 @@ family: Disproportionation
 
 entry(
     index = 169,
-    label = "C1=CCCC=CC1 + OOC1C=CC[CH]CC1 <=> OOC1C=CCCCC1 + [CH]1C=CCC=CC1",
+    label = "C1=CCCC=CC1 + OOC1C=CC[CH]CC1 <=> [CH]1C=CCC=CC1 + OOC1C=CCCCC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.412e-09, 'm^3/(mol*s)'),
@@ -3607,7 +3607,7 @@ family: H_Abstraction
 
 entry(
     index = 170,
-    label = "C1=CCCC=CC1 + OH(D) <=> [CH]1C=CCC=CC1 + H2O",
+    label = "OH(D) + C1=CCCC=CC1 <=> [CH]1C=CCC=CC1 + H2O",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (134, 'cm^3/(mol*s)'),
@@ -3651,7 +3651,7 @@ family: Disproportionation
 
 entry(
     index = 172,
-    label = "C1=CCCC=CC1 + HO2 <=> [CH]1C=CCC=CC1 + H2O2",
+    label = "HO2 + C1=CCCC=CC1 <=> [CH]1C=CCC=CC1 + H2O2",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (5.48764e-09, 'm^3/(mol*s)'),
@@ -3693,7 +3693,7 @@ family: Disproportionation
 
 entry(
     index = 174,
-    label = "HO2 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + H2O2",
+    label = "[CH]1C=CCC=CC1 + HO2 <=> C1=CC=CCC=C1 + H2O2",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (9.64e+07, 'm^3/(mol*s)'),
@@ -3899,7 +3899,7 @@ family: Disproportionation
 
 entry(
     index = 184,
-    label = "[O]OC1C=C[CH]CC=C1 + [CH2]CCC=CC=C <=> [O]OC1C=CCC=CC1 + C=CC=CCC=C",
+    label = "[O]OC1C=C[CH]CC=C1 + [CH2]CCC=CC=C <=> C=CC=CCC=C + [O]OC1C=CCC=CC1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (1.526e+12, 'cm^3/(mol*s)'),
@@ -3921,7 +3921,7 @@ family: Disproportionation
 
 entry(
     index = 185,
-    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CC=CCC1 <=> [O]OC1C=CCC=CC1 + C1=CC=CCC=C1",
+    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CC=CCC1 <=> C1=CC=CCC=C1 + [O]OC1C=CCC=CC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.052e+12, 'cm^3/(mol*s)'),
@@ -3943,7 +3943,7 @@ family: Disproportionation
 
 entry(
     index = 186,
-    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CCC=CC1 <=> [O]OC1C=CCC=CC1 + C1=CC=CCC=C1",
+    label = "[O]OC1C=C[CH]CC=C1 + [CH]1C=CCC=CC1 <=> C1=CC=CCC=C1 + [O]OC1C=CCC=CC1",
     degeneracy = 4.0,
     kinetics = Arrhenius(
         A = (3.052e+12, 'cm^3/(mol*s)'),
@@ -4137,7 +4137,7 @@ family: Disproportionation
 
 entry(
     index = 195,
-    label = "HO2 + [CH]1CC2C=CCC12 <=> C1=CC2C=CC2C1 + H2O2",
+    label = "HO2 + [CH]1CC2C=CCC12 <=> H2O2 + C1=CC2C=CC2C1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -4613,7 +4613,7 @@ family: H_Abstraction
 
 entry(
     index = 218,
-    label = "OC=CC1CCCC1 + [O]OCC1C=CCC=C1 <=> O=C[CH]C1CCCC1 + OOCC1C=CCC=C1",
+    label = "[O]OCC1C=CCC=C1 + OC=CC1CCCC1 <=> O=C[CH]C1CCCC1 + OOCC1C=CCC=C1",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (0.092, 'cm^3/(mol*s)', '*|/', 3),
@@ -4678,7 +4678,7 @@ family: Disproportionation
 
 entry(
     index = 221,
-    label = "O=C[CH]C1CCCC1 + [O]OCC1C=CCC=C1 <=> OOCC1C=CCC=C1 + O=CC=C1CCCC1",
+    label = "O=C[CH]C1CCCC1 + [O]OCC1C=CCC=C1 <=> O=CC=C1CCCC1 + OOCC1C=CCC=C1",
     degeneracy = 1.0,
     kinetics = Arrhenius(
         A = (1.21e+13, 'cm^3/(mol*s)', '*|/', 3),
@@ -4783,7 +4783,7 @@ family: Disproportionation
 
 entry(
     index = 226,
-    label = "[CH]1CC2C=CCC12 + [O]OCC1C=CCC=C1 <=> C1=CC2C=CC2C1 + OOCC1C=CCC=C1",
+    label = "[O]OCC1C=CCC=C1 + [CH]1CC2C=CCC12 <=> C1=CC2C=CC2C1 + OOCC1C=CCC=C1",
     degeneracy = 2.0,
     kinetics = Arrhenius(
         A = (4.82e+13, 'cm^3/(mol*s)', '*|/', 3),

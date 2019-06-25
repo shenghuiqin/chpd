@@ -281,7 +281,7 @@ C7H9(25)                H   9C   7          G   100.000  5000.000  904.50      1
 -4.45706949E-07 1.81708023E-10 2.32183786E+04 2.13605404E+01                   4
 
 ! Thermo group additivity estimation: group(Cs-(Cds-Cds)CsHH) + group(Cs-CsHHH) + group(Cs-(Cds-Cds)HHH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group
-! (Cds-Cds(Cds-Cds)H) + group(Cds-Cds(Cds-Cds)H) + radical(C=CC=CCJ) + radical(RCCJ)
+! (Cds-Cds(Cds-Cds)H) + group(Cds-Cds(Cds-Cds)H) + radical(RCCJ) + radical(C=CC=CCJ)
 C7H10(38)               H  10C   7          G   100.000  5000.000  978.36      1
  1.42852622E+01 3.02044241E-02-1.08771576E-05 1.96082218E-09-1.38209129E-13    2
  3.47789730E+04-4.30067434E+01 9.92991563E-01 5.25502948E-02 3.92273573E-06    3
@@ -407,7 +407,7 @@ C7H10(172)              H  10C   7          G   100.000  5000.000  948.76      1
 -1.12616535E-07 4.69037136E-11 2.00942402E+04 2.39004318E+01                   4
 
 ! Thermo group additivity estimation: group(Cs-CsCsCsH) + group(Cs-(Cds-Cds)CsCsH) + group(Cs-CsCsHH) + group(Cs-CsCsHH) + group(Cs-(Cds-Cds)CsHH) +
-! group(Cds-CdsCsH) + group(Cds-CdsCsH) + ring(Cyclobutene) + ring(Cyclopropane)
+! group(Cds-CdsCsH) + group(Cds-CdsCsH) + ring(Cyclopropane) + ring(Cyclobutene)
 C7H10(206)              H  10C   7          G   100.000  5000.000  949.67      1
  1.76279592E+01 2.28933801E-02-6.45006477E-06 1.21575303E-09-9.77590415E-14    2
  2.01493433E+04-7.03514897E+01 1.96389999E+00 1.61400299E-02 1.19095031E-04    3
@@ -849,7 +849,7 @@ S(88)=S(125)                                        1.998324e+10 0.372     11.82
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+C7H9(25)=C7H10(1)+C7H9(25)                3.924000e-03 4.340     6.300    
+C7H9(25)+C7H10(82)=C7H10(1)+C7H9(25)                3.924000e-03 4.340     6.300    
 
 ! Reaction index: Chemkin #15; RMG #232
 ! Template reaction: Disproportionation
@@ -893,7 +893,7 @@ C7H11(80)=C7H11(42)                                 1.140000e+05 1.200     6.500
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-C7H9(25)+C7H11(80)=C7H10(1)+C7H10(165)              3.052000e+12 0.000     -0.550   
+C7H11(80)+C7H9(25)=C7H10(1)+C7H10(165)              3.052000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #20; RMG #1518
 ! Template reaction: Disproportionation
@@ -901,7 +901,7 @@ C7H9(25)+C7H11(80)=C7H10(1)+C7H10(165)              3.052000e+12 0.000     -0.55
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-C7H9(25)+C7H11(80)=C7H10(165)+C7H10(82)             3.194241e+08 1.000     0.465    
+C7H11(80)+C7H9(25)=C7H10(165)+C7H10(82)             3.194241e+08 1.000     0.465    
 
 ! Reaction index: Chemkin #21; RMG #1607
 ! Template reaction: Disproportionation
@@ -919,7 +919,7 @@ C7H11(42)+C7H10(38)=C7H10(1)+C7H11(80)              3.052000e+12 0.000     -0.55
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-C7H10(82)+C7H10(38)=C7H9(25)+C7H11(80)              1.962000e-03 4.340     6.300    
+C7H10(38)+C7H10(82)=C7H11(80)+C7H9(25)              1.962000e-03 4.340     6.300    
 
 ! Reaction index: Chemkin #23; RMG #1706
 ! Template reaction: H_Abstraction
@@ -928,7 +928,7 @@ C7H10(82)+C7H10(38)=C7H9(25)+C7H11(80)              1.962000e-03 4.340     6.300
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(1)+C7H10(38)=C7H9(25)+C7H11(80)               9.160000e-03 4.340     11.700   
+C7H10(1)+C7H10(38)=C7H11(80)+C7H9(25)               9.160000e-03 4.340     11.700   
 
 ! Reaction index: Chemkin #24; RMG #1856
 ! Template reaction: Disproportionation
@@ -936,7 +936,7 @@ C7H10(1)+C7H10(38)=C7H9(25)+C7H11(80)               9.160000e-03 4.340     11.70
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-C7H10(38)+C7H11(80)=C7H10(165)+C7H11(80)            1.526000e+12 0.000     -0.550   
+C7H11(80)+C7H10(38)=C7H10(165)+C7H11(80)            1.526000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #25; RMG #1568
 ! Template reaction: R_Addition_MultipleBond
@@ -989,7 +989,7 @@ O2(4)+C5H7(216)=S(355)                              3.096741e+11 0.499     -0.17
 ! Euclidian distance = 1.41421356237
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-C7H9(25)+C7H9(25)=C7H10(82)+C7H8(72)                5.259369e+04 2.000     0.570    
+C7H9(25)+C7H9(25)=C7H8(72)+C7H10(82)                5.259369e+04 2.000     0.570    
 
 ! Reaction index: Chemkin #31; RMG #231
 ! Template reaction: Disproportionation
@@ -1007,7 +1007,7 @@ C7H9(25)+C7H9(25)=C7H10(1)+C7H8(72)                 6.104000e+12 0.000     -0.55
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: H_Abstraction
-C7H10(1)+C5H7(216)=C7H9(25)+C5H8(351)               3.616000e-02 4.340     11.200   
+C7H10(1)+C5H7(216)=C5H8(351)+C7H9(25)               3.616000e-02 4.340     11.200   
 
 ! Reaction index: Chemkin #33; RMG #2272
 ! Template reaction: Disproportionation
@@ -1035,7 +1035,7 @@ C7H11(42)+C5H7(216)=C7H10(1)+C5H8(351)              1.160000e+13 0.000     -0.13
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+C5H7(216)=C7H9(25)+C5H8(351)              7.720000e-03 4.340     6.700    
+C7H10(82)+C5H7(216)=C5H8(351)+C7H9(25)              7.720000e-03 4.340     6.700    
 
 ! Reaction index: Chemkin #36; RMG #2664
 ! Template reaction: R_Recombination
@@ -1071,7 +1071,7 @@ ETHYL(17)+C7H10(82)=C2H6(6)+C7H9(25)                2.440000e-03 4.340     1.000
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-C7H11(80)+C5H7(216)=C7H10(165)+C5H8(351)            5.800000e+12 0.000     -0.130   
+C7H11(80)+C5H7(216)=C5H8(351)+C7H10(165)            5.800000e+12 0.000     -0.130   
 
 ! Reaction index: Chemkin #40; RMG #354
 ! Template reaction: H_Abstraction
@@ -1089,7 +1089,7 @@ C7H10(1)+S(88)=C7H9(25)+S(129)                      2.964000e-02 4.313     8.016
 ! Euclidian distance = 2.2360679775
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(88)+C7H9(25)=S(129)+C7H8(72)                      9.640000e+13 0.000     0.000    
+C7H9(25)+S(88)=C7H8(72)+S(129)                      9.640000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #42; RMG #431
 ! Template reaction: Disproportionation
@@ -1116,7 +1116,7 @@ C7H10(82)+S(88)=C7H9(25)+S(129)                     1.482000e-02 4.313     8.016
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 3.0
 ! family: H_Abstraction
-S(88)+C5H8(351)=S(129)+C5H7(216)                    1.734990e-03 4.650     9.780    
+C5H8(351)+S(88)=S(129)+C5H7(216)                    1.734990e-03 4.650     9.780    
 
 ! Reaction index: Chemkin #45; RMG #4192
 ! Template reaction: R_Recombination
@@ -1140,7 +1140,7 @@ ETHYL(17)+S(88)=C2H4(11)+S(129)                     3.003453e+10 1.009     -0.60
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-S(88)+C7H11(80)=C7H10(165)+S(129)                   4.820000e+13 0.000     0.000    
+C7H11(80)+S(88)=C7H10(165)+S(129)                   4.820000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #48; RMG #1226
 ! Template reaction: Disproportionation
@@ -1174,7 +1174,7 @@ ETHYL(17)+S(261)=C2H4(11)+C7H9O2(86)                2.355523e+12 -0.117    -0.27
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-S(261)+C7H10(82)=C7H9O2(86)+C7H9(25)                1.962000e-03 4.340     6.433    
+S(261)+C7H10(82)=C7H9(25)+C7H9O2(86)                1.962000e-03 4.340     6.433    
 
 ! Reaction index: Chemkin #52; RMG #2227
 ! Template reaction: H_Abstraction
@@ -1183,7 +1183,7 @@ S(261)+C7H10(82)=C7H9O2(86)+C7H9(25)                1.962000e-03 4.340     6.433
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: H_Abstraction
-C7H9O2(86)+C7H9(25)=C7H10(1)+S(261)                 1.832000e-02 4.340     11.700   
+C7H9(25)+C7H9O2(86)=C7H10(1)+S(261)                 1.832000e-02 4.340     11.700   
 
 ! Reaction index: Chemkin #53; RMG #2554
 ! Template reaction: H_Abstraction
@@ -1192,7 +1192,7 @@ C7H9O2(86)+C7H9(25)=C7H10(1)+S(261)                 1.832000e-02 4.340     11.70
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: H_Abstraction
-C7H9O2(86)+C5H7(216)=S(261)+C5H8(351)               3.616000e-02 4.340     11.200   
+C7H9O2(86)+C5H7(216)=C5H8(351)+S(261)               3.616000e-02 4.340     11.200   
 
 ! Reaction index: Chemkin #54; RMG #3024
 ! Template reaction: R_Addition_MultipleBond
@@ -1211,7 +1211,7 @@ O2(4)+C7H8(72)=S(261)                               1.347333e+06 2.249     12.98
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(261)+C7H9(25)=C7H9O2(86)+C7H8(72)                 3.052000e+12 0.000     -0.550   
+S(261)+C7H9(25)=C7H8(72)+C7H9O2(86)                 3.052000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #56; RMG #836
 ! Template reaction: Intra_2+2_cycloaddition_Cd
@@ -1310,7 +1310,7 @@ C7H10(1)+S(117)=C7H9(25)+S(129)                     3.412000e-03 4.340     3.100
 ! Estimated using an average for rate rule [O/H/NonDeO;C_rad/H/NonDeC]
 ! Euclidian distance = 0
 ! family: H_Abstraction
-S(129)+S(117)=S(88)+S(129)                          6.648107e-06 4.906     -2.464   
+S(129)+S(117)=S(129)+S(88)                          6.648107e-06 4.906     -2.464   
 
 ! Reaction index: Chemkin #67; RMG #4473
 ! Template reaction: Disproportionation
@@ -1328,7 +1328,7 @@ C7H11(80)+S(117)=C7H10(165)+S(129)                  1.026000e+14 -0.350    0.000
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 3.0
 ! family: H_Abstraction
-S(117)+C5H8(351)=S(129)+C5H7(216)                   9.781927e-04 4.260     6.640    
+C5H8(351)+S(117)=S(129)+C5H7(216)                   9.781927e-04 4.260     6.640    
 
 ! Reaction index: Chemkin #69; RMG #4642
 ! Template reaction: Disproportionation
@@ -1336,7 +1336,7 @@ S(117)+C5H8(351)=S(129)+C5H7(216)                   9.781927e-04 4.260     6.640
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-C7H9(25)+S(117)=S(129)+C7H8(72)                     2.052000e+14 -0.350    0.000    
+C7H9(25)+S(117)=C7H8(72)+S(129)                     2.052000e+14 -0.350    0.000    
 
 ! Reaction index: Chemkin #70; RMG #6353
 ! Template reaction: Intra_R_Add_Endocyclic
@@ -1416,7 +1416,7 @@ C7H11(42)+OH(D)(617)=C7H10(1)+H2O(979)              9.640000e+13 0.000     0.000
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H9O2(86)+OH(D)(617)=S(261)+H2O(979)               1.340000e+02 3.475     -2.800   
+OH(D)(617)+C7H9O2(86)=S(261)+H2O(979)               1.340000e+02 3.475     -2.800   
 
 ! Reaction index: Chemkin #79; RMG #7149
 ! Template reaction: H_Abstraction
@@ -1425,7 +1425,7 @@ C7H9O2(86)+OH(D)(617)=S(261)+H2O(979)               1.340000e+02 3.475     -2.80
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-C7H10(82)+OH(D)(617)=C7H9(25)+H2O(979)              9.169709e+00 3.613     -0.943   
+OH(D)(617)+C7H10(82)=C7H9(25)+H2O(979)              9.169709e+00 3.613     -0.943   
 
 ! Reaction index: Chemkin #80; RMG #7291
 ! Template reaction: H_Abstraction
@@ -1444,7 +1444,7 @@ C5H8(351)+OH(D)(617)=C5H7(216)+H2O(979)             6.044833e+00 3.684     -1.28
 ! Euclidian distance = 0
 ! family: H_Abstraction
 ! Ea raised from -1.8 to -1.8 kJ/mol.
-S(129)+OH(D)(617)=S(88)+H2O(979)                    1.100000e+12 0.000     -0.437   
+OH(D)(617)+S(129)=S(88)+H2O(979)                    1.100000e+12 0.000     -0.437   
 
 ! Reaction index: Chemkin #82; RMG #7342
 ! Template reaction: H_Abstraction
@@ -1453,7 +1453,7 @@ S(129)+OH(D)(617)=S(88)+H2O(979)                    1.100000e+12 0.000     -0.43
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-S(129)+OH(D)(617)=S(117)+H2O(979)                   4.558533e+07 1.444     5.139    
+OH(D)(617)+S(129)=S(117)+H2O(979)                   4.558533e+07 1.444     5.139    
 
 ! Reaction index: Chemkin #83; RMG #7535
 ! Template reaction: Disproportionation
@@ -1654,7 +1654,7 @@ HO2(46)+C7H11(42)=C7H10(1)+H2O2(1042)               9.640000e+13 0.000     0.000
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-C7H10(82)+HO2(46)=C7H9(25)+H2O2(1042)               5.924551e+03 2.620     11.236   
+HO2(46)+C7H10(82)=C7H9(25)+H2O2(1042)               5.924551e+03 2.620     11.236   
 
 ! Reaction index: Chemkin #106; RMG #7783
 ! Template reaction: H_Abstraction
@@ -1664,7 +1664,7 @@ C7H10(82)+HO2(46)=C7H9(25)+H2O2(1042)               5.924551e+03 2.620     11.23
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C5H7(216)+H2O2(1042)=HO2(46)+C5H8(351)              3.510000e-02 4.220     9.860    
+C5H7(216)+H2O2(1042)=C5H8(351)+HO2(46)              3.510000e-02 4.220     9.860    
 
 ! Reaction index: Chemkin #107; RMG #7796
 ! Template reaction: H_Abstraction
@@ -1716,7 +1716,7 @@ ETHYL(17)+HO2(46)=C2H4(11)+H2O2(1042)               3.003453e+10 1.009     -0.60
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-HO2(46)+C7H11(80)=C7H10(165)+H2O2(1042)             4.820000e+13 0.000     0.000    
+C7H11(80)+HO2(46)=C7H10(165)+H2O2(1042)             4.820000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #113; RMG #4195
 ! Template reaction: R_Recombination
@@ -1943,7 +1943,7 @@ C5H7(216)+S(1178)=C5H8(351)+S(1241)                 1.566000e+12 0.000     -0.13
 ! Exact match found for rate rule [O_pri_rad;C/H/NdNd_Csrad]
 ! Euclidian distance = 0
 ! family: Disproportionation
-S(1178)+OH(D)(617)=H2O(979)+S(1241)                 1.210000e+13 0.000     0.000    
+OH(D)(617)+S(1178)=H2O(979)+S(1241)                 1.210000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #139; RMG #10116
 ! Template reaction: Disproportionation
@@ -1976,7 +1976,7 @@ S(117)+S(1178)=S(129)+S(1241)                       2.560000e+13 -0.350    0.000
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: R_Recombination
-C5H7(216)+OH(D)(617)=S(1021)                        1.540000e+14 0.000     0.000    
+OH(D)(617)+C5H7(216)=S(1021)                        1.540000e+14 0.000     0.000    
 
 ! Reaction index: Chemkin #143; RMG #13656
 ! Template reaction: Disproportionation
@@ -2054,7 +2054,7 @@ C5H8(351)=C5H8(502)                                 4.999980e+11 0.056     29.25
 ! Estimated using template [R2OO_S;C_sec_rad_intra;OOH] for rate rule [R2OO_S;C_rad/H/OneDe_intra;OOH]
 ! Euclidian distance = 1.0
 ! family: Cyclic_Ether_Formation
-S(260)=C7H8O(798)+OH(D)(617)                        1.380000e+12 0.000     12.673   
+S(260)=OH(D)(617)+C7H8O(798)                        1.380000e+12 0.000     12.673   
 
 ! Reaction index: Chemkin #152; RMG #73
 ! Template reaction: intra_H_migration
@@ -2072,7 +2072,7 @@ C7H9(65)=C7H9(25)                                   5.701535e+05 1.888     45.85
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: Disproportionation
-C7H11(42)+C7H9(65)=C7H10(1)+C7H10(82)               6.104000e+12 0.000     -0.550   
+C7H9(65)+C7H11(42)=C7H10(1)+C7H10(82)               6.104000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #154; RMG #1379
 ! Template reaction: H_Abstraction
@@ -2081,7 +2081,7 @@ C7H11(42)+C7H9(65)=C7H10(1)+C7H10(82)               6.104000e+12 0.000     -0.55
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: H_Abstraction
-HO2(46)+C7H9(65)=O2(4)+C7H10(82)                    1.137908e-01 4.126     21.217   
+C7H9(65)+HO2(46)=O2(4)+C7H10(82)                    1.137908e-01 4.126     21.217   
 
 ! Reaction index: Chemkin #155; RMG #1411
 ! Template reaction: H_Abstraction
@@ -2091,7 +2091,7 @@ HO2(46)+C7H9(65)=O2(4)+C7H10(82)                    1.137908e-01 4.126     21.21
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+C7H9(65)=C7H10(82)+C7H9(25)               3.924000e-03 4.340     6.300    
+C7H9(65)+C7H10(82)=C7H9(25)+C7H10(82)               3.924000e-03 4.340     6.300    
 
 ! Reaction index: Chemkin #156; RMG #1418
 ! Template reaction: H_Abstraction
@@ -2100,7 +2100,7 @@ C7H10(82)+C7H9(65)=C7H10(82)+C7H9(25)               3.924000e-03 4.340     6.300
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: H_Abstraction
-C7H10(1)+C7H9(65)=C7H10(82)+C7H9(25)                1.832000e-02 4.340     11.700   
+C7H10(1)+C7H9(65)=C7H9(25)+C7H10(82)                1.832000e-02 4.340     11.700   
 
 ! Reaction index: Chemkin #157; RMG #1467
 ! Template reaction: H_Abstraction
@@ -2109,7 +2109,7 @@ C7H10(1)+C7H9(65)=C7H10(82)+C7H9(25)                1.832000e-02 4.340     11.70
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+S(88)=S(129)+C7H9(65)                     2.964000e-02 4.313     8.016    
+C7H10(82)+S(88)=C7H9(65)+S(129)                     2.964000e-02 4.313     8.016    
 
 ! Reaction index: Chemkin #158; RMG #1517
 ! Template reaction: Disproportionation
@@ -2142,7 +2142,7 @@ C5H8(351)+C7H9(65)=C7H10(82)+C5H7(216)              5.382000e-03 4.340     14.30
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: Disproportionation
-C7H9(25)+C7H9(65)=C7H10(1)+C7H8(72)                 6.104000e+12 0.000     -0.550   
+C7H9(65)+C7H9(25)=C7H10(1)+C7H8(72)                 6.104000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #162; RMG #3200
 ! Template reaction: Disproportionation
@@ -2151,7 +2151,7 @@ C7H9(25)+C7H9(65)=C7H10(1)+C7H8(72)                 6.104000e+12 0.000     -0.55
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: Disproportionation
-C7H9(25)+C7H9(65)=C7H10(82)+C7H8(72)                6.104000e+12 0.000     -0.550   
+C7H9(65)+C7H9(25)=C7H8(72)+C7H10(82)                6.104000e+12 0.000     -0.550   
 DUPLICATE
 
 ! Reaction index: Chemkin #163; RMG #3202
@@ -2160,7 +2160,7 @@ DUPLICATE
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 8.0
 ! family: Disproportionation
-C7H9(65)+C7H9(65)=C7H10(82)+C7H8(72)                6.104000e+12 0.000     -0.550   
+C7H9(65)+C7H9(65)=C7H8(72)+C7H10(82)                6.104000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #164; RMG #3204
 ! Template reaction: Disproportionation
@@ -2168,7 +2168,7 @@ C7H9(65)+C7H9(65)=C7H10(82)+C7H8(72)                6.104000e+12 0.000     -0.55
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-C7H9(25)+C7H9(65)=C7H10(82)+C7H8(72)                7.760000e+12 0.000     0.360    
+C7H9(65)+C7H9(25)=C7H8(72)+C7H10(82)                7.760000e+12 0.000     0.360    
 DUPLICATE
 
 ! Reaction index: Chemkin #165; RMG #3416
@@ -2187,7 +2187,7 @@ C2H6(6)+C7H9(65)=ETHYL(17)+C7H10(82)                1.080000e-01 4.340     21.30
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(261)+C7H9(65)=C7H9O2(86)+C7H8(72)                 3.052000e+12 0.000     -0.550   
+S(261)+C7H9(65)=C7H8(72)+C7H9O2(86)                 3.052000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #167; RMG #4104
 ! Template reaction: Disproportionation
@@ -2203,7 +2203,7 @@ C7H9(65)+C5H7(216)=C5H8(351)+C7H8(72)               1.160000e+13 0.000     -0.13
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(117)+C7H9(65)=S(129)+C7H8(72)                     2.052000e+14 -0.350    0.000    
+C7H9(65)+S(117)=C7H8(72)+S(129)                     2.052000e+14 -0.350    0.000    
 
 ! Reaction index: Chemkin #169; RMG #4664
 ! Template reaction: Disproportionation
@@ -2211,7 +2211,7 @@ S(117)+C7H9(65)=S(129)+C7H8(72)                     2.052000e+14 -0.350    0.000
 ! Euclidian distance = 3.60555127546
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(88)+C7H9(65)=S(129)+C7H8(72)                      9.640000e+13 0.000     0.000    
+C7H9(65)+S(88)=C7H8(72)+S(129)                      9.640000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #170; RMG #6551
 ! Template reaction: H_Abstraction
@@ -2220,7 +2220,7 @@ S(88)+C7H9(65)=S(129)+C7H8(72)                      9.640000e+13 0.000     0.000
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+S(117)=S(129)+C7H9(65)                    3.412000e-03 4.340     3.100    
+C7H10(82)+S(117)=C7H9(65)+S(129)                    3.412000e-03 4.340     3.100    
 
 ! Reaction index: Chemkin #171; RMG #7148
 ! Template reaction: H_Abstraction
@@ -2229,7 +2229,7 @@ C7H10(82)+S(117)=S(129)+C7H9(65)                    3.412000e-03 4.340     3.100
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+OH(D)(617)=C7H9(65)+H2O(979)              1.340000e+02 3.475     -2.800   
+OH(D)(617)+C7H10(82)=C7H9(65)+H2O(979)              1.340000e+02 3.475     -2.800   
 
 ! Reaction index: Chemkin #172; RMG #7562
 ! Template reaction: Disproportionation
@@ -2246,7 +2246,7 @@ C7H9(65)+OH(D)(617)=C7H8(72)+H2O(979)               9.640000e+13 0.000     0.000
 ! Euclidian distance = 0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: H_Abstraction
-C7H10(82)+HO2(46)=C7H9(65)+H2O2(1042)               5.487644e-03 4.451     7.588    
+HO2(46)+C7H10(82)=C7H9(65)+H2O2(1042)               5.487644e-03 4.451     7.588    
 
 ! Reaction index: Chemkin #174; RMG #7765
 ! Template reaction: Disproportionation
@@ -2262,7 +2262,7 @@ O2(4)+C7H9(65)=HO2(46)+C7H8(72)                     8.000000e+10 0.000     0.000
 ! Euclidian distance = 3.60555127546
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-HO2(46)+C7H9(65)=C7H8(72)+H2O2(1042)                9.640000e+13 0.000     0.000    
+C7H9(65)+HO2(46)=C7H8(72)+H2O2(1042)                9.640000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #176; RMG #9404
 ! Template reaction: H_Abstraction
@@ -2347,7 +2347,7 @@ ETHYL(17)+S(261)=C2H4(11)+S(1122)                   2.355523e+12 -0.117    -0.27
 ! Euclidian distance = 1.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-S(261)+C7H11(80)=S(1122)+C7H10(165)                 1.526000e+12 0.000     -0.550   
+S(261)+C7H11(80)=C7H10(165)+S(1122)                 1.526000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #186; RMG #16206
 ! Template reaction: Disproportionation
@@ -2355,7 +2355,7 @@ S(261)+C7H11(80)=S(1122)+C7H10(165)                 1.526000e+12 0.000     -0.55
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(261)+C7H9(25)=S(1122)+C7H8(72)                    3.052000e+12 0.000     -0.550   
+S(261)+C7H9(25)=C7H8(72)+S(1122)                    3.052000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #187; RMG #16220
 ! Template reaction: Disproportionation
@@ -2363,7 +2363,7 @@ S(261)+C7H9(25)=S(1122)+C7H8(72)                    3.052000e+12 0.000     -0.55
 ! Euclidian distance = 3.0
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
-S(261)+C7H9(65)=S(1122)+C7H8(72)                    3.052000e+12 0.000     -0.550   
+S(261)+C7H9(65)=C7H8(72)+S(1122)                    3.052000e+12 0.000     -0.550   
 
 ! Reaction index: Chemkin #188; RMG #16472
 ! Template reaction: Disproportionation
@@ -2436,7 +2436,7 @@ OH(D)(617)+C7H9(860)=H2O(979)+C7H8(481)             4.820000e+13 0.000     0.000
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-HO2(46)+C7H9(860)=C7H8(481)+H2O2(1042)              4.820000e+13 0.000     0.000    
+HO2(46)+C7H9(860)=H2O2(1042)+C7H8(481)              4.820000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #197; RMG #15233
 ! Template reaction: Intra_R_Add_Endocyclic
@@ -2642,7 +2642,7 @@ H2O2(1042)+S(1836)=HO2(46)+S(1843)                  1.840000e-01 3.960     6.630
 ! Estimated using template [O_sec;OOC] for rate rule [O/H/OneDeC;OOC]
 ! Euclidian distance = 2.0
 ! family: H_Abstraction
-S(1251)+S(1836)=S(1178)+S(1843)                     9.200000e-02 3.960     6.630    
+S(1836)+S(1251)=S(1178)+S(1843)                     9.200000e-02 3.960     6.630    
 
 ! Reaction index: Chemkin #220; RMG #18004
 ! Template reaction: Disproportionation
@@ -2668,7 +2668,7 @@ C7H11(42)+S(1836)=C7H10(1)+S(1843)                  9.640000e+13 0.000     0.000
 ! Estimated using template [O_rad;C/H/NdNd_Csrad] for rate rule [O_rad/NonDeO;C/H/NdNd_Csrad]
 ! Euclidian distance = 2.0
 ! family: Disproportionation
-S(1178)+S(1836)=S(1843)+S(1241)                     1.210000e+13 0.000     0.000    
+S(1178)+S(1836)=S(1241)+S(1843)                     1.210000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #223; RMG #18369
 ! Template reaction: Disproportionation
@@ -2710,7 +2710,7 @@ ETHYL(17)+S(1836)=C2H4(11)+S(1843)                  3.003453e+10 1.009     -0.60
 ! Euclidian distance = 2.0
 ! Multiplied by reaction path degeneracy 2.0
 ! family: Disproportionation
-C7H9(860)+S(1836)=C7H8(481)+S(1843)                 4.820000e+13 0.000     0.000    
+S(1836)+C7H9(860)=C7H8(481)+S(1843)                 4.820000e+13 0.000     0.000    
 
 ! Reaction index: Chemkin #228; RMG #6369
 ! Template reaction: R_Recombination

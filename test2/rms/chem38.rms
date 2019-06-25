@@ -1262,8 +1262,8 @@ Reactions:
   - '[CH]1C=CC=CCC1'
   radicalchange: 0
   reactants:
-  - C1=CCCC=CC1
   - '[CH]1C=CC=CCC1'
+  - C1=CCCC=CC1
   type: ElementaryReaction
 - kinetics:
     A: 0.052593687834187934

@@ -1,7 +1,7 @@
 *** Collision rate limit violators report ***
 "Violation factor" is the ratio of the rate coefficient to the collision limit rate at the relevant conditions
 
-OH(D)(617) + [CH2]C=CC=C(216) <=> C=CC=CCO(1021)
+[CH2]C=CC=C(216) + OH(D)(617) <=> C=CC=CCO(1021)
 Arrhenius(A=(1.54e+14,'cm^3/(mol*s)','+|-',1e+13), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(200,'K'), Tmax=(400,'K'))
 Estimated using template [O_pri_rad;C_pri_rad] for rate rule [O_pri_rad;C_rad/H2/Cd]
 Euclidian distance = 1.0
@@ -11,7 +11,7 @@ Direction: forward
 Violation factor: 1.46
 Violation condition: 700.0 K, 10.0 bar
 
-OH(D)(617) + [CH2]C=CC=C(216) <=> C=CC=CCO(1021)
+[CH2]C=CC=C(216) + OH(D)(617) <=> C=CC=CCO(1021)
 Arrhenius(A=(1.54e+14,'cm^3/(mol*s)','+|-',1e+13), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(200,'K'), Tmax=(400,'K'))
 Estimated using template [O_pri_rad;C_pri_rad] for rate rule [O_pri_rad;C_rad/H2/Cd]
 Euclidian distance = 1.0
