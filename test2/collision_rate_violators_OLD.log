@@ -1,31 +1,23 @@
 *** Collision rate limit violators report ***
 "Violation factor" is the ratio of the rate coefficient to the collision limit rate at the relevant conditions
 
-H(10) + HO2(17) <=> H2O2(18)
-ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
-Kinetic library: BurkeH2O2inN2
+OH(D)(617) + [CH2]C=CC=C(216) <=> C=CC=CCO(1021)
+Arrhenius(A=(1.54e+14,'cm^3/(mol*s)','+|-',1e+13), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(200,'K'), Tmax=(400,'K'))
+Estimated using template [O_pri_rad;C_pri_rad] for rate rule [O_pri_rad;C_rad/H2/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
 Direction: forward
-Violation factor: 2.52
+Violation factor: 1.46
 Violation condition: 700.0 K, 10.0 bar
 
-H(10) + HO2(17) <=> H2O2(18)
-ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
-Kinetic library: BurkeH2O2inN2
+OH(D)(617) + [CH2]C=CC=C(216) <=> C=CC=CCO(1021)
+Arrhenius(A=(1.54e+14,'cm^3/(mol*s)','+|-',1e+13), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(200,'K'), Tmax=(400,'K'))
+Estimated using template [O_pri_rad;C_pri_rad] for rate rule [O_pri_rad;C_rad/H2/Cd]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
 Direction: forward
-Violation factor: 2.11
+Violation factor: 1.12
 Violation condition: 1500.0 K, 10.0 bar
-
-H(10) + HO2(17) <=> H2O2(18)
-ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
-Kinetic library: BurkeH2O2inN2
-Direction: forward
-Violation factor: 10.09
-Violation condition: 700.0 K, 40.0 bar
-
-H(10) + HO2(17) <=> H2O2(18)
-ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
-Kinetic library: BurkeH2O2inN2
-Direction: forward
-Violation factor: 8.42
-Violation condition: 1500.0 K, 40.0 bar
 
