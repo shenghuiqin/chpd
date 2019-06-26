@@ -1,0 +1,77 @@
+Using Theano backend.
+:root:Removing old /scratch/qin.she/Code/chpd/quick_chpd/RMG_backup.log
+:root:Moving /scratch/qin.she/Code/chpd/quick_chpd/RMG.log to /scratch/qin.she/Code/chpd/quick_chpd/RMG_backup.log
+
+/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
+  'Attempted to set non-positive xlimits for log-scale axis; '
+Traceback (most recent call last):
+  File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
+    main()
+  File "/home/qin.she/Code/RMG-Py/rmg.py", line 166, in main
+    cProfile.runctx(command, global_vars, local_vars, stats_file)
+  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 49, in runctx
+    prof = prof.runctx(statement, globals, locals)
+  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 140, in runctx
+    exec cmd in globals, locals
+  File "<string>", line 1, in <module>
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 624, in execute
+    self.initialize(**kwargs)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 519, in initialize
+    spec, isNew = self.reactionModel.makeNewSpecies(molecule, label=label, reactive=False)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 316, in makeNewSpecies
+    self.generateThermo(spec)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 824, in generateThermo
+    submit(spc, self.solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 186, in submit
+    spc.thermo = evaluator(spc, solventName= solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 172, in evaluator
+    thermo = generateThermoData(spc,solventName=solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 136, in generateThermoData
+    thermo0 = thermodb.getThermoData(spc) 
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1255, in getThermoData
+    thermo0 = self.getThermoDataFromGroups(species)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1617, in getThermoDataFromGroups
+    tdata = self.estimateThermoViaGroupAdditivity(molecule)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1837, in estimateThermoViaGroupAdditivity
+    thermoData = self.computeGroupAdditivityThermo(molecule)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1873, in computeGroupAdditivityThermo
+    self.__addGroupThermoData(thermoData, self.groups['group'], molecule, {'*':atom})
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 2218, in __addGroupThermoData
+    raise DatabaseError('Unable to determine thermo parameters for {0}: no data for node {1} or any of its ancestors.'.format(molecule, node0) )
+rmgpy.exceptions.DatabaseError: Unable to determine thermo parameters for <Molecule "[Ar]">: no data for node R or any of its ancestors.
+Traceback (most recent call last):
+  File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
+    main()
+  File "/home/qin.she/Code/RMG-Py/rmg.py", line 166, in main
+    cProfile.runctx(command, global_vars, local_vars, stats_file)
+  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 49, in runctx
+    prof = prof.runctx(statement, globals, locals)
+  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 140, in runctx
+    exec cmd in globals, locals
+  File "<string>", line 1, in <module>
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 624, in execute
+    self.initialize(**kwargs)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 519, in initialize
+    spec, isNew = self.reactionModel.makeNewSpecies(molecule, label=label, reactive=False)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 316, in makeNewSpecies
+    self.generateThermo(spec)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 824, in generateThermo
+    submit(spc, self.solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 186, in submit
+    spc.thermo = evaluator(spc, solventName= solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 172, in evaluator
+    thermo = generateThermoData(spc,solventName=solventName)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/thermo/thermoengine.py", line 136, in generateThermoData
+    thermo0 = thermodb.getThermoData(spc) 
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1255, in getThermoData
+    thermo0 = self.getThermoDataFromGroups(species)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1617, in getThermoDataFromGroups
+    tdata = self.estimateThermoViaGroupAdditivity(molecule)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1837, in estimateThermoViaGroupAdditivity
+    thermoData = self.computeGroupAdditivityThermo(molecule)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 1873, in computeGroupAdditivityThermo
+    self.__addGroupThermoData(thermoData, self.groups['group'], molecule, {'*':atom})
+  File "/home/qin.she/Code/RMG-Py/rmgpy/data/thermo.py", line 2218, in __addGroupThermoData
+    raise DatabaseError('Unable to determine thermo parameters for {0}: no data for node {1} or any of its ancestors.'.format(molecule, node0) )
+rmgpy.exceptions.DatabaseError: Unable to determine thermo parameters for <Molecule "[Ar]">: no data for node R or any of its ancestors.
+Fontconfig warning: ignoring C.UTF-8: not a valid language tag
