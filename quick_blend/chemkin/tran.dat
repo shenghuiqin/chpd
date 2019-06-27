@@ -86,3 +86,6 @@ S(2260)             2     479.274     6.786     0.000     0.000     0.000    ! E
 S(2221)             2     612.057     8.299     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=794.88 K, Pc=20.2 bar (from Joback method)
 S(2356)             2     580.351     8.095     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=753.70 K, Pc=20.64 bar (from Joback method)
 S(253)              2     538.331     7.315     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=699.13 K, Pc=25.95 bar (from Joback method)
+S(2385)             2     612.548     8.071     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=795.52 K, Pc=21.98 bar (from Joback method)
+S(2384)             2     612.548     8.071     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=795.52 K, Pc=21.98 bar (from Joback method)
+S(2140)             2     437.585     6.340     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=568.29 K, Pc=32.39 bar (from Joback method)

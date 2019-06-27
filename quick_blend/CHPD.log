@@ -42126,3 +42126,244 @@ Saving annotated version of Chemkin file...
 Chemkin file contains 30894 reactions.
 Saving current model core to HTML file...
 Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:13:55
+    Memory used: 3994.30 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 4.0860e-06 s, species [O]OC1C=CCC=CC1OO(2384) at 0.0509786192387 exceeded the minimum rate for simulation interruption of 0.05
+At time 4.0860e-06 s, species [O]OC1C=CC(C=CC1)OO(2385) at 0.0509786192387 exceeded the minimum rate for simulation interruption of 0.05
+At time 4.0860e-06 s, species [O]OC1C=CC(C=CC1)OO(2385) at rate ratio 0.0509786192387 exceeded the minimum rate for moving to model core of 0.05
+At time 4.0860e-06 s, species [O]OC1C=CCC=CC1OO(2384) at rate ratio 0.0509786192387 exceeded the minimum rate for moving to model core of 0.05
+terminating simulation due to interrupt...
+conditions choosen for reactor 0 were: P = 19.7693423608 bar, T = 924.093533653 K, 
+
+
+Adding species [O]OC1C=CC(C=CC1)OO(2385) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    [O]OC1C=CC(C=CC1)OO(2385)
+Created 0 new edge species
+Moved 1 reactions from edge to core
+    O2(3) + OOC1C=C[CH]CC=C1(253) <=> [O]OC1C=CC(C=CC1)OO(2385)
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 87 species and 314 reactions
+    The model edge has 2301 species and 30580 reactions
+
+
+Adding species [O]OC1C=CCC=CC1OO(2384) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    [O]OC1C=CCC=CC1OO(2384)
+Created 0 new edge species
+Moved 1 reactions from edge to core
+    O2(3) + OOC1C=C[CH]CC=C1(253) <=> [O]OC1C=CCC=CC1OO(2384)
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 88 species and 315 reactions
+    The model edge has 2300 species and 30579 reactions
+
+
+At time 1.0367e-05 s, reached target termination RateRatio: 0.00996817315345
+
+For reaction generation 1 process is used.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 88 species and 315 reactions
+    The model edge has 2300 species and 30579 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 315 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 315 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30894 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30894 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:15:36
+    Memory used: 3994.30 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 2.8719e-06 s, species C[CH]CCOO(2140) at 0.0512812045373 exceeded the minimum rate for simulation interruption of 0.05
+At time 2.8719e-06 s, species C[CH]CCOO(2140) at rate ratio 0.0512812045373 exceeded the minimum rate for moving to model core of 0.05
+terminating simulation due to interrupt...
+conditions choosen for reactor 0 were: P = 15.4952321741 bar, T = 1439.95629831 K, 
+
+
+Adding species C[CH]CCOO(2140) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C[CH]CCOO(2140)
+Created 0 new edge species
+Moved 1 reactions from edge to core
+    CCCCO[O](1984) <=> C[CH]CCOO(2140)
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 89 species and 316 reactions
+    The model edge has 2299 species and 30578 reactions
+
+
+At time 7.9064e-11 s, reached target termination RateRatio: 0.00996037584245
+
+For reaction generation 1 process is used.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 89 species and 316 reactions
+    The model edge has 2299 species and 30578 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 316 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 316 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30894 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30894 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:17:16
+    Memory used: 3994.30 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 7.9064e-11 s, reached target termination RateRatio: 0.00996037584245
+conditions choosen for reactor 0 were: P = 26.2392410178 bar, T = 1049.59684004 K, 
+
+
+At time 4.5439e-07 s, reached target termination RateRatio: 0.00996703380563
+
+For reaction generation 1 process is used.
+Generating thermo for new species...
+Generating kinetics for new reactions...
+For reaction [O]O(39) + C[CH]CCO[O](2144) <=> O2(3) + C[CH]CCOO(2140) Ea raised from -8.2 to -8.2 kJ/mol.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 12 new edge species
+    CC=CCOO(2386)
+    C=CCCOO(2387)
+    C[CH]CC[O](2388)
+    C[CH][CH]COO(2389)
+    C[CH]C[CH]OO(2390)
+    [CH2][CH]CCOO(2391)
+    CC1CCO1(2392)
+    [CH2]C(C)COO(2393)
+    CC(O)CC[O](2394)
+    [CH]CCOO(2395)
+    C[C]CCOO(2396)
+    CC(CCOO)O[O](2397)
+Added 0 new core reactions
+Created 25 new edge reactions
+    H(5) + CC=CCOO(2386) <=> C[CH]CCOO(2140)
+    H(5) + C=CCCOO(2387) <=> C[CH]CCOO(2140)
+    [CH2]OO(1870) + C=CC(1916) <=> C[CH]CCOO(2140)
+    CC[CH]COO(2139) <=> C[CH]CCOO(2140)
+    [CH2]CCCOO(2141) <=> C[CH]CCOO(2140)
+    CCC[CH]OO(2138) <=> C[CH]CCOO(2140)
+    OH(D)(590) + C[CH]CC[O](2388) <=> C[CH]CCOO(2140)
+    [O]O(39) + [CH2]C[CH]C(1917) <=> C[CH]CCOO(2140)
+    H(5) + C[CH]CCO[O](2144) <=> C[CH]CCOO(2140)
+    [CH2]OO(1870) + [CH2][CH]C(1920) <=> C[CH]CCOO(2140)
+    H(5) + C[CH][CH]COO(2389) <=> C[CH]CCOO(2140)
+    H(5) + C[CH]C[CH]OO(2390) <=> C[CH]CCOO(2140)
+    H(5) + [CH2][CH]CCOO(2391) <=> C[CH]CCOO(2140)
+    C[CH]CCOO(2140) <=> OH(D)(590) + CC1CCO1(2392)
+    [CH2]C(C)COO(2393) <=> C[CH]CCOO(2140)
+    C[CH]CCOO(2140) <=> CC(O)CC[O](2394)
+    [CH2]COO(662) + [CH]C(1927) <=> C[CH]CCOO(2140)
+    [CH3](30) + [CH]CCOO(2395) <=> C[CH]CCOO(2140)
+    H(5) + C[C]CCOO(2396) <=> C[CH]CCOO(2140)
+    O2(3) + C[CH]CCOO(2140) <=> [O]O(39) + CC=CCOO(2386)
+    O2(3) + C[CH]CCOO(2140) <=> [O]O(39) + C=CCCOO(2387)
+    [O]O(39) + C[C]CCOO(2396) <=> O2(3) + C[CH]CCOO(2140)
+    [O]O(39) + C[CH]CCO[O](2144) <=> O2(3) + C[CH]CCOO(2140)
+    [O]O(39) + C[CH]C[CH]OO(2390) <=> O2(3) + C[CH]CCOO(2140)
+    O2(3) + C[CH]CCOO(2140) <=> CC(CCOO)O[O](2397)
+
+After model enlargement:
+    The model core has 89 species and 316 reactions
+    The model edge has 2311 species and 30603 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 316 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 316 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30919 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30919 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:18:56
+    Memory used: 3994.30 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 4.5439e-07 s, reached target termination RateRatio: 0.00996703380563
+conditions choosen for reactor 0 were: P = 18.2016134459 bar, T = 1213.82295902 K, 
+
+
+At time 4.7127e-09 s, reached target termination RateRatio: 0.00992937460313
+
+For reaction generation 1 process is used.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 89 species and 316 reactions
+    The model edge has 2311 species and 30603 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 316 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 316 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30919 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30919 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...

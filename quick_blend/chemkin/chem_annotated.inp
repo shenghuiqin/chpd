@@ -98,11 +98,14 @@ SPECIES
     S(1930)             ! CCCCCC(C)O[O](1930)
     S(1932)             ! CCCCCC(C)OO(1932)
     S(1984)             ! CCCCO[O](1984)
+    S(2140)             ! C[CH]CCOO(2140)
     S(2214)             ! OOC1[CH]C2CC2CC1(2214)
     S(2218)             ! [CH2]C1C=CC(CC1)OO(2218)
     S(2221)             ! [O]OC1CC=CC(CC1)OO(2221)
     S(2260)             ! C1=CC2CCC1CO2(2260)
     S(2356)             ! OOC1[CH]C2CC(CC1)OO2(2356)
+    S(2384)             ! [O]OC1C=CCC=CC1OO(2384)
+    S(2385)             ! [O]OC1C=CC(C=CC1)OO(2385)
 END
 
 
@@ -672,6 +675,13 @@ S(1984)                 H   9C   4O   2     G   100.000  5000.000 1060.67      1
 -1.07238617E+04-3.03550721E+00 1.56798444E+00 5.67641208E-02-4.41692070E-05    3
  2.06263955E-08-4.35461719E-12-9.61175967E+03 2.25651278E+01                   4
 
+! Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsH) + group(Cs-CsCsHH) + group(Cs-CsCsHH) + group(Cs-CsOsHH) + group(Cs-CsHHH) +
+! radical(RCCJC)
+S(2140)                 H   9C   4O   2     G   100.000  5000.000  485.28      1
+ 4.83967504E+00 4.14028611E-02-1.89326425E-05 3.61988166E-09-2.53625479E-13    2
+-4.95118511E+03 9.95538319E+00 1.95817450E+00 5.28384541E-02-1.62119530E-05    3
+-5.24154326E-08 5.55562226E-11-4.52650517E+03 2.32676742E+01                   4
+
 ! Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsH) + group(Cs-CsCsCsH) + group(Cs-CsCsCsH) + group(Cs-CsCsOsH) + group(Cs-CsCsHH) +
 ! group(Cs-CsCsHH) + group(Cs-CsCsHH) + group(Cs-CsCsHH) + polycyclic(s2_3_6_ane) + radical(CCJCOOH)
 S(2214)                 H  11C   7O   2     G   100.000  5000.000 1071.65      1
@@ -707,6 +717,22 @@ S(2356)                 H  11C   7O   4     G   100.000  5000.000 1118.35      1
  1.94469302E+01 5.26341611E-02-2.54546522E-05 5.02689699E-09-3.59710915E-13    2
 -2.01593076E+04-9.83427121E+01-1.60290381E+00 1.27923995E-01-1.26439280E-04    3
  6.52262305E-08-1.38170552E-11-1.54511499E+04 5.56482283E+00                   4
+
+! Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsCs) + group(O2s-OsH) + group(O2s-OsH) + group(Cs-(Cds-Cds)CsOsH) + group(Cs-(Cds-
+! Cds)CsOsH) + group(Cs-(Cds-Cds)(Cds-Cds)HH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) +
+! ring(1,4-Cycloheptadiene) + radical(ROOJ)
+S(2384)                 H   9C   7O   4     G   100.000  5000.000  913.22      1
+ 4.63503995E+01-1.58854991E-02 1.66299337E-05-3.32596304E-09 2.10600920E-13    2
+-9.84416415E+03-2.15507901E+02-3.30296036E-01 3.72813761E-02 1.77814188E-04    3
+-3.02410332E-07 1.31750536E-10 4.99081534E+03 4.00044721E+01                   4
+
+! Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsCs) + group(O2s-OsH) + group(O2s-OsH) + group(Cs-(Cds-Cds)CsOsH) + group(Cs-(Cds-Cds
+! )(Cds-Cds)OsH) + group(Cs-(Cds-Cds)CsHH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + ring(1,4-Cycloheptadiene) +
+! radical(ROOJ)
+S(2385)                 H   9C   7O   4     G   100.000  5000.000  915.08      1
+ 4.47988771E+01-1.27144223E-02 1.46656125E-05-2.93380296E-09 1.83711670E-13    2
+-9.94042701E+03-2.07043344E+02-3.32920785E-01 3.97163050E-02 1.66157633E-04    3
+-2.86280701E-07 1.24852067E-10 4.38407916E+03 3.98236104E+01                   4
 
 END
 
@@ -3455,6 +3481,32 @@ S(254)+C7H9(6)=C7H8(65)+S(253)                      9.640000e+13 0.000     0.000
 ! Multiplied by reaction path degeneracy 4.0
 ! family: Disproportionation
 S(254)+C7H9(58)=C7H8(65)+S(253)                     9.640000e+13 0.000     0.000    
+
+! Reaction index: Chemkin #314; RMG #30702
+! Template reaction: R_Recombination
+! Flux pairs: S(253), S(2385); O2(3), S(2385); 
+! Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+! Euclidian distance = 1.0
+! Multiplied by reaction path degeneracy 2.0
+! family: R_Recombination
+O2(3)+S(253)=S(2385)                                5.325686e+13 0.108     1.374    
+
+! Reaction index: Chemkin #315; RMG #30700
+! Template reaction: R_Recombination
+! Flux pairs: S(253), S(2384); O2(3), S(2384); 
+! Estimated using template [C_rad/H/CdCs;Y_rad] for rate rule [C_rad/H/CdCs;O2_birad]
+! Euclidian distance = 1.0
+! Multiplied by reaction path degeneracy 2.0
+! family: R_Recombination
+O2(3)+S(253)=S(2384)                                5.325686e+13 0.108     1.374    
+
+! Reaction index: Chemkin #316; RMG #27093
+! Template reaction: intra_H_migration
+! Flux pairs: S(1984), S(2140); 
+! Matched reaction 260 C4H9O2-13 <=> C4H9O2-14 in intra_H_migration/training
+! This reaction matched rate rule [R5H_SSSS_OCC;O_rad_out;Cs_H_out_H/NonDeC]
+! family: intra_H_migration
+S(1984)=S(2140)                                     1.788000e+07 1.260     18.170   
 
 END
 
