@@ -238,7 +238,7 @@ $(document).ready(function() {
 
 <h1>RMG Output</h1>
 
-<h2>Species (85)</h2>
+<h2>Species (86)</h2>
 
 <form id='thermoSelector' action="">
 <input type="checkbox" id="thermoComment" name="detail" value="thermoComment" onclick="updateThermoDetails(this);" checked="false"><label for="thermoComment"><b>Show Thermo Details</b></label><br>
@@ -4328,9 +4328,57 @@ $(document).ready(function() {
     
 </tr>
 
+
+<tr class="species">
+    <td class="index" valign="top">
+    253.</td>
+    
+    
+ <td class="thermo" valign="top">
+ 
+
+        <table class="thermo" align="left">
+            <tr>
+                <th>H298</th>
+                <th>S298</th>
+                <th>Cp300</th>
+                <th>Cp500</th>
+                <th>Cp1000</th>
+                <th>Cp1500</th>
+            </tr>
+            <tr>
+                <td>
+                                    
+                18.23
+                 </td>
+                <td>
+                90.76
+                </td>
+                <td>30.93</td>
+                <td>57.90</td>
+                <td>79.13</td>
+                <td>90.74</td>
+            </tr>
+<tr><td colspan="6" class="thermoComment">
+<div id="thermoComment" class="thermoComment">Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsH) + group(Cs<br>-(Cds-Cds)CsOsH) + group(Cs-(Cds-Cds)CsHH) + group(Cs-(Cds-Cds)(Cds-Cds)HH) +<br>group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) + group(Cds-CdsCsH) +<br>ring(1,4-Cycloheptadiene) + radical(C=CCJC(O)C=C)</div>
+</td></tr>
+        </table>
+    
+  
+
+ </td>
+    
+    <td class="structure" valign="top"><a href=http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253)"></a></td>
+    <td class="label" valign="top">S(253)</td>
+    <td class="SMILES" valign="top">OOC1[CH]C=CCC=C1</td>
+    
+  <td class="MW" valign="top">125.15</td>
+    
+</tr>
+
 </table>
 
-<h2>Reactions (306)</h2>
+<h2>Reactions (313)</h2>
 
 <form id='familySelector' action="">
 <h4>Reaction families:</h4>
@@ -4338,18 +4386,18 @@ $(document).ready(function() {
     <input type="checkbox" id="6_membered_central_C_C_shift" name="family" value="6_membered_central_C_C_shift" checked="checked" onclick="updateFamily(this);"><label for="6_membered_central_C_C_shift">6_membered_central_C-C_shift (1 rxn)</label><br>
     <input type="checkbox" id="Birad_recombination" name="family" value="Birad_recombination" checked="checked" onclick="updateFamily(this);"><label for="Birad_recombination">Birad_recombination (2 rxns)</label><br>
     <input type="checkbox" id="Cyclic_Ether_Formation" name="family" value="Cyclic_Ether_Formation" checked="checked" onclick="updateFamily(this);"><label for="Cyclic_Ether_Formation">Cyclic_Ether_Formation (1 rxn)</label><br>
-    <input type="checkbox" id="Disproportionation" name="family" value="Disproportionation" checked="checked" onclick="updateFamily(this);"><label for="Disproportionation">Disproportionation (98 rxns)</label><br>
+    <input type="checkbox" id="Disproportionation" name="family" value="Disproportionation" checked="checked" onclick="updateFamily(this);"><label for="Disproportionation">Disproportionation (101 rxns)</label><br>
     <input type="checkbox" id="HO2_Elimination_from_PeroxyRadical" name="family" value="HO2_Elimination_from_PeroxyRadical" checked="checked" onclick="updateFamily(this);"><label for="HO2_Elimination_from_PeroxyRadical">HO2_Elimination_from_PeroxyRadical (4 rxns)</label><br>
-    <input type="checkbox" id="H_Abstraction" name="family" value="H_Abstraction" checked="checked" onclick="updateFamily(this);"><label for="H_Abstraction">H_Abstraction (120 rxns)</label><br>
+    <input type="checkbox" id="H_Abstraction" name="family" value="H_Abstraction" checked="checked" onclick="updateFamily(this);"><label for="H_Abstraction">H_Abstraction (121 rxns)</label><br>
     <input type="checkbox" id="Intra_2_2_cycloaddition_Cd" name="family" value="Intra_2_2_cycloaddition_Cd" checked="checked" onclick="updateFamily(this);"><label for="Intra_2_2_cycloaddition_Cd">Intra_2+2_cycloaddition_Cd (6 rxns)</label><br>
     <input type="checkbox" id="Intra_Disproportionation" name="family" value="Intra_Disproportionation" checked="checked" onclick="updateFamily(this);"><label for="Intra_Disproportionation">Intra_Disproportionation (4 rxns)</label><br>
     <input type="checkbox" id="Intra_R_Add_Endocyclic" name="family" value="Intra_R_Add_Endocyclic" checked="checked" onclick="updateFamily(this);"><label for="Intra_R_Add_Endocyclic">Intra_R_Add_Endocyclic (20 rxns)</label><br>
     <input type="checkbox" id="Intra_R_Add_Exocyclic" name="family" value="Intra_R_Add_Exocyclic" checked="checked" onclick="updateFamily(this);"><label for="Intra_R_Add_Exocyclic">Intra_R_Add_Exocyclic (2 rxns)</label><br>
     <input type="checkbox" id="Intra_ene_reaction" name="family" value="Intra_ene_reaction" checked="checked" onclick="updateFamily(this);"><label for="Intra_ene_reaction">Intra_ene_reaction (2 rxns)</label><br>
-    <input type="checkbox" id="R_Addition_MultipleBond" name="family" value="R_Addition_MultipleBond" checked="checked" onclick="updateFamily(this);"><label for="R_Addition_MultipleBond">R_Addition_MultipleBond (3 rxns)</label><br>
+    <input type="checkbox" id="R_Addition_MultipleBond" name="family" value="R_Addition_MultipleBond" checked="checked" onclick="updateFamily(this);"><label for="R_Addition_MultipleBond">R_Addition_MultipleBond (4 rxns)</label><br>
     <input type="checkbox" id="R_Recombination" name="family" value="R_Recombination" checked="checked" onclick="updateFamily(this);"><label for="R_Recombination">R_Recombination (25 rxns)</label><br>
     <input type="checkbox" id="Singlet_Carbene_Intra_Disproportionation" name="family" value="Singlet_Carbene_Intra_Disproportionation" checked="checked" onclick="updateFamily(this);"><label for="Singlet_Carbene_Intra_Disproportionation">Singlet_Carbene_Intra_Disproportionation (2 rxns)</label><br>
-    <input type="checkbox" id="intra_H_migration" name="family" value="intra_H_migration" checked="checked" onclick="updateFamily(this);"><label for="intra_H_migration">intra_H_migration (9 rxns)</label><br>
+    <input type="checkbox" id="intra_H_migration" name="family" value="intra_H_migration" checked="checked" onclick="updateFamily(this);"><label for="intra_H_migration">intra_H_migration (11 rxns)</label><br>
 
 <a href="javascript:checkAllFamilies();" onclick="checkAllFamilies()">check all</a> &nbsp; &nbsp; <a href="javascript:uncheckAllFamilies();" onclick="uncheckAllFamilies();">uncheck all</a><br>
 
@@ -16510,6 +16558,285 @@ family: Intra_R_Add_Endocyclic""")</span></td>
 ! Euclidian distance = 3.16227766017
 ! family: Intra_R_Add_Endocyclic
 S(2221)=S(2356)                                     3.952076e+10 0.229     10.297   
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="intra_H_migration rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B5%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%20%7B12%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B8%2CD%7D%20%7B15%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B16%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B17%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B7%2CD%7D%20%7B18%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A__product1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">1317.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B5%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%20%7B12%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B8%2CD%7D%20%7B15%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B16%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B17%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B7%2CD%7D%20%7B18%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A"><img src="species/[O]OC1C=CCCC=C1(79).png" alt="C7H9O2(79)" title="C7H9O2(79), MW = 125.15 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">intra_H_migration</td>
+</tr>
+<tr class="kinetics intra_H_migration hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+1.5</td><td>+5.6</td><td>+7.0</td><td>+7.7</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(6.24e+09,'s^-1'), n=0, Ea=(79.7052,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(1500,'K'), comment="""Estimated using template [R6H;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R6H_RSSMS;O_rad_out;Cs_H_out_H/NonDeC]
+Euclidian distance = 1.0
+Multiplied by reaction path degeneracy 4.0
+family: intra_H_migration""")</span></td>
+</tr>
+<tr class="energy intra_H_migration hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -18.63
+    <br><b>S298 (cal/mol*K)</b> = -2.79
+    <br><b>G298 (kcal/mol)</b> = -17.80</td>
+    <td></td>
+</tr>
+<tr class="chemkin intra_H_migration hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: intra_H_migration
+! Flux pairs: C7H9O2(79), S(253); 
+! Estimated using template [R6H;O_rad_out;Cs_H_out_H/NonDeC] for rate rule [R6H_RSSMS;O_rad_out;Cs_H_out_H/NonDeC]
+! Euclidian distance = 1.0
+! Multiplied by reaction path degeneracy 4.0
+! family: intra_H_migration
+C7H9O2(79)=S(253)                                   6.240000e+09 0.000     19.050   
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="R_Addition_MultipleBond rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%202%0A1%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A__reactant2%3D1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A__product1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">5719.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A"><img src="species/[O]O(39).png" alt="HO2(39)" title="HO2(39), MW = 33.01 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A"><img src="species/C1=CC=CCC=C1(65).png" alt="C7H8(65)" title="C7H8(65), MW = 92.14 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">R_Addition_MultipleBond</td>
+</tr>
+<tr class="kinetics R_Addition_MultipleBond hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+5.1</td><td>+6.2</td><td>+6.7</td><td>+7.0</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(0.673667,'m^3/(mol*s)'), n=2.2488, Ea=(7.76738,'kJ/mol'), T0=(1,'K'), comment="""Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;OJ-O2s]
+Euclidian distance = 5.0
+Multiplied by reaction path degeneracy 2.0
+family: R_Addition_MultipleBond""")</span></td>
+</tr>
+<tr class="energy R_Addition_MultipleBond hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -26.90
+    <br><b>S298 (cal/mol*K)</b> = -37.97
+    <br><b>G298 (kcal/mol)</b> = -15.59</td>
+    <td></td>
+</tr>
+<tr class="chemkin R_Addition_MultipleBond hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: R_Addition_MultipleBond
+! Flux pairs: HO2(39), S(253); C7H8(65), S(253); 
+! Estimated using template [Cds-CdH_Cds-CdH;YJ] for rate rule [Cds-CdH_Cds-CdH;OJ-O2s]
+! Euclidian distance = 5.0
+! Multiplied by reaction path degeneracy 2.0
+! family: R_Addition_MultipleBond
+HO2(39)+C7H8(65)=S(253)                             6.736667e+05 2.249     1.856    
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="intra_H_migration rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B8%2CS%7D%20%7B9%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B18%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B15%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A__product1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">14493.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B8%2CS%7D%20%7B9%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B18%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B15%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A"><img src="species/[O]OC1C=CCC=CC1(664).png" alt="S(664)" title="S(664), MW = 125.15 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">intra_H_migration</td>
+</tr>
+<tr class="kinetics intra_H_migration hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+0.2</td><td>+6.1</td><td>+8.2</td><td>+9.3</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(657459,'s^-1'), n=1.87237, Ea=(102.584,'kJ/mol'), T0=(1,'K'), comment="""Estimated using template [R4H_SSS;Y_rad_out;Cs_H_out_H/Cd] for rate rule [R4H_SSS_OCs;O_rad_out;Cs_H_out_H/Cd]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: intra_H_migration""")</span></td>
+</tr>
+<tr class="energy intra_H_migration hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -19.77
+    <br><b>S298 (cal/mol*K)</b> = -2.51
+    <br><b>G298 (kcal/mol)</b> = -19.02</td>
+    <td></td>
+</tr>
+<tr class="chemkin intra_H_migration hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: intra_H_migration
+! Flux pairs: S(664), S(253); 
+! Estimated using template [R4H_SSS;Y_rad_out;Cs_H_out_H/Cd] for rate rule [R4H_SSS_OCs;O_rad_out;Cs_H_out_H/Cd]
+! Euclidian distance = 1.41421356237
+! Multiplied by reaction path degeneracy 2.0
+! family: intra_H_migration
+S(664)=S(253)                                       6.574590e+05 1.872     24.518   
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="H_Abstraction rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%202%0A1%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A__reactant2%3Dmultiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A__product1%3Dmultiplicity%203%0A1%20O%20u1%20p2%20c0%20%7B2%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A__product2%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">30696.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A"><img src="species/[O]O(39).png" alt="HO2(39)" title="HO2(39), MW = 33.01 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A"><img src="species/[O]OC1C=C[CH]CC=C1(254).png" alt="S(254)" title="S(254), MW = 124.14 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/multiplicity%203%0A1%20O%20u1%20p2%20c0%20%7B2%2CS%7D%0A2%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A"><img src="species/O2(3).png" alt="O2(3)" title="O2(3), MW = 32.00 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">H_Abstraction</td>
+</tr>
+<tr class="kinetics H_Abstraction hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+5.9</td><td>+5.5</td><td>+5.4</td><td>+5.3</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(1.2e+11,'cm^3/(mol*s)'), n=0, Ea=(-8.1588,'kJ/mol'), T0=(1,'K'), comment="""From training reaction 244 used for Orad_O_H;OOC
+Exact match found for rate rule [Orad_O_H;OOC]
+Euclidian distance = 0
+family: H_Abstraction
+Ea raised from -8.2 to -8.2 kJ/mol.""")</span></td>
+</tr>
+<tr class="energy H_Abstraction hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -36.53
+    <br><b>S298 (cal/mol*K)</b> = -5.94
+    <br><b>G298 (kcal/mol)</b> = -34.76</td>
+    <td></td>
+</tr>
+<tr class="chemkin H_Abstraction hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: H_Abstraction
+! Flux pairs: HO2(39), O2(3); S(254), S(253); 
+! From training reaction 244 used for Orad_O_H;OOC
+! Exact match found for rate rule [Orad_O_H;OOC]
+! Euclidian distance = 0
+! family: H_Abstraction
+! Ea raised from -8.2 to -8.2 kJ/mol.
+HO2(39)+S(254)=O2(3)+S(253)                         1.200000e+11 0.000     -1.950   
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="Disproportionation rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A__reactant2%3Dmultiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B12%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B5%2CS%7D%20%7B14%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B13%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B2%2CS%7D%20%7B15%2CS%7D%20%7B16%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CD%7D%20%7B17%2CS%7D%20%7B18%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A__product1%3D1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CD%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B5%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CD%7D%20%7B14%2CS%7D%20%7B15%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A__product2%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">30746.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A"><img src="species/[O]OC1C=C[CH]CC=C1(254).png" alt="S(254)" title="S(254), MW = 124.14 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B12%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B5%2CS%7D%20%7B14%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B13%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B2%2CS%7D%20%7B15%2CS%7D%20%7B16%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CD%7D%20%7B17%2CS%7D%20%7B18%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A"><img src="species/[CH2]CCC=CC=C(73).png" alt="C7H11(73)" title="C7H11(73), MW = 95.16 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CD%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B5%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CD%7D%20%7B14%2CS%7D%20%7B15%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A"><img src="species/C=CC=CCC=C(159).png" alt="C7H10(159)" title="C7H10(159), MW = 94.15 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">Disproportionation</td>
+</tr>
+<tr class="kinetics Disproportionation hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+7.7</td><td>+7.7</td><td>+7.7</td><td>+7.7</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(4.82e+13,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'), comment="""Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: Disproportionation""")</span></td>
+</tr>
+<tr class="energy Disproportionation hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -54.64
+    <br><b>S298 (cal/mol*K)</b> = -5.30
+    <br><b>G298 (kcal/mol)</b> = -53.06</td>
+    <td></td>
+</tr>
+<tr class="chemkin Disproportionation hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: Disproportionation
+! Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+S(254)+C7H11(73)=C7H10(159)+S(253)                  4.820000e+13 0.000     0.000    
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="Disproportionation rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A__reactant2%3Dmultiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B12%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B6%2CD%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A7%20%20C%20u1%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B16%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A__product1%3D1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A__product2%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">30867.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A"><img src="species/[O]OC1C=C[CH]CC=C1(254).png" alt="S(254)" title="S(254), MW = 124.14 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B12%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B6%2CD%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B14%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A7%20%20C%20u1%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B16%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A"><img src="species/[CH]1C=CC=CCC1(6).png" alt="C7H9(6)" title="C7H9(6), MW = 93.15 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A"><img src="species/C1=CC=CCC=C1(65).png" alt="C7H8(65)" title="C7H8(65), MW = 92.14 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">Disproportionation</td>
+</tr>
+<tr class="kinetics Disproportionation hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+8.0</td><td>+8.0</td><td>+8.0</td><td>+8.0</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(9.64e+13,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'), comment="""Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation""")</span></td>
+</tr>
+<tr class="energy Disproportionation hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -40.13
+    <br><b>S298 (cal/mol*K)</b> = 1.61
+    <br><b>G298 (kcal/mol)</b> = -40.61</td>
+    <td></td>
+</tr>
+<tr class="chemkin Disproportionation hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: Disproportionation
+! Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/NonDeO;C/H2/Nd_Csrad/H/Cd]
+! Euclidian distance = 2.2360679775
+! Multiplied by reaction path degeneracy 4.0
+! family: Disproportionation
+S(254)+C7H9(6)=C7H8(65)+S(253)                      9.640000e+13 0.000     0.000    
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="Disproportionation rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A__reactant2%3Dmultiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B5%2CS%7D%20%7B9%2CS%7D%20%7B10%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B14%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CD%7D%20%7B15%2CS%7D%0A5%20%20C%20u1%20p0%20c0%20%7B1%2CS%7D%20%7B7%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B7%2CD%7D%20%7B13%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B16%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A__product1%3D1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A__product2%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A" title="Search on RMG website" class="searchlink">30883.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%203%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u1%20p2%20c0%20%7B1%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A"><img src="species/[O]OC1C=C[CH]CC=C1(254).png" alt="S(254)" title="S(254), MW = 124.14 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B5%2CS%7D%20%7B9%2CS%7D%20%7B10%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B14%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CD%7D%20%7B15%2CS%7D%0A5%20%20C%20u1%20p0%20c0%20%7B1%2CS%7D%20%7B7%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B7%2CD%7D%20%7B13%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B16%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A"><img src="species/[CH]1C=CCC=CC1(58).png" alt="C7H9(58)" title="C7H9(58), MW = 93.15 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/1%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%20%7B8%2CS%7D%20%7B9%2CS%7D%0A2%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B4%2CD%7D%20%7B10%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CD%7D%20%7B11%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B2%2CD%7D%20%7B6%2CS%7D%20%7B13%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CD%7D%20%7B7%2CS%7D%20%7B15%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B7%2CD%7D%20%7B12%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B6%2CD%7D%20%7B14%2CS%7D%0A8%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A9%20%20H%20u0%20p0%20c0%20%7B1%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A"><img src="species/C1=CC=CCC=C1(65).png" alt="C7H8(65)" title="C7H8(65), MW = 92.14 g/mol" ></a> + <a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B3%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B18%2CS%7D%0A3%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B5%2CS%7D%20%7B6%2CS%7D%20%7B10%2CS%7D%0A4%20%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B12%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B7%2CD%7D%20%7B16%2CS%7D%0A6%20%20C%20u1%20p0%20c0%20%7B3%2CS%7D%20%7B9%2CS%7D%20%7B14%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B5%2CD%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B4%2CS%7D%20%7B9%2CD%7D%20%7B13%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B8%2CD%7D%20%7B17%2CS%7D%0A10%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A11%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B2%2CS%7D%0A"><img src="species/OOC1C=C[CH]CC=C1(253).png" alt="S(253)" title="S(253), MW = 125.15 g/mol" ></a></td>
+    <td class="family">Disproportionation</td>
+</tr>
+<tr class="kinetics Disproportionation hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+8.0</td><td>+8.0</td><td>+8.0</td><td>+8.0</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(9.64e+07,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), comment="""Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation""")</span></td>
+</tr>
+<tr class="energy Disproportionation hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -49.73
+    <br><b>S298 (cal/mol*K)</b> = 1.37
+    <br><b>G298 (kcal/mol)</b> = -50.14</td>
+    <td></td>
+</tr>
+<tr class="chemkin Disproportionation hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: Disproportionation
+! Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/NonDeO;C/H2/De_Csrad/H/Cd]
+! Euclidian distance = 3.60555127546
+! Multiplied by reaction path degeneracy 4.0
+! family: Disproportionation
+S(254)+C7H9(58)=C7H8(65)+S(253)                     9.640000e+13 0.000     0.000    
 </td>
 </tr>
 </tbody>
