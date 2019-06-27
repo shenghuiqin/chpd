@@ -238,7 +238,7 @@ $(document).ready(function() {
 
 <h1>RMG Output</h1>
 
-<h2>Species (84)</h2>
+<h2>Species (85)</h2>
 
 <form id='thermoSelector' action="">
 <input type="checkbox" id="thermoComment" name="detail" value="thermoComment" onclick="updateThermoDetails(this);" checked="false"><label for="thermoComment"><b>Show Thermo Details</b></label><br>
@@ -4280,9 +4280,57 @@ $(document).ready(function() {
     
 </tr>
 
+
+<tr class="species">
+    <td class="index" valign="top">
+    2356.</td>
+    
+    
+ <td class="thermo" valign="top">
+ 
+
+        <table class="thermo" align="left">
+            <tr>
+                <th>H298</th>
+                <th>S298</th>
+                <th>Cp300</th>
+                <th>Cp500</th>
+                <th>Cp1000</th>
+                <th>Cp1500</th>
+            </tr>
+            <tr>
+                <td>
+                                    
+                -22.34
+                 </td>
+                <td>
+                58.60
+                </td>
+                <td>53.74</td>
+                <td>75.59</td>
+                <td>101.93</td>
+                <td>111.82</td>
+            </tr>
+<tr><td colspan="6" class="thermoComment">
+<div id="thermoComment" class="thermoComment">Thermo group additivity estimation: group(O2s-OsCs) + group(O2s-OsCs) + group<br>(O2s-OsCs) + group(O2s-OsH) + group(Cs-CsCsOsH) + group(Cs-CsCsOsH) + group(Cs-<br>CsCsOsH) + group(Cs-CsCsHH) + group(Cs-CsCsHH) + group(Cs-CsCsHH) + group(Cs-<br>CsCsHH) + polycyclic(PolycyclicRing) + radical(CCJCOOH)</div>
+</td></tr>
+        </table>
+    
+  
+
+ </td>
+    
+    <td class="structure" valign="top"><a href=http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B5%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B9%2CS%7D%0A3%20%20O%20u0%20p2%20c0%20%7B4%2CS%7D%20%7B7%2CS%7D%0A4%20%20O%20u0%20p2%20c0%20%7B3%2CS%7D%20%7B22%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B10%2CS%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B9%2CS%7D%20%7B18%2CS%7D%20%7B19%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B20%2CS%7D%0A10%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B7%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A11%20C%20u1%20p0%20c0%20%7B7%2CS%7D%20%7B9%2CS%7D%20%7B21%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A19%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A20%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A21%20H%20u0%20p0%20c0%20%7B11%2CS%7D%0A22%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A><img src="species/OOC1[CH]C2CC(CC1)OO2(2356).png" alt="S(2356)" title="S(2356)"></a></td>
+    <td class="label" valign="top">S(2356)</td>
+    <td class="SMILES" valign="top">OOC1[CH]C2CC(CC1)OO2</td>
+    
+  <td class="MW" valign="top">159.16</td>
+    
+</tr>
+
 </table>
 
-<h2>Reactions (305)</h2>
+<h2>Reactions (306)</h2>
 
 <form id='familySelector' action="">
 <h4>Reaction families:</h4>
@@ -4295,7 +4343,7 @@ $(document).ready(function() {
     <input type="checkbox" id="H_Abstraction" name="family" value="H_Abstraction" checked="checked" onclick="updateFamily(this);"><label for="H_Abstraction">H_Abstraction (120 rxns)</label><br>
     <input type="checkbox" id="Intra_2_2_cycloaddition_Cd" name="family" value="Intra_2_2_cycloaddition_Cd" checked="checked" onclick="updateFamily(this);"><label for="Intra_2_2_cycloaddition_Cd">Intra_2+2_cycloaddition_Cd (6 rxns)</label><br>
     <input type="checkbox" id="Intra_Disproportionation" name="family" value="Intra_Disproportionation" checked="checked" onclick="updateFamily(this);"><label for="Intra_Disproportionation">Intra_Disproportionation (4 rxns)</label><br>
-    <input type="checkbox" id="Intra_R_Add_Endocyclic" name="family" value="Intra_R_Add_Endocyclic" checked="checked" onclick="updateFamily(this);"><label for="Intra_R_Add_Endocyclic">Intra_R_Add_Endocyclic (19 rxns)</label><br>
+    <input type="checkbox" id="Intra_R_Add_Endocyclic" name="family" value="Intra_R_Add_Endocyclic" checked="checked" onclick="updateFamily(this);"><label for="Intra_R_Add_Endocyclic">Intra_R_Add_Endocyclic (20 rxns)</label><br>
     <input type="checkbox" id="Intra_R_Add_Exocyclic" name="family" value="Intra_R_Add_Exocyclic" checked="checked" onclick="updateFamily(this);"><label for="Intra_R_Add_Exocyclic">Intra_R_Add_Exocyclic (2 rxns)</label><br>
     <input type="checkbox" id="Intra_ene_reaction" name="family" value="Intra_ene_reaction" checked="checked" onclick="updateFamily(this);"><label for="Intra_ene_reaction">Intra_ene_reaction (2 rxns)</label><br>
     <input type="checkbox" id="R_Addition_MultipleBond" name="family" value="R_Addition_MultipleBond" checked="checked" onclick="updateFamily(this);"><label for="R_Addition_MultipleBond">R_Addition_MultipleBond (3 rxns)</label><br>
@@ -16424,6 +16472,44 @@ family: R_Recombination""")</span></td>
 ! Multiplied by reaction path degeneracy 2.0
 ! family: R_Recombination
 O2(3)+S(87)=S(2221)                                 7.540000e+12 0.000     0.000    
+</td>
+</tr>
+</tbody>
+
+<tbody class="reaction">
+<tr class="Intra_R_Add_Endocyclic rxnStart">
+    <td class="index"><a href="http://rmg.mit.edu/database/kinetics/reaction/reactant1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B4%2CS%7D%20%7B5%2CS%7D%0A3%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B22%2CS%7D%0A4%20%20O%20u1%20p2%20c0%20%7B2%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B6%2CS%7D%20%7B9%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B8%2CS%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B8%2CS%7D%20%7B10%2CS%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B7%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B11%2CS%7D%20%7B18%2CS%7D%20%7B19%2CS%7D%0A10%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B11%2CD%7D%20%7B21%2CS%7D%0A11%20C%20u0%20p0%20c0%20%7B9%2CS%7D%20%7B10%2CD%7D%20%7B20%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A19%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A20%20H%20u0%20p0%20c0%20%7B11%2CS%7D%0A21%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A22%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A__product1%3Dmultiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B5%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B9%2CS%7D%0A3%20%20O%20u0%20p2%20c0%20%7B4%2CS%7D%20%7B7%2CS%7D%0A4%20%20O%20u0%20p2%20c0%20%7B3%2CS%7D%20%7B22%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B10%2CS%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B9%2CS%7D%20%7B18%2CS%7D%20%7B19%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B20%2CS%7D%0A10%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B7%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A11%20C%20u1%20p0%20c0%20%7B7%2CS%7D%20%7B9%2CS%7D%20%7B21%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A19%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A20%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A21%20H%20u0%20p0%20c0%20%7B11%2CS%7D%0A22%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A" title="Search on RMG website" class="searchlink">30452.</a></td>
+    <td class="reactants"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B3%2CS%7D%20%7B7%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B4%2CS%7D%20%7B5%2CS%7D%0A3%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B22%2CS%7D%0A4%20%20O%20u1%20p2%20c0%20%7B2%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B6%2CS%7D%20%7B9%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B8%2CS%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B8%2CS%7D%20%7B10%2CS%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B7%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B11%2CS%7D%20%7B18%2CS%7D%20%7B19%2CS%7D%0A10%20C%20u0%20p0%20c0%20%7B7%2CS%7D%20%7B11%2CD%7D%20%7B21%2CS%7D%0A11%20C%20u0%20p0%20c0%20%7B9%2CS%7D%20%7B10%2CD%7D%20%7B20%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A19%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A20%20H%20u0%20p0%20c0%20%7B11%2CS%7D%0A21%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A22%20H%20u0%20p0%20c0%20%7B3%2CS%7D%0A"><img src="species/[O]OC1CC=CC(CC1)OO(2221).png" alt="S(2221)" title="S(2221), MW = 159.16 g/mol" ></a></td>
+    <td class="reactionArrow">&hArr;</td>
+    <td class="products"><a href="http://rmg.mit.edu/database/molecule/multiplicity%202%0A1%20%20O%20u0%20p2%20c0%20%7B2%2CS%7D%20%7B5%2CS%7D%0A2%20%20O%20u0%20p2%20c0%20%7B1%2CS%7D%20%7B9%2CS%7D%0A3%20%20O%20u0%20p2%20c0%20%7B4%2CS%7D%20%7B7%2CS%7D%0A4%20%20O%20u0%20p2%20c0%20%7B3%2CS%7D%20%7B22%2CS%7D%0A5%20%20C%20u0%20p0%20c0%20%7B1%2CS%7D%20%7B6%2CS%7D%20%7B8%2CS%7D%20%7B12%2CS%7D%0A6%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B10%2CS%7D%20%7B16%2CS%7D%20%7B17%2CS%7D%0A7%20%20C%20u0%20p0%20c0%20%7B3%2CS%7D%20%7B10%2CS%7D%20%7B11%2CS%7D%20%7B15%2CS%7D%0A8%20%20C%20u0%20p0%20c0%20%7B5%2CS%7D%20%7B9%2CS%7D%20%7B18%2CS%7D%20%7B19%2CS%7D%0A9%20%20C%20u0%20p0%20c0%20%7B2%2CS%7D%20%7B8%2CS%7D%20%7B11%2CS%7D%20%7B20%2CS%7D%0A10%20C%20u0%20p0%20c0%20%7B6%2CS%7D%20%7B7%2CS%7D%20%7B13%2CS%7D%20%7B14%2CS%7D%0A11%20C%20u1%20p0%20c0%20%7B7%2CS%7D%20%7B9%2CS%7D%20%7B21%2CS%7D%0A12%20H%20u0%20p0%20c0%20%7B5%2CS%7D%0A13%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A14%20H%20u0%20p0%20c0%20%7B10%2CS%7D%0A15%20H%20u0%20p0%20c0%20%7B7%2CS%7D%0A16%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A17%20H%20u0%20p0%20c0%20%7B6%2CS%7D%0A18%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A19%20H%20u0%20p0%20c0%20%7B8%2CS%7D%0A20%20H%20u0%20p0%20c0%20%7B9%2CS%7D%0A21%20H%20u0%20p0%20c0%20%7B11%2CS%7D%0A22%20H%20u0%20p0%20c0%20%7B4%2CS%7D%0A"><img src="species/OOC1[CH]C2CC(CC1)OO2(2356).png" alt="S(2356)" title="S(2356), MW = 159.16 g/mol" ></a></td>
+    <td class="family">Intra_R_Add_Endocyclic</td>
+</tr>
+<tr class="kinetics Intra_R_Add_Endocyclic hide_kinetics">
+    <td></td>
+    <td colspan="4"><table class="KineticsData">
+<tr class="KineticsData_Tdata"><th>T/[K]</th>
+<td>500</td><td>1000</td><td>1500</td><td>2000</td>
+</tr><tr class="KineticsData_kdata"><th>log<sub>10</sub>(k/[mole,m,s])
+    <td>+6.7</td><td>+9.0</td><td>+9.8</td><td>+10.2</td>
+</tr></table><span class='KineticsData_repr'>Arrhenius(A=(3.95208e+10,'s^-1'), n=0.228823, Ea=(43.0818,'kJ/mol'), T0=(1,'K'), comment="""Estimated using template [R6plus;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn2c7_beta_long;doublebond_intra_pri_HNd_Cs;radadd_intra_O]
+Euclidian distance = 3.16227766017
+family: Intra_R_Add_Endocyclic""")</span></td>
+</tr>
+<tr class="energy Intra_R_Add_Endocyclic hide_energy">
+    <td></td>
+    <td colspan="3"><b>H298 (kcal/mol)</b> = -11.00
+    <br><b>S298 (cal/mol*K)</b> = -51.00
+    <br><b>G298 (kcal/mol)</b> = 4.20</td>
+    <td></td>
+</tr>
+<tr class="chemkin Intra_R_Add_Endocyclic hide_chemkin">
+    <td></td>
+    <td colspan="4">! Template reaction: Intra_R_Add_Endocyclic
+! Flux pairs: S(2221), S(2356); 
+! Estimated using template [R6plus;doublebond_intra_pri_HNd_Cs;radadd_intra] for rate rule [Rn2c7_beta_long;doublebond_intra_pri_HNd_Cs;radadd_intra_O]
+! Euclidian distance = 3.16227766017
+! family: Intra_R_Add_Endocyclic
+S(2221)=S(2356)                                     3.952076e+10 0.229     10.297   
 </td>
 </tr>
 </tbody>

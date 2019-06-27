@@ -41410,3 +41410,242 @@ Saving annotated version of Chemkin file...
 Chemkin file contains 30431 reactions.
 Saving current model core to HTML file...
 Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:06:35
+    Memory used: 3979.39 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 1.6835e-08 s, reached target termination RateRatio: 0.00995626519998
+conditions choosen for reactor 0 were: P = 24.0140807347 bar, T = 831.389580272 K, 
+
+
+At time 9.3062e-05 s, reached target termination RateRatio: 0.00987917145076
+
+For reaction generation 1 process is used.
+Generating thermo for new species...
+Generating kinetics for new reactions...
+For reaction [O]O(39) + [O]OC1C=CCC(CC1)O[O](1612) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221) Ea raised from -8.2 to -8.2 kJ/mol.
+For reaction O2(3) + [O]OC1CC=CC(CC1)OO(2221) <=> [O]OOOC1CC=CC(CC1)OO(2358), Ea raised from 74.1 to 80.6 kJ/mol to match endothermicity of reaction.
+For reaction OOCC1C=CCC=C1(1443) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) Ea raised from -36.0 to -36.0 kJ/mol.
+For reaction [CH2]CC[CH2](374) + OOCC1C=CCC=C1(1443) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) Ea raised from -36.0 to -36.0 kJ/mol.
+For reaction CCCCCC(C)OO(1932) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930) Ea raised from -36.0 to -36.0 kJ/mol.
+For reaction [CH2]CC[CH2](374) + CCCCCC(C)OO(1932) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930) Ea raised from -36.0 to -36.0 kJ/mol.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 27 new edge species
+    OO[C]1CC=CC(CC1)OO(2339)
+    OOC1[CH]CC(C=CC1)OO(2340)
+    OOC1[CH]C=CC(CC1)OO(2341)
+    OOC1[CH]CC(CC=C1)OO(2342)
+    OOC1C=[C]CC(CC1)OO(2343)
+    OO[C]1C=CCC(CC1)OO(2344)
+    OOC1[C]=CCC(CC1)OO(2345)
+    [O]OC1C=CCC(CC1)OO(2346)
+    [O]OC1CC=CC([O])CC1(2347)
+    [O]O[C]1CC=CC(CC1)OO(2348)
+    [O]OC1[CH]CC(C=CC1)OO(2349)
+    [O]OC1CC=C[C](CC1)OO(2350)
+    [O]OC1C[CH]C(C=CC1)OO(2351)
+    [O]OC1[CH]C=CC(CC1)OO(2352)
+    [O]OC1CC=[C]C(CC1)OO(2353)
+    [O]OC1C[C]=CC(CC1)OO(2354)
+    OOC1CCC2C[CH]C1OO2(2355)
+    OOC1[CH]C2CC(CC1)OO2(2356)
+    [O]C1CC=CC(CC1)OO(2357)
+    [O]OOOC1CC=CC(CC1)OO(2358)
+    [CH2]C(C)O(2359)
+    C[CH]CO(2360)
+    CCCCOOO(2361)
+    [CH2]C(C)CC1C=CCC=C1(2362)
+    C[CH]CCC1C=CCC=C1(2363)
+    [CH2]C1C=CCC2CC(C)C12(2364)
+    [CH2]C1C=CCC2C(C)CC12(2365)
+Added 0 new core reactions
+Created 113 new edge reactions
+    [O]OC1CC=CC(CC1)OO(2221) <=> OO[C]1CC=CC(CC1)OO(2339)
+    OOC1[CH]CC(C=CC1)OO(2340) <=> [O]OC1CC=CC(CC1)OO(2221)
+    [O]OC1CC=CC(CC1)OO(2221) <=> OOC1[CH]C=CC(CC1)OO(2341)
+    [O]OC1CC=CC(CC1)OO(2221) <=> OOC1[CH]CC(CC=C1)OO(2342)
+    OOC1C=[C]CC(CC1)OO(2343) <=> [O]OC1CC=CC(CC1)OO(2221)
+    OO[C]1C=CCC(CC1)OO(2344) <=> [O]OC1CC=CC(CC1)OO(2221)
+    OOC1[C]=CCC(CC1)OO(2345) <=> [O]OC1CC=CC(CC1)OO(2221)
+    [O]OC1C=CCC(CC1)OO(2346) <=> [O]OC1CC=CC(CC1)OO(2221)
+    OH(D)(590) + [O]OC1CC=CC([O])CC1(2347) <=> [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1C[CH]C=CCC1(627) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1C=CCC(CC1)O[O](1612) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]O[C]1CC=CC(CC1)OO(2348) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1[CH]CC(C=CC1)OO(2349) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1CC=C[C](CC1)OO(2350) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1C[CH]C(C=CC1)OO(2351) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1[CH]C=CC(CC1)OO(2352) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1CC=[C]C(CC1)OO(2353) <=> [O]OC1CC=CC(CC1)OO(2221)
+    H(5) + [O]OC1C[C]=CC(CC1)OO(2354) <=> [O]OC1CC=CC(CC1)OO(2221)
+    [O]OC1CC=CC(CC1)OO(2221) <=> OOC1CCC2C[CH]C1OO2(2355)
+    [O]OC1CC=CC(CC1)OO(2221) <=> OOC1[CH]C2CC(CC1)OO2(2356)
+    [O]OC1CC=CC(CC1)OO(2221) <=> [O]O(39) + OOC1C=CCC=CC1(1335)
+    [O]OC1CC=CC(CC1)OO(2221) <=> [O]O(39) + OOC1C=CC=CCC1(629)
+    O(T)(97) + [O]C1CC=CC(CC1)OO(2357) <=> [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1C=CCC(CC1)O[O](1612) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]O[C]1CC=CC(CC1)OO(2348) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1[CH]CC(C=CC1)OO(2349) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1CC=C[C](CC1)OO(2350) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1C[CH]C(C=CC1)OO(2351) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1[CH]C=CC(CC1)OO(2352) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1CC=[C]C(CC1)OO(2353) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    [O]O(39) + [O]OC1C[C]=CC(CC1)OO(2354) <=> O2(3) + [O]OC1CC=CC(CC1)OO(2221)
+    O2(3) + [O]OC1CC=CC(CC1)OO(2221) <=> [O]OOOC1CC=CC(CC1)OO(2358)
+    [CH2]CC(24) + O(T)(97) <=> OH(D)(590) + C=CC(1916)
+    O(T)(97) + C[CH]C(1976) <=> OH(D)(590) + C=CC(1916)
+    OH(D)(590) + C=CC(1916) <=> [CH2]C(C)O(2359)
+    OH(D)(590) + C=CC(1916) <=> C[CH]CO(2360)
+    OH(D)(590) + C=CC(1916) <=> [CH2]C=C(208) + H2O(999)
+    OH(D)(590) + C=CC(1916) <=> H2O(999) + C=[C]C(1972)
+    OH(D)(590) + C=CC(1916) <=> [CH]=CC(798) + H2O(999)
+    O(T)(97) + CCCCOO(2060) <=> OH(D)(590) + CCCCO[O](1984)
+    OH(D)(590) + CCCCO[O](1984) <=> H2O(999) + CC[CH]CO[O](2142)
+    OH(D)(590) + CCCCO[O](1984) <=> H2O(999) + C[CH]CCO[O](2144)
+    OH(D)(590) + CCCCO[O](1984) <=> H2O(999) + CCC[CH]O[O](2145)
+    OH(D)(590) + CCCCO[O](1984) <=> H2O(999) + [CH2]CCCO[O](2146)
+    OH(D)(590) + CCCCO[O](1984) <=> CCCCOOO(2361)
+    [CH2]CC(24) + [CH]C1C=CCC=C1(1394) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH]C1C=CCC=C1(1394) + C[CH]C(1976) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]CC(24) + [CH2][C]1C=CCC=C1(1389) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2][C]1C=CCC=C1(1389) + C[CH]C(1976) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]CC(24) + [CH2]C1C=C[CH]C=C1(1390) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1C=C[CH]C=C1(1390) + C[CH]C(1976) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]CC(24) + [CH2]C1C=[C]CC=C1(1392) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1C=[C]CC=C1(1392) + C[CH]C(1976) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]CC(24) + [CH2]C1[C]=CCC=C1(1391) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1[C]=CCC=C1(1391) + C[CH]C(1976) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C=C(208) + [CH2]C1C=CC[CH]C1(1395) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1C=CC[CH]C1(1395) + C=[C]C(1972) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH]=CC(798) + [CH2]C1C=CC[CH]C1(1395) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C=C(208) + [CH2]C1[CH]CCC=C1(1396) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1[CH]CCC=C1(1396) + C=[C]C(1972) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH]=CC(798) + [CH2]C1[CH]CCC=C1(1396) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1C=CCC=C1(1328) + C=CC(1916) <=> [CH2]C(C)CC1C=CCC=C1(2362)
+    [CH2]C1C=CCC=C1(1328) + C=CC(1916) <=> C[CH]CCC1C=CCC=C1(2363)
+    [CH2]C1C=CCC=C1(1328) + C=CC(1916) <=> [CH2]C=C(208) + CC1C=CCC=C1(1397)
+    CC1C=CCC=C1(1397) + C=[C]C(1972) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    CC1C=CCC=C1(1397) + [CH]=CC(798) <=> [CH2]C1C=CCC=C1(1328) + C=CC(1916)
+    [CH2]C1C=CCC=C1(1328) + C=CC(1916) <=> [CH2]C1C=CCC2CC(C)C12(2364)
+    [CH2]C1C=CCC=C1(1328) + C=CC(1916) <=> [CH2]C1C=CCC2C(C)CC12(2365)
+    [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984) <=> C=C1C=CCC=C1(1384) + CCCCOO(2060)
+    [CH2]C1C=CC[CH]C1(1395) + C[CH]CCO[O](2144) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=CC[CH]C1(1395) + CC[CH]CO[O](2142) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=CC[CH]C1(1395) + CCC[CH]O[O](2145) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=CC[CH]C1(1395) + [CH2]CCCO[O](2146) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1[CH]CCC=C1(1396) + C[CH]CCO[O](2144) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1[CH]CCC=C1(1396) + CC[CH]CO[O](2142) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1[CH]CCC=C1(1396) + CCC[CH]O[O](2145) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1[CH]CCC=C1(1396) + [CH2]CCCO[O](2146) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH]C1C=CCC=C1(1394) + CCCCOO(2060) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984) <=> [CH2]C1C=C[CH]C=C1(1390) + CCCCOO(2060)
+    [CH2]C1[C]=CCC=C1(1391) + CCCCOO(2060) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=[C]CC=C1(1392) + CCCCOO(2060) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984) <=> CC1C=CCC=C1(1397) + CC[CH]CO[O](2142)
+    [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984) <=> CC1C=CCC=C1(1397) + C[CH]CCO[O](2144)
+    [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984) <=> CC1C=CCC=C1(1397) + CCC[CH]O[O](2145)
+    CC1C=CCC=C1(1397) + [CH2]CCCO[O](2146) <=> [CH2]C1C=CCC=C1(1328) + CCCCO[O](1984)
+    [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) <=> OOCC1C=CCC=C1(1443) + C=CCC(1968)
+    [CH]CCC(1971) + [O]OCC1C=CC[CH]C1(1760) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [O]OCC1C=CC[CH]C1(1760) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [O]OCC1C=CC[CH]C1(1760) + [CH2][CH]CC(1970) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH2]CC[CH2](374) + [O]OCC1C=CC[CH]C1(1760) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH]CCC(1971) + [O]OCC1[CH]CCC=C1(1817) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [O]OCC1[CH]CCC=C1(1817) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [O]OCC1[CH]CCC=C1(1817) + [CH2][CH]CC(1970) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH2]CC[CH2](374) + [O]OCC1[CH]CCC=C1(1817) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) <=> [O]OC[C]1C=CCC=C1(1811) + CCCC(1975)
+    [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) <=> [O]OCC1[CH]C=CC=C1(1662) + CCCC(1975)
+    [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398) <=> [O]O[CH]C1C=CCC=C1(774) + CCCC(1975)
+    [O]OCC1[C]=CCC=C1(1812) + CCCC(1975) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [O]OCC1C=[C]CC=C1(1813) + CCCC(1975) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    OOCC1C=CCC=C1(1443) + [CH]CCC(1971) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    OOCC1C=CCC=C1(1443) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH2]CC[CH2](374) + OOCC1C=CCC=C1(1443) <=> [CH2]CCC(23) + [O]OCC1C=CCC=C1(1398)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> CCCCCC(C)OO(1932) + C=CCC(1968)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> CCCCC[C](C)O[O](1942) + CCCC(1975)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> CCCC[CH]C(C)O[O](1944) + CCCC(1975)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> CC[CH]CCC(C)O[O](1947) + CCCC(1975)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> CCC[CH]CC(C)O[O](1948) + CCCC(1975)
+    [CH2]CCC(23) + CCCCCC(C)O[O](1930) <=> C[CH]CCCC(C)O[O](1950) + CCCC(1975)
+    [CH2]C(CCCCC)O[O](1951) + CCCC(1975) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930)
+    [CH2]CCCCC(C)O[O](1952) + CCCC(1975) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930)
+    [CH]CCC(1971) + CCCCCC(C)OO(1932) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930)
+    CCCCCC(C)OO(1932) + [CH2]C[CH]C(1917) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930)
+    [CH2]CC[CH2](374) + CCCCCC(C)OO(1932) <=> [CH2]CCC(23) + CCCCCC(C)O[O](1930)
+
+After model enlargement:
+    The model core has 84 species and 305 reactions
+    The model edge has 2284 species and 30239 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 305 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 305 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30544 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30544 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
+Updating RMG execution statistics...
+    Execution time (DD:HH:MM:SS): 00:03:08:23
+    Memory used: 3980.65 MB
+Generating plots of execution statistics...
+
+Conducting simulation of reaction system 1...
+At time 3.9753e-06 s, species OOC1[CH]C2CC(CC1)OO2(2356) at 0.0501720891062 exceeded the minimum rate for simulation interruption of 0.05
+At time 3.9753e-06 s, species OOC1[CH]C2CC(CC1)OO2(2356) at rate ratio 0.0501720891062 exceeded the minimum rate for moving to model core of 0.05
+terminating simulation due to interrupt...
+conditions choosen for reactor 0 were: P = 22.8199867372 bar, T = 1039.46791786 K, 
+
+
+Adding species OOC1[CH]C2CC(CC1)OO2(2356) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    OOC1[CH]C2CC(CC1)OO2(2356)
+Created 0 new edge species
+Moved 1 reactions from edge to core
+    [O]OC1CC=CC(CC1)OO(2221) <=> OOC1[CH]C2CC(CC1)OO2(2356)
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 85 species and 306 reactions
+    The model edge has 2283 species and 30238 reactions
+
+
+At time 6.0002e-07 s, reached target termination RateRatio: 0.00994565204813
+
+For reaction generation 1 process is used.
+
+Summary of Secondary Model Edge Enlargement
+---------------------------------
+Added 0 new core species
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 85 species and 306 reactions
+    The model edge has 2283 species and 30238 reactions
+
+
+Saving current model core to Chemkin file...
+Chemkin file contains 306 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 306 reactions.
+Saving current model core and edge to Chemkin file...
+Chemkin file contains 30544 reactions.
+Saving annotated version of Chemkin file...
+Chemkin file contains 30544 reactions.
+Saving current model core to HTML file...
+Saving current model edge to HTML file...
