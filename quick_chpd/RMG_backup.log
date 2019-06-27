@@ -1,7 +1,7 @@
 Global RMG Settings:
    test_data.directory  = /home/qin.she/Code/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
    database.directory   = /home/qin.she/Code/RMG-database/input (Default, relative to RMG-Py source code)
-RMG execution initiated at Wed Jun 26 14:18:27 2019
+RMG execution initiated at Wed Jun 26 18:54:10 2019
 
 #########################################################
 # RMG-Py - Reaction Mechanism Generator in Python       #
@@ -23,8 +23,8 @@ The current git HEAD for RMG-database is:
 Reading input file "/scratch/qin.she/Code/chpd/quick_chpd/input.py"...
 #Data sources
 database(
-    thermoLibraries = [],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
-    reactionLibraries =[],  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
+    thermoLibraries = ['primaryThermoLibrary'],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
+    reactionLibraries = [],  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
     seedMechanisms = [],    #['BurkeH2O2inN2'],
     kineticsDepositories = ['training'], 
     kineticsFamilies = 'default',
@@ -62,6 +62,135 @@ species(
     structure=SMILES("N#N")
 )
 
+#species choosen from "file:///C:/Users/qinsh/Desktop/chpd/quick_chpd/output.html", based on their concentration value.
+species(
+    label='C7H10(146)',
+    reactive=True,
+    structure=SMILES("C=CC=CCC=C")
+)
+species(
+    label='C7H10(153)',
+    reactive=True,
+    structure=SMILES("C=CC=CC1CC1")
+)
+species(
+    label='C7H9(5)',
+    reactive=True,
+    structure=SMILES("[CH]1C=CCCC=C1")
+)
+species(
+    label='C5H7(210)',
+    reactive=True,
+    structure=SMILES("[CH2]C=CC=C")
+)
+species(
+    label='C2H4(115)',
+    reactive=True,
+    structure=SMILES("C=C")
+)
+species(
+    label='C7H11(22)',
+    reactive=True,
+    structure=SMILES("[CH]1C=CCCCC1")
+)
+species(
+    label='C7H10(21)',
+    reactive=True,
+    structure=SMILES("C1=CC2CCCC12")
+)
+species(
+    label='C7H10(65)',
+    reactive=True,
+    structure=SMILES("C1=CCCC=CC1")
+)
+species(
+    label='C7H10(18)',
+    reactive=True,
+    structure=SMILES("[CH2]C=CC=CC[CH2]")
+)
+species(
+    label='C7H10(238)',
+    reactive=True,
+    structure=SMILES("C=CCC1C=CC1")
+)
+species(
+    label='S(66)',
+    reactive=True,
+    structure=SMILES("[O]OC1C=CCCCC1")
+)
+species(
+    label='C7H11(46)',
+    reactive=True,
+    structure=SMILES("[CH2]CCC=CC=C")
+)
+species(
+    label='C7H10(187)',
+    reactive=True,
+    structure=SMILES("C1=CC(C1)C1CC1")
+)
+species(
+    label='Cycloheptene', # (19)
+    reactive=True,
+    structure=SMILES("[C]1CC=CCCC1")
+)
+species(
+    label='C7H8(58)',
+    reactive=True,
+    structure=SMILES("C1=CC=CCC=C1")
+)
+species(
+    label='C5H8(336)',
+    reactive=True,
+    structure=SMILES("C=CC=CC")
+)
+species(
+    label='S(388)',
+    reactive=True,
+    structure=SMILES("C=CC=CCCC=CC=C")
+)
+species(
+    label='C7H9O2(68)',
+    reactive=True,
+    structure=SMILES("[O]OC1C=CC=CCC1")
+)
+species(
+    label='s(399)',
+    reactive=True,
+    structure=SMILES("C=CC=CCC(C=C)C=C")
+)
+
+
+species(
+    label='OH',
+    reactive=True,
+    structure=SMILES("[OH]")
+)
+species(
+    label='H2O',
+    reactive=True,
+    structure=SMILES("O")
+)
+"""
+species(
+    label='Ar',
+    reactive=False,
+    structure=SMILES("[Ar]")
+)
+"""
+species(
+    label='Ne',
+    reactive=False,
+    structure=SMILES("[Ne]")
+)
+species(
+    label='He',
+    reactive=False,
+    structure=SMILES("[He]")
+)
+
+
+
+
 # Reaction systems
 simpleReactor(
     temperature=[(700,'K'),(1500,'K')],
@@ -72,10 +201,35 @@ simpleReactor(
 #	    "C7H16": 0.00463,
         "O2":   9.5, # phi=1 means 9.5 O2 per C7H10
         "N2":    76.95, # 8.1 times as much N2 as O2
+        "C7H10(146)": 0,
+        "C7H10(153)": 0,
+        "C7H9(5)": 0,
+        "C5H7(210)": 0,
+        "C2H4(115)": 0,
+        "C7H11(22)": 0,
+        "C7H10(21)": 0,
+        "C7H10(65)": 0,
+        "C7H10(18)": 0,
+        "C7H10(238)": 0,
+        "S(66)": 0,
+        "C7H11(46)": 0,
+        "C7H10(187)": 0,
+        "Cycloheptene": 0,
+        "C7H8(58)": 0,
+        "C5H8(336)": 0,
+        "S(388)": 0,
+        "C7H9O2(68)": 0,
+        "s(399)": 0,
+        "OH": 0,
+        "H2O": 0,
+        
+        
         
     },
     terminationRateRatio=0.01,
     #  terminationTime=(1e0,'s'),
+    sensitivity=['C7H10','O2'],
+    sensitivityThreshold=0.001,
 )
 
 simulator(
@@ -87,8 +241,8 @@ simulator(
 
 model(
     #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.1,
-    toleranceInterruptSimulation=0.1,
+    toleranceMoveToCore=0.05,
+    toleranceInterruptSimulation=0.05,
     maximumEdgeSpecies=100000,
     filterReactions=True,
     maxNumObjsPerIter=2,
@@ -138,6 +292,7 @@ options(
 Warning: Generate Output HTML option was turned on. Note that this will slow down model generation.
 Warning: Edge species saving was turned on. This will slow down model generation for large simulations.
 
+Loading thermodynamics library from primaryThermoLibrary.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
 Loading thermodynamics group database from /home/qin.she/Code/RMG-database/input/thermo/groups...
 Loading transport library from PrimaryTransportLibrary.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
 Loading transport library from GRI-Mech.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
@@ -147,30 +302,6 @@ Loading transport group database from /home/qin.she/Code/RMG-database/input/tran
 Loading frequencies group database from /home/qin.she/Code/RMG-database/input/statmech/groups...
 Loading Platts additivity group database from /home/qin.she/Code/RMG-database/input/solvation/groups...
 Adding rate rules from training set in kinetics families...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
-Warning: Cphigh is above the theoretical CpInf value for ThermoData object
-ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
-The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
 Warning: Cphigh is above the theoretical CpInf value for ThermoData object
 ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([36.6869,38.2195,39.253,40.4473,45.0357,50.6323,54.2027],'J/(mol*K)'), H298=(310.047,'kJ/mol'), S298=(162.808,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-CsCs) + group(CsJ2_singlet-CsH)""").
 The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
@@ -184,3 +315,412 @@ Warning: Cphigh is above the theoretical CpInf value for ThermoData object
 ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([36.6869,38.2195,39.253,40.4473,45.0357,50.6323,54.2027],'J/(mol*K)'), H298=(310.047,'kJ/mol'), S298=(162.808,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-CsCs) + group(CsJ2_singlet-CsH)""").
 The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
 Filling in rate rules in kinetics families by averaging...
+Warning: Input species Cycloheptene is globally forbidden.  It will behave as an inert unless found in a seed mechanism or reaction library.
+NOT generating reactions for unreactive species N2
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    N2
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 1 species and 0 reactions
+    The model edge has 25 species and 0 reactions
+
+
+NOT generating reactions for unreactive species Ne
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    Ne
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 2 species and 0 reactions
+    The model edge has 24 species and 0 reactions
+
+
+NOT generating reactions for unreactive species He
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    He
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 3 species and 0 reactions
+    The model edge has 23 species and 0 reactions
+
+
+NOT generating reactions for unreactive species Ar
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    Ar
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 4 species and 0 reactions
+    The model edge has 23 species and 0 reactions
+
+
+Adding species C7H10(1) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(1)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 5 species and 0 reactions
+    The model edge has 22 species and 0 reactions
+
+
+Adding species O2(2) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    O2(2)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 6 species and 0 reactions
+    The model edge has 21 species and 0 reactions
+
+
+Adding species C7H10(146)(3) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(146)(3)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 7 species and 0 reactions
+    The model edge has 20 species and 0 reactions
+
+
+Adding species C7H10(153)(4) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(153)(4)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 8 species and 0 reactions
+    The model edge has 19 species and 0 reactions
+
+
+Adding species C7H9(5)(5) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H9(5)(5)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 9 species and 0 reactions
+    The model edge has 18 species and 0 reactions
+
+
+Adding species C5H7(210)(6) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C5H7(210)(6)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 10 species and 0 reactions
+    The model edge has 17 species and 0 reactions
+
+
+Adding species C2H4(115)(7) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C2H4(115)(7)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 11 species and 0 reactions
+    The model edge has 16 species and 0 reactions
+
+
+Adding species C7H11(22)(8) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H11(22)(8)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 12 species and 0 reactions
+    The model edge has 15 species and 0 reactions
+
+
+Adding species C7H10(21)(9) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(21)(9)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 13 species and 0 reactions
+    The model edge has 14 species and 0 reactions
+
+
+Adding species C7H10(65)(10) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(65)(10)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 14 species and 0 reactions
+    The model edge has 13 species and 0 reactions
+
+
+Adding species C7H10(18)(11) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(18)(11)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 15 species and 0 reactions
+    The model edge has 12 species and 0 reactions
+
+
+Adding species C7H10(238)(12) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(238)(12)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 16 species and 0 reactions
+    The model edge has 11 species and 0 reactions
+
+
+Adding species S(66)(13) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    S(66)(13)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 17 species and 0 reactions
+    The model edge has 10 species and 0 reactions
+
+
+Adding species C7H11(46)(14) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H11(46)(14)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 18 species and 0 reactions
+    The model edge has 9 species and 0 reactions
+
+
+Adding species C7H10(187)(15) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H10(187)(15)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 19 species and 0 reactions
+    The model edge has 8 species and 0 reactions
+
+
+Adding species Cycloheptene(16) to model core
+Species Cycloheptene(16) was Forbidden and not added to Core...Removing from Edge.
+
+Summary of Model Enlargement
+---------------------------------
+Added 0 new core species
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 19 species and 0 reactions
+    The model edge has 7 species and 0 reactions
+
+
+Adding species C7H8(58)(17) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H8(58)(17)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 20 species and 0 reactions
+    The model edge has 6 species and 0 reactions
+
+
+Adding species C5H8(336)(18) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C5H8(336)(18)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 21 species and 0 reactions
+    The model edge has 5 species and 0 reactions
+
+
+Adding species S(388)(19) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    S(388)(19)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 22 species and 0 reactions
+    The model edge has 4 species and 0 reactions
+
+
+Adding species C7H9O2(68)(20) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    C7H9O2(68)(20)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 23 species and 0 reactions
+    The model edge has 3 species and 0 reactions
+
+
+Adding species s(399)(21) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    s(399)(21)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 24 species and 0 reactions
+    The model edge has 2 species and 0 reactions
+
+
+Adding species OH(22) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    OH(22)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 25 species and 0 reactions
+    The model edge has 1 species and 0 reactions
+
+
+Adding species H2O(23) to model core
+
+Summary of Model Enlargement
+---------------------------------
+Added 1 new core species
+    H2O(23)
+Created 0 new edge species
+Added 0 new core reactions
+Created 0 new edge reactions
+
+After model enlargement:
+    The model core has 26 species and 0 reactions
+    The model edge has 0 species and 0 reactions
+
+
+Initialization complete. Starting model generation.
+
+conditions choosen for reactor 0 were: P = 0.00013815510558 bar, T = 700.0 K, 
