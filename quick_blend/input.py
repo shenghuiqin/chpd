@@ -115,7 +115,7 @@ species(
     label='Cycloheptene', # (19)
     reactive=True,
     structure=adjacencyList(
-        """
+        ""
         1 C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
         2 C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
         3 C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
@@ -135,7 +135,7 @@ species(
         17 H u0 p0 c0 {5,S}
         18 H u0 p0 c0 {6,S}
         19 H u0 p0 c0 {7,S}
-        """),
+        ""),
 )
 species(
     label='C7H8(58)',
@@ -174,13 +174,13 @@ species(
     reactive=True,
     structure=SMILES("O")
 )
-"""
+
 species(
     label='Ar',
     reactive=False,
     structure=SMILES("[Ar]")
 )
-"""
+
 species(
     label='Ne',
     reactive=False,
@@ -203,29 +203,10 @@ simpleReactor(
     initialMoleFractions={
         "C7H10": 1,
 #	    "C7H16": 0.00463,
-        "O2":   9.5, # phi=1 means 9.5 O2 per C7H10
-        "N2":    76.95, # 8.1 times as much N2 as O2
-        "C7H10(146)": 0,
-        "C7H10(153)": 0,
-        "C7H9(5)": 0,
-        "C5H7(210)": 0,
-        "C2H4(115)": 0,
-        "C7H11(22)": 0,
-        "C7H10(21)": 0,
-        "C7H10(65)": 0,
-        "C7H10(18)": 0,
-        "C7H10(238)": 0,
-        "S(66)": 0,
-        "C7H11(46)": 0,
-        "C7H10(187)": 0,
-        "Cycloheptene": 0,
-        "C7H8(58)": 0,
-        "C5H8(336)": 0,
-        "S(388)": 0,
-        "C7H9O2(68)": 0,
-        "s(399)": 0,
-        "OH": 0,
-        "H2O": 0,
+        "O2":   19, # phi=1 means 9.5 O2 per C7H10
+        "N2":    154, # 8.1 times as much N2 as O2
+        "C7H16":1,
+      
         
         
         
