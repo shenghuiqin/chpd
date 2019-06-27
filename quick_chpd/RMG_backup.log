@@ -1,7 +1,11 @@
 Global RMG Settings:
    test_data.directory  = /home/qin.she/Code/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
    database.directory   = /home/qin.she/Code/RMG-database/input (Default, relative to RMG-Py source code)
+<<<<<<< HEAD
 RMG execution initiated at Wed Jun 26 18:54:10 2019
+=======
+RMG execution initiated at Wed Jun 26 14:18:27 2019
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 #########################################################
 # RMG-Py - Reaction Mechanism Generator in Python       #
@@ -23,8 +27,13 @@ The current git HEAD for RMG-database is:
 Reading input file "/scratch/qin.she/Code/chpd/quick_chpd/input.py"...
 #Data sources
 database(
+<<<<<<< HEAD
     thermoLibraries = ['primaryThermoLibrary'],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
     reactionLibraries = [],  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
+=======
+    thermoLibraries = [],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
+    reactionLibraries =[],  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
     seedMechanisms = [],    #['BurkeH2O2inN2'],
     kineticsDepositories = ['training'], 
     kineticsFamilies = 'default',
@@ -62,6 +71,7 @@ species(
     structure=SMILES("N#N")
 )
 
+<<<<<<< HEAD
 #species choosen from "file:///C:/Users/qinsh/Desktop/chpd/quick_chpd/output.html", based on their concentration value.
 species(
     label='C7H10(146)',
@@ -191,6 +201,8 @@ species(
 
 
 
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 # Reaction systems
 simpleReactor(
     temperature=[(700,'K'),(1500,'K')],
@@ -201,6 +213,7 @@ simpleReactor(
 #	    "C7H16": 0.00463,
         "O2":   9.5, # phi=1 means 9.5 O2 per C7H10
         "N2":    76.95, # 8.1 times as much N2 as O2
+<<<<<<< HEAD
         "C7H10(146)": 0,
         "C7H10(153)": 0,
         "C7H9(5)": 0,
@@ -224,12 +237,17 @@ simpleReactor(
         "H2O": 0,
         
         
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         
     },
     terminationRateRatio=0.01,
     #  terminationTime=(1e0,'s'),
+<<<<<<< HEAD
     sensitivity=['C7H10','O2'],
     sensitivityThreshold=0.001,
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 )
 
 simulator(
@@ -241,8 +259,13 @@ simulator(
 
 model(
     #toleranceKeepInEdge=0.0,
+<<<<<<< HEAD
     toleranceMoveToCore=0.05,
     toleranceInterruptSimulation=0.05,
+=======
+    toleranceMoveToCore=0.1,
+    toleranceInterruptSimulation=0.1,
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
     maximumEdgeSpecies=100000,
     filterReactions=True,
     maxNumObjsPerIter=2,
@@ -292,7 +315,10 @@ options(
 Warning: Generate Output HTML option was turned on. Note that this will slow down model generation.
 Warning: Edge species saving was turned on. This will slow down model generation for large simulations.
 
+<<<<<<< HEAD
 Loading thermodynamics library from primaryThermoLibrary.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 Loading thermodynamics group database from /home/qin.she/Code/RMG-database/input/thermo/groups...
 Loading transport library from PrimaryTransportLibrary.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
 Loading transport library from GRI-Mech.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
@@ -303,6 +329,33 @@ Loading frequencies group database from /home/qin.she/Code/RMG-database/input/st
 Loading Platts additivity group database from /home/qin.she/Code/RMG-database/input/solvation/groups...
 Adding rate rules from training set in kinetics families...
 Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+<<<<<<< HEAD
+=======
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([26.945,25.4387,25.9408,28.1165,30.1248,33.0536,37.907],'J/(mol*K)'), H298=(139.972,'kJ/mol'), S298=(219.42,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-OsH) + group(O2s-OsH) + radical(HOOJ) + radical(HOOJ)""").
+The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
+Warning: Cphigh is above the theoretical CpInf value for ThermoData object
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([36.6869,38.2195,39.253,40.4473,45.0357,50.6323,54.2027],'J/(mol*K)'), H298=(310.047,'kJ/mol'), S298=(162.808,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-CsCs) + group(CsJ2_singlet-CsH)""").
 The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 2000.0 K...
 Warning: Cphigh is above the theoretical CpInf value for ThermoData object
@@ -315,6 +368,7 @@ Warning: Cphigh is above the theoretical CpInf value for ThermoData object
 ThermoData(Tdata=([300,400,500,600,800,1000,1500],'K'), Cpdata=([36.6869,38.2195,39.253,40.4473,45.0357,50.6323,54.2027],'J/(mol*K)'), H298=(310.047,'kJ/mol'), S298=(162.808,'J/(mol*K)'), Cp0=(29.1007,'J/(mol*K)'), CpInf=(37.4151,'J/(mol*K)'), comment="""Thermo group additivity estimation: group(O2s-CsCs) + group(CsJ2_singlet-CsH)""").
 The thermo for this species is probably wrong! Setting CpInf = Cphigh for Entropy calculationat T = 1666.66666667 K...
 Filling in rate rules in kinetics families by averaging...
+<<<<<<< HEAD
 Warning: Input species Cycloheptene is globally forbidden.  It will behave as an inert unless found in a seed mechanism or reaction library.
 NOT generating reactions for unreactive species N2
 
@@ -724,3 +778,5 @@ After model enlargement:
 Initialization complete. Starting model generation.
 
 conditions choosen for reactor 0 were: P = 0.00013815510558 bar, T = 700.0 K, 
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1

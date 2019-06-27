@@ -2,6 +2,7 @@ units(length='cm', time='s', quantity='mol', act_energy='kcal/mol')
 
 ideal_gas(name='gas',
           elements="H D T C Ci O Oi N Ne Ar He Si S Cl X",
+<<<<<<< HEAD
           species="""N2          Ne          He          Ar
                      C7H10(1)    O2(2)       C7H9(5)     C7H12(16)
                      C7H10(18)   C7H10(21)   C7H11(22)   OH(22)
@@ -15,6 +16,19 @@ ideal_gas(name='gas',
                      C5H8O(834)  S(853)      S(873)      S(950)
                      S(954)      S(958)      S(1009)     S(1019)
                      OO(1086)""",
+=======
+          species="""N2          Ar          He          Ne
+                     C7H10(1)    O2(2)       C7H9(5)     C7H10(18)
+                     C7H10(19)   C7H10(21)   C7H11(22)   C7H11(46)
+                     C7H8(58)    C7H10(65)   S(66)       C7H9O2(67)
+                     C7H9O2(68)  S(105)      S(106)      S(109)
+                     C2H4(115)   C7H10(146)  C7H10(153)  C7H10(187)
+                     S(200)      S(204)      C5H7(210)   C7H10(238)
+                     C7H8(273)   OH(D)(275)  C5H8(336)   S(339)
+                     S(340)      S(388)      S(399)      S(400)
+                     S(808)      S(826)      H2O(852)    S(921)
+                     S(929)      S(993)      S(996)""",
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
           reactions='all',
           transport='Mix',
           initial_state=state(temperature=300.0, pressure=OneAtm))
@@ -48,6 +62,7 @@ species(name=u'N2',
                                 polar=1.76,
                                 rot_relax=4.0))
 
+<<<<<<< HEAD
 species(name=u'Ne',
         atoms='Ne:1',
         thermo=(NASA([200.00, 1000.00],
@@ -61,6 +76,21 @@ species(name=u'Ne',
         transport=gas_transport(geom='atom',
                                 diam=3.758,
                                 well_depth=148.6))
+=======
+species(name=u'Ar',
+        atoms='Ar:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       4.37967000E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       4.37967000E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=3.33,
+                                well_depth=136.501))
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 species(name=u'He',
         atoms='He:1',
@@ -76,6 +106,7 @@ species(name=u'He',
                                 diam=2.576,
                                 well_depth=10.2))
 
+<<<<<<< HEAD
 species(name=u'Ar',
         atoms='Ar:1',
         thermo=(NASA([200.00, 1000.00],
@@ -89,6 +120,21 @@ species(name=u'Ar',
         transport=gas_transport(geom='atom',
                                 diam=3.33,
                                 well_depth=136.501))
+=======
+species(name=u'Ne',
+        atoms='Ne:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       3.35532000E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00, -7.45375000E+02,
+                       3.35532000E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=3.758,
+                                well_depth=148.6))
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 species(name=u'C7H10(1)',
         atoms='H:10 C:7',
@@ -132,6 +178,7 @@ species(name=u'C7H9(5)',
                                 diam=6.556,
                                 well_depth=464.59))
 
+<<<<<<< HEAD
 species(name=u'C7H12(16)',
         atoms='H:12 C:7',
         thermo=(NASA([100.00, 909.07],
@@ -146,6 +193,8 @@ species(name=u'C7H12(16)',
                                 diam=6.773,
                                 well_depth=463.423))
 
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C7H10(18)',
         atoms='H:10 C:7',
         thermo=(NASA([100.00, 978.36],
@@ -160,6 +209,23 @@ species(name=u'C7H10(18)',
                                 diam=6.11,
                                 well_depth=423.308))
 
+<<<<<<< HEAD
+=======
+species(name=u'C7H10(19)',
+        atoms='H:10 C:7',
+        thermo=(NASA([100.00, 907.89],
+                     [ 1.62681026E+00,  6.63351239E-04,  2.19155747E-04,
+                      -3.16478863E-07,  1.31382336E-10,  4.92916043E+04,
+                       3.34485325E+01]),
+                NASA([907.89, 5000.00],
+                     [ 3.43617261E+01, -9.32508375E-03,  1.38765187E-05,
+                      -2.88638189E-09,  1.85888479E-13,  3.78153797E+04,
+                      -1.51783085E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.949,
+                                well_depth=399.3))
+
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C7H10(21)',
         atoms='H:10 C:7',
         thermo=(NASA([100.00, 980.31],
@@ -188,6 +254,7 @@ species(name=u'C7H11(22)',
                                 diam=6.773,
                                 well_depth=463.423))
 
+<<<<<<< HEAD
 species(name=u'OH(22)',
         atoms='H:1 O:1',
         thermo=(NASA([100.00, 1145.76],
@@ -247,6 +314,8 @@ species(name=u'HO2(43)',
                                 well_depth=107.4,
                                 rot_relax=1.0))
 
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C7H11(46)',
         atoms='H:11 C:7',
         thermo=(NASA([100.00, 1011.64],
@@ -303,6 +372,23 @@ species(name=u'S(66)',
                                 diam=7.537,
                                 well_depth=537.472))
 
+<<<<<<< HEAD
+=======
+species(name=u'C7H9O2(67)',
+        atoms='H:9 C:7 O:2',
+        thermo=(NASA([100.00, 909.98],
+                     [ 1.07288959E+00,  7.81468180E-03,  2.21664739E-04,
+                      -3.31550028E-07,  1.39286589E-10,  1.65183132E+04,
+                       3.14427085E+01]),
+                NASA([909.98, 5000.00],
+                     [ 3.98744733E+01, -1.53126589E-02,  1.67620929E-05,
+                      -3.39107913E-09,  2.17039009E-13,  3.35236752E+03,
+                      -1.85632545E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.315,
+                                well_depth=538.331))
+
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C7H9O2(68)',
         atoms='H:9 C:7 O:2',
         thermo=(NASA([100.00, 1044.68],
@@ -317,6 +403,51 @@ species(name=u'C7H9O2(68)',
                                 diam=7.315,
                                 well_depth=538.331))
 
+<<<<<<< HEAD
+=======
+species(name=u'S(105)',
+        atoms='H:11 C:7 O:2',
+        thermo=(NASA([100.00, 1404.04],
+                     [-6.20574443E-01,  9.85376122E-02, -7.91258425E-05,
+                       3.20938098E-08, -5.31584338E-12, -3.33729016E+03,
+                      -4.01343588E-01]),
+                NASA([1404.04, 5000.00],
+                     [ 1.90368640E+01,  4.25356115E-02, -1.92968859E-05,
+                       3.68606251E-09, -2.57673262E-13, -8.85730561E+03,
+                      -1.01908124E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.343,
+                                well_depth=508.724))
+
+species(name=u'S(106)',
+        atoms='H:11 C:7 O:1',
+        thermo=(NASA([100.00, 909.88],
+                     [ 1.24668486E+00, -7.31229701E-04,  2.55855637E-04,
+                      -3.70636182E-07,  1.54013458E-10,  4.31343415E+03,
+                       2.84137088E+01]),
+                NASA([909.88, 5000.00],
+                     [ 4.09946035E+01, -1.59465933E-02,  1.79531768E-05,
+                      -3.63648313E-09,  2.32487739E-13, -9.52307355E+03,
+                      -1.95880005E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.347,
+                                well_depth=521.39))
+
+species(name=u'S(109)',
+        atoms='H:12 C:7 O:2',
+        thermo=(NASA([100.00, 913.84],
+                     [ 3.73015209E-01,  2.06131025E-02,  2.17273243E-04,
+                      -3.35149801E-07,  1.41466121E-10, -1.47631742E+04,
+                       3.25027264E+01]),
+                NASA([913.84, 5000.00],
+                     [ 4.24342748E+01, -9.64586724E-03,  1.44119281E-05,
+                      -2.93385594E-09,  1.83599112E-13, -2.88746645E+04,
+                      -2.01777271E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.537,
+                                well_depth=537.472))
+
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C2H4(115)',
         atoms='H:4 C:2',
         thermo=(NASA([100.00, 940.44],
@@ -332,6 +463,7 @@ species(name=u'C2H4(115)',
                                 well_depth=280.801,
                                 rot_relax=1.5))
 
+<<<<<<< HEAD
 species(name=u'S(118)',
         atoms='H:9 C:7 O:2',
         thermo=(NASA([100.00, 909.98],
@@ -346,6 +478,8 @@ species(name=u'S(118)',
                                 diam=7.315,
                                 well_depth=538.331))
 
+=======
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C7H10(146)',
         atoms='H:10 C:7',
         thermo=(NASA([100.00, 980.34],
@@ -388,6 +522,7 @@ species(name=u'C7H10(187)',
                                 diam=6.443,
                                 well_depth=448.04))
 
+<<<<<<< HEAD
 species(name=u'S(196)',
         atoms='H:11 C:7 O:2',
         thermo=(NASA([100.00, 1404.04],
@@ -415,6 +550,35 @@ species(name=u'S(197)',
         transport=gas_transport(geom='nonlinear',
                                 diam=7.347,
                                 well_depth=521.39))
+=======
+species(name=u'S(200)',
+        atoms='H:8 C:7 O:2',
+        thermo=(NASA([100.00, 909.56],
+                     [ 1.32224360E+00, -8.69665139E-03,  2.82964458E-04,
+                      -4.07612905E-07,  1.69521424E-10,  2.55605433E+04,
+                       3.15365045E+01]),
+                NASA([909.56, 5000.00],
+                     [ 4.55376428E+01, -2.71954509E-02,  2.33044394E-05,
+                      -4.61284087E-09,  2.96111179E-13,  1.02391672E+04,
+                      -2.17594703E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.315,
+                                well_depth=538.331))
+
+species(name=u'S(204)',
+        atoms='H:9 C:7 O:2',
+        thermo=(NASA([100.00, 1584.74],
+                     [-8.57808443E-01,  9.18705398E-02, -7.28086209E-05,
+                       2.78412792E-08, -4.19497094E-12,  1.01704567E+04,
+                       1.94715460E+00]),
+                NASA([1584.74, 5000.00],
+                     [ 2.46462369E+01,  2.74966335E-02, -1.18771135E-05,
+                       2.20874979E-09, -1.51332913E-13,  2.08697855E+03,
+                      -1.32837772E+02])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.125,
+                                well_depth=509.905))
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 species(name=u'C5H7(210)',
         atoms='H:7 C:5',
@@ -444,7 +608,11 @@ species(name=u'C7H10(238)',
                                 diam=6.145,
                                 well_depth=430.188))
 
+<<<<<<< HEAD
 species(name=u'C7H8(308)',
+=======
+species(name=u'C7H8(273)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:8 C:7',
         thermo=(NASA([100.00, 950.47],
                      [ 1.91417156E+00,  2.15414809E-02,  8.72720833E-05,
@@ -458,6 +626,23 @@ species(name=u'C7H8(308)',
                                 diam=6.224,
                                 well_depth=449.106))
 
+<<<<<<< HEAD
+=======
+species(name=u'OH(D)(275)',
+        atoms='H:1 O:1',
+        thermo=(NASA([100.00, 1145.76],
+                     [ 3.51456841E+00,  2.92731942E-05, -5.32149835E-07,
+                       1.01947431E-09, -3.85939061E-13,  3.41425418E+03,
+                       2.10434749E+00]),
+                NASA([1145.76, 5000.00],
+                     [ 3.07193709E+00,  6.04020086E-04, -1.39807303E-08,
+                      -2.13440498E-11,  2.48061111E-15,  3.57938799E+03,
+                       4.57801556E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.75,
+                                well_depth=80.0))
+
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 species(name=u'C5H8(336)',
         atoms='H:8 C:5',
         thermo=(NASA([100.00, 972.33],
@@ -472,6 +657,7 @@ species(name=u'C5H8(336)',
                                 diam=5.404,
                                 well_depth=377.736))
 
+<<<<<<< HEAD
 species(name=u'S(336)',
         atoms='H:8 C:7 O:2',
         thermo=(NASA([100.00, 909.55],
@@ -515,6 +701,9 @@ species(name=u'S(358)',
                                 well_depth=537.472))
 
 species(name=u'S(361)',
+=======
+species(name=u'S(339)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:7 C:5 O:2',
         thermo=(NASA([100.00, 1305.43],
                      [ 1.03673783E+00,  6.08181921E-02, -5.10545514E-05,
@@ -528,7 +717,11 @@ species(name=u'S(361)',
                                 diam=6.302,
                                 well_depth=463.964))
 
+<<<<<<< HEAD
 species(name=u'S(362)',
+=======
+species(name=u'S(340)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:7 C:5 O:2',
         thermo=(NASA([100.00, 1488.11],
                      [ 1.17828516E+00,  5.76801871E-02, -4.33629183E-05,
@@ -556,7 +749,11 @@ species(name=u'S(388)',
                                 diam=6.634,
                                 well_depth=474.43))
 
+<<<<<<< HEAD
 species(name=u's(399)',
+=======
+species(name=u'S(399)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:14 C:10',
         thermo=(NASA([100.00, 1151.29],
                      [-1.29786084E+00,  1.02344704E-01, -7.01069769E-05,
@@ -570,7 +767,11 @@ species(name=u's(399)',
                                 diam=6.597,
                                 well_depth=467.597))
 
+<<<<<<< HEAD
 species(name=u'S(410)',
+=======
+species(name=u'S(400)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:14 C:10',
         thermo=(NASA([100.00, 1313.77],
                      [-6.58171730E-01,  1.02039128E-01, -7.79552492E-05,
@@ -584,7 +785,11 @@ species(name=u'S(410)',
                                 diam=6.56,
                                 well_depth=460.731))
 
+<<<<<<< HEAD
 species(name=u'S(793)',
+=======
+species(name=u'S(808)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:11 C:7 O:1',
         thermo=(NASA([100.00, 1738.38],
                      [ 9.17119387E-01,  7.17440656E-02, -4.53170969E-05,
@@ -598,6 +803,7 @@ species(name=u'S(793)',
                                 diam=6.477,
                                 well_depth=456.619))
 
+<<<<<<< HEAD
 species(name=u'C5H8O(834)',
         atoms='H:8 C:5 O:1',
         thermo=(NASA([100.00, 994.34],
@@ -613,6 +819,9 @@ species(name=u'C5H8O(834)',
                                 well_depth=446.713))
 
 species(name=u'S(853)',
+=======
+species(name=u'S(826)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:11 C:7 O:1',
         thermo=(NASA([100.00, 942.34],
                      [ 1.19066659E+00,  3.12242241E-02,  1.05539437E-04,
@@ -626,6 +835,7 @@ species(name=u'S(853)',
                                 diam=7.224,
                                 well_depth=512.897))
 
+<<<<<<< HEAD
 species(name=u'S(873)',
         atoms='H:11 C:7 O:1',
         thermo=(NASA([100.00, 949.75],
@@ -641,6 +851,25 @@ species(name=u'S(873)',
                                 well_depth=494.578))
 
 species(name=u'S(950)',
+=======
+species(name=u'H2O(852)',
+        atoms='H:2 O:1',
+        thermo=(NASA([100.00, 1130.25],
+                     [ 4.05763720E+00, -7.87951343E-04,  2.90882564E-06,
+                      -1.47524910E-09,  2.12866372E-13, -3.02815867E+04,
+                      -3.11369025E-01]),
+                NASA([1130.25, 5000.00],
+                     [ 2.84324104E+00,  2.75110073E-03, -7.81040007E-07,
+                       1.07245603E-10, -5.79408217E-15, -2.99586086E+04,
+                       5.91047337E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=2.641,
+                                well_depth=809.102,
+                                polar=1.76,
+                                rot_relax=4.0))
+
+species(name=u'S(921)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:11 C:7 O:1',
         thermo=(NASA([100.00, 1051.81],
                      [ 1.48812513E+00,  4.26512611E-02,  2.79640368E-05,
@@ -654,6 +883,7 @@ species(name=u'S(950)',
                                 diam=6.906,
                                 well_depth=481.665))
 
+<<<<<<< HEAD
 species(name=u'S(954)',
         atoms='H:12 C:7 O:1',
         thermo=(NASA([100.00, 931.94],
@@ -669,6 +899,9 @@ species(name=u'S(954)',
                                 well_depth=512.897))
 
 species(name=u'S(958)',
+=======
+species(name=u'S(929)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:11 C:7 O:3',
         thermo=(NASA([100.00, 986.24],
                      [ 3.16979772E-01,  5.91886168E-02,  3.27519891E-05,
@@ -682,6 +915,7 @@ species(name=u'S(958)',
                                 diam=7.803,
                                 well_depth=563.05))
 
+<<<<<<< HEAD
 species(name=u'S(1009)',
         atoms='H:11 C:7 O:1',
         thermo=(NASA([100.00, 988.25],
@@ -697,6 +931,9 @@ species(name=u'S(1009)',
                                 well_depth=478.159))
 
 species(name=u'S(1019)',
+=======
+species(name=u'S(993)',
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
         atoms='H:11 C:7 O:3',
         thermo=(NASA([100.00, 1069.26],
                      [ 3.70596537E-04,  7.41927699E-02, -2.23134349E-05,
@@ -710,6 +947,7 @@ species(name=u'S(1019)',
                                 diam=7.673,
                                 well_depth=556.61))
 
+<<<<<<< HEAD
 species(name=u'OO(1086)',
         atoms='H:2 O:2',
         thermo=(NASA([100.00, 908.87],
@@ -723,12 +961,28 @@ species(name=u'OO(1086)',
         transport=gas_transport(geom='nonlinear',
                                 diam=4.196,
                                 well_depth=289.3))
+=======
+species(name=u'S(996)',
+        atoms='H:12 C:7 O:3',
+        thermo=(NASA([100.00, 989.42],
+                     [ 3.21157390E-02,  6.30128204E-02,  3.67258078E-05,
+                      -9.13799630E-08,  3.86255015E-11, -3.94594986E+04,
+                       3.76680458E+01]),
+                NASA([989.42, 5000.00],
+                     [ 2.04291989E+01,  3.87808462E-02, -1.48147945E-05,
+                       2.82870735E-09, -2.07746569E-13, -4.63459121E+04,
+                      -7.49223163E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=7.803,
+                                well_depth=563.05))
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 #-------------------------------------------------------------------------------
 # Reaction data
 #-------------------------------------------------------------------------------
 
 # Reaction 1
+<<<<<<< HEAD
 reaction('C7H10(18) <=> C7H10(1)', [7.389708e+10, 0.048, 1.933],
          options='duplicate')
 
@@ -774,11 +1028,58 @@ reaction('C7H9(5) + C7H9(5) <=> C7H10(65) + C7H8(58)', [5.259369e+04, 2.0, 0.57]
 
 # Reaction 14
 reaction('C7H9(5) + C7H9(5) <=> C7H10(1) + C7H8(58)', [6.104000e+12, 0.0, -0.55])
+=======
+reaction('C7H10(1) <=> C7H10(21)', [4.999980e+11, 0.056, 29.257])
+
+# Reaction 2
+reaction('C7H9(5) + C7H11(22) <=> C7H10(1) + C7H10(1)', [6.104000e+12, 0.0, -0.55])
+
+# Reaction 3
+reaction('O2(2) + C7H9(5) <=> C7H9O2(68)', [1.065137e+14, 0.108, 1.374])
+
+# Reaction 4
+reaction('O2(2) + C7H11(22) <=> S(66)', [1.065137e+14, 0.108, 1.374])
+
+# Reaction 5
+reaction('C7H10(18) <=> C7H10(1)', [7.389708e+10, 0.048, 1.933])
+
+# Reaction 6
+reaction('C7H10(18) <=> C7H10(153)', [2.000000e+12, 0.0, 1.8])
+
+# Reaction 7
+reaction('C7H10(19) <=> C7H10(1)', [6.849648e+11, 0.413, 4.117])
+
+# Reaction 8
+reaction('O2(2) + C7H9(5) <=> C7H9O2(67)', [5.927696e+13, -0.004, -0.221])
+
+# Reaction 9
+reaction('C7H10(18) <=> C7H10(146)', [8.966248e+08, 0.311, 9.375],
+         options='duplicate')
+
+# Reaction 10
+reaction('C7H10(18) <=> C7H10(146)', [3.898000e+11, 0.486, 5.464],
+         options='duplicate')
+
+# Reaction 11
+reaction('C7H10(18) <=> C7H10(146)', [3.898000e+11, 0.486, 5.464],
+         options='duplicate')
+
+# Reaction 12
+reaction('C7H10(18) <=> C7H10(146)', [8.966248e+08, 0.311, 9.375],
+         options='duplicate')
+
+# Reaction 13
+reaction('S(66) <=> S(105)', [1.998324e+10, 0.372, 11.829])
+
+# Reaction 14
+reaction('C7H9(5) + C7H10(65) <=> C7H10(1) + C7H9(5)', [3.924000e-03, 4.34, 6.3])
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
 
 # Reaction 15
 reaction('C7H9(5) + C7H11(22) <=> C7H10(1) + C7H10(65)', [5.259369e+04, 2.0, 0.57])
 
 # Reaction 16
+<<<<<<< HEAD
 reaction('C7H9(5) + C7H11(22) <=> C7H10(1) + C7H10(1)', [6.104000e+12, 0.0, -0.55],
          options='duplicate')
 
@@ -1068,3 +1369,177 @@ reaction('OH(22) + OO(1086) <=> H2O(23) + HO2(43)', [4.994995e+05, 1.927, 6.325]
 
 # Reaction 111
 reaction('S(950) <=> S(1009)', [4.870000e+05, 1.17, 6.3])
+=======
+reaction('C7H10(19) <=> C7H10(65)', [3.236630e+16, -0.885, 20.898])
+
+# Reaction 17
+reaction('C7H9(5) + C7H9(5) <=> C7H8(58) + C7H10(65)', [5.259369e+04, 2.0, 0.57])
+
+# Reaction 18
+reaction('C7H9(5) + C7H9(5) <=> C7H10(1) + C7H8(58)', [6.104000e+12, 0.0, -0.55])
+
+# Reaction 19
+reaction('C7H10(1) + S(66) <=> C7H9(5) + S(109)', [2.964000e-02, 4.313, 8.016])
+
+# Reaction 20
+reaction('C7H11(22) + S(66) <=> C7H10(1) + S(109)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 21
+reaction('C7H9(5) + S(66) <=> C7H8(58) + S(109)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 22
+reaction('C7H10(65) + S(66) <=> C7H9(5) + S(109)', [1.482000e-02, 4.313, 8.016])
+
+# Reaction 23
+reaction('C7H11(46) <=> C7H11(22)', [1.140000e+05, 1.2, 6.5])
+
+# Reaction 24
+reaction('C7H9(5) + C7H11(46) <=> C7H10(1) + C7H10(146)', [3.052000e+12, 0.0, -0.55])
+
+# Reaction 25
+reaction('C7H9(5) + C7H11(46) <=> C7H10(146) + C7H10(65)', [3.194241e+08, 1.0, 0.465])
+
+# Reaction 26
+reaction('C7H11(46) + S(66) <=> C7H10(146) + S(109)', [4.820000e+13, 0.0, 0.0])
+
+# Reaction 27
+reaction('C7H10(18) + C7H11(22) <=> C7H10(1) + C7H11(46)', [3.052000e+12, 0.0, -0.55])
+
+# Reaction 28
+reaction('C7H10(18) + C7H11(46) <=> C7H11(46) + C7H10(146)', [1.526000e+12, 0.0, -0.55])
+
+# Reaction 29
+reaction('C7H9(5) + C7H10(18) <=> C7H8(58) + C7H11(46)', [3.052000e+12, 0.0, -0.55])
+
+# Reaction 30
+reaction('C5H7(210) + C2H4(115) <=> C7H11(46)', [2.700000e+03, 2.7, 11.3])
+
+# Reaction 31
+reaction('O2(2) + C5H7(210) <=> S(340)', [5.927696e+13, -0.004, -0.221])
+
+# Reaction 32
+reaction('O2(2) + C5H7(210) <=> S(339)', [2.350619e+11, 0.534, 0.065])
+
+# Reaction 33
+reaction('C7H9O2(67) <=> S(204)', [3.996647e+10, 0.372, 11.829])
+
+# Reaction 34
+reaction('C7H10(1) + C5H7(210) <=> C7H9(5) + C5H8(336)', [3.616000e-02, 4.34, 11.2])
+
+# Reaction 35
+reaction('C5H7(210) + C7H11(22) <=> C7H10(1) + C5H8(336)', [1.160000e+13, 0.0, -0.13])
+
+# Reaction 36
+reaction('C7H9(5) + C5H7(210) <=> C7H8(58) + C5H8(336)', [1.160000e+13, 0.0, -0.13])
+
+# Reaction 37
+reaction('C5H7(210) + C7H10(65) <=> C7H9(5) + C5H8(336)', [7.720000e-03, 4.34, 6.7])
+
+# Reaction 38
+reaction('S(66) + C5H8(336) <=> C5H7(210) + S(109)', [1.734990e-03, 4.65, 9.78])
+
+# Reaction 39
+reaction('C5H7(210) + C7H11(46) <=> C7H10(146) + C5H8(336)', [5.800000e+12, 0.0, -0.13])
+
+# Reaction 40
+reaction('C7H11(22) + S(200) <=> C7H10(1) + C7H9O2(67)', [3.052000e+12, 0.0, -0.55])
+
+# Reaction 41
+reaction('S(200) + C7H10(65) <=> C7H9(5) + C7H9O2(67)', [1.962000e-03, 4.34, 6.433])
+
+# Reaction 42
+reaction('C7H9(5) + C7H9O2(67) <=> C7H10(1) + S(200)', [1.832000e-02, 4.34, 11.7])
+
+# Reaction 43
+reaction('C7H11(46) + S(200) <=> C7H10(146) + C7H9O2(67)', [1.526000e+12, 0.0, -0.55])
+
+# Reaction 44
+reaction('O2(2) + C7H8(58) <=> S(200)', [1.347333e+06, 2.249, 12.982])
+
+# Reaction 45
+reaction('C7H9(5) + S(200) <=> C7H8(58) + C7H9O2(67)', [3.052000e+12, 0.0, -0.55])
+
+# Reaction 46
+reaction('C7H8(58) <=> C7H8(273)', [9.999960e+11, 0.056, 29.257])
+
+# Reaction 47
+reaction('C5H7(210) + C5H7(210) <=> S(400)', [2.500000e+13, 0.0, 0.0])
+
+# Reaction 48
+reaction('C5H7(210) + C5H7(210) <=> S(399)', [2.040000e+13, 0.0, -0.26])
+
+# Reaction 49
+reaction('C5H7(210) + C5H7(210) <=> S(388)', [2.040000e+13, 0.0, -0.26])
+
+# Reaction 50
+reaction('S(400) <=> S(388)', [2.484736e+11, 0.288, 35.146])
+
+# Reaction 51
+reaction('C7H10(146) <=> C7H10(238)', [4.999980e+11, 0.056, 29.257])
+
+# Reaction 52
+reaction('C7H10(153) <=> C7H10(187)', [4.999980e+11, 0.056, 29.257])
+
+# Reaction 53
+reaction('S(106) + OH(D)(275) <=> S(109)', [2.000000e+13, 0.0, 0.0])
+
+# Reaction 54
+reaction('S(808) <=> S(106)', [1.190000e+11, 0.08, 16.7])
+
+# Reaction 55
+reaction('S(808) <=> S(826)', [1.329403e+07, 0.933, 5.042])
+
+# Reaction 56
+reaction('O2(2) + S(826) <=> S(929)', [3.132500e+13, 0.012, 0.705])
+
+# Reaction 57
+reaction('S(921) <=> S(826)', [5.020000e-01, 3.86, 9.95])
+
+# Reaction 58
+reaction('C7H10(1) + OH(D)(275) <=> C7H9(5) + H2O(852)', [1.340000e+02, 3.475, -2.8])
+
+# Reaction 59
+reaction('C7H9(5) + OH(D)(275) <=> C7H8(58) + H2O(852)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 60
+reaction('C7H10(65) + OH(D)(275) <=> C7H9(5) + H2O(852)', [9.169709e+00, 3.613, -0.943])
+
+# Reaction 61
+reaction('C5H8(336) + OH(D)(275) <=> C5H7(210) + H2O(852)', [6.044833e+00, 3.684, -1.28])
+
+# Reaction 62
+reaction('C7H11(22) + OH(D)(275) <=> C7H10(1) + H2O(852)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 63
+reaction('OH(D)(275) + S(109) <=> S(66) + H2O(852)', [1.100000e+12, 0.0, -0.437])
+
+# Reaction 64
+reaction('C7H11(46) + OH(D)(275) <=> C7H10(146) + H2O(852)', [4.820000e+13, 0.0, 0.0])
+
+# Reaction 65
+reaction('O2(2) + S(921) <=> S(993)', [7.540000e+12, 0.0, 0.0])
+
+# Reaction 66
+reaction('C7H10(1) + S(929) <=> C7H9(5) + S(996)', [2.964000e-02, 4.313, 8.016])
+
+# Reaction 67
+reaction('C7H11(22) + S(929) <=> C7H10(1) + S(996)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 68
+reaction('C7H9(5) + S(929) <=> C7H8(58) + S(996)', [9.640000e+13, 0.0, 0.0])
+
+# Reaction 69
+reaction('C7H10(65) + S(929) <=> C7H9(5) + S(996)', [1.482000e-02, 4.313, 8.016])
+
+# Reaction 70
+reaction('S(66) + S(996) <=> S(109) + S(929)', [9.200000e-02, 3.96, 6.63])
+
+# Reaction 71
+reaction('C5H8(336) + S(929) <=> C5H7(210) + S(996)', [1.734990e-03, 4.65, 9.78])
+
+# Reaction 72
+reaction('C7H9O2(67) + S(929) <=> S(200) + S(996)', [2.964000e-02, 4.313, 8.016])
+
+# Reaction 73
+reaction('OH(D)(275) + S(996) <=> H2O(852) + S(929)', [1.100000e+12, 0.0, -0.437])
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1

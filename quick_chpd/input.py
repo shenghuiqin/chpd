@@ -1,6 +1,10 @@
 #Data sources
 database(
+<<<<<<< HEAD
     thermoLibraries = ['primaryThermoLibrary'],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
+=======
+    thermoLibraries = [],  # 'primaryThermoLibrary' 'BurkeH2O2','DFT_QCI_thermo'],#['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
+>>>>>>> bb02ee20b69f2a2ed7fc229d5d1df36172b6cae1
     reactionLibraries = [],  #[('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)],
     seedMechanisms = [],    #['BurkeH2O2inN2'],
     kineticsDepositories = ['training'], 
