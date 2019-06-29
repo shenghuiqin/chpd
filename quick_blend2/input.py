@@ -251,10 +251,10 @@ uncertainty(
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
-    generateOutputHTML=True,
+    generateOutputHTML=False,
     generatePlots=True,
     saveSimulationProfiles=True,
-    saveEdgeSpecies=True,
+    saveEdgeSpecies=False,
 )
 
 #quantumMechanics(
