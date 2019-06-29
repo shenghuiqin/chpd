@@ -175,7 +175,7 @@ species(
     reactive=False,
     structure=SMILES("[Ar]")
 )
-"""
+
 species(
     label='Ne',
     reactive=False,
@@ -186,7 +186,7 @@ species(
     reactive=False,
     structure=SMILES("[He]")
 )
-
+"""
 
 
 
@@ -240,8 +240,8 @@ simulator(
 
 model(
     #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.05,
-    toleranceInterruptSimulation=0.05,
+    toleranceMoveToCore=0.01,
+    toleranceInterruptSimulation=0.01,
     maximumEdgeSpecies=100000,
     filterReactions=True,
     maxNumObjsPerIter=2,
@@ -262,10 +262,10 @@ uncertainty(
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
-    generateOutputHTML=True,
+    generateOutputHTML=False,
     generatePlots=True,
     saveSimulationProfiles=True,
-    saveEdgeSpecies=True,
+    saveEdgeSpecies=False,
 )
 
 #quantumMechanics(
@@ -276,6 +276,8 @@ options(
 #    onlyCyclics = True,
 #    maxRadicalNumber = 0,
 #    )
+
+
 
 pressureDependence(
     method='modified strong collision',
