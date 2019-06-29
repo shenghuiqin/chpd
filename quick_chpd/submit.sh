@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ## job-name is just how you want the job labelled
-#SBATCH --job-name=CHPD 
+#SBATCH --job-name=CHPD_pdep 
 ## output specifies the output file name
 #SBATCH --output=CHPD.log
 ## number of nodes
 #SBATCH -N 1
 ##SBATCH --exclusive
 ## Can change partition from general to west
-#SBATCH --partition=west 
+#SBATCH --partition=general 
 #SBATCH --mem=50Gb
 ##SBATCH --time=100:59:59
 #SBATCH --error=error.log

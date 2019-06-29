@@ -2,25 +2,6 @@ Using Theano backend.
 :root:Removing old /scratch/qin.she/Code/chpd/quick_chpd/RMG_backup.log
 :root:Moving /scratch/qin.she/Code/chpd/quick_chpd/RMG.log to /scratch/qin.she/Code/chpd/quick_chpd/RMG_backup.log
 
-Traceback (most recent call last):
-  File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
-    main()
-  File "/home/qin.she/Code/RMG-Py/rmg.py", line 166, in main
-    cProfile.runctx(command, global_vars, local_vars, stats_file)
-  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 49, in runctx
-    prof = prof.runctx(statement, globals, locals)
-  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 140, in runctx
-    exec cmd in globals, locals
-  File "<string>", line 1, in <module>
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 624, in execute
-    self.initialize(**kwargs)
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 442, in initialize
-    self.loadInput(self.inputFile)
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 237, in loadInput
-    readInputFile(path, self)
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/input.py", line 760, in readInputFile
-    exec f in global_context, local_context
-  File "/scratch/qin.she/Code/chpd/quick_chpd/input.py", line 3
-    <<<<<<< HEAD
-     ^
-SyntaxError: invalid syntax
+/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
+  'Attempted to set non-positive xlimits for log-scale axis; '
+slurmstepd: error: *** JOB 5883717 ON c0016 CANCELLED AT 2019-06-28T15:18:55 DUE TO TIME LIMIT ***
