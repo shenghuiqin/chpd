@@ -10,7 +10,7 @@
 ## Can change partition from general to west
 #SBATCH --partition=west 
 #SBATCH --mem=50Gb
-##SBATCH --time=100:59:59
+##SBATCH --time=50:59:59
 #SBATCH --error=error.log
 #SBATCH --exclude=c5003
 
