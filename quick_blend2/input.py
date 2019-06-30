@@ -206,16 +206,14 @@ simpleReactor(
         "O2":   19, # phi=1 means 9.5 O2 per C7H10
         "N2":    154, # 8.1 times as much N2 as O2
         "C7H16":1,
-      
-        
-        
-        
+       
     },
-    # terminationRateRatio=0.01,
-    #  terminationTime=(1e0,'s'),
+    terminationRateRatio=0.01,
+    terminationTime=(1e0,'s'),
     terminationConversion={
-        'C7H16': 0.99,
-    },
+        'C7H16': 0.9,
+        },
+    
     sensitivity=['C7H10','O2'],
     sensitivityThreshold=0.001,
 )
