@@ -202,14 +202,18 @@ simpleReactor(
         "C7H16":1,
        
     },
+<<<<<<< HEAD
     terminationRateRatio=0.01,
     terminationTime=(1e0,'s'),
    # terminationConversion={
     #    'C7H16': 0.9,
      #   },
+=======
+    terminationTime=(0.1e0,'s'),
+>>>>>>> 0b6c8ddfd99e834d6de1f80dd68269076b0ec52e
     
-    sensitivity=['C7H16','O2'],
-    sensitivityThreshold=0.001,
+    #sensitivity=['C7H16','O2'],
+    #sensitivityThreshold=0.001,
 )
 
 simulator(
@@ -220,12 +224,17 @@ simulator(
 )
 
 model(
-    #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.25,
-    toleranceInterruptSimulation=0.25,
-    maximumEdgeSpecies=100000,
-    filterReactions=True,
-    maxNumObjsPerIter=2,
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.5,
+        toleranceInterruptSimulation=0.5,
+        maximumEdgeSpecies=100000,
+        maxNumSpecies=100
+)
+model(
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.1,
+        toleranceInterruptSimulation=0.2,
+        maximumEdgeSpecies=100000,
 )
 
 uncertainty(
