@@ -19,6 +19,11 @@ generatedSpeciesConstraints(
 #test local vs#
 # List of species
 species(
+    label='C7H10',
+    reactive=True,
+    structure=SMILES("C1C=CCCCC=1"),
+)
+species(
     label='C7H16',
     reactive=True,
     structure=SMILES("CCCCCCC"),
@@ -196,20 +201,21 @@ simpleReactor(
     pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
-        #"C7H10": 1,
-        "O2":   11, # phi=1 means 9.5 O2 per C7H10
-        "N2":    89.1, # 8.1 times as much N2 as O2
+        "C7H10": 1,
+#	    "C7H16": 0.00463,
+        "O2":   19, # phi=1 means 9.5 O2 per C7H10
+        "N2":    154, # 8.1 times as much N2 as O2
         "C7H16":1,
        
     },
-    terminationRateRatio=0.01,
-    terminationTime=(1e0,'s'),
-    terminationConversion={
-        'C7H16': 0.9,
-        },
+    #terminationRateRatio=0.01,
+    terminationTime=(0.1e0,'s'),
+    #terminationConversion={
+     #   'C7H16': 0.9,
+      #  },
     
-    sensitivity=['C7H16','O2'],
-    sensitivityThreshold=0.001,
+    #sensitivity=['C7H10','O2'],
+    #sensitivityThreshold=0.001,
 )
 
 simulator(
@@ -220,13 +226,19 @@ simulator(
 )
 
 model(
-    #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.25,
-    toleranceInterruptSimulation=0.25,
-    maximumEdgeSpecies=100000,
-    filterReactions=True,
-    maxNumObjsPerIter=2,
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.5,
+        toleranceInterruptSimulation=0.5,
+        maximumEdgeSpecies=100000,
+        maxNumSpecies=100
 )
+model(
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.1,
+        toleranceInterruptSimulation=0.2,
+        maximumEdgeSpecies=100000,
+)
+
 
 uncertainty(
     localAnalysis=False,
