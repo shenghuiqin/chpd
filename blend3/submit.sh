@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## job-name is just how you want the job labelled
-#SBATCH --job-name=blend2
+#SBATCH --job-name=blend3
 ## output specifies the output file name
-#SBATCH --output=CHPD.log
+#SBATCH --output=blend3.log
 ## number of nodes
 #SBATCH -N 1
 ##SBATCH --exclusive
