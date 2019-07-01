@@ -39,7 +39,7 @@ species(
     reactive=False,
     structure=SMILES("N#N")
 )
-
+"""
 #species choosen from "file:///C:/Users/qinsh/Desktop/chpd/quick_chpd/output.html", based on their concentration value.
 species(
     label='C7H10(146)',
@@ -169,7 +169,7 @@ species(
     reactive=True,
     structure=SMILES("O")
 )
-"""
+
 species(
     label='Ar',
     reactive=False,
@@ -200,35 +200,13 @@ simpleReactor(
 #	    "C7H16": 0.00463,
         "O2":   9.5, # phi=1 means 9.5 O2 per C7H10
         "N2":    76.95, # 8.1 times as much N2 as O2
-        "C7H10(146)": 0,
-        "C7H10(153)": 0,
-        "C7H9(5)": 0,
-        "C5H7(210)": 0,
-        "C2H4(115)": 0,
-        "C7H11(22)": 0,
-        "C7H10(21)": 0,
-        "C7H10(65)": 0,
-        "C7H10(18)": 0,
-        "C7H10(238)": 0,
-        "S(66)": 0,
-        "C7H11(46)": 0,
-        "C7H10(187)": 0,
-        "Cycloheptene": 0,
-        "C7H8(58)": 0,
-        "C5H8(336)": 0,
-        "S(388)": 0,
-        "C7H9O2(68)": 0,
-        "s(399)": 0,
-        "OH": 0,
-        "H2O": 0,
         
         
         
     },
-    terminationRateRatio=0.01,
-    #  terminationTime=(1e0,'s'),
-    sensitivity=['C7H10','O2'],
-    sensitivityThreshold=0.001,
+    
+    terminationTime=(0.1e0,'s'),
+    
 )
 
 simulator(
@@ -239,12 +217,17 @@ simulator(
 )
 
 model(
-    #toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.01,
-    toleranceInterruptSimulation=0.01,
-    maximumEdgeSpecies=100000,
-    filterReactions=True,
-    maxNumObjsPerIter=2,
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.5,
+        toleranceInterruptSimulation=0.5,
+        maximumEdgeSpecies=100000,
+        maxNumSpecies=100
+)
+model(
+        toleranceKeepInEdge=0.0,
+        toleranceMoveToCore=0.1,
+        toleranceInterruptSimulation=0.2,
+        maximumEdgeSpecies=100000,
 )
 
 uncertainty(
@@ -278,7 +261,7 @@ options(
 #    )
 
 
-
+"""
 pressureDependence(
     method='modified strong collision',
     maximumGrainSize=(0.5,'kcal/mol'),
@@ -287,5 +270,5 @@ pressureDependence(
     pressures=(0.01,100,'bar',5),
     interpolation=('Chebyshev', 6, 4),
 )
-
+"""
 
