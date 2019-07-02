@@ -45,8 +45,8 @@ species(
 
 # Reaction systems
 simpleReactor(
-    temperature=[(1000,'K')],
-    pressure=[(40.0,'bar')],
+    temperature=(1000,'K'),
+    pressure=(40.0,'bar'),
     initialMoleFractions={
         "C7H10": 1,
         "O2":   19, # phi=1 means 9.5 O2 per C7H10
