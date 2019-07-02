@@ -110,7 +110,7 @@ species(
     label='Cycloheptene', # (19)
     reactive=True,
     structure=adjacencyList(
-        """
+        
         1 C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
         2 C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
         3 C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
@@ -130,7 +130,7 @@ species(
         17 H u0 p0 c0 {5,S}
         18 H u0 p0 c0 {6,S}
         19 H u0 p0 c0 {7,S}
-        """),
+        ),
 )
 species(
     label='C7H8(58)',
