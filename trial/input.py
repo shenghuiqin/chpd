@@ -67,23 +67,17 @@ simpleReactor(
 simulator(
     atol=1e-16,
     rtol=1e-8,
-    sens_atol=1e-6,
-    sens_rtol=1e-4,
+
 )
 
 model(
-        toleranceKeepInEdge=0.0,
+        toleranceKeepInEdge=0.05,
         toleranceMoveToCore=0.5,
-        toleranceInterruptSimulation=0.5,
+        toleranceInterruptSimulation=0.9,
         maximumEdgeSpecies=100000,
         maxNumSpecies=100
 )
-model(
-        toleranceKeepInEdge=0.0,
-        toleranceMoveToCore=0.4,
-        toleranceInterruptSimulation=0.4,
-        maximumEdgeSpecies=100000,
-)
+
 
 
 
