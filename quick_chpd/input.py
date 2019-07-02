@@ -39,6 +39,7 @@ species(
     reactive=False,
     structure=SMILES("N#N")
 )
+<<<<<<< HEAD
 """
 #species choosen from "file:///C:/Users/qinsh/Desktop/chpd/quick_chpd/output.html", based on their concentration value.
 species(
@@ -188,12 +189,14 @@ species(
 )
 """
 
+=======
+>>>>>>> 7aed530d9ee247708fc492c2c36a6190d9596eed
 
 
 # Reaction systems
 simpleReactor(
     temperature=[(700,'K'),(1500,'K')],
-    pressure=[(10.0,'bar'),(40.0,'bar')],
+    pressure=[(20.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
         "C7H10": 1,
@@ -225,7 +228,7 @@ model(
 )
 model(
         toleranceKeepInEdge=0.0,
-        toleranceMoveToCore=0.1,
+        toleranceMoveToCore=0.2,
         toleranceInterruptSimulation=0.2,
         maximumEdgeSpecies=100000,
 )
