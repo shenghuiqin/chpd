@@ -39,161 +39,12 @@ species(
     reactive=False,
     structure=SMILES("N#N")
 )
-"""
-#species choosen from "file:///C:/Users/qinsh/Desktop/chpd/quick_chpd/output.html", based on their concentration value.
-species(
-    label='C7H10(146)',
-    reactive=True,
-    structure=SMILES("C=CC=CCC=C")
-)
-species(
-    label='C7H10(153)',
-    reactive=True,
-    structure=SMILES("C=CC=CC1CC1")
-)
-species(
-    label='C7H9(5)',
-    reactive=True,
-    structure=SMILES("[CH]1C=CCCC=C1")
-)
-species(
-    label='C5H7(210)',
-    reactive=True,
-    structure=SMILES("[CH2]C=CC=C")
-)
-species(
-    label='C2H4(115)',
-    reactive=True,
-    structure=SMILES("C=C")
-)
-species(
-    label='C7H11(22)',
-    reactive=True,
-    structure=SMILES("[CH]1C=CCCCC1")
-)
-species(
-    label='C7H10(21)',
-    reactive=True,
-    structure=SMILES("C1=CC2CCCC12")
-)
-species(
-    label='C7H10(65)',
-    reactive=True,
-    structure=SMILES("C1=CCCC=CC1")
-)
-species(
-    label='C7H10(18)',
-    reactive=True,
-    structure=SMILES("[CH2]C=CC=CC[CH2]")
-)
-species(
-    label='C7H10(238)',
-    reactive=True,
-    structure=SMILES("C=CCC1C=CC1")
-)
-species(
-    label='S(66)',
-    reactive=True,
-    structure=SMILES("[O]OC1C=CCCCC1")
-)
-species(
-    label='C7H11(46)',
-    reactive=True,
-    structure=SMILES("[CH2]CCC=CC=C")
-)
-species(
-    label='C7H10(187)',
-    reactive=True,
-    structure=SMILES("C1=CC(C1)C1CC1")
-)
-species(
-    label='Cycloheptene', # (19)
-    reactive=True,
-    structure=adjacencyList(
-        """
-        1 C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-        2 C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-        3 C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
-        4 C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
-        5 C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
-        6 C u0 p0 c0 {4,S} {7,D} {18,S}
-        7 C u0 p0 c0 {5,S} {6,D} {19,S}
-        8 H u0 p0 c0 {1,S}
-        9 H u0 p0 c0 {1,S}
-        10 H u0 p0 c0 {2,S}
-        11 H u0 p0 c0 {2,S}
-        12 H u0 p0 c0 {3,S}
-        13 H u0 p0 c0 {3,S}
-        14 H u0 p0 c0 {4,S}
-        15 H u0 p0 c0 {4,S}
-        16 H u0 p0 c0 {5,S}
-        17 H u0 p0 c0 {5,S}
-        18 H u0 p0 c0 {6,S}
-        19 H u0 p0 c0 {7,S}
-        """),
-)
-species(
-    label='C7H8(58)',
-    reactive=True,
-    structure=SMILES("C1=CC=CCC=C1")
-)
-species(
-    label='C5H8(336)',
-    reactive=True,
-    structure=SMILES("C=CC=CC")
-)
-species(
-    label='S(388)',
-    reactive=True,
-    structure=SMILES("C=CC=CCCC=CC=C")
-)
-species(
-    label='C7H9O2(68)',
-    reactive=True,
-    structure=SMILES("[O]OC1C=CC=CCC1")
-)
-species(
-    label='s(399)',
-    reactive=True,
-    structure=SMILES("C=CC=CCC(C=C)C=C")
-)
-
-
-species(
-    label='OH',
-    reactive=True,
-    structure=SMILES("[OH]")
-)
-species(
-    label='H2O',
-    reactive=True,
-    structure=SMILES("O")
-)
-
-species(
-    label='Ar',
-    reactive=False,
-    structure=SMILES("[Ar]")
-)
-
-species(
-    label='Ne',
-    reactive=False,
-    structure=SMILES("[Ne]")
-)
-species(
-    label='He',
-    reactive=False,
-    structure=SMILES("[He]")
-)
-"""
-
 
 
 # Reaction systems
 simpleReactor(
     temperature=[(700,'K'),(1500,'K')],
-    pressure=[(10.0,'bar'),(40.0,'bar')],
+    pressure=[(20.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
         "C7H10": 1,
@@ -225,7 +76,7 @@ model(
 )
 model(
         toleranceKeepInEdge=0.0,
-        toleranceMoveToCore=0.1,
+        toleranceMoveToCore=0.2,
         toleranceInterruptSimulation=0.2,
         maximumEdgeSpecies=100000,
 )
