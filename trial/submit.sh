@@ -3,7 +3,7 @@
 ## job-name is just how you want the job labelled
 #SBATCH --job-name=trial_stage
 ## output specifies the output file name
-#SBATCH --output=stage.log
+#SBATCH --output=trial.log
 ## number of nodes
 #SBATCH -N 2
 ##SBATCH --exclusive
