@@ -53,8 +53,8 @@ simpleReactor(
         "C7H16":1,
        
     },
-    terminationTime=(0.1e0,'s'),
-    
+
+    terminationTime=(0.1e0,'s'), 
     #sensitivity=['C7H16','O2'],
     #sensitivityThreshold=0.001,
 )
