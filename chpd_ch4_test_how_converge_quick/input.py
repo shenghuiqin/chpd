@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
     seedMechanisms = [], #'BurkeH2O2inN2'
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default']
+    kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
 )
 
