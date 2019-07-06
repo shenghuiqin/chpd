@@ -1,6 +1,6 @@
 # Data sources
 database(
-    thermoLibraries = ['primaryThermoLibrary'],
+    thermoLibraries = ['BurkeH2O2','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'],
     reactionLibraries = [],
     seedMechanisms = [],
     kineticsDepositories = ['training'], 
@@ -41,18 +41,18 @@ simpleReactor(
     terminationTime=(1e0,'s'), 
 )
 
+model(
+    toleranceMoveToCore=0.1,
+    toleranceInterruptSimulation=0.1,
+)
+
 simulator(
     atol=1e-16,
     rtol=1e-8,
 )
 
 
-model(
-    toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=0.3,
-    toleranceInterruptSimulation=0.3,
-    maximumEdgeSpecies=1000
-)
+
 
 options(
     units='si',
@@ -97,4 +97,3 @@ uncertainty(
 #)
 
 
-)

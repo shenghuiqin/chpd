@@ -2,7 +2,7 @@
 database(
     thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
-    seedMechanisms = ['seed_heptane_detailed_from_llnl'], #'BurkeH2O2inN2'
+    seedMechanisms = ['7.5seed_heptane_detailed_from_llnl'], #'BurkeH2O2inN2'
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',

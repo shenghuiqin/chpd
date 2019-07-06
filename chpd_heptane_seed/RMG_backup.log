@@ -1,0 +1,149 @@
+Global RMG Settings:
+   test_data.directory  = /home/qin.she/Code/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
+   database.directory   = /home/qin.she/Code/RMG-database/input (Default, relative to RMG-Py source code)
+RMG execution initiated at Sat Jul  6 00:38:09 2019
+
+#########################################################
+# RMG-Py - Reaction Mechanism Generator in Python       #
+# Version: 2.4.0                                        #
+# Authors: RMG Developers (rmg_dev@mit.edu)             #
+# P.I.s:   William H. Green (whgreen@mit.edu)           #
+#          Richard H. West (r.west@neu.edu)             #
+# Website: http://reactionmechanismgenerator.github.io/ #
+#########################################################
+
+The current git HEAD for RMG-Py is:
+	cc9eaf3c8d660341169c2bd29fd7584ae500c66b
+	Tue Jul 2 13:40:29 2019 -0400
+
+The current git HEAD for RMG-database is:
+	a3c960c9116608a4a168bb2b890b296439d91b98
+	Mon Jun 17 16:32:25 2019 -0400
+
+Reading input file "/scratch/qin.she/Code/chpd/chpd_heptane_seed/input.py"...
+#Data sources
+database(
+    thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
+    seedMechanisms = ['7.5seed_heptane_detailed_from_llnl'], #'BurkeH2O2inN2'
+    kineticsDepositories = ['training'], 
+    kineticsFamilies = ['default'],
+    kineticsEstimator = 'rate rules',
+)
+
+# Constraints on generated species
+generatedSpeciesConstraints(
+    maximumRadicalElectrons = 2,
+    allowed=['input species','seed mechanisms','reaction libraries'],
+    maximumCarbonAtoms=8,
+)
+
+# List of species
+species(
+    label='C7H16',
+    reactive=True,
+    structure=SMILES("CCCCCCC"),
+)
+species(
+    label='C7H10',
+    reactive=True,
+    structure=SMILES("C1C=CCCCC=1"),
+)
+species(
+    label='O2',
+    reactive=True,
+        structure=adjacencyList(
+        """
+        1 O u1 p2 {2,S}
+        2 O u1 p2 {1,S}
+        """),
+)
+species(
+    label='N2',
+    reactive=False,
+    structure=SMILES("N#N")
+)
+
+# Reaction systems
+simpleReactor(
+    temperature=[(700,'K'),(1000,'K')],
+    pressure=[(20.0,'bar'),(40.0,'bar')],
+    nSims=8,
+    initialMoleFractions={
+        #"C7H10": 1,
+        "O2": 0.108724476, # phi=1 means 9.5 O2 per C7H10
+        "N2": 0.880638, # 8.1 times as much N2 as O2
+        "C7H16":0.005303633,  
+        "C7H10": 0.005303633,
+    },
+    terminationConversion={
+                'O2': 0.5,
+    },
+)
+
+simulator(
+    atol=1e-16,
+    rtol=1e-8,
+)
+
+
+model(
+    toleranceKeepInEdge=0.0,
+    toleranceMoveToCore=0.5,
+    toleranceInterruptSimulation=0.5,
+    maximumEdgeSpecies=1000,
+)
+
+options(
+    units='si',
+    # saveRestartPeriod=(1,'hour'),
+    generateOutputHTML=False,
+    generatePlots=True,
+    saveSimulationProfiles=True,
+    saveEdgeSpecies=False,
+)
+
+
+"""
+uncertainty(
+    localAnalysis=False,
+    globalAnalysis=False,
+    uncorrelated=True,
+    correlated=True,
+    localNumber=10,
+    globalNumber=5,
+    terminationTime=None,
+    pceRunTime=1800,
+    logx=True
+)
+""" 
+
+#quantumMechanics(
+#    software='mopac',
+#    method='pm3',
+    # fileStore='QMfiles', # relative to where you run it from. Defaults to inside the output folder if not defined.
+#    scratchDirectory = None, # not currently used
+#    onlyCyclics = True,
+#    maxRadicalNumber = 0,
+#    )
+
+#pressureDependence(
+#    method='modified strong collision',
+#    maximumGrainSize=(0.5,'kcal/mol'),
+#    minimumNumberOfGrains=250,
+#    temperatures=(300,2000,'K',8),
+#    pressures=(0.01,100,'bar',5),
+#    interpolation=('Chebyshev', 6, 4),
+#)
+
+
+
+
+Loading thermodynamics library from primaryThermoLibrary.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics group database from /home/qin.she/Code/RMG-database/input/thermo/groups...
+Loading transport library from PrimaryTransportLibrary.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from GRI-Mech.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from NOx2018.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from OneDMinN2.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport group database from /home/qin.she/Code/RMG-database/input/transport/groups...
+Loading kinetics library 7.5seed_heptane_detailed_from_llnl from /home/qin.she/Code/RMG-database/input/kinetics/libraries/7.5seed_heptane_detailed_from_llnl/reactions.py...

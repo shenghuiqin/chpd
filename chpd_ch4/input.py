@@ -1,10 +1,10 @@
 #Data sources
 database(
-    thermoLibraries =[], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
-    seedMechanisms = [], #'BurkeH2O2inN2'
+    seedMechanisms = ['GRI-Mech3.0'], #'BurkeH2O2inN2'
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default','!surface', '!surface_development']
+    kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
 )
 
@@ -13,6 +13,7 @@ generatedSpeciesConstraints(
     maximumRadicalElectrons = 2,
   # allowed=['input species','seed mechanisms','reaction libraries'],
     maximumCarbonAtoms=7,
+    allowed=['input species','seed mechanisms','reaction libraries'],
 )
 #this is a test#
 #test local vs#
@@ -54,22 +55,21 @@ simpleReactor(
         "C7H10":0.00989,  
         "CH4": 0.0001
     },
-     terminationConversion={
+    terminationConversion={
                 'O2': 0.5,
-        },
-
+    },
+)
 
 simulator(
     atol=1e-16,
     rtol=1e-8,
 )
 
-
 model(
-    toleranceKeepInEdge=0.00,
-    toleranceMoveToCore=0.1,
-    toleranceInterruptSimulation=0.1,
-    maximumEdgeSpecies=1000
+    toleranceKeepInEdge=0.04,
+    toleranceMoveToCore=0.4,
+    toleranceInterruptSimulation=0.4,
+    maximumEdgeSpecies=1000,
 )
 
 options(
