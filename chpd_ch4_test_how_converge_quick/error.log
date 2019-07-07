@@ -1,0 +1,8 @@
+Using Theano backend.
+:root:Removing old /scratch/qin.she/Code/chpd/chpd_ch4_test_how_converge_quick/RMG_backup.log
+:root:Moving /scratch/qin.she/Code/chpd/chpd_ch4_test_how_converge_quick/RMG.log to /scratch/qin.she/Code/chpd/chpd_ch4_test_how_converge_quick/RMG_backup.log
+
+/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
+  'Attempted to set non-positive xlimits for log-scale axis; '
+slurmstepd: error: *** JOB 6029100 ON c0290 CANCELLED AT 2019-07-07T16:04:26 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 6029339 ON c0320 CANCELLED AT 2019-07-07T18:22:06 DUE TO TIME LIMIT ***

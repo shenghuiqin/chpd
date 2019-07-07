@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
     seedMechanisms = [], #'BurkeH2O2inN2'
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default']
+    kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
 )
 
@@ -51,12 +51,12 @@ simpleReactor(
         "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
         "N2":   0.8813, # 8.1 times as much N2 as O2
         "C7H10":0.00989,  
-        "CH4": 0.0001
+        "CH4": 0.001
     },
      terminationConversion={
-                'O2': 0.5,
+                'O2': 0.1,
         },
-
+)
 
 simulator(
     atol=1e-16,
@@ -65,11 +65,19 @@ simulator(
 
 
 model(
-    toleranceKeepInEdge=0.00,
-    toleranceMoveToCore=0.5,
-    toleranceInterruptSimulation=0.5,
+    toleranceKeepInEdge=0.09,
+    toleranceMoveToCore=0.9,
+    toleranceInterruptSimulation=0.9,
     maximumEdgeSpecies=1000
 )
+model(
+    toleranceMoveToCore=0.9,
+    toleranceInterruptSimulation=1e8,
+    toleranceKeepInEdge=0.05,
+    maximumEdgeSpecies=200000,
+    minCoreSizeForPrune=50,
+    minSpeciesExistIterationsForPrune=2,
+    )
 
 options(
     units='si',

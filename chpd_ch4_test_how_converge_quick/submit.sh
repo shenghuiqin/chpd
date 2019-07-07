@@ -8,9 +8,9 @@
 #SBATCH -N 2
 ##SBATCH --exclusive
 ## Can change partition from general to west
-#SBATCH --partition=west
+#SBATCH --partition=general
 #SBATCH --mem=100Gb
-##SBATCH --time=123:59:59
+##SBATCH --time=23:59:59
 #SBATCH --error=error.log
 #SBATCH --exclude=c5003
 
