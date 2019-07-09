@@ -36,11 +36,7 @@ species(
     reactive=False,
     structure=SMILES("N#N")
 )
-species(
-    label='CH4',
-    reactive=True,
-    structure=SMILES("C"),
-)
+
 
 species(
     label='hepta136ene',
@@ -62,7 +58,7 @@ simpleReactor(
         "CH4": 0.001,   
     },
     terminationTime = (1.0, 's'),
-    terminationRateRatio = 0.01,
+    terminationRateRatio = 0.005,
 )
 
 simulator(
