@@ -1,8 +1,8 @@
 #Data sources
 database(
-    thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
-    reactionLibraries = [], # ('FFCM1(-)',False),('2005_Senosiain_OH_C2H2',False)
-    seedMechanisms = [], #'BurkeH2O2inN2'
+    thermoLibraries =['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    reactionLibraries = [('C6H5_C4H4_Mebel',False),('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
+    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)','Klippenstein_Glarborg2016',], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
@@ -11,15 +11,16 @@ database(
 # Constraints on generated species
 generatedSpeciesConstraints(
     maximumRadicalElectrons = 2,
-  # allowed=['input species','seed mechanisms','reaction libraries'],
-    maximumCarbonAtoms=7,
+    allowed=['input species','seed mechanisms','reaction libraries'],
+    maximumCarbonAtoms=9,
+    maximumOxygenAtoms=4,
 )
 
 # List of species
 species(
-    label='C7H10',
+    label='n-heptane',
     reactive=True,
-    structure=SMILES("C1C=CCCCC=1"),
+    structure=SMILES("CCCCCCC"),
 )
 species(
     label='O2',
@@ -41,21 +42,23 @@ species(
     structure=SMILES("C"),
 )
 
+
+
+
 # Reaction systems
 simpleReactor(
-    temperature=[(700,'K'),(1000,'K')],
+    temperature=[(600,'K'),(1000,'K')],
     pressure=[(20.0,'bar'),(40.0,'bar')],
     nSims=8,
     initialMoleFractions={
         #"C7H10": 1,
-        "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
-        "N2":   0.8813, # 8.1 times as much N2 as O2
-        "C7H10":0.00989,  
-        "CH4": 0.0001
+        "O2":   0.10885, # phi=1 means 9.5 O2 per C7H10
+        "N2":   0.881684808, # 8.1 times as much N2 as O2
+        "CHPD":0.00946, # Cycloheptadiene C7H10  
+        "CH4": 0.001,   
     },
-     terminationConversion={
-                'O2': 0.5,
-        },
+    terminationTime = (1.0, 's'),
+    terminationRateRatio = 0.01,
 )
 
 simulator(
@@ -65,11 +68,24 @@ simulator(
 
 
 model(
-    toleranceKeepInEdge=0.00,
+    toleranceKeepInEdge=0, # No pruning to start
     toleranceMoveToCore=0.5,
-    toleranceInterruptSimulation=0.5,
-    maximumEdgeSpecies=1000
+    toleranceInterruptSimulation=1,
+    maxNumObjsPerIter=3, 
+    terminateAtMaxObjects=True,
+    maxNumSpecies=100, # first stage is until core reaches 100 species
+    filterReactions=True, # should speed up model generation
 )
+
+model(
+    toleranceMoveToCore=0.4,
+    toleranceInterruptSimulation=1e8,
+    toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
+    maximumEdgeSpecies=200000,
+    minCoreSizeForPrune=100,
+    minSpeciesExistIterationsForPrune=2,
+    filterReactions=True,
+    )
 
 options(
     units='si',
