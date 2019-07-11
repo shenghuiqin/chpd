@@ -1,0 +1,176 @@
+Global RMG Settings:
+   test_data.directory  = /home/qin.she/Code/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
+   database.directory   = /home/qin.she/Code/RMG-database/input (Default, relative to RMG-Py source code)
+RMG execution initiated at Wed Jul 10 13:56:39 2019
+
+#########################################################
+# RMG-Py - Reaction Mechanism Generator in Python       #
+# Version: 2.4.0                                        #
+# Authors: RMG Developers (rmg_dev@mit.edu)             #
+# P.I.s:   William H. Green (whgreen@mit.edu)           #
+#          Richard H. West (r.west@neu.edu)             #
+# Website: http://reactionmechanismgenerator.github.io/ #
+#########################################################
+
+The current git HEAD for RMG-Py is:
+	cc9eaf3c8d660341169c2bd29fd7584ae500c66b
+	Tue Jul 2 13:40:29 2019 -0400
+
+The current git HEAD for RMG-database is:
+	a3c960c9116608a4a168bb2b890b296439d91b98
+	Mon Jun 17 16:32:25 2019 -0400
+
+Reading input file "/scratch/qin.she/Code/chpd/2heptane_richard/input.py"...
+#Data sources
+database(
+    thermoLibraries =['BurkeH2O2','FFCM1(-)','primaryThermoLibrary','DFT_QCI_thermo','CBS_QB3_1dHR'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    reactionLibraries = [('C6H5_C4H4_Mebel',False),('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
+    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)','Klippenstein_Glarborg2016','7.9heptane_seed'], #
+    kineticsDepositories = ['training'], 
+    kineticsFamilies = ['default'],
+    kineticsEstimator = 'rate rules',
+)
+
+# Constraints on generated species
+generatedSpeciesConstraints(
+    maximumRadicalElectrons = 2,
+    allowed=['input species','seed mechanisms','reaction libraries'],
+    maximumCarbonAtoms=9,
+    maximumOxygenAtoms=4,
+)
+
+# List of species
+species(
+    label='n-heptane',
+    reactive=True,
+    structure=SMILES("CCCCCCC"),
+)
+species(
+    label='O2',
+    reactive=True,
+        structure=adjacencyList(
+        """
+        1 O u1 p2 {2,S}
+        2 O u1 p2 {1,S}
+        """),
+)
+species(
+    label='N2',
+    reactive=False,
+    structure=SMILES("N#N")
+)
+species(
+    label='CH4',
+    reactive=True,
+    structure=SMILES("C"),
+)
+
+
+
+
+# Reaction systems
+simpleReactor(
+    temperature=[(700,'K'),(900,'K')],
+    pressure=[(20.0,'bar'),(40.0,'bar')],
+    nSims=8,
+    initialMoleFractions={
+        #"C7H10": 1,
+        "O2":   0.10885, # phi=1 means 9.5 O2 per C7H10
+        "N2":   0.881684808, # 8.1 times as much N2 as O2
+        "n-heptane":0.00946, #  
+    },
+    terminationTime = (1.0, 's'),
+     terminationConversion={
+                'n-heptane': 0.98,
+        },
+    terminationRateRatio = 0.002,
+)
+
+simulator(
+    atol=1e-16,
+    rtol=1e-8,
+)
+
+
+model(
+    toleranceKeepInEdge=0, # No pruning to start
+    toleranceMoveToCore=0.5,
+    toleranceInterruptSimulation=1,
+    maxNumObjsPerIter=3, 
+    terminateAtMaxObjects=True,
+    maxNumSpecies=100, # first stage is until core reaches 100 species
+    filterReactions=True, # should speed up model generation
+)
+
+model(
+    toleranceMoveToCore=0.4,
+    toleranceInterruptSimulation=1e8,
+    toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
+    maximumEdgeSpecies=200000,
+    minCoreSizeForPrune=100,
+    minSpeciesExistIterationsForPrune=2,
+    filterReactions=True,
+    )
+
+options(
+    units='si',
+    # saveRestartPeriod=(1,'hour'),
+    generateOutputHTML=False,
+    generatePlots=True,
+    saveSimulationProfiles=True,
+    saveEdgeSpecies=False,
+)
+
+
+"""
+uncertainty(
+    localAnalysis=False,
+    globalAnalysis=False,
+    uncorrelated=True,
+    correlated=True,
+    localNumber=10,
+    globalNumber=5,
+    terminationTime=None,
+    pceRunTime=1800,
+    logx=True
+)
+""" 
+
+#quantumMechanics(
+#    software='mopac',
+#    method='pm3',
+    # fileStore='QMfiles', # relative to where you run it from. Defaults to inside the output folder if not defined.
+#    scratchDirectory = None, # not currently used
+#    onlyCyclics = True,
+#    maxRadicalNumber = 0,
+#    )
+
+#pressureDependence(
+#    method='modified strong collision',
+#    maximumGrainSize=(0.5,'kcal/mol'),
+#    minimumNumberOfGrains=250,
+#    temperatures=(300,2000,'K',8),
+#    pressures=(0.01,100,'bar',5),
+#    interpolation=('Chebyshev', 6, 4),
+#)
+
+
+
+
+Loading thermodynamics library from BurkeH2O2.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from FFCM1(-).py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from primaryThermoLibrary.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from DFT_QCI_thermo.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from CBS_QB3_1dHR.py in /home/qin.she/Code/RMG-database/input/thermo/libraries...
+Loading thermodynamics group database from /home/qin.she/Code/RMG-database/input/thermo/groups...
+Loading transport library from PrimaryTransportLibrary.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from GRI-Mech.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from NOx2018.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport library from OneDMinN2.py in /home/qin.she/Code/RMG-database/input/transport/libraries...
+Loading transport group database from /home/qin.she/Code/RMG-database/input/transport/groups...
+Loading kinetics library BurkeH2O2inN2 from /home/qin.she/Code/RMG-database/input/kinetics/libraries/BurkeH2O2inN2/reactions.py...
+Loading kinetics library FFCM1(-) from /home/qin.she/Code/RMG-database/input/kinetics/libraries/FFCM1(-)/reactions.py...
+Loading kinetics library Klippenstein_Glarborg2016 from /home/qin.she/Code/RMG-database/input/kinetics/libraries/Klippenstein_Glarborg2016/reactions.py...
+Warning: Only Arrhenius and PDepArrhenius kinetics supported for duplicate reactions.
+Warning: Only Arrhenius and PDepArrhenius kinetics supported for duplicate reactions.
+Loading kinetics library 7.9heptane_seed from /home/qin.she/Code/RMG-database/input/kinetics/libraries/7.9heptane_seed/reactions.py...

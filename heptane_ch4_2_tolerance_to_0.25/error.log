@@ -1,6 +1,0 @@
-Using Theano backend.
-:root:Removing old /scratch/qin.she/Code/chpd/heptane_ch4_2_tolerance_to_0.25/RMG_backup.log
-:root:Moving /scratch/qin.she/Code/chpd/heptane_ch4_2_tolerance_to_0.25/RMG.log to /scratch/qin.she/Code/chpd/heptane_ch4_2_tolerance_to_0.25/RMG_backup.log
-
-/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
-  'Attempted to set non-positive xlimits for log-scale axis; '
