@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ## job-name is just how you want the job labelled
-#SBATCH --job-name=CHPD+c5seed
+#SBATCH --job-name=CHPD
 ## output specifies the output file name
 #SBATCH --output=2CHPD.log
 ## number of nodes
 #SBATCH -N 1
 ##SBATCH --exclusive
 ## Can change partition from general to west
-#SBATCH --partition=general
+#SBATCH --partition=west
 #SBATCH --mem=150Gb
 ## number of cores, should match -n flag in python rmg command below
 #SBATCH -n 12
