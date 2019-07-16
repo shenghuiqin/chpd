@@ -1,0 +1,36 @@
+Global RMG Settings:
+   test_data.directory  = /home/qin.she/Code/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
+   database.directory   = /home/qin.she/Code/RMG-database/input (Default, relative to RMG-Py source code)
+RMG execution initiated at Mon Jul 15 21:54:19 2019
+
+#########################################################
+# RMG-Py - Reaction Mechanism Generator in Python       #
+# Version: 2.4.0                                        #
+# Authors: RMG Developers (rmg_dev@mit.edu)             #
+# P.I.s:   William H. Green (whgreen@mit.edu)           #
+#          Richard H. West (r.west@neu.edu)             #
+# Website: http://reactionmechanismgenerator.github.io/ #
+#########################################################
+
+The current git HEAD for RMG-Py is:
+	cc9eaf3c8d660341169c2bd29fd7584ae500c66b
+	Tue Jul 2 13:40:29 2019 -0400
+
+The current git HEAD for RMG-database is:
+	a3c960c9116608a4a168bb2b890b296439d91b98
+	Mon Jun 17 16:32:25 2019 -0400
+
+Reading input file "/scratch/qin.she/Code/chpd/chpd_test_rmg/input.py"...
+version https://git-lfs.github.com/spec/v1
+oid sha256:34ed38c53a2b04e34e9a7c41579e369d25874f6ef34d7322ee841aa0a97ec807
+size 3150
+
+Error: The input file "/scratch/qin.she/Code/chpd/chpd_test_rmg/input.py" was invalid:
+Error: invalid syntax (input.py, line 1)
+Traceback (most recent call last):
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/input.py", line 760, in readInputFile
+    exec f in global_context, local_context
+  File "/scratch/qin.she/Code/chpd/chpd_test_rmg/input.py", line 1
+    version https://git-lfs.github.com/spec/v1
+                ^
+SyntaxError: invalid syntax
