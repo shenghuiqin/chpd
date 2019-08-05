@@ -1,32 +1,76 @@
 Using Theano backend.
-:root:Removing old /scratch/qin.she/Code/chpd/3quick_chpd/RMG_backup.log
-:root:Moving /scratch/qin.she/Code/chpd/3quick_chpd/RMG.log to /scratch/qin.she/Code/chpd/3quick_chpd/RMG_backup.log
+:root:Removing old /scratch/qin.she/Code/chpd/3chpd/RMG_backup.log
+:root:Moving /scratch/qin.she/Code/chpd/3chpd/RMG.log to /scratch/qin.she/Code/chpd/3chpd/RMG_backup.log
 
 /home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
   'Attempted to set non-positive xlimits for log-scale axis; '
-[14:21:01] Explicit valence for atom # 7 C greater than permitted
-[14:31:53] Explicit valence for atom # 7 C greater than permitted
-[14:31:53] Explicit valence for atom # 7 C greater than permitted
-Traceback (most recent call last):
-  File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
-    main()
-  File "/home/qin.she/Code/RMG-Py/rmg.py", line 166, in main
-    cProfile.runctx(command, global_vars, local_vars, stats_file)
-  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 49, in runctx
-    prof = prof.runctx(statement, globals, locals)
-  File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 140, in runctx
-    exec cmd in globals, locals
-  File "<string>", line 1, in <module>
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 936, in execute
-    self.check_model()
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 1150, in check_model
-    p_min=self.Pmin, p_max=self.Pmax)
-  File "rmgpy/reaction.py", line 1233, in rmgpy.reaction.Reaction.check_collision_limit_violation
-  File "rmgpy/reaction.py", line 1266, in rmgpy.reaction.Reaction.check_collision_limit_violation
-  File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 857, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 820, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 780, in rmgpy.reaction.Reaction.reverseThisArrheniusRate
-  File "rmgpy/kinetics/arrhenius.pyx", line 169, in rmgpy.kinetics.arrhenius.Arrhenius.fitToData
-IndexError: index 0 is out of bounds for axis 0 with size 0
+[01:38:55] Explicit valence for atom # 7 C greater than permitted
+[01:40:13] Explicit valence for atom # 8 C greater than permitted
+[01:40:17] Explicit valence for atom # 8 C greater than permitted
+[01:54:15] Explicit valence for atom # 7 C greater than permitted
+[01:54:15] Explicit valence for atom # 7 C greater than permitted
+[01:56:33] Explicit valence for atom # 8 C greater than permitted
+[01:56:33] Explicit valence for atom # 8 C greater than permitted
+[01:56:47] Explicit valence for atom # 8 C greater than permitted
+[01:56:47] Explicit valence for atom # 8 C greater than permitted
+[07:04:46] Explicit valence for atom # 9 C greater than permitted
+[07:05:52] Explicit valence for atom # 9 C greater than permitted
+[07:05:52] Explicit valence for atom # 9 C greater than permitted
+[07:57:48] Explicit valence for atom # 9 C greater than permitted
+[07:57:50] Explicit valence for atom # 9 C greater than permitted
+[07:58:56] Explicit valence for atom # 9 C greater than permitted
+[07:58:56] Explicit valence for atom # 9 C greater than permitted
+[07:59:00] Explicit valence for atom # 9 C greater than permitted
+[07:59:00] Explicit valence for atom # 9 C greater than permitted
+[08:12:40] Explicit valence for atom # 9 C greater than permitted
+[08:13:32] Explicit valence for atom # 9 C greater than permitted
+[08:13:32] Explicit valence for atom # 9 C greater than permitted
+[08:28:58] Explicit valence for atom # 9 C greater than permitted
+[08:30:30] Explicit valence for atom # 9 C greater than permitted
+[08:30:30] Explicit valence for atom # 9 C greater than permitted
+[09:42:26] Explicit valence for atom # 9 C greater than permitted
+[09:44:57] Explicit valence for atom # 9 C greater than permitted
+[09:44:57] Explicit valence for atom # 9 C greater than permitted
+[10:38:53] Explicit valence for atom # 8 C greater than permitted
+[10:38:55] Explicit valence for atom # 8 C greater than permitted
+[10:38:55] Explicit valence for atom # 8 C greater than permitted
+[10:38:57] Explicit valence for atom # 8 C greater than permitted
+[10:38:57] Explicit valence for atom # 8 C greater than permitted
+[10:41:10] Explicit valence for atom # 8 C greater than permitted
+[10:41:10] Explicit valence for atom # 8 C greater than permitted
+[10:41:12] Explicit valence for atom # 8 C greater than permitted
+[10:41:12] Explicit valence for atom # 8 C greater than permitted
+[10:41:12] Explicit valence for atom # 8 C greater than permitted
+[10:41:12] Explicit valence for atom # 8 C greater than permitted
+[10:41:18] Explicit valence for atom # 8 C greater than permitted
+[10:41:18] Explicit valence for atom # 8 C greater than permitted
+[10:41:18] Explicit valence for atom # 8 C greater than permitted
+[10:41:18] Explicit valence for atom # 8 C greater than permitted
+[10:54:44] Explicit valence for atom # 9 C greater than permitted
+[10:56:08] Explicit valence for atom # 9 C greater than permitted
+[10:56:08] Explicit valence for atom # 9 C greater than permitted
+[11:36:02] Explicit valence for atom # 10 C greater than permitted
+[11:36:03] Explicit valence for atom # 10 C greater than permitted
+[11:38:44] Explicit valence for atom # 10 C greater than permitted
+[11:38:44] Explicit valence for atom # 10 C greater than permitted
+[11:38:44] Explicit valence for atom # 10 C greater than permitted
+[11:38:44] Explicit valence for atom # 10 C greater than permitted
+[13:41:33] Explicit valence for atom # 9 C greater than permitted
+[13:43:17] Explicit valence for atom # 9 C greater than permitted
+[13:43:17] Explicit valence for atom # 9 C greater than permitted
+[19:41:56] Explicit valence for atom # 8 C greater than permitted
+[19:43:02] Explicit valence for atom # 8 C greater than permitted
+[19:43:02] Explicit valence for atom # 8 C greater than permitted
+[21:34:31] Explicit valence for atom # 9 C greater than permitted
+[21:34:39] Explicit valence for atom # 9 C greater than permitted
+[21:34:39] Explicit valence for atom # 9 C greater than permitted
+[21:37:25] Explicit valence for atom # 9 C greater than permitted
+[21:37:25] Explicit valence for atom # 9 C greater than permitted
+[21:37:32] Explicit valence for atom # 9 C greater than permitted
+[21:37:32] Explicit valence for atom # 9 C greater than permitted
+[21:37:32] Explicit valence for atom # 9 C greater than permitted
+[21:37:32] Explicit valence for atom # 9 C greater than permitted
+[22:37:29] Explicit valence for atom # 9 C greater than permitted
+[22:40:53] Explicit valence for atom # 9 C greater than permitted
+[22:40:53] Explicit valence for atom # 9 C greater than permitted
+slurmstepd: error: *** JOB 6400637 ON c0154 CANCELLED AT 2019-08-04T00:40:51 DUE TO TIME LIMIT ***
