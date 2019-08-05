@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## job-name is just how you want the job labelled
-#SBATCH --job-name=CHPD
+#SBATCH --job-name=4CHPD
 ## output specifies the output file name
-#SBATCH --output=CHPD.log
+#SBATCH --output=4CHPD.log
 ## number of nodes
 #SBATCH -N 1
 ##SBATCH --exclusive
