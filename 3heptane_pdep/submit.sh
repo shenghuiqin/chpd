@@ -8,7 +8,7 @@
 #SBATCH -N 1
 ##SBATCH --exclusive
 ## Can change partition from general to west
-#SBATCH --partition=west
+#SBATCH --partition=general
 #SBATCH --mem=120Gb
 ## number of cores, should match -n flag in python rmg command below
 #SBATCH -n 12
