@@ -1,0 +1,34 @@
+Using Theano backend.
+:root:Removing old /scratch/qin.she/Code/chpd/blend2/RMG_backup.log
+:root:Moving /scratch/qin.she/Code/chpd/blend2/RMG.log to /scratch/qin.she/Code/chpd/blend2/RMG_backup.log
+
+/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
+  'Attempted to set non-positive xlimits for log-scale axis; '
+[12:50:24] Explicit valence for atom # 5 C greater than permitted
+[12:59:34] Explicit valence for atom # 5 C greater than permitted
+[12:59:34] Explicit valence for atom # 5 C greater than permitted
+[14:39:40] Explicit valence for atom # 7 C greater than permitted
+[15:04:01] Explicit valence for atom # 7 C greater than permitted
+[15:04:01] Explicit valence for atom # 7 C greater than permitted
+[18:30:48] Explicit valence for atom # 8 C greater than permitted
+[18:49:10] Explicit valence for atom # 8 C greater than permitted
+[18:49:11] Explicit valence for atom # 8 C greater than permitted
+[21:32:52] Explicit valence for atom # 8 C greater than permitted
+[21:32:54] Explicit valence for atom # 8 C greater than permitted
+[22:00:41] Explicit valence for atom # 8 C greater than permitted
+[22:00:41] Explicit valence for atom # 8 C greater than permitted
+[22:00:48] Explicit valence for atom # 8 C greater than permitted
+[22:00:48] Explicit valence for atom # 8 C greater than permitted
+[04:24:16] Explicit valence for atom # 7 C greater than permitted
+[04:29:26] Explicit valence for atom # 7 C greater than permitted
+[04:29:26] Explicit valence for atom # 7 C greater than permitted
+[04:55:38] Explicit valence for atom # 7 C greater than permitted
+[04:55:55] Explicit valence for atom # 7 C greater than permitted
+[04:55:55] Explicit valence for atom # 7 C greater than permitted
+[06:31:20] Explicit valence for atom # 7 C greater than permitted
+[06:31:20] Explicit valence for atom # 7 C greater than permitted
+[06:45:07] Explicit valence for atom # 7 C greater than permitted
+[06:45:07] Explicit valence for atom # 7 C greater than permitted
+[06:45:07] Explicit valence for atom # 7 C greater than permitted
+[06:45:07] Explicit valence for atom # 7 C greater than permitted
+slurmstepd: error: *** JOB 6445643 ON c0302 CANCELLED AT 2019-08-11T10:00:52 DUE TO TIME LIMIT ***
