@@ -4,15 +4,6 @@ Using Theano backend.
 
 /home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
   'Attempted to set non-positive xlimits for log-scale axis; '
-[11:48:33] Explicit valence for atom # 7 C greater than permitted
-[11:50:48] Explicit valence for atom # 8 C greater than permitted
-[11:50:55] Explicit valence for atom # 8 C greater than permitted
-[12:08:51] Explicit valence for atom # 7 C greater than permitted
-[12:08:51] Explicit valence for atom # 7 C greater than permitted
-[12:12:26] Explicit valence for atom # 8 C greater than permitted
-[12:12:26] Explicit valence for atom # 8 C greater than permitted
-[12:12:51] Explicit valence for atom # 8 C greater than permitted
-[12:12:51] Explicit valence for atom # 8 C greater than permitted
 Traceback (most recent call last):
   File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
     main()
@@ -23,13 +14,16 @@ Traceback (most recent call last):
   File "/home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/cProfile.py", line 140, in runctx
     exec cmd in globals, locals
   File "<string>", line 1, in <module>
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 936, in execute
-    self.check_model()
-  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 1150, in check_model
-    p_min=self.Pmin, p_max=self.Pmax)
-  File "rmgpy/reaction.py", line 1233, in rmgpy.reaction.Reaction.check_collision_limit_violation
-  File "rmgpy/reaction.py", line 1266, in rmgpy.reaction.Reaction.check_collision_limit_violation
-  File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 848, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-AttributeError: 'rmgpy.kinetics.arrhenius.MultiArrhenius' object has no attribute 'T0'
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/main.py", line 804, in execute
+    self.reactionModel.enlarge(objectToEnlarge)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 638, in enlarge
+    self.updateUnimolecularReactionNetworks()
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/model.py", line 1697, in updateUnimolecularReactionNetworks
+    network.update(self, self.pressureDependence)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/rmg/pdep.py", line 764, in update
+    K = self.calculateRateCoefficients(Tlist, Plist, method)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/pdep/network.py", line 249, in calculateRateCoefficients
+    self.setConditions(T, P)
+  File "/home/qin.she/Code/RMG-Py/rmgpy/pdep/network.py", line 366, in setConditions
+    raise error
+rmgpy.exceptions.InvalidMicrocanonicalRateError

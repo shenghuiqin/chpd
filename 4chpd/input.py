@@ -1,8 +1,8 @@
 #Data sources
 database(
-    thermoLibraries =['BurkeH2O2','Klippenstein_Glarborg2016','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
-    seedMechanisms = ['BurkeH2O2inN2','Klippenstein_Glarborg2016','8.1chpd4Seed'], #
+    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)'], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
@@ -121,7 +121,7 @@ species(
 # Reaction systems
 simpleReactor(
     temperature=[(600,'K'),(1000,'K')],
-    pressure=[(20.0,'bar'),(40.0,'bar')],
+    pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=6,
     initialMoleFractions={
         #"C7H10": 1,
@@ -165,7 +165,7 @@ model(
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
-    maxNumSpecies=400, # first stage is until core reaches 100 species
+    maxNumSpecies=100, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
@@ -217,13 +217,13 @@ uncertainty(
 #    maxRadicalNumber = 0,
 #    )
 
-#pressureDependence(
-#    method='modified strong collision',
-#    maximumGrainSize=(0.5,'kcal/mol'),
-#    minimumNumberOfGrains=250,
-#    temperatures=(300,2000,'K',8),
-#    pressures=(0.01,100,'bar',5),
-#    interpolation=('Chebyshev', 6, 4),
-#)
+pressureDependence(
+    method='modified strong collision',
+    maximumGrainSize=(0.5,'kcal/mol'),
+    minimumNumberOfGrains=250,
+    temperatures=(300,2000,'K',8),
+    pressures=(0.01,100,'bar',5),
+    interpolation=('Chebyshev', 6, 4),
+)
 
 
