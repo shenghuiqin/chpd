@@ -2,7 +2,7 @@
 database(
     thermoLibraries =['BurkeH2O2','Klippenstein_Glarborg2016','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
-    seedMechanisms = ['BurkeH2O2inN2','Klippenstein_Glarborg2016','7.31heptane1Seed'], #
+    seedMechanisms = ['BurkeH2O2inN2','Klippenstein_Glarborg2016',], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
@@ -23,10 +23,14 @@ species(
     reactive=True,
     structure=SMILES("CCCCCCC"),
 )
-species(    
+species(
     label='O2',
     reactive=True,
-    structure=SMILES("[O][O]"),
+        structure=adjacencyList(
+        """
+        1 O u1 p2 {2,S}
+        2 O u1 p2 {1,S}
+        """),
 )
 species(
     label='N2',
@@ -50,10 +54,9 @@ simpleReactor(
         "C7H16":0.00946, #  
            
     },
-    terminationTime = (1.0, 's'),
-    terminationRateRatio = 0.01,
+    terminationTime = (10.0, 's'),
     terminationConversion={
-                'O2': 0.4,
+                'O2': 0.5,
         },
 )
 
@@ -74,7 +77,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.3,
+    toleranceMoveToCore=0.25,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=200000,
@@ -91,6 +94,17 @@ options(
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
 )
+
+
+pressureDependence(
+    method='modified strong collision',
+    maximumGrainSize=(0.5,'kcal/mol'),
+    minimumNumberOfGrains=250,
+    temperatures=(300,2000,'K',8),
+    pressures=(0.01,100,'bar',5),
+    interpolation=('Chebyshev', 6, 4),
+)
+
 
 
 """
@@ -116,13 +130,6 @@ uncertainty(
 #    maxRadicalNumber = 0,
 #    )
 
-#pressureDependence(
-#    method='modified strong collision',
-#    maximumGrainSize=(0.5,'kcal/mol'),
-#    minimumNumberOfGrains=250,
-#    temperatures=(300,2000,'K',8),
-#    pressures=(0.01,100,'bar',5),
-#    interpolation=('Chebyshev', 6, 4),
-#)
+
 
 
