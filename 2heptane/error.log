@@ -4,9 +4,9 @@ Using Theano backend.
 
 /home/qin.she/anaconda2/envs/rmg_env/lib/python2.7/site-packages/matplotlib/axes/_base.py:3157: UserWarning: Attempted to set non-positive xlimits for log-scale axis; invalid limits will be ignored.
   'Attempted to set non-positive xlimits for log-scale axis; '
-[18:38:57] Explicit valence for atom # 5 C greater than permitted
-[18:47:02] Explicit valence for atom # 5 C greater than permitted
-[18:47:02] Explicit valence for atom # 5 C greater than permitted
+[21:46:52] Explicit valence for atom # 5 C greater than permitted
+[21:49:40] Explicit valence for atom # 5 C greater than permitted
+[21:49:40] Explicit valence for atom # 5 C greater than permitted
 Traceback (most recent call last):
   File "/home/qin.she/Code/RMG-Py/rmg.py", line 181, in <module>
     main()
@@ -25,8 +25,5 @@ Traceback (most recent call last):
   File "rmgpy/reaction.py", line 1266, in rmgpy.reaction.Reaction.check_collision_limit_violation
   File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
   File "rmgpy/reaction.py", line 783, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 857, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 820, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
-  File "rmgpy/reaction.py", line 780, in rmgpy.reaction.Reaction.reverseThisArrheniusRate
-  File "rmgpy/kinetics/arrhenius.pyx", line 169, in rmgpy.kinetics.arrhenius.Arrhenius.fitToData
-IndexError: index 0 is out of bounds for axis 0 with size 0
+  File "rmgpy/reaction.py", line 848, in rmgpy.reaction.Reaction.generateReverseRateCoefficient
+AttributeError: 'rmgpy.kinetics.arrhenius.MultiArrhenius' object has no attribute 'T0'
