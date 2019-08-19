@@ -1,0 +1,476 @@
+*** Collision rate limit violators report ***
+"Violation factor" is the ratio of the rate coefficient to the collision limit rate at the relevant conditions
+
+H(3)(3) + HO2(8)(9) <=> H2O2(9)(10)
+ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
+Kinetic library: BurkeH2O2inN2
+Direction: forward
+Violation factor: 2.65
+Violation condition: 600.0 K, 10.0 bar
+
+H(3)(3) + HO2(8)(9) <=> H2O2(9)(10)
+ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
+Kinetic library: BurkeH2O2inN2
+Direction: forward
+Violation factor: 2.11
+Violation condition: 1500.0 K, 10.0 bar
+
+H(3)(3) + HO2(8)(9) <=> H2O2(9)(10)
+ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
+Kinetic library: BurkeH2O2inN2
+Direction: forward
+Violation factor: 10.59
+Violation condition: 600.0 K, 40.0 bar
+
+H(3)(3) + HO2(8)(9) <=> H2O2(9)(10)
+ThirdBody(arrheniusLow=Arrhenius(A=(6e+14,'cm^6/(mol^2*s)'), n=1.25, Ea=(-270,'cal/mol'), T0=(1,'K')), efficiencies={})
+Kinetic library: BurkeH2O2inN2
+Direction: forward
+Violation factor: 8.42
+Violation condition: 1500.0 K, 40.0 bar
+
+OH(5)(5) + HCO(14)(15) <=> H2O(7)(7) + CO(10)(11)
+Arrhenius(A=(1.199e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.77
+Violation condition: 600.0 K, 10.0 bar
+
+OH(5)(5) + HCO(14)(15) <=> H2O(7)(7) + CO(10)(11)
+Arrhenius(A=(1.199e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.28
+Violation condition: 1500.0 K, 10.0 bar
+
+H2(6)(6) + CH(18)(19) <=> H(3)(3) + CH2(17)(18)
+Arrhenius(A=(1.612e+14,'cm^3/(mol*s)'), n=0, Ea=(3320,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: reverse
+Violation factor: 1.34
+Violation condition: 600.0 K, 10.0 bar
+
+CH2O(13)(14) + CH(18)(19) <=> H(3)(3) + CH2CO(26)(27)
+Arrhenius(A=(9.64e+13,'cm^3/(mol*s)'), n=0, Ea=(-517,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 2.02
+Violation condition: 600.0 K, 10.0 bar
+
+CH2O(13)(14) + CH(18)(19) <=> H(3)(3) + CH2CO(26)(27)
+Arrhenius(A=(9.64e+13,'cm^3/(mol*s)'), n=0, Ea=(-517,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.13
+Violation condition: 1500.0 K, 10.0 bar
+
+CH3(15)(16) + CH3(15)(16) <=> H(3)(3) + C2H5(27)(28)
+Arrhenius(A=(7.621e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: reverse
+Violation factor: 2.58
+Violation condition: 600.0 K, 10.0 bar
+
+CH3(15)(16) + CH3(15)(16) <=> H(3)(3) + C2H5(27)(28)
+Arrhenius(A=(7.621e+12,'cm^3/(mol*s)'), n=0.1, Ea=(10600,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: reverse
+Violation factor: 1.44
+Violation condition: 1500.0 K, 10.0 bar
+
+O(4)(4) + CH2OH(22)(23) <=> OH(5)(5) + CH2O(13)(14)
+Arrhenius(A=(9.03e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.28
+Violation condition: 600.0 K, 10.0 bar
+
+H(3)(3) + HCCO(47)(47) <=> CO(10)(11) + CH2(S)(21)(22)
+Arrhenius(A=(1.32e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.15
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + HCCO(47)(47) <=> H(3)(3) + CO(10)(11) + CO(10)(11)
+Arrhenius(A=(1.73e+14,'cm^3/(mol*s)'), n=-0.112, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.89
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + HCCO(47)(47) <=> H(3)(3) + CO(10)(11) + CO(10)(11)
+Arrhenius(A=(1.73e+14,'cm^3/(mol*s)'), n=-0.112, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.23
+Violation condition: 1500.0 K, 10.0 bar
+
+CH(18)(19) + HCCO(47)(47) <=> CO(10)(11) + C2H2(30)(31)
+Arrhenius(A=(5e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.03
+Violation condition: 600.0 K, 10.0 bar
+
+CH(18)(19) + CH2CO(26)(27) <=> CO(10)(11) + C2H3(28)(29)
+Arrhenius(A=(1.45e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.83
+Violation condition: 600.0 K, 10.0 bar
+
+CH(18)(19) + CH2CO(26)(27) <=> CO(10)(11) + C2H3(28)(29)
+Arrhenius(A=(1.45e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.33
+Violation condition: 1500.0 K, 10.0 bar
+
+O(4)(4) + CH2CHO(38)(39) <=> H(3)(3) + CO2(11)(12) + CH2(17)(18)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 2.17
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + CH2CHO(38)(39) <=> H(3)(3) + CO2(11)(12) + CH2(17)(18)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.57
+Violation condition: 1500.0 K, 10.0 bar
+
+O(4)(4) + CH3CO(55)(54) <=> CO2(11)(12) + CH3(15)(16)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 2.17
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + CH3CO(55)(54) <=> CO2(11)(12) + CH3(15)(16)
+Arrhenius(A=(1.58e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.57
+Violation condition: 1500.0 K, 10.0 bar
+
+CH(18)(19) + C2H6(34)(35) <=> CH3(15)(16) + C2H4(19)(20)
+Arrhenius(A=(1.077e+14,'cm^3/(mol*s)'), n=0, Ea=(-262,'cal/mol'), T0=(1,'K'))
+Kinetic library: FFCM1(-)
+Direction: forward
+Violation factor: 1.47
+Violation condition: 600.0 K, 10.0 bar
+
+H(3)(3) + CH2(S)(21)(22) <=> H(3)(3) + CH2(17)(18)
+Arrhenius(A=(2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.03
+Violation condition: 600.0 K, 10.0 bar
+
+CH2(S)(21)(22) + CH2CO(26)(27) <=> CO(10)(11) + C2H4(19)(20)
+Arrhenius(A=(1.6e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.56
+Violation condition: 600.0 K, 10.0 bar
+
+CH2(S)(21)(22) + CH2CO(26)(27) <=> CO(10)(11) + C2H4(19)(20)
+Arrhenius(A=(1.6e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.13
+Violation condition: 1500.0 K, 10.0 bar
+
+HCO(14)(15) + C2H3(28)(29) <=> CO(10)(11) + C2H4(19)(20)
+Arrhenius(A=(9e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.03
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + C2H2(30)(31) <=> OH(5)(5) + C2H(31)(32)
+Arrhenius(A=(3.2e+15,'cm^3/(mol*s)'), n=-0.6, Ea=(15000,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: reverse
+Violation factor: 5322.06
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + C2H5O(53)(52) <=> OH(5)(5) + CH3CHO(35)(36)
+Arrhenius(A=(1e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.18
+Violation condition: 600.0 K, 10.0 bar
+
+C2H4(19)(20) + CH2(S)(21)(22) <=> H(3)(3) + C3H5(89)(88)
+Arrhenius(A=(1.3e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.19
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + C3H5(89)(88) <=> H(3)(3) + C3H4O(113)(112)
+Arrhenius(A=(1.8e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.92
+Violation condition: 600.0 K, 10.0 bar
+
+O(4)(4) + C3H5(89)(88) <=> H(3)(3) + C3H4O(113)(112)
+Arrhenius(A=(1.8e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'cal/mol'), T0=(1,'K'))
+Kinetic library: Glarborg/C3
+Direction: forward
+Violation factor: 1.39
+Violation condition: 1500.0 K, 10.0 bar
+
+C2H4(19)(20) + C7H9(424)(423) <=> C2H3(28)(29) + CHPD(407)(406)
+Arrhenius(A=(0.14,'cm^3/(mol*s)'), n=4.34, Ea=(135.894,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(1500,'K'))
+From training reaction 1571 used for Cd/H2/NonDeC;C_rad/H/CdCs
+Exact match found for rate rule [Cd/H2/NonDeC;C_rad/H/CdCs]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 8.0
+family: H_Abstraction
+Direction: reverse
+Violation factor: 5.85
+Violation condition: 1500.0 K, 10.0 bar
+
+C2H6(34)(35) <=> H(3)(3) + C2H5(27)(28)
+Chebyshev(coeffs=[[-26.4695,0.907256,-0.243919,0.0250726],[30.4739,0.643066,0.0268498,-0.0614525],[-0.442283,0.21362,0.0689363,-0.0137263],[-0.218526,0.058087,0.037615,0.00624559],[-0.0991087,0.0071856,0.01344,0.00711895],[-0.0427042,-0.00415922,0.00246553,0.00370125]], kunits='s^-1', Tmin=(300,'K'), Tmax=(2000,'K'), Pmin=(0.01,'bar'), Pmax=(100,'bar'))
+Network #PDepNetwork #36
+Direction: reverse
+Violation factor: 1.02
+Violation condition: 600.0 K, 10.0 bar
+
+C2H6(34)(35) <=> H(3)(3) + C2H5(27)(28)
+Chebyshev(coeffs=[[-26.4695,0.907256,-0.243919,0.0250726],[30.4739,0.643066,0.0268498,-0.0614525],[-0.442283,0.21362,0.0689363,-0.0137263],[-0.218526,0.058087,0.037615,0.00624559],[-0.0991087,0.0071856,0.01344,0.00711895],[-0.0427042,-0.00415922,0.00246553,0.00370125]], kunits='s^-1', Tmin=(300,'K'), Tmax=(2000,'K'), Pmin=(0.01,'bar'), Pmax=(100,'bar'))
+Network #PDepNetwork #36
+Direction: reverse
+Violation factor: 1.06
+Violation condition: 600.0 K, 40.0 bar
+
+C7H15(72)(71) + HCO(14)(15) <=> C7H16(1)(1) + CO(10)(11)
+Arrhenius(A=(1.2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 8 used for C_rad/H/NonDeC;HCO
+Exact match found for rate rule [C_rad/H/NonDeC;HCO]
+Euclidian distance = 0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.04
+Violation condition: 600.0 K, 10.0 bar
+
+C7H15(70)(69) + HCO(14)(15) <=> C7H16(1)(1) + CO(10)(11)
+Arrhenius(A=(1.2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 8 used for C_rad/H/NonDeC;HCO
+Exact match found for rate rule [C_rad/H/NonDeC;HCO]
+Euclidian distance = 0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.04
+Violation condition: 600.0 K, 10.0 bar
+
+C7H15(71)(70) + HCO(14)(15) <=> C7H16(1)(1) + CO(10)(11)
+Arrhenius(A=(1.2e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 8 used for C_rad/H/NonDeC;HCO
+Exact match found for rate rule [C_rad/H/NonDeC;HCO]
+Euclidian distance = 0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.04
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + CHCHOH(49)(49) <=> CO(10)(11) + C2H4O(40)(40)
+Arrhenius(A=(9.033e+13,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+From training reaction 6 used for Cd_pri_rad;HCO
+Exact match found for rate rule [Cd_pri_rad;HCO]
+Euclidian distance = 0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.13
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + C7H9(424)(423) <=> CO(10)(11) + CHPD(407)(406)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.99
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + C7H9(424)(423) <=> CO(10)(11) + CHPD(407)(406)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.44
+Violation condition: 1500.0 K, 10.0 bar
+
+HCO(14)(15) + C7H9(449)(448) <=> CO(10)(11) + C7H10(447)(446)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.99
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + C7H9(449)(448) <=> CO(10)(11) + C7H10(447)(446)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.44
+Violation condition: 1500.0 K, 10.0 bar
+
+HCO(14)(15) + C7H11(427)(426) <=> CO(10)(11) + C1=CCCCCC1(976)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.91
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + C7H11(427)(426) <=> CO(10)(11) + C1=CCCCCC1(976)
+Arrhenius(A=(2.4e+14,'cm^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_sec_rad;HCO] for rate rule [C_rad/H/OneDeC;HCO]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 2.0
+family: CO_Disproportionation
+Direction: forward
+Violation factor: 1.38
+Violation condition: 1500.0 K, 10.0 bar
+
+HCO(14)(15) + CH3O(23)(24) <=> CH2O(13)(14) + CH2O(13)(14)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 2.27
+Violation condition: 600.0 K, 10.0 bar
+
+HCO(14)(15) + CH3O(23)(24) <=> CH2O(13)(14) + CH2O(13)(14)
+Arrhenius(A=(1.71712e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using average of templates [Y_rad;Cmethyl_Orad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Orad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.65
+Violation condition: 1500.0 K, 10.0 bar
+
+C2H5(27)(28) + CH3CO(55)(54) <=> C2H4(19)(20) + CH3CHO(35)(36)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 5.99
+Violation condition: 600.0 K, 10.0 bar
+
+C2H5(27)(28) + CH3CO(55)(54) <=> C2H4(19)(20) + CH3CHO(35)(36)
+Arrhenius(A=(5.43e+08,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [CO_rad;XH_s_Rrad] for rate rule [CO_rad/NonDe;Cmethyl_Csrad]
+Euclidian distance = 2.82842712475
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 4.34
+Violation condition: 1500.0 K, 10.0 bar
+
+C2H5(27)(28) + HCCO(47)(47) <=> C2H4(19)(20) + HCCOH(48)(48)
+Arrhenius(A=(7.23e+13,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;Cmethyl_Csrad] for rate rule [O_rad/OneDe;Cmethyl_Csrad]
+Euclidian distance = 2.0
+Multiplied by reaction path degeneracy 3.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.17
+Violation condition: 600.0 K, 10.0 bar
+
+HCCO(47)(47) + C7H9(424)(423) <=> HCCOH(48)(48) + C7H8(415)(414)
+Arrhenius(A=(9.64e+13,'cm^3/(mol*s)','*|/',3), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(2500,'K'))
+Estimated using template [O_rad;C/H2/Nd_Csrad] for rate rule [O_rad/OneDe;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 2.2360679775
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.14
+Violation condition: 600.0 K, 10.0 bar
+
+HCCO(47)(47) + C7H9(408)(407) <=> HCCOH(48)(48) + C7H8(415)(414)
+Arrhenius(A=(9.64e+07,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/Cd_Csrad]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.14
+Violation condition: 600.0 K, 10.0 bar
+
+HCCO(47)(47) + C7H9(449)(448) <=> HCCOH(48)(48) + C7H8(415)(414)
+Arrhenius(A=(9.64e+07,'m^3/(mol*s)'), n=0, Ea=(0,'kJ/mol'), T0=(1,'K'))
+Estimated using template [O_rad;Cpri_Rrad] for rate rule [O_rad/OneDe;C/H2/De_Csrad/H/Cd]
+Euclidian distance = 3.60555127546
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: forward
+Violation factor: 1.14
+Violation condition: 600.0 K, 10.0 bar
+
+C5H6O(219)(218) + C7H11(427)(426) <=> C5H7O(216)(215) + CHPD(407)(406)
+Arrhenius(A=(2.576e+09,'cm^3/(mol*s)'), n=1.19, Ea=(2.13384,'kJ/mol'), T0=(1,'K'), Tmin=(300,'K'), Tmax=(1500,'K'))
+Estimated using an average for rate rule [Y_rad;C/H2/Nd_Csrad/H/Cd]
+Euclidian distance = 0
+Multiplied by reaction path degeneracy 4.0
+family: Disproportionation
+Direction: reverse
+Violation factor: 7.75
+Violation condition: 1500.0 K, 10.0 bar
+
+O2(2)(2) + C5H7O(237)(236) <=> S(239)(238)
+Chebyshev(coeffs=[[13.2177,0.806994,-0.0936283,0.00463097],[-1.26171,0.992121,-0.0137656,-0.0200035],[-0.746169,0.258876,0.0734614,-0.00386609],[-0.294209,-0.00363145,0.0326982,0.0104908],[-0.119824,-0.0258509,0.00153956,0.00520031],[-0.0473584,-0.0199456,-0.00163336,0.000613394]], kunits='cm^3/(mol*s)', Tmin=(300,'K'), Tmax=(2000,'K'), Pmin=(0.01,'bar'), Pmax=(100,'bar'))
+Network #PDepNetwork #351
+Direction: forward
+Violation factor: 1.33
+Violation condition: 600.0 K, 10.0 bar
+
+O2(2)(2) + C5H7O(237)(236) <=> S(239)(238)
+Chebyshev(coeffs=[[13.2177,0.806994,-0.0936283,0.00463097],[-1.26171,0.992121,-0.0137656,-0.0200035],[-0.746169,0.258876,0.0734614,-0.00386609],[-0.294209,-0.00363145,0.0326982,0.0104908],[-0.119824,-0.0258509,0.00153956,0.00520031],[-0.0473584,-0.0199456,-0.00163336,0.000613394]], kunits='cm^3/(mol*s)', Tmin=(300,'K'), Tmax=(2000,'K'), Pmin=(0.01,'bar'), Pmax=(100,'bar'))
+Network #PDepNetwork #351
+Direction: forward
+Violation factor: 1.58
+Violation condition: 600.0 K, 40.0 bar
+
+O2(2)(2) + C7H7O(470)(469) <=> S(471)(470)
+Arrhenius(A=(5.84e+07,'m^3/(mol*s)'), n=0.18, Ea=(0.518816,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_rad/OneDe;Y_rad] for rate rule [C_rad/OneDeO;O2_birad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+Direction: forward
+Violation factor: 1.46
+Violation condition: 600.0 K, 10.0 bar
+
+O2(2)(2) + C7H7O(470)(469) <=> S(471)(470)
+Arrhenius(A=(5.84e+07,'m^3/(mol*s)'), n=0.18, Ea=(0.518816,'kJ/mol'), T0=(1,'K'))
+Estimated using template [C_rad/OneDe;Y_rad] for rate rule [C_rad/OneDeO;O2_birad]
+Euclidian distance = 1.41421356237
+Multiplied by reaction path degeneracy 2.0
+family: R_Recombination
+Direction: forward
+Violation factor: 1.33
+Violation condition: 1500.0 K, 10.0 bar
+
