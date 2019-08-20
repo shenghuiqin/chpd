@@ -1,8 +1,8 @@
 #Data sources
 database(
-    thermoLibraries =['BurkeH2O2','Klippenstein_Glarborg2016','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
-    seedMechanisms = ['BurkeH2O2inN2','Klippenstein_Glarborg2016',], #
+    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)',], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
     kineticsEstimator = 'rate rules',
@@ -55,6 +55,7 @@ simpleReactor(
            
     },
     terminationTime = (10.0, 's'),
+    terminationRateRatio = 0.001,
     terminationConversion={
                 'O2': 0.5,
         },
@@ -68,7 +69,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.4,
+    toleranceMoveToCore=0.5,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3, 
     terminateAtMaxObjects=True,
@@ -77,7 +78,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.25,
+    toleranceMoveToCore=0.3,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=200000,
@@ -95,7 +96,7 @@ options(
     saveEdgeSpecies=False,
 )
 
-
+"""
 pressureDependence(
     method='modified strong collision',
     maximumGrainSize=(0.5,'kcal/mol'),
@@ -104,7 +105,7 @@ pressureDependence(
     pressures=(0.01,100,'bar',5),
     interpolation=('Chebyshev', 6, 4),
 )
-
+"""
 
 
 """
