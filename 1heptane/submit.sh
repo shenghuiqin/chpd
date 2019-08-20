@@ -3,7 +3,7 @@
 ## job-name is just how you want the job labelled
 #SBATCH --job-name=heptane1
 ## output specifies the output file name
-#SBATCH --output=heptane1.log
+#SBATCH --output=8.20heptane1.log
 ## number of nodes
 #SBATCH -N 1
 ##SBATCH --exclusive
