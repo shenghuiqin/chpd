@@ -1,6 +1,6 @@
 #Data sources
 database(
-    thermoLibraries =[], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [], # 
     seedMechanisms = [], #
     kineticsDepositories = ['training'], 
