@@ -147,7 +147,7 @@ simpleReactor(
         
     },
     terminationTime = (10.0, 's'),
-    terminationRateRatio = 0.001,
+    terminationRateRatio = 0.01,
     terminationConversion={
                 'O2': 0.2,
     },
@@ -165,7 +165,7 @@ model(
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
-    maxNumSpecies=100, # first stage is until core reaches 100 species
+    maxNumSpecies=200, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
