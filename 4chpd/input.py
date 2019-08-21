@@ -1,10 +1,10 @@
 #Data sources
 database(
     thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
-    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
+    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False),('JetSurF2.0',False),('CurranPentane',False),('2009_Sharma_C5H5_CH3_highP',False),('2015_Buras_C2H3_C4H6_highP',False)], # 
     seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)'], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default'],
+    kineticsFamilies = ['H-abstraction','Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'],
     kineticsEstimator = 'rate rules',
 )
 
@@ -146,10 +146,10 @@ simpleReactor(
         "C7H13O2":0,
         
     },
-    terminationTime = (20.0, 's'),
-    terminationRateRatio = 0.001,
+    terminationTime = (10.0, 's'),
+    terminationRateRatio = 0.01,
     terminationConversion={
-                'O2': 0.2,
+                'CHPD': 0.99,
     },
 )
 
@@ -171,7 +171,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.7,
+    toleranceMoveToCore=0.5,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=100000,
@@ -217,13 +217,13 @@ uncertainty(
 #    maxRadicalNumber = 0,
 #    )
 
-pressureDependence(
-    method='modified strong collision',
-    maximumGrainSize=(0.5,'kcal/mol'),
-    minimumNumberOfGrains=250,
-    temperatures=(300,2000,'K',8),
-    pressures=(0.01,100,'bar',5),
-    interpolation=('Chebyshev', 6, 4),
-)
+#pressureDependence(
+#    method='modified strong collision',
+#    maximumGrainSize=(0.5,'kcal/mol'),
+#    minimumNumberOfGrains=250,
+#    temperatures=(300,2000,'K',8),
+#    pressures=(0.01,100,'bar',5),
+#    interpolation=('Chebyshev', 6, 4),
+#)
 
 
