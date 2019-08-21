@@ -55,7 +55,7 @@ simpleReactor(
            
     },
     terminationTime = (10.0, 's'),
-    terminationRateRatio = 0.001,
+    terminationRateRatio = 0.01,
     terminationConversion={
                 'O2': 0.5,
         },
@@ -78,7 +78,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.3,
+    toleranceMoveToCore=0.4,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=200000,
