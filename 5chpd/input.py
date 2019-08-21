@@ -147,7 +147,7 @@ simpleReactor(
         
     },
     terminationTime = (10.0, 's'),
-    terminationRateRatio = 0.01,
+    terminationRateRatio = 0.001,
     terminationConversion={
                 'O2': 0.2,
     },
@@ -186,7 +186,7 @@ model(
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
-    generateOutputHTML=False,
+    generateOutputHTML=True,
     generatePlots=True,
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
