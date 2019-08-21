@@ -186,7 +186,7 @@ model(
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
-    generateOutputHTML=False,
+    generateOutputHTML=True,
     generatePlots=True,
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
