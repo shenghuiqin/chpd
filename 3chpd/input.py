@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # 
     seedMechanisms = [], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['Disproportionation','R_Recombination','intra_H_migration',],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
+    kineticsFamilies = ['Disproportionation','R_Recombination','intra_H_migration','H_Abstraction'],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
     kineticsEstimator = 'rate rules',
 )
 
