@@ -67,7 +67,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.1,
+    toleranceMoveToCore=0.01,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
