@@ -1,10 +1,10 @@
 #Data sources
 database(
-    thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
-    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False),('JetSurF2.0',False),('CurranPentane',False),('2009_Sharma_C5H5_CH3_highP',False),('2015_Buras_C2H3_C4H6_highP',False)], # 
-    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)'], #
+    thermoLibraries =['primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
+    reactionLibraries = [], # 
+    seedMechanisms = [], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default'],
+    kineticsFamilies = ['H_Abstraction'],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
     kineticsEstimator = 'rate rules',
 )
 
@@ -37,86 +37,7 @@ species(
     reactive=False,
     structure=SMILES("N#N")
 )
-species(
-    label='C7H9',
-    reactive=True,
-    structure=SMILES("[CH]1CC=CC=CC1"),
-)
-species(
-    label='C7H10',
-    reactive=True,
-    structure=SMILES("C=CC=CCC=C"),
-)
-species(
-    label='C7H11',
-    reactive=True,
-    structure=SMILES("[CH2]CCC=CC=C"),
-)
-species(
-    label='C5H7O2',
-    reactive=True,
-    structure=SMILES("C=CC=CCOO"),
-)
-species(
-    label='C6H12O',
-    reactive=True,
-    structure=SMILES("CCCCC=CO"),
-)
-species(
-    label='C7H9O2',
-    reactive=True,
-    structure=SMILES("[O]OC1CC=CC=CC1"),
-)
-species(
-    label='C7H9O',
-    reactive=True,
-    structure=SMILES("[O]C1CC=CC=CC1"),
-)
-species(
-    label='C7H9O2(2)',
-    reactive=True,
-    structure=SMILES("OO[C]1CC=CC=CC1"),
-)
-species(
-    label='C7H8',
-    reactive=True,
-    structure=SMILES("C1=CC=CCC=C1"),
-)
-species(
-    label='C7H10O2',
-    reactive=True,
-    structure=SMILES("OOC1CC=CC=CC1"),
-)
-species(
-    label='C7H8O(1)',
-    reactive=True,
-    structure=SMILES("C1=CC2CC(C=C1)O2"),
-)
-species(
-    label='C7H8O(2)',
-    reactive=True,
-    structure=SMILES("C1=CC2OC2C=CC1"),
-)
-species(
-    label='C7H9O4',
-    reactive=True,
-    structure=SMILES("[O]OC1C=CCC=CC1OO"),
-)
-species(
-    label='C7H8O3',
-    reactive=True,
-    structure=SMILES("O=C1C=CCC=CC1OO"),
-)
-species(
-    label='C7H11O4',
-    reactive=True,
-    structure=SMILES("[O]OC1(COO)C=CCCC1"),
-)
-species(
-    label='C7H13O2',
-    reactive=True,
-    structure=SMILES("[O]C1CCCCCC1O"),
-)
+
 
 # Reaction systems
 simpleReactor(
@@ -128,28 +49,13 @@ simpleReactor(
         "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
         "N2":   0.36, # 8.1 times as much N2 as O2
         "CHPD":0.00989, # Cycloheptadiene C7H10    
-        "C7H9":0,
-        "C7H10":0,
-        "C7H11":0,
-        "C5H7O2":0,
-        "C6H12O":0,
-        "C7H9O2":0,
-        "C7H9O":0,
-        "C7H9O2(2)":0,
-        "C7H8":0,
-        "C7H10O2":0,
-        "C7H8O(1)":0,
-        "C7H8O(2)":0,
-        "C7H9O4":0,
-        "C7H8O3":0,
-        "C7H11O4":0,
-        "C7H13O2":0,
+        
         
     },
     terminationTime = (10.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'O2': 0.2,
+                'CHPD': 0.99,
     },
 )
 
@@ -161,11 +67,11 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.8,
+    toleranceMoveToCore=0.1,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
-    maxNumSpecies=200, # first stage is until core reaches 100 species
+    maxNumSpecies=100, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
@@ -186,7 +92,7 @@ model(
 options(
     units='si',
     # saveRestartPeriod=(1,'hour'),
-    generateOutputHTML=False,
+    generateOutputHTML=True,
     generatePlots=True,
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
