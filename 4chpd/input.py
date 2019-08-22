@@ -951,40 +951,8 @@ options(
     generatePlots=True,
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
-    generateSeedEachIteration=True,
+    generateSeedEachIteration=False,
 )
 
-
-"""
-uncertainty(
-    localAnalysis=False,
-    globalAnalysis=False,
-    uncorrelated=True,
-    correlated=True,
-    localNumber=10,
-    globalNumber=5,
-    terminationTime=None,
-    pceRunTime=1800,
-    logx=True
-)
-""" 
-
-#quantumMechanics(
-#    software='mopac',
-#    method='pm3',
-    # fileStore='QMfiles', # relative to where you run it from. Defaults to inside the output folder if not defined.
-#    scratchDirectory = None, # not currently used
-#    onlyCyclics = True,
-#    maxRadicalNumber = 0,
-#    )
-
-#pressureDependence(
-#    method='modified strong collision',
-#    maximumGrainSize=(0.5,'kcal/mol'),
-#    minimumNumberOfGrains=250,
-#    temperatures=(300,2000,'K',8),
-#    pressures=(0.01,100,'bar',5),
-#    interpolation=('Chebyshev', 6, 4),
-#)
 
 
