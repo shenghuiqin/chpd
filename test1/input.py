@@ -18,30 +18,17 @@ generatedSpeciesConstraints(
 
 # List of species
 species(
-    label='S(17)',
+    label='OOQOOH',
     reactive=True,
-    structure=SMILES("[O]OC1(COO)C=CCCC1"),
+    structure=SMILES("[O]OC1C=CCC=CC1OO"),
 )
 
-species(
-    label='O2',
-    reactive=True,
-        structure=adjacencyList(
-        """
-        1 O u1 p2 {2,S}
-        2 O u1 p2 {1,S}
-        """),
-)
 species(
     label='N2',
     reactive=False,
     structure=SMILES("N#N")
 )
-species(
-    label='C7H9',
-    reactive=True,
-    structure=SMILES("[CH]1CC=CC=CC1"),
-)
+
 
 # Reaction systems
 simpleReactor(
@@ -52,13 +39,13 @@ simpleReactor(
         #"C7H10": 1,
         "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
         "N2":   0.36, # 8.1 times as much N2 as O2
-        "S(17)":0.00989, # Cycloheptadiene C7H10    
+        "OOQOOH":0.00989, # Cycloheptadiene C7H10    
         
     },
     terminationTime = (10.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'S(17)': 0.99,
+                'OOQOOH': 0.99,
     },
 )
 
