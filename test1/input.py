@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # 
     seedMechanisms = [], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['default'],
+    kineticsFamilies = ['intra_substitutionS_isomerization','intra_substitutionCS_isomerization'],
     kineticsEstimator = 'rate rules',
 )
 
@@ -37,7 +37,7 @@ simpleReactor(
     nSims=6,
     initialMoleFractions={
         #"C7H10": 1,
-        "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
+       # "O2":   0.108803, # phi=1 means 9.5 O2 per C7H10
         "N2":   0.36, # 8.1 times as much N2 as O2
         "OOQOOH":0.00989, # Cycloheptadiene C7H10    
         
@@ -57,7 +57,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.01,
+    toleranceMoveToCore=0.0,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
