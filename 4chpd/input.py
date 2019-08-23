@@ -910,7 +910,7 @@ simpleReactor(
     terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'CHPD': 0.99,
+                'CHPD(1)': 0.99,
     },
 )
 
@@ -922,7 +922,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.5,
+    toleranceMoveToCore=0.1,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
