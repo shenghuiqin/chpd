@@ -80,8 +80,8 @@ model(
 model(
     toleranceMoveToCore=0.4,
     toleranceInterruptSimulation=1e8,
-    toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
-    maximumEdgeSpecies=200000,
+    toleranceKeepInEdge=0.02, # Pruning enabled for stage 2
+    maximumEdgeSpecies=100000,
     minCoreSizeForPrune=100,
     minSpeciesExistIterationsForPrune=2,
     filterReactions=True,
@@ -96,40 +96,8 @@ options(
     saveEdgeSpecies=False,
 )
 
-"""
-pressureDependence(
-    method='modified strong collision',
-    maximumGrainSize=(0.5,'kcal/mol'),
-    minimumNumberOfGrains=250,
-    temperatures=(300,2000,'K',8),
-    pressures=(0.01,100,'bar',5),
-    interpolation=('Chebyshev', 6, 4),
-)
-"""
 
 
-"""
-uncertainty(
-    localAnalysis=False,
-    globalAnalysis=False,
-    uncorrelated=True,
-    correlated=True,
-    localNumber=10,
-    globalNumber=5,
-    terminationTime=None,
-    pceRunTime=1800,
-    logx=True
-)
-""" 
-
-#quantumMechanics(
-#    software='mopac',
-#    method='pm3',
-    # fileStore='QMfiles', # relative to where you run it from. Defaults to inside the output folder if not defined.
-#    scratchDirectory = None, # not currently used
-#    onlyCyclics = True,
-#    maxRadicalNumber = 0,
-#    )
 
 
 
