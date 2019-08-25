@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # 
     seedMechanisms = [], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['ketoenol','R_Addition_MultipleBond','HO2_Elimination_from_PeroxyRadical','R_Recombination','intra_H_migration','Cyclic_Ether_Formation'],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
+    kineticsFamilies = ['H_Abstraction','intra_H_migration',],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
     kineticsEstimator = 'rate rules',
 )
 
@@ -3217,6 +3217,99 @@ multiplicity 2
         """),
 )
 
+
+species(
+    label='S(123)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {1,S} {3,S} {7,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u1 p0 c0 {5,S} {9,S} {18,S}
+8  C u0 p0 c0 {6,S} {9,D} {17,S}
+9  C u0 p0 c0 {7,S} {8,D} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(153)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {4,S} {7,S}
+3  O u1 p2 c0 {1,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {2,S} {5,S} {10,S} {17,S}
+8  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
+9  C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
+10 C u0 p0 c0 {7,S} {11,D} {21,S}
+11 C u0 p0 c0 {9,S} {10,D} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(154)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {4,S} {9,S}
+3  O u1 p2 c0 {1,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,S} {17,S} {18,S}
+8  C u0 p0 c0 {1,S} {5,S} {10,S} {16,S}
+9  C u0 p0 c0 {2,S} {7,S} {11,S} {19,S}
+10 C u0 p0 c0 {8,S} {11,D} {20,S}
+11 C u0 p0 c0 {9,S} {10,D} {21,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+
 # Reaction systems
 simpleReactor(
     temperature=[(600,'K'),(1000,'K')],
@@ -3342,6 +3435,9 @@ simpleReactor(
 "S(950)": 0,
 "C7H9(93)": 0,
 "S(985)": 0,
+"S(123)": 0,
+"S(153)": 0,
+"S(154)": 0,
 
         
     },
