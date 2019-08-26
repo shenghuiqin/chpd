@@ -3444,7 +3444,7 @@ simpleReactor(
     terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'CHPD(1)': 0.99,
+                'O2(2)': 0.2,
     },
 )
 
@@ -3456,7 +3456,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.6,
+    toleranceMoveToCore=0.5,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
@@ -3466,7 +3466,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.5,
+    toleranceMoveToCore=0.3,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=100000,
