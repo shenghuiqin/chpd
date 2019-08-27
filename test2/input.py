@@ -4,7 +4,7 @@ database(
     reactionLibraries = [], # 
     seedMechanisms = [], #
     kineticsDepositories = ['training'], 
-    kineticsFamilies = ['R_Recombination'],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
+    kineticsFamilies = ['default'],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
     kineticsEstimator = 'rate rules',
 )
 
@@ -95,63 +95,10 @@ multiplicity 3
         """),
 )
 
-species(
-    label='C7H9(5)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {3,S} {10,S} {11,S}
-3  C u0 p0 c0 {2,S} {6,D} {13,S}
-4  C u0 p0 c0 {1,S} {5,D} {12,S}
-5  C u0 p0 c0 {4,D} {7,S} {15,S}
-6  C u0 p0 c0 {3,D} {7,S} {16,S}
-7  C u1 p0 c0 {5,S} {6,S} {14,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='C7H10(9)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {5,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-3  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-4  C u0 p0 c0 {2,S} {7,D} {15,S}
-5  C u0 p0 c0 {1,S} {6,D} {14,S}
-6  C u0 p0 c0 {3,S} {5,D} {16,S}
-7  C u0 p0 c0 {3,S} {4,D} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-
 
 # Reaction systems
 simpleReactor(
-    temperature=[(600,'K'),(1000,'K')],
+    temperature=[(600,'K'),(1500,'K')],
     pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=6,
     initialMoleFractions={
@@ -162,12 +109,11 @@ simpleReactor(
 "Ar": 0,
 "He": 0,
 "Ne": 0,
-"C7H9(5)": 0,
-"C7H10(9)": 0,
+
 
         
     },
-    terminationTime = (10.0, 's'),
+    terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
                 'CHPD(1)': 0.99,
@@ -182,15 +128,14 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.5,
+    toleranceMoveToCore=0.7,
     toleranceInterruptSimulation=1,
-    maxNumObjsPerIter=3,      #
+    maxNumObjsPerIter=2,      #
     terminateAtMaxObjects=True,
     maxNumSpecies=100, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
-
 model(
     toleranceMoveToCore=0.5,
     toleranceInterruptSimulation=1e8,
