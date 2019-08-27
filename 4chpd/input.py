@@ -2,7 +2,7 @@
 database(
     thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
     reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
-    seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)',], #
+    seedMechanisms = [,], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default',],#,'Cyclic_Ether_Formation','HO2_Elimination_from_PeroxyRadical','Intra_Disproportionation','intra_H_migration','ketoenol'
     kineticsEstimator = 'rate rules',
@@ -3312,7 +3312,7 @@ multiplicity 3
 
 # Reaction systems
 simpleReactor(
-    temperature=[(600,'K'),(1000,'K')],
+    temperature=[(600,'K'),(1500,'K')],
     pressure=[(10.0,'bar'),(40.0,'bar')],
     nSims=6,
     initialMoleFractions={
@@ -3456,7 +3456,7 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.5,
+    toleranceMoveToCore=0.6,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3,      #
     terminateAtMaxObjects=True,
@@ -3466,7 +3466,7 @@ model(
 )
 
 model(
-    toleranceMoveToCore=0.3,
+    toleranceMoveToCore=0.5,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=100000,
