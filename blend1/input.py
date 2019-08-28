@@ -14,6 +14,7 @@ generatedSpeciesConstraints(
     allowed=['input species','seed mechanisms','reaction libraries'],
     maximumCarbonAtoms=9,
     maximumOxygenAtoms=4,
+    allowSingletO2 = True,
 )
 
 # List of species
@@ -5280,7 +5281,7 @@ multiplicity 3
         """),
 )
 
-
+"""
 species(
     label='C2O(62)',
     reactive=True,
@@ -5292,7 +5293,7 @@ multiplicity 3
 3 C u2 p0 c0 {2,D}
         """),
 )
-
+"""
 
 species(
     label='S(6317)',
@@ -23187,7 +23188,6 @@ simpleReactor(
 "S(9125)": 0,
 "S(12558)": 0,
 "C2(61)": 0,
-"C2O(62)": 0,
 "S(6317)": 0,
 "S(12938)": 0,
 "S(12937)": 0,
@@ -23842,7 +23842,7 @@ simpleReactor(
     terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'CHPD(1)': 0.99,
+                'C7H16(177)': 0.99,
     },
 )
 
@@ -23858,7 +23858,7 @@ model(
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=2,      #
     terminateAtMaxObjects=True,
-    maxNumSpecies=800, # first stage is until core reaches 100 species
+    maxNumSpecies=870, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
