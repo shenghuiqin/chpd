@@ -69,11 +69,11 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.6,
+    toleranceMoveToCore=0.8,
     toleranceInterruptSimulation=1,
     maxNumObjsPerIter=3, 
     terminateAtMaxObjects=True,
-    maxNumSpecies=200, # first stage is until core reaches 100 species
+    maxNumSpecies=400, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
 )
 
