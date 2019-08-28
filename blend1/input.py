@@ -1,7 +1,7 @@
 #Data sources
 database(
     thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
-    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
+    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False),('JetSurF2.0',False),('CurranPentane',False),('2009_Sharma_C5H5_CH3_highP',False),('2015_Buras_C2H3_C4H6_highP',False)], # 
     seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)'], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
@@ -14,45 +14,464 @@ generatedSpeciesConstraints(
     allowed=['input species','seed mechanisms','reaction libraries'],
     maximumCarbonAtoms=9,
     maximumOxygenAtoms=4,
-    allowSingletO2 = True,
 )
 
 # List of species
 
 species(
-    label='C7H16',
+    label='H(19)',
     reactive=True,
     structure=adjacencyList(
         """
-1  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-2  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
-3  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {9,S}
-5  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
-6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
-7  C u0 p0 c0 {5,S} {21,S} {22,S} {23,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {1,S}
-11 H u0 p0 c0 {1,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {2,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {6,S}
-19 H u0 p0 c0 {6,S}
-20 H u0 p0 c0 {6,S}
-21 H u0 p0 c0 {7,S}
-22 H u0 p0 c0 {7,S}
-23 H u0 p0 c0 {7,S}
+multiplicity 2
+1 H u1 p0 c0
         """),
 )
 
 
 species(
-    label='N2(1)',
+    label='O(20)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u2 p2 c0
+        """),
+)
+
+
+species(
+    label='OH(21)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u1 p2 c0 {2,S}
+2 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='H2(22)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 H u0 p0 c0 {2,S}
+2 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='H2O(23)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {3,S}
+2 H u0 p0 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='Ar(24)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 Ar u0 p4 c0
+        """),
+)
+
+
+species(
+    label='He(25)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 He u0 p1 c0
+        """),
+)
+
+
+species(
+    label='HO2(26)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u1 p2 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='H2O2(27)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {4,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CO(28)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p1 c+1 {2,T}
+2 C u0 p1 c-1 {1,T}
+        """),
+)
+
+
+species(
+    label='CO2(29)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {3,D}
+2 O u0 p2 c0 {3,D}
+3 C u0 p0 c0 {1,D} {2,D}
+        """),
+)
+
+
+species(
+    label='HCO(30)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,D}
+2 C u1 p0 c0 {1,D} {3,S}
+3 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C(T)(31)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u2 p1 c0
+        """),
+)
+
+
+species(
+    label='CH(32)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u1 p1 c0 {2,S}
+2 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH2(T)(33)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u2 p0 c0 {2,S} {3,S}
+2 H u0 p0 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH3(34)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u1 p0 c0 {2,S} {3,S} {4,S}
+2 H u0 p0 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH2O(35)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,D}
+2 C u0 p0 c0 {1,D} {3,S} {4,S}
+3 H u0 p0 c0 {2,S}
+4 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='HCCO(36)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u1 p2 c0 {3,S}
+2 C u0 p0 c0 {3,T} {4,S}
+3 C u0 p0 c0 {1,S} {2,T}
+4 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H(37)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,T} {3,S}
+2 C u1 p0 c0 {1,T}
+3 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C2H2(38)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,T} {3,S}
+2 C u0 p0 c0 {1,T} {4,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='H2CC(39)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,D} {3,S} {4,S}
+2 C u0 p1 c0 {1,D}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH2(S)(40)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p1 c0 {2,S} {3,S}
+2 H u0 p0 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH3OH(41)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {6,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 H u0 p0 c0 {2,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH3O(42)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u1 p2 c0 {2,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 H u0 p0 c0 {2,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CH2CO(43)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {3,D}
+2 C u0 p0 c0 {3,D} {4,S} {5,S}
+3 C u0 p0 c0 {1,D} {2,D}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H3(44)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,D} {3,S} {4,S}
+2 C u1 p0 c0 {1,D} {5,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H4(45)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,D} {3,S} {4,S}
+2 C u0 p0 c0 {1,D} {5,S} {6,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CH4(46)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2 H u0 p0 c0 {1,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C2H6(47)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2 C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H5(48)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2 C u1 p0 c0 {1,S} {6,S} {7,S}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CH2OH(49)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {5,S}
+2 C u1 p0 c0 {1,S} {3,S} {4,S}
+3 H u0 p0 c0 {2,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH3CO(50)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {3,D}
+2 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3 C u1 p0 c0 {1,D} {2,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CH2CHO(51)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {3,D}
+2 C u1 p0 c0 {3,S} {4,S} {5,S}
+3 C u0 p0 c0 {1,D} {2,S} {6,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='CH3CHO(52)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {3,D}
+2 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3 C u0 p0 c0 {1,D} {2,S} {7,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='N2',
     reactive=True,
     structure=adjacencyList(
         """
@@ -63,27 +482,7 @@ species(
 
 
 species(
-    label='Ar(2)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 Ar u0 p4 c0
-        """),
-)
-
-
-species(
-    label='He(3)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 He u0 p1 c0
-        """),
-)
-
-
-species(
-    label='Ne(4)',
+    label='Ne',
     reactive=True,
     structure=adjacencyList(
         """
@@ -131,20 +530,498 @@ multiplicity 3
 
 
 species(
-    label='HO2(3)',
+    label='C7H9(3)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u0 p2 c0 {2,S} {3,S}
-2 O u1 p2 c0 {1,S}
-3 H u0 p0 c0 {1,S}
+1  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+3  C u1 p0 c0 {1,S} {2,S} {12,S}
+4  C u0 p0 c0 {1,S} {6,D} {13,S}
+5  C u0 p0 c0 {2,S} {7,D} {14,S}
+6  C u0 p0 c0 {4,D} {7,S} {15,S}
+7  C u0 p0 c0 {5,D} {6,S} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='C7H9(5)',
+    label='C7H10(4)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,D} {10,S}
+3  C u0 p0 c0 {1,S} {6,D} {11,S}
+4  C u0 p0 c0 {2,D} {5,S} {13,S}
+5  C u0 p0 c0 {4,S} {7,D} {12,S}
+6  C u0 p0 c0 {3,D} {16,S} {17,S}
+7  C u0 p0 c0 {5,D} {14,S} {15,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H11(5)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {6,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,D} {12,S}
+4  C u0 p0 c0 {3,D} {5,S} {13,S}
+5  C u0 p0 c0 {4,S} {7,D} {14,S}
+6  C u1 p0 c0 {2,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,D} {17,S} {18,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H7O2(6)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {15,S}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {4,D} {6,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,D} {11,S}
+7  C u0 p0 c0 {6,D} {13,S} {14,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C6H12O(7)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,S} {19,S}
+2  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {14,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {7,D} {17,S}
+7  C u0 p0 c0 {1,S} {6,D} {18,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H9O2(8)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {5,S} {9,D} {16,S}
+8  C u0 p0 c0 {6,D} {9,S} {17,S}
+9  C u0 p0 c0 {7,D} {8,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C7H9O(9)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {2,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {5,D} {8,S} {16,S}
+8  C u0 p0 c0 {6,D} {7,S} {17,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C7H9O2(2)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {18,S}
+3  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
+5  C u1 p0 c0 {1,S} {3,S} {4,S}
+6  C u0 p0 c0 {3,S} {8,D} {14,S}
+7  C u0 p0 c0 {4,S} {9,D} {15,S}
+8  C u0 p0 c0 {6,D} {9,S} {16,S}
+9  C u0 p0 c0 {7,D} {8,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C7H8(11)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,D} {10,S}
+3  C u0 p0 c0 {1,S} {5,D} {11,S}
+4  C u0 p0 c0 {2,D} {7,S} {14,S}
+5  C u0 p0 c0 {3,D} {6,S} {15,S}
+6  C u0 p0 c0 {5,S} {7,D} {12,S}
+7  C u0 p0 c0 {4,S} {6,D} {13,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(12)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {5,S} {9,D} {16,S}
+8  C u0 p0 c0 {6,D} {9,S} {17,S}
+9  C u0 p0 c0 {7,D} {8,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C7H8O(1)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {12,S}
+4  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,D} {13,S}
+6  C u0 p0 c0 {3,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,D} {8,S} {15,S}
+8  C u0 p0 c0 {6,D} {7,S} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C7H8O(2)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {3,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
+4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {7,D} {14,S}
+6  C u0 p0 c0 {3,S} {8,D} {15,S}
+7  C u0 p0 c0 {4,S} {5,D} {13,S}
+8  C u0 p0 c0 {4,S} {6,D} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C7H9O4(15)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {1,S} {20,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {9,S} {13,S}
+6  C u0 p0 c0 {2,S} {5,S} {8,S} {12,S}
+7  C u0 p0 c0 {10,S} {11,S} {14,S} {15,S}
+8  C u0 p0 c0 {6,S} {10,D} {16,S}
+9  C u0 p0 c0 {5,S} {11,D} {19,S}
+10 C u0 p0 c0 {7,S} {8,D} {17,S}
+11 C u0 p0 c0 {7,S} {9,D} {18,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C7H8O3(16)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {18,S}
+3  O u0 p2 c0 {7,D}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,D} {16,S}
+7  C u0 p0 c0 {3,D} {4,S} {10,S}
+8  C u0 p0 c0 {5,S} {6,D} {15,S}
+9  C u0 p0 c0 {5,S} {10,D} {14,S}
+10 C u0 p0 c0 {7,S} {9,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(17)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {9,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {2,S} {6,S} {9,S} {10,S}
+6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
+7  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
+8  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
+9  C u0 p0 c0 {1,S} {5,S} {18,S} {19,S}
+10 C u0 p0 c0 {5,S} {11,D} {20,S}
+11 C u0 p0 c0 {8,S} {10,D} {21,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(18)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {22,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {6,S} {11,S}
+5  C u0 p0 c0 {3,S} {9,S} {20,S} {21,S}
+6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {7,S} {9,S} {16,S} {17,S}
+9  C u0 p0 c0 {5,S} {8,S} {18,S} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H10(950)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  C u0 p0 c0 {2,S} {6,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,D} {10,S}
+3  C u0 p0 c0 {2,D} {4,S} {12,S}
+4  C u0 p0 c0 {3,S} {5,D} {13,S}
+5  C u0 p0 c0 {4,D} {7,S} {11,S}
+6  C u1 p0 c0 {1,S} {14,S} {15,S}
+7  C u1 p0 c0 {5,S} {16,S} {17,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H10(953)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,S} {7,D} {16,S}
+7  C u0 p0 c0 {1,S} {6,D} {17,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H9(937)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -170,2030 +1047,7 @@ multiplicity 2
 
 
 species(
-    label='C7H10(9)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {5,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-3  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-4  C u0 p0 c0 {2,S} {7,D} {15,S}
-5  C u0 p0 c0 {1,S} {6,D} {14,S}
-6  C u0 p0 c0 {3,S} {5,D} {16,S}
-7  C u0 p0 c0 {3,S} {4,D} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='OO(8)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {2,S} {3,S}
-2 O u0 p2 c0 {1,S} {4,S}
-3 H u0 p0 c0 {1,S}
-4 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='H(12)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1 H u1 p0 c0
-        """),
-)
-
-
-species(
-    label='C7H9O2(20)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {9,D} {16,S}
-7  C u0 p0 c0 {5,S} {8,D} {15,S}
-8  C u0 p0 c0 {7,D} {9,S} {18,S}
-9  C u0 p0 c0 {6,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='C7H9O2(19)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-6  C u0 p0 c0 {4,S} {9,D} {16,S}
-7  C u0 p0 c0 {3,S} {8,D} {15,S}
-8  C u0 p0 c0 {5,S} {7,D} {17,S}
-9  C u0 p0 c0 {5,S} {6,D} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(36)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {12,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {9,D} {16,S}
-7  C u0 p0 c0 {5,S} {8,D} {15,S}
-8  C u0 p0 c0 {7,D} {9,S} {18,S}
-9  C u0 p0 c0 {6,D} {8,S} {17,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(35)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-4  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,D} {16,S}
-7  C u0 p0 c0 {4,S} {8,D} {15,S}
-8  C u0 p0 c0 {3,S} {7,D} {17,S}
-9  C u0 p0 c0 {3,S} {6,D} {18,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9O(53)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {4,S}
-2  C u0 p0 c0 {3,S} {6,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {13,S}
-5  C u0 p0 c0 {3,S} {8,D} {15,S}
-6  C u0 p0 c0 {2,S} {7,D} {14,S}
-7  C u0 p0 c0 {4,S} {6,D} {16,S}
-8  C u0 p0 c0 {4,S} {5,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='OH(D)(44)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1 O u1 p2 c0 {2,S}
-2 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C7H10O(67)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {18,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {8,D} {15,S}
-6  C u0 p0 c0 {4,S} {7,D} {14,S}
-7  C u0 p0 c0 {6,D} {8,S} {17,S}
-8  C u0 p0 c0 {5,D} {7,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C7H9O(69)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {17,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {2,S} {6,D}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,D} {8,S} {14,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u1 p0 c0 {6,S} {7,S} {15,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C7H9O3(82)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {15,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {6,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9O3(83)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {17,S}
-10 C u0 p0 c0 {8,D} {9,S} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9O3(84)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {10,D} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {8,D} {10,S} {18,S}
-10 C u0 p0 c0 {7,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(94)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {10,D} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {8,D} {10,S} {18,S}
-10 C u0 p0 c0 {7,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(93)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {10,D} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {17,S}
-10 C u0 p0 c0 {8,D} {9,S} {18,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(92)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {15,S}
-6  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {5,S} {7,D} {17,S}
-9  C u0 p0 c0 {6,S} {10,D} {16,S}
-10 C u0 p0 c0 {5,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(133)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {18,S}
-2  O u1 p2 c0 {5,S}
-3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {14,S}
-6  C u0 p0 c0 {1,S} {3,S} {7,D}
-7  C u0 p0 c0 {5,S} {6,D} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {15,S}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(98)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {12,S}
-5  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,D}
-7  C u0 p0 c0 {4,S} {9,D} {15,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u0 p0 c0 {7,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(97)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {14,S}
-6  C u0 p0 c0 {2,S} {3,S} {7,D}
-7  C u0 p0 c0 {5,S} {6,D} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {15,S}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(99)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {18,S}
-2  O u0 p2 c0 {3,S} {19,S}
-3  C u0 p0 c0 {1,S} {2,S} {4,S} {6,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {9,D} {15,S}
-7  C u0 p0 c0 {5,S} {8,D} {14,S}
-8  C u0 p0 c0 {7,D} {9,S} {17,S}
-9  C u0 p0 c0 {6,D} {8,S} {16,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9O(45)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {3,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {8,D} {15,S}
-6  C u0 p0 c0 {4,S} {7,D} {14,S}
-7  C u0 p0 c0 {6,D} {8,S} {17,S}
-8  C u0 p0 c0 {5,D} {7,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H8O(75)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {4,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {2,S} {6,D}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,D} {8,S} {14,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u1 p0 c0 {6,S} {7,S} {15,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H8O3(85)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u1 p2 c0 {7,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {15,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {6,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(101)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u1 p0 c0 {5,S} {10,S} {16,S}
-8  C u0 p0 c0 {2,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {10,D} {17,S}
-10 C u0 p0 c0 {7,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(179)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {15,S}
-6  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,D} {4,S} {5,S}
-8  C u1 p0 c0 {5,S} {10,S} {17,S}
-9  C u0 p0 c0 {6,S} {10,D} {16,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(180)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {15,S}
-6  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-7  C u1 p0 c0 {4,S} {5,S} {16,S}
-8  C u0 p0 c0 {2,D} {6,S} {10,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(108)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u1 p2 c0 {4,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {10,D} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {8,D} {10,S} {18,S}
-10 C u0 p0 c0 {7,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(183)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {7,S} {9,S} {15,S}
-5  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
-7  C u1 p0 c0 {4,S} {5,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {4,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(126)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u1 p0 c0 {4,S} {9,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {7,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(134)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-7  C u0 p0 c0 {4,S} {9,D} {16,S}
-8  C u0 p0 c0 {4,S} {10,D} {17,S}
-9  C u0 p0 c0 {3,S} {5,S} {7,D}
-10 C u0 p0 c0 {6,S} {8,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(221)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {7,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {15,S}
-8  C u0 p0 c0 {6,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {7,S} {11,D} {18,S}
-10 C u0 p0 c0 {4,D} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(222)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {9,S} {11,S} {17,S}
-9  C u0 p0 c0 {4,D} {7,S} {8,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(234)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  O u1 p2 c0 {6,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {2,S} {4,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-8  C u0 p0 c0 {3,D} {5,S} {7,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u0 p0 c0 {7,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(226)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  O u1 p2 c0 {4,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {2,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {6,S} {10,D} {17,S}
-9  C u0 p0 c0 {3,D} {7,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(225)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {8,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {4,D} {6,S} {7,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(255)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u1 p2 c0 {5,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,D} {4,S} {6,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u0 p0 c0 {7,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(245)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,D} {4,S} {5,S}
-8  C u1 p0 c0 {4,S} {10,S} {16,S}
-9  C u0 p0 c0 {3,S} {6,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(273)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u0 p2 c0 {10,D}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {9,S} {11,S} {17,S}
-7  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
-8  C u0 p0 c0 {7,S} {11,S} {15,S} {16,S}
-9  C u1 p0 c0 {5,S} {6,S} {18,S}
-10 C u0 p0 c0 {3,D} {5,S} {7,S}
-11 C u0 p0 c0 {4,D} {6,S} {8,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(184)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {6,D}
-3  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {14,S}
-5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,D} {3,S} {4,S}
-7  C u1 p0 c0 {4,S} {9,S} {16,S}
-8  C u0 p0 c0 {5,S} {9,D} {15,S}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(191)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {9,S} {11,S} {17,S}
-9  C u0 p0 c0 {3,D} {7,S} {8,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(188)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {12,S}
-7  C u0 p0 c0 {8,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,D} {5,S} {7,S}
-10 C u0 p0 c0 {6,S} {11,D} {19,S}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(151)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {17,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,S} {4,S} {8,D}
-6  C u0 p0 c0 {1,S} {3,S} {7,D}
-7  C u0 p0 c0 {6,D} {9,S} {14,S}
-8  C u0 p0 c0 {5,D} {9,S} {16,S}
-9  C u1 p0 c0 {7,S} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(279)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {20,S}
-2  O u0 p2 c0 {6,S} {21,S}
-3  O u0 p2 c0 {10,D}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {7,S} {11,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {9,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {3,D} {5,S} {8,S}
-11 C u0 p0 c0 {4,D} {6,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {1,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(312)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {1,S} {21,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(310)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {18,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(311)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {1,S} {21,S}
-5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {10,S} {11,S} {16,S}
-8  C u0 p0 c0 {3,S} {6,S} {11,D}
-9  C u0 p0 c0 {2,S} {5,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 C u0 p0 c0 {7,S} {8,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(309)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {10,S} {11,S} {16,S}
-8  C u0 p0 c0 {3,S} {6,S} {11,D}
-9  C u0 p0 c0 {2,S} {5,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 C u0 p0 c0 {7,S} {8,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(330)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {18,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {6,S}
-4  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {9,S} {10,S} {15,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,D}
-8  C u0 p0 c0 {1,S} {4,S} {9,D}
-9  C u0 p0 c0 {6,S} {8,D} {16,S}
-10 C u0 p0 c0 {6,S} {7,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(314)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {7,S} {20,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {8,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(315)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {4,S}
-4  C u0 p0 c0 {1,S} {3,S} {5,S} {8,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(313)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {18,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {7,S} {20,S}
-4  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {15,S}
-7  C u0 p0 c0 {3,S} {5,S} {10,D}
-8  C u0 p0 c0 {2,S} {4,S} {9,D}
-9  C u0 p0 c0 {6,S} {8,D} {16,S}
-10 C u0 p0 c0 {6,S} {7,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(301)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {3,S} {7,D}
-6  C u0 p0 c0 {2,S} {4,S} {8,D}
-7  C u0 p0 c0 {5,D} {9,S} {14,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u1 p0 c0 {7,S} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(362)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {7,S}
-9  C u0 p0 c0 {2,S} {5,S} {11,D}
-10 C u1 p0 c0 {7,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(363)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {2,S} {5,S} {6,S}
-9  C u0 p0 c0 {3,D} {7,S} {11,S}
-10 C u0 p0 c0 {6,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(335)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u1 p2 c0 {10,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {9,S} {11,S} {16,S}
-8  C u0 p0 c0 {2,S} {5,S} {9,D}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 C u0 p0 c0 {3,S} {6,S} {11,D}
-11 C u0 p0 c0 {7,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(324)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {5,S} {11,S} {16,S}
-9  C u0 p0 c0 {3,D} {7,S} {10,S}
-10 C u0 p0 c0 {9,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(317)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {5,S} {10,S} {16,S}
-9  C u0 p0 c0 {4,D} {7,S} {11,S}
-10 C u0 p0 c0 {8,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(366)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-6  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {2,S} {5,S} {6,S}
-9  C u0 p0 c0 {4,D} {7,S} {11,S}
-10 C u0 p0 c0 {5,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(323)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u1 p2 c0 {6,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {3,S} {5,S} {9,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,D}
-9  C u0 p0 c0 {6,S} {11,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(331)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {12,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {11,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {4,S} {7,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(365)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u0 p2 c0 {8,D}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-6  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {4,D} {5,S} {7,S}
-9  C u0 p0 c0 {2,S} {6,S} {11,D}
-10 C u1 p0 c0 {5,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(355)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u1 p2 c0 {4,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u1 p0 c0 {4,S} {10,S} {15,S}
-8  C u0 p0 c0 {3,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(316)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u1 p2 c0 {5,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {18,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(339)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {7,S} {18,S}
-2  O u1 p2 c0 {6,S}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {8,S} {10,S} {15,S}
-7  C u0 p0 c0 {1,S} {4,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {16,S}
-9  C u0 p0 c0 {3,S} {5,S} {10,D}
-10 C u0 p0 c0 {6,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(404)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {10,S} {20,S}
-3  O u1 p2 c0 {8,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {7,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {5,S} {11,S} {17,S}
-9  C u0 p0 c0 {4,D} {5,S} {7,S}
-10 C u0 p0 c0 {2,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(401)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {7,S} {20,S}
-3  O u1 p2 c0 {5,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {3,S} {6,S} {7,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {7,S} {11,D} {17,S}
-10 C u0 p0 c0 {4,D} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(274)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {20,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u1 p2 c0 {6,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {3,S} {5,S} {10,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {9,S} {11,S} {14,S}
-9  C u0 p0 c0 {4,D} {7,S} {8,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(388)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {8,S} {18,S}
-2  O u1 p2 c0 {6,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,S} {15,S}
-7  C u0 p0 c0 {3,D} {5,S} {6,S}
-8  C u0 p0 c0 {1,S} {4,S} {10,D}
-9  C u1 p0 c0 {6,S} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(427)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u1 p2 c0 {8,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {9,S} {11,S} {16,S}
-9  C u0 p0 c0 {4,D} {7,S} {8,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(426)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {10,S} {20,S}
-3  O u1 p2 c0 {6,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {9,S} {17,S}
-7  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {4,D} {6,S} {8,S}
-10 C u0 p0 c0 {2,S} {7,S} {11,D}
-11 C u0 p0 c0 {5,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(436)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {7,S} {18,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u1 p2 c0 {10,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {16,S}
-8  C u0 p0 c0 {2,S} {5,S} {9,D}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {4,S} {6,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H11(85)',
+    label='C7H11(954)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -2221,53 +1075,53 @@ multiplicity 2
 
 
 species(
-    label='C7H11(86)',
+    label='S(1027)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
-3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-5  C u1 p0 c0 {2,S} {4,S} {16,S}
-6  C u0 p0 c0 {3,S} {7,D} {17,S}
-7  C u0 p0 c0 {4,S} {6,D} {18,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,D} {16,S}
+7  C u0 p0 c0 {5,S} {8,D} {15,S}
+8  C u0 p0 c0 {7,D} {9,S} {18,S}
+9  C u0 p0 c0 {6,D} {8,S} {17,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {2,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(111)',
+    label='S(1107)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {6,S}
 2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
-5  C u0 p0 c0 {3,S} {7,S} {10,S} {11,S}
+3  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {15,S}
+5  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
 6  C u0 p0 c0 {1,S} {4,S} {8,S} {16,S}
 7  C u0 p0 c0 {5,S} {9,S} {17,S} {18,S}
 8  C u0 p0 c0 {6,S} {9,D} {20,S}
 9  C u0 p0 c0 {7,S} {8,D} {19,S}
-10 H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {3,S}
 15 H u0 p0 c0 {4,S}
 16 H u0 p0 c0 {6,S}
 17 H u0 p0 c0 {7,S}
@@ -2279,31 +1133,65 @@ multiplicity 2
 
 
 species(
-    label='C7H8(110)',
+    label='S(1026)',
     reactive=True,
     structure=adjacencyList(
         """
-1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {4,D} {10,S}
-3  C u0 p0 c0 {1,S} {5,D} {11,S}
-4  C u0 p0 c0 {2,D} {6,S} {12,S}
-5  C u0 p0 c0 {3,D} {7,S} {15,S}
-6  C u0 p0 c0 {4,S} {7,D} {14,S}
-7  C u0 p0 c0 {5,S} {6,D} {13,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,D} {16,S}
+7  C u0 p0 c0 {3,S} {8,D} {15,S}
+8  C u0 p0 c0 {5,S} {7,D} {17,S}
+9  C u0 p0 c0 {5,S} {6,D} {18,S}
+10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(150)',
+    label='S(1182)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {9,S} {17,S}
+5  C u0 p0 c0 {3,S} {6,S} {11,S} {16,S}
+6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
+7  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
+8  C u0 p0 c0 {7,S} {9,S} {18,S} {19,S}
+9  C u1 p0 c0 {4,S} {8,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(1136)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -2333,890 +1221,96 @@ species(
 
 
 species(
-    label='S(113)',
+    label='lC5H7(105)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,D} {3,S} {7,S}
+2  C u0 p0 c0 {1,D} {4,S} {6,S}
+3  C u0 p0 c0 {1,S} {5,D} {8,S}
+4  C u1 p0 c0 {2,S} {9,S} {10,S}
+5  C u0 p0 c0 {3,D} {11,S} {12,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(1396)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {3,S}
 2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {3,S} {9,S} {17,S} {18,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {7,S} {9,D} {19,S}
-9  C u0 p0 c0 {6,S} {8,D} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {6,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='H2O(204)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {2,S} {3,S}
-2 H u0 p0 c0 {1,S}
-3 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C7H9O(175)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {17,S}
-2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-4  C u0 p0 c0 {2,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,S} {6,D} {14,S}
-6  C u0 p0 c0 {3,S} {5,D} {15,S}
-7  C u0 p0 c0 {3,S} {8,D} {16,S}
-8  C u1 p0 c0 {4,S} {7,D}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(256)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  O u0 p2 c0 {3,S} {7,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-5  C u0 p0 c0 {4,S} {9,S} {11,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {18,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {6,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(334)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {1,S} {19,S}
-4  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,D}
-7  C u1 p0 c0 {5,S} {10,S} {15,S}
-8  C u0 p0 c0 {2,S} {9,S} {10,D}
-9  C u0 p0 c0 {6,D} {8,S} {17,S}
-10 C u0 p0 c0 {7,S} {8,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(349)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {7,S} {17,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u1 p0 c0 {4,S} {9,S} {14,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,D}
-7  C u0 p0 c0 {1,S} {8,S} {9,D}
-8  C u0 p0 c0 {6,D} {7,S} {16,S}
-9  C u0 p0 c0 {5,S} {7,D} {15,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(425)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,D}
-2  O u1 p2 c0 {9,S}
-3  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,D} {14,S}
-6  C u0 p0 c0 {1,D} {3,S} {7,S}
-7  C u0 p0 c0 {6,S} {9,D} {16,S}
-8  C u0 p0 c0 {5,D} {9,S} {15,S}
-9  C u0 p0 c0 {2,S} {7,D} {8,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(418)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {10,S} {19,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u1 p0 c0 {6,S} {10,S} {17,S}
-9  C u0 p0 c0 {3,D} {7,S} {11,S}
-10 C u0 p0 c0 {2,S} {8,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(420)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {8,S} {9,S}
-6  C u0 p0 c0 {7,S} {11,S} {14,S} {15,S}
-7  C u0 p0 c0 {6,S} {10,S} {12,S} {13,S}
-8  C u0 p0 c0 {5,S} {11,D} {18,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 C u0 p0 c0 {3,S} {6,S} {8,D}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(493)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,D}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {7,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
-8  C u0 p0 c0 {2,D} {5,S} {6,S}
-9  C u0 p0 c0 {7,S} {11,D} {17,S}
-10 C u0 p0 c0 {3,D} {6,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(480)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {8,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,D} {6,S} {7,S}
-9  C u1 p0 c0 {5,S} {11,S} {17,S}
-10 C u0 p0 c0 {7,S} {11,D} {16,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(164)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {5,S}
-2  C u0 p0 c0 {3,S} {4,S} {11,S} {12,S}
-3  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
-4  C u0 p0 c0 {2,S} {6,S} {9,S} {10,S}
-5  C u0 p0 c0 {1,S} {3,S} {7,S} {15,S}
-6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
-7  C u0 p0 c0 {5,S} {8,D} {19,S}
-8  C u0 p0 c0 {6,S} {7,D} {18,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
+4  C u0 p0 c0 {3,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,D} {11,S} {12,S}
+7  C u0 p0 c0 {5,D} {13,S} {14,S}
+8  H u0 p0 c0 {3,S}
 9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(524)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {7,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-6  C u1 p0 c0 {4,S} {5,S} {16,S}
-7  C u0 p0 c0 {3,S} {8,D} {18,S}
-8  C u0 p0 c0 {5,S} {7,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(553)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,S} {14,S}
-8  C u0 p0 c0 {4,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {7,S} {10,D} {20,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
 12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='C7H8O(215)',
+    label='S(1423)',
     reactive=True,
     structure=adjacencyList(
         """
 1  O u0 p2 c0 {4,D}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,D} {2,S} {6,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u0 p0 c0 {6,D} {7,S} {15,S}
+2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,D} {2,S} {3,S}
+5  C u0 p0 c0 {2,S} {7,D} {13,S}
+6  C u0 p0 c0 {3,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,D} {8,S} {15,S}
+8  C u0 p0 c0 {6,D} {7,S} {16,S}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {3,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(612)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {4,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,S} {6,S} {10,D}
-9  C u1 p0 c0 {7,S} {10,S} {18,S}
-10 C u0 p0 c0 {8,D} {9,S} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(555)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {21,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,S} {14,S}
-8  C u0 p0 c0 {4,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {7,S} {10,D} {20,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {2,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(635)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {16,S} {17,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,D} {7,S} {10,S}
-9  C u0 p0 c0 {6,S} {10,D} {18,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(661)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {9,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {6,S} {10,S} {18,S} {19,S}
-9  C u0 p0 c0 {2,S} {7,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(577)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {1,S} {19,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,D}
-7  C u0 p0 c0 {2,S} {5,S} {9,D}
-8  C u0 p0 c0 {6,D} {10,S} {15,S}
-9  C u0 p0 c0 {7,D} {10,S} {16,S}
-10 C u1 p0 c0 {8,S} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(519)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  C u0 p0 c0 {3,S} {4,S} {11,S} {12,S}
-3  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,D}
-7  C u1 p0 c0 {5,S} {8,S} {17,S}
-8  C u0 p0 c0 {6,D} {7,S} {18,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(766)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {6,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,D} {3,S} {7,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,D}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u0 p0 c0 {7,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
 16 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(532)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,D}
-2  C u0 p0 c0 {3,S} {4,S} {11,S} {12,S}
-3  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
-6  C u0 p0 c0 {1,D} {4,S} {8,S}
-7  C u0 p0 c0 {5,S} {8,D} {17,S}
-8  C u0 p0 c0 {6,S} {7,D} {18,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(770)',
+    label='C7H9(1021)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {9,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {17,S}
-8  C u0 p0 c0 {6,S} {9,S} {18,S} {19,S}
-9  C u0 p0 c0 {2,S} {8,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(771)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {21,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
-5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
-8  C u0 p0 c0 {7,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {4,S} {10,D} {20,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(869)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,D}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {7,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
-8  C u0 p0 c0 {2,D} {5,S} {6,S}
-9  C u0 p0 c0 {3,D} {7,S} {11,S}
-10 C u0 p0 c0 {6,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(495)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,D}
-8  C u0 p0 c0 {3,D} {6,S} {11,S}
-9  C u0 p0 c0 {2,S} {10,S} {11,D}
-10 C u0 p0 c0 {7,D} {9,S} {16,S}
-11 C u0 p0 c0 {8,S} {9,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(890)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {9,S} {17,S}
-3  O u0 p2 c0 {1,S} {18,S}
-4  O u1 p2 c0 {8,S}
-5  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {7,D} {10,S}
-7  C u0 p0 c0 {5,S} {6,D} {14,S}
-8  C u0 p0 c0 {4,S} {5,S} {11,D}
-9  C u0 p0 c0 {2,S} {10,D} {11,S}
-10 C u0 p0 c0 {6,S} {9,D} {15,S}
-11 C u0 p0 c0 {8,D} {9,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(899)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {7,S} {16,S}
-2  O u1 p2 c0 {6,S}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {9,D} {13,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,D}
-7  C u0 p0 c0 {1,S} {8,S} {10,D}
-8  C u0 p0 c0 {6,D} {7,S} {15,S}
-9  C u0 p0 c0 {3,S} {5,D} {10,S}
-10 C u0 p0 c0 {7,D} {9,S} {14,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(931)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {6,S} {16,S}
-3  O u0 p2 c0 {1,S} {17,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,D} {8,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,D}
-7  C u0 p0 c0 {5,D} {6,S} {14,S}
-8  C u0 p0 c0 {5,S} {10,D} {13,S}
-9  C u0 p0 c0 {6,D} {11,S} {15,S}
-10 C u0 p0 c0 {8,D} {11,S} {12,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {10,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {2,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(950)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {15,S}
-2  O u1 p2 c0 {7,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,D}
-5  C u0 p0 c0 {4,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,D} {10,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,D} {8,S}
-8  C u0 p0 c0 {7,S} {9,D} {12,S}
-9  C u0 p0 c0 {8,D} {10,S} {11,S}
-10 C u0 p0 c0 {3,D} {6,S} {9,S}
-11 H u0 p0 c0 {9,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C7H9(93)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
-2  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-3  C u0 p0 c0 {1,S} {4,D} {13,S}
-4  C u0 p0 c0 {2,S} {3,D} {14,S}
-5  C u1 p0 c0 {1,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {7,D} {15,S}
+1  C u0 p0 c0 {2,S} {4,S} {6,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {5,S} {8,S}
+3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+5  C u1 p0 c0 {2,S} {7,S} {14,S}
+6  C u0 p0 c0 {1,S} {7,D} {15,S}
 7  C u0 p0 c0 {5,S} {6,D} {16,S}
-8  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
 9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {7,S}
         """),
@@ -3224,41 +1318,37 @@ multiplicity 2
 
 
 species(
-    label='S(985)',
+    label='S(1395)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {3,S}
 2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {9,D} {18,S}
-7  C u0 p0 c0 {4,S} {8,D} {15,S}
-8  C u0 p0 c0 {5,S} {7,D} {16,S}
-9  C u0 p0 c0 {5,S} {6,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {6,S}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {4,D} {6,S} {11,S}
+6  C u0 p0 c0 {5,S} {7,D} {12,S}
+7  C u0 p0 c0 {6,D} {13,S} {14,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='S(151)',
+    label='S(1147)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
+multiplicity 3
 1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {18,S}
+2  O u1 p2 c0 {1,S}
 3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
 4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
 5  C u0 p0 c0 {3,S} {7,D} {16,S}
@@ -3274,10280 +1364,65 @@ multiplicity 2
 15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {5,S}
 17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(140)',
+    label='C7H8(1072)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {8,D} {14,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {9,S} {15,S}
-8  C u0 p0 c0 {5,D} {9,S} {16,S}
-9  C u1 p0 c0 {7,S} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(230)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {10,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {18,S}
-9  C u0 p0 c0 {6,S} {11,D} {19,S}
-10 C u0 p0 c0 {7,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='C7H8O(212)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {3,S} {5,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
-4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u0 p0 c0 {3,S} {8,D} {16,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {4,S} {6,D} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(231)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {1,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {19,S}
-9  C u0 p0 c0 {6,S} {11,D} {18,S}
-10 C u0 p0 c0 {6,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='C7H8O(222)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {8,D} {14,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {8,S} {15,S}
-8  C u0 p0 c0 {5,D} {7,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(191)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {8,S} {15,S} {16,S}
-6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-7  C u1 p0 c0 {6,S} {9,S} {17,S}
-8  C u0 p0 c0 {5,S} {9,D} {18,S}
-9  C u0 p0 c0 {7,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(177)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-7  C u1 p0 c0 {5,S} {6,S} {17,S}
-8  C u0 p0 c0 {3,S} {9,D} {19,S}
-9  C u0 p0 c0 {6,S} {8,D} {18,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(189)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-7  C u1 p0 c0 {4,S} {6,S} {17,S}
-8  C u0 p0 c0 {5,S} {9,D} {19,S}
-9  C u0 p0 c0 {6,S} {8,D} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(235)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {7,S} {11,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {17,S} {18,S}
-8  C u0 p0 c0 {6,S} {9,D} {19,S}
-9  C u0 p0 c0 {7,S} {8,D} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(419)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {17,S}
-9  C u0 p0 c0 {5,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {8,S} {11,D} {21,S}
-11 C u0 p0 c0 {9,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(239)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,S} {10,S} {17,S}
-9  C u0 p0 c0 {7,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {8,S} {11,D} {21,S}
-11 C u0 p0 c0 {9,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(178)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {14,S}
-5  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-7  C u1 p0 c0 {4,S} {9,S} {18,S}
-8  C u0 p0 c0 {6,S} {9,D} {17,S}
-9  C u0 p0 c0 {7,S} {8,D} {19,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(238)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {15,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {16,S} {17,S}
-8  C u0 p0 c0 {7,S} {9,S} {12,S} {18,S}
-9  C u0 p0 c0 {2,S} {8,S} {11,S} {19,S}
-10 C u0 p0 c0 {5,S} {11,D} {20,S}
-11 C u0 p0 c0 {9,S} {10,D} {21,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(683)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {7,S} {14,S}
-4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {3,S} {8,D} {18,S}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(237)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
-7  C u0 p0 c0 {1,S} {8,S} {10,S} {15,S}
-8  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-9  C u0 p0 c0 {5,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {7,S} {11,D} {20,S}
-11 C u0 p0 c0 {9,S} {10,D} {21,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(686)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {17,S}
-8  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
-9  C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {7,S} {11,D} {21,S}
-11 C u0 p0 c0 {9,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(518)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {10,S}
-5  C u0 p0 c0 {6,S} {7,S} {14,S} {15,S}
-6  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,D} {3,S} {5,S}
-8  C u0 p0 c0 {4,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(401)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {1,S} {5,S} {7,S} {14,S}
-4  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {3,S} {8,D} {18,S}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(420)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {6,S} {11,S} {18,S} {19,S}
-10 C u0 p0 c0 {8,S} {11,D} {21,S}
-11 C u0 p0 c0 {9,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='C7H11(292)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
-2  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-3  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
-4  C u0 p0 c0 {2,S} {7,S} {10,S} {15,S}
-5  C u1 p0 c0 {1,S} {2,S} {16,S}
-6  C u0 p0 c0 {3,S} {7,D} {17,S}
-7  C u0 p0 c0 {4,S} {6,D} {18,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {2,S}
-14 H u0 p0 c0 {2,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(556)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {18,S}
-3  O u1 p2 c0 {6,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {4,S} {8,D}
-7  C u1 p0 c0 {4,S} {10,S} {16,S}
-8  C u0 p0 c0 {5,S} {6,D} {14,S}
-9  C u0 p0 c0 {5,S} {10,D} {15,S}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9O(286)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {17,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {7,D} {14,S}
-6  C u0 p0 c0 {4,S} {8,D} {15,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u1 p0 c0 {6,D} {7,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(656)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u0 p2 c0 {2,S} {21,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {6,S} {7,S} {18,S}
-10 C u0 p0 c0 {7,S} {11,D} {20,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {4,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1074)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u0 p2 c0 {2,S} {21,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {9,S} {11,S} {17,S} {18,S}
-9  C u1 p0 c0 {2,S} {6,S} {8,S}
-10 C u0 p0 c0 {7,S} {11,D} {20,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {4,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(661)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u0 p2 c0 {2,S} {21,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {17,S}
-9  C u1 p0 c0 {5,S} {11,S} {18,S}
-10 C u0 p0 c0 {8,S} {11,D} {19,S}
-11 C u0 p0 c0 {9,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {4,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1299)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {6,S} {10,D} {18,S}
-9  C u0 p0 c0 {7,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,D} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1287)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {11,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,S} {15,S}
-7  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {6,S} {10,D} {19,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1298)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {3,S} {9,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,D} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {17,S}
-9  C u0 p0 c0 {2,S} {8,D} {10,S}
-10 C u0 p0 c0 {7,D} {9,S} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1347)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {17,S}
-7  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {6,S} {7,S} {15,S} {16,S}
-9  C u0 p0 c0 {5,S} {10,D} {18,S}
-10 C u0 p0 c0 {6,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1346)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {3,S} {8,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {10,S} {17,S}
-6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {9,S} {16,S}
-9  C u0 p0 c0 {8,S} {10,D} {18,S}
-10 C u0 p0 c0 {5,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1382)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {3,S} {8,S}
-3  O u0 p2 c0 {2,S} {19,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u1 p0 c0 {4,S} {10,S} {15,S}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {2,S} {9,S} {10,D}
-9  C u0 p0 c0 {7,D} {8,S} {16,S}
-10 C u0 p0 c0 {6,S} {8,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1364)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {14,S}
-5  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-7  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {18,S}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(1493)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {3,S} {9,S} {14,S}
-7  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {7,S} {9,D} {17,S}
-9  C u1 p0 c0 {6,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1457)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u1 p2 c0 {9,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u1 p0 c0 {3,S} {8,S} {14,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {9,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,D} {16,S}
-9  C u0 p0 c0 {2,S} {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1492)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {4,S} {9,D}
-8  C u1 p0 c0 {6,S} {9,S} {16,S}
-9  C u0 p0 c0 {7,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1586)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {9,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,S} {18,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1584)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {19,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {12,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {15,S}
-8  C u0 p0 c0 {6,S} {10,D} {16,S}
-9  C u0 p0 c0 {7,S} {11,D} {17,S}
-10 C u0 p0 c0 {8,D} {11,S} {18,S}
-11 C u0 p0 c0 {3,S} {9,D} {10,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1587)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {20,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {13,S}
-6  C u0 p0 c0 {1,S} {3,S} {5,S} {10,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,S} {12,S}
-8  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-9  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
-10 C u0 p0 c0 {6,S} {11,D} {19,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1577)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {4,S} {8,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {5,S} {9,D}
-8  C u1 p0 c0 {3,S} {5,S} {16,S}
-9  C u0 p0 c0 {6,S} {7,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1581)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {11,D} {17,S}
-9  C u0 p0 c0 {7,S} {10,D} {16,S}
-10 C u0 p0 c0 {9,D} {11,S} {18,S}
-11 C u0 p0 c0 {3,S} {8,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1630)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {3,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {11,S} {15,S}
-8  C u0 p0 c0 {1,S} {9,S} {10,S} {16,S}
-9  C u0 p0 c0 {1,S} {8,S} {11,D}
-10 C u1 p0 c0 {5,S} {8,S} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1628)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {11,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-9  C u1 p0 c0 {3,S} {7,S} {8,S}
-10 C u0 p0 c0 {1,S} {5,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1678)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {7,S} {13,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {16,S}
-8  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-9  C u0 p0 c0 {8,S} {11,S} {17,S} {18,S}
-10 C u0 p0 c0 {1,S} {7,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1749)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {7,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {14,S}
-7  C u0 p0 c0 {3,S} {5,S} {10,S} {13,S}
-8  C u0 p0 c0 {10,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {7,S} {8,S} {17,S}
-11 C u0 p0 c0 {8,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='O(T)(511)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 O u2 p2 c0
-        """),
-)
-
-
-species(
-    label='S(1734)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {9,S}
-3  O u0 p2 c0 {4,S} {18,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {8,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {11,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
-7  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-8  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
-9  C u0 p0 c0 {2,S} {5,S} {10,D}
-10 C u0 p0 c0 {6,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1185)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {6,S} {10,D}
-9  C u0 p0 c0 {3,D} {6,S} {7,S}
-10 C u0 p0 c0 {4,S} {8,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(500)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-5  C u0 p0 c0 {3,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {3,S} {7,D}
-7  C u0 p0 c0 {4,S} {6,D} {15,S}
-8  C u0 p0 c0 {4,S} {9,D} {16,S}
-9  C u1 p0 c0 {5,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1052)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
-4  C u0 p0 c0 {2,S} {8,S} {13,S} {14,S}
-5  C u0 p0 c0 {6,S} {7,S} {15,S} {16,S}
-6  C u1 p0 c0 {3,S} {5,S} {17,S}
-7  C u0 p0 c0 {1,S} {5,S} {8,D}
-8  C u0 p0 c0 {4,S} {7,D} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(994)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u1 p0 c0 {3,S} {4,S} {13,S}
-6  C u1 p0 c0 {3,S} {9,S} {14,S}
-7  C u0 p0 c0 {2,D} {4,S} {8,S}
-8  C u0 p0 c0 {7,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1057)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u1 p2 c0 {7,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {9,D} {15,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {5,S} {7,D} {16,S}
-9  C u0 p0 c0 {5,S} {6,D} {14,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(1122)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
-6  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
-7  C u0 p0 c0 {8,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {6,S} {7,S} {16,S}
-9  C u0 p0 c0 {3,D} {5,S} {7,S}
-10 C u0 p0 c0 {5,S} {11,D} {17,S}
-11 C u0 p0 c0 {6,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1854)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {8,S} {10,S} {14,S} {15,S}
-8  C u1 p0 c0 {5,S} {7,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,D} {17,S}
-10 C u0 p0 c0 {3,D} {7,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1717)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {6,S} {10,S} {16,S}
-9  C u0 p0 c0 {3,D} {7,S} {11,S}
-10 C u0 p0 c0 {8,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1108)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,D} {4,S} {7,S}
-9  C u0 p0 c0 {2,S} {6,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1930)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,D}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {7,D} {11,S} {15,S}
-10 C u0 p0 c0 {8,D} {11,S} {17,S}
-11 C u1 p0 c0 {9,S} {10,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1143)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
-6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {16,S}
-9  C u0 p0 c0 {3,D} {7,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1908)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {12,S}
-5  C u0 p0 c0 {2,S} {4,S} {6,S} {11,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {10,D} {16,S}
-9  C u0 p0 c0 {3,D} {7,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1852)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  O u0 p2 c0 {4,S} {9,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {10,S} {11,S} {14,S}
-8  C u0 p0 c0 {2,S} {5,S} {10,D}
-9  C u0 p0 c0 {3,S} {6,S} {11,D}
-10 C u0 p0 c0 {7,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1962)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {1,S} {19,S}
-4  O u1 p2 c0 {8,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {5,S} {10,D}
-9  C u0 p0 c0 {7,D} {11,S} {17,S}
-10 C u0 p0 c0 {8,D} {11,S} {15,S}
-11 C u1 p0 c0 {9,S} {10,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1953)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {17,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {9,D}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {5,S} {7,D} {15,S}
-10 C u0 p0 c0 {5,S} {8,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1965)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {17,S}
-3  O u0 p2 c0 {7,S} {18,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {8,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,S} {11,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {10,D} {14,S}
-9  C u0 p0 c0 {7,D} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {15,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1997)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {7,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {12,S}
-6  C u0 p0 c0 {7,S} {11,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,D}
-8  C u0 p0 c0 {2,S} {10,S} {11,D}
-9  C u0 p0 c0 {5,S} {7,D} {16,S}
-10 C u1 p0 c0 {5,S} {8,S} {17,S}
-11 C u0 p0 c0 {6,S} {8,D} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1402)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,D}
-7  C u0 p0 c0 {4,S} {6,D} {15,S}
-8  C u1 p0 c0 {4,S} {10,S} {16,S}
-9  C u0 p0 c0 {5,S} {10,D} {14,S}
-10 C u0 p0 c0 {3,S} {8,S} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1579)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {16,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {6,S} {11,S} {17,S} {18,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2064)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {5,S} {17,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {12,S}
-5  C u0 p0 c0 {2,S} {4,S} {9,S} {11,S}
-6  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {4,S} {10,D}
-8  C u0 p0 c0 {3,S} {6,S} {9,D}
-9  C u0 p0 c0 {5,S} {8,D} {16,S}
-10 C u0 p0 c0 {6,S} {7,D} {15,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2072)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {9,S} {10,S} {12,S}
-7  C u0 p0 c0 {1,S} {4,S} {10,D}
-8  C u0 p0 c0 {3,S} {5,S} {9,D}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 C u0 p0 c0 {6,S} {7,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2094)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {4,S} {9,S}
-4  O u0 p2 c0 {3,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {13,S}
-9  C u0 p0 c0 {3,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2095)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u0 p2 c0 {3,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-8  C u0 p0 c0 {7,S} {11,S} {15,S} {16,S}
-9  C u1 p0 c0 {5,S} {7,S} {17,S}
-10 C u0 p0 c0 {3,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2093)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u0 p2 c0 {3,S} {20,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {15,S}
-7  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {1,S} {6,S} {7,S}
-10 C u0 p0 c0 {3,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1624)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {3,S} {17,S}
-3  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {5,S} {9,D}
-8  C u0 p0 c0 {6,S} {9,D} {16,S}
-9  C u0 p0 c0 {7,D} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2143)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {8,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {2,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-8  C u1 p0 c0 {1,S} {5,S} {6,S}
-9  C u1 p0 c0 {7,S} {10,S} {17,S}
-10 C u0 p0 c0 {3,D} {5,S} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2124)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {8,S} {9,S}
-3  O u0 p2 c0 {5,S} {18,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,S} {15,S}
-7  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-8  C u0 p0 c0 {2,S} {5,S} {10,S} {16,S}
-9  C u0 p0 c0 {2,S} {6,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2135)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {13,S}
-6  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-7  C u0 p0 c0 {6,S} {10,S} {14,S} {15,S}
-8  C u1 p0 c0 {4,S} {6,S} {16,S}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u1 p0 c0 {7,S} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2117)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {15,S}
-6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-8  C u1 p0 c0 {7,S} {10,S} {16,S}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u1 p0 c0 {8,S} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2186)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {10,S} {13,S}
-7  C u0 p0 c0 {9,S} {10,S} {14,S} {15,S}
-8  C u1 p0 c0 {4,S} {6,S} {17,S}
-9  C u0 p0 c0 {3,D} {5,S} {7,S}
-10 C u1 p0 c0 {6,S} {7,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2170)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {15,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {16,S}
-8  C u1 p0 c0 {1,S} {6,S} {10,S}
-9  C u0 p0 c0 {3,D} {6,S} {7,S}
-10 C u1 p0 c0 {4,S} {8,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2200)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {7,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {5,S} {10,D}
-8  C u1 p0 c0 {2,S} {6,S} {9,S}
-9  C u1 p0 c0 {8,S} {10,S} {15,S}
-10 C u0 p0 c0 {7,D} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2192)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,S} {13,S}
-7  C u1 p0 c0 {4,S} {6,S} {14,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,D}
-9  C u1 p0 c0 {6,S} {10,S} {15,S}
-10 C u0 p0 c0 {8,D} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1036)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  C u0 p0 c0 {3,S} {7,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
-4  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-5  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-6  C u1 p0 c0 {3,S} {4,S} {17,S}
-7  C u0 p0 c0 {1,S} {2,S} {8,D}
-8  C u0 p0 c0 {5,S} {7,D} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {4,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2233)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {13,S}
-7  C u1 p0 c0 {5,S} {9,S} {14,S}
-8  C u1 p0 c0 {6,S} {10,S} {15,S}
-9  C u0 p0 c0 {3,S} {7,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1853)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {9,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {4,S} {9,S} {18,S} {19,S}
-8  C u0 p0 c0 {6,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {2,S} {7,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {7,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1306)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {16,S}
-2  O u1 p2 c0 {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {8,D} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,D}
-7  C u0 p0 c0 {5,D} {6,S} {14,S}
-8  C u0 p0 c0 {2,S} {4,D} {9,S}
-9  C u0 p0 c0 {6,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2299)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {7,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,D} {5,S} {11,S}
-8  C u0 p0 c0 {6,S} {10,D} {15,S}
-9  C u0 p0 c0 {2,S} {10,S} {11,D}
-10 C u0 p0 c0 {8,D} {9,S} {16,S}
-11 C u0 p0 c0 {7,S} {9,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1172)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {16,S}
-2  O u1 p2 c0 {5,S}
-3  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,D}
-5  C u0 p0 c0 {2,S} {3,S} {7,D}
-6  C u0 p0 c0 {3,S} {9,D} {12,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {4,D} {9,S} {13,S}
-9  C u0 p0 c0 {6,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2308)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {3,S} {9,S} {10,S} {15,S}
-9  C u1 p0 c0 {7,S} {8,S} {16,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2309)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {8,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {3,S} {4,S} {9,S} {11,S}
-9  C u1 p0 c0 {6,S} {8,S} {15,S}
-10 C u0 p0 c0 {7,S} {11,D} {16,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2377)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {11,D} {15,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {2,S} {10,D} {11,S}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 C u0 p0 c0 {7,D} {9,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2375)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,D}
-8  C u0 p0 c0 {3,D} {5,S} {6,S}
-9  C u0 p0 c0 {6,S} {11,D} {15,S}
-10 C u0 p0 c0 {7,D} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2251)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {9,S} {20,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
-7  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {4,S} {7,S} {11,D}
-10 C u1 p0 c0 {6,S} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2376)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {9,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {11,D}
-8  C u0 p0 c0 {5,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 C u0 p0 c0 {3,D} {6,S} {11,S}
-11 C u0 p0 c0 {7,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1448)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u1 p2 c0 {7,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {15,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {18,S}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(2359)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {5,S} {11,S} {17,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u1 p0 c0 {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2358)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,S} {15,S}
-10 C u1 p0 c0 {7,S} {11,S} {18,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2357)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {15,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {4,S} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2457)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {15,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,D}
-8  C u1 p0 c0 {6,S} {9,S} {16,S}
-9  C u0 p0 c0 {7,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2454)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u1 p0 c0 {3,S} {6,S} {15,S}
-8  C u0 p0 c0 {4,S} {9,D} {17,S}
-9  C u0 p0 c0 {5,S} {8,D} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2455)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {15,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,S} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {17,S}
-9  C u1 p0 c0 {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2522)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {9,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
-8  C u0 p0 c0 {6,S} {7,S} {14,S} {15,S}
-9  C u0 p0 c0 {3,S} {5,S} {11,S} {18,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2493)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {9,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u1 p0 c0 {4,S} {7,S} {8,S}
-10 C u0 p0 c0 {1,S} {7,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2524)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,S} {15,S}
-10 C u0 p0 c0 {7,S} {11,D} {19,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2523)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {2,S} {5,S} {10,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,S} {17,S}
-10 C u0 p0 c0 {6,S} {11,D} {19,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2355)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {13,S}
-6  C u0 p0 c0 {3,S} {7,S} {10,S} {14,S}
-7  C u0 p0 c0 {5,S} {6,S} {12,S} {15,S}
-8  C u0 p0 c0 {1,S} {9,S} {11,S} {16,S}
-9  C u1 p0 c0 {1,S} {5,S} {8,S}
-10 C u0 p0 c0 {4,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2578)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,D}
-10 C u1 p0 c0 {7,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2577)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2575)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {7,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,S} {6,S} {10,S} {13,S}
-8  C u0 p0 c0 {1,S} {9,S} {11,S} {16,S}
-9  C u1 p0 c0 {1,S} {5,S} {8,S}
-10 C u0 p0 c0 {7,S} {11,D} {17,S}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2630)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {6,S} {9,S}
-3  O u0 p2 c0 {5,S} {18,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {16,S}
-8  C u0 p0 c0 {4,S} {5,S} {14,S} {15,S}
-9  C u0 p0 c0 {2,S} {6,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2613)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {7,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {12,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2621)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {6,S} {18,S}
-4  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {3,S} {8,S} {9,S}
-7  C u0 p0 c0 {2,S} {4,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2638)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {13,S}
-9  C u0 p0 c0 {4,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2494)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {9,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {7,S} {18,S}
-4  O u0 p2 c0 {8,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {15,S} {16,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,S} {13,S}
-8  C u0 p0 c0 {4,S} {5,S} {11,S} {14,S}
-9  C u1 p0 c0 {1,S} {7,S} {10,S}
-10 C u0 p0 c0 {1,S} {9,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2479)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {10,S} {11,S} {15,S}
-10 C u1 p0 c0 {7,S} {9,S} {18,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2353)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,D}
-10 C u1 p0 c0 {7,S} {11,S} {17,S}
-11 C u0 p0 c0 {4,S} {9,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2352)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {2,S} {8,S} {10,S} {14,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u1 p0 c0 {3,S} {5,S} {8,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1857)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {12,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,S} {14,S}
-8  C u0 p0 c0 {7,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,D} {5,S} {7,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(2567)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {13,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1401)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {9,S} {10,S} {12,S} {13,S}
-6  C u1 p0 c0 {4,S} {7,S} {15,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {4,S} {10,D} {16,S}
-9  C u0 p0 c0 {5,S} {7,D} {14,S}
-10 C u0 p0 c0 {3,S} {5,S} {8,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2698)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2451)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u1 p0 c0 {4,S} {9,S} {16,S}
-9  C u0 p0 c0 {7,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2509)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {9,S} {12,S} {15,S}
-7  C u0 p0 c0 {1,S} {4,S} {9,D}
-8  C u1 p0 c0 {4,S} {5,S} {16,S}
-9  C u0 p0 c0 {6,S} {7,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2596)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {2,S} {5,S} {10,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,D}
-10 C u1 p0 c0 {6,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2552)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {3,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u1 p0 c0 {7,S} {8,S} {17,S}
-11 C u0 p0 c0 {6,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2829)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
-7  C u0 p0 c0 {1,S} {5,S} {11,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-9  C u0 p0 c0 {6,S} {8,S} {16,S} {17,S}
-10 C u0 p0 c0 {6,S} {11,D} {19,S}
-11 C u0 p0 c0 {7,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2812)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
-6  C u0 p0 c0 {2,S} {4,S} {10,S} {14,S}
-7  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {10,D}
-10 C u0 p0 c0 {6,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2828)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,S} {11,S} {16,S}
-9  C u0 p0 c0 {7,S} {10,S} {17,S} {18,S}
-10 C u0 p0 c0 {3,S} {9,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2819)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {6,S} {18,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
-7  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-8  C u0 p0 c0 {6,S} {7,S} {14,S} {15,S}
-9  C u0 p0 c0 {4,S} {10,D} {16,S}
-10 C u0 p0 c0 {6,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(835)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  C u0 p0 c0 {1,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {18,S}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(977)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {10,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,D}
-7  C u0 p0 c0 {4,S} {6,D} {14,S}
-8  C u1 p0 c0 {4,S} {9,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2428)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,S} {12,S} {16,S}
-9  C u1 p0 c0 {1,S} {6,S} {7,S}
-10 C u0 p0 c0 {4,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2729)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {11,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {9,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {2,S} {6,S} {8,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {3,S} {8,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2525)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {9,S} {20,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {18,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {2,S} {8,S} {11,S} {17,S}
-10 C u0 p0 c0 {3,S} {6,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {6,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2476)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-8  C u0 p0 c0 {7,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {6,S} {11,S} {15,S} {18,S}
-10 C u1 p0 c0 {3,S} {8,S} {11,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2859)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {10,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {7,S} {10,S} {16,S} {17,S}
-9  C u1 p0 c0 {2,S} {6,S} {11,S}
-10 C u0 p0 c0 {3,S} {8,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2915)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u0 p2 c0 {3,S} {20,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {11,S} {14,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {17,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u1 p0 c0 {1,S} {7,S} {8,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2546)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  C u0 p0 c0 {1,S} {5,S} {7,S} {15,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {4,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {10,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,D}
-8  C u0 p0 c0 {6,S} {9,D} {16,S}
-9  C u0 p0 c0 {7,D} {8,D}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2913)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {4,S} {10,S}
-4  O u0 p2 c0 {3,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {11,S} {17,S}
-9  C u0 p0 c0 {1,S} {5,S} {10,D}
-10 C u0 p0 c0 {3,S} {9,D} {11,S}
-11 C u1 p0 c0 {8,S} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2936)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {4,S} {9,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {16,S}
-7  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-8  C u1 p0 c0 {1,S} {6,S} {7,S}
-9  C u1 p0 c0 {5,S} {10,S} {17,S}
-10 C u0 p0 c0 {3,D} {6,S} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2955)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {10,S}
-3  O u0 p2 c0 {4,S} {18,S}
-4  C u0 p0 c0 {3,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {10,S} {17,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-7  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-9  C u0 p0 c0 {1,S} {6,S} {10,D}
-10 C u0 p0 c0 {2,S} {5,S} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2962)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,S} {11,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {16,S}
-9  C u0 p0 c0 {2,S} {4,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2925)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u1 p0 c0 {2,S} {7,S} {10,S}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u1 p0 c0 {8,S} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3019)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {17,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u1 p0 c0 {2,S} {5,S} {10,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {3,S} {8,D} {10,S}
-10 C u1 p0 c0 {7,S} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3017)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {8,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u1 p0 c0 {4,S} {6,S} {15,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,D}
-9  C u1 p0 c0 {2,S} {6,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2995)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {4,S} {17,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  C u0 p0 c0 {2,S} {6,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {14,S}
-6  C u0 p0 c0 {4,S} {10,S} {12,S} {13,S}
-7  C u1 p0 c0 {1,S} {5,S} {10,S}
-8  C u0 p0 c0 {3,S} {5,S} {9,D}
-9  C u0 p0 c0 {4,S} {8,D} {16,S}
-10 C u1 p0 c0 {6,S} {7,S} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3014)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {10,S} {12,S}
-6  C u0 p0 c0 {8,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {8,S} {10,S} {13,S} {16,S}
-8  C u1 p0 c0 {2,S} {6,S} {7,S}
-9  C u1 p0 c0 {4,S} {6,S} {17,S}
-10 C u0 p0 c0 {3,D} {5,S} {7,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2295)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {16,S}
-2  O u0 p2 c0 {4,S} {15,S}
-3  C u0 p0 c0 {1,S} {5,D} {7,S}
-4  C u0 p0 c0 {2,S} {5,S} {6,D}
-5  C u0 p0 c0 {3,D} {4,S} {14,S}
-6  C u0 p0 c0 {4,D} {8,S} {11,S}
-7  C u0 p0 c0 {3,S} {9,D} {13,S}
-8  C u1 p0 c0 {6,S} {9,S} {10,S}
-9  C u0 p0 c0 {7,D} {8,S} {12,S}
-10 H u0 p0 c0 {8,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {9,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {2,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(933)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {8,S} {10,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {7,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u1 p0 c0 {7,S} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(961)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u1 p2 c0 {7,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {9,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {4,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {16,S}
-9  C u0 p0 c0 {6,S} {7,D} {15,S}
-10 C u0 p0 c0 {6,S} {8,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1313)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {16,S}
-2  O u1 p2 c0 {9,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,D}
-5  C u0 p0 c0 {3,S} {7,D} {12,S}
-6  C u0 p0 c0 {4,D} {9,S} {15,S}
-7  C u0 p0 c0 {5,D} {8,S} {13,S}
-8  C u0 p0 c0 {7,S} {9,D} {14,S}
-9  C u0 p0 c0 {2,S} {6,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3112)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u0 p0 c0 {5,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {10,D} {12,S}
-8  C u0 p0 c0 {3,S} {6,D} {9,S}
-9  C u0 p0 c0 {8,S} {11,D} {16,S}
-10 C u0 p0 c0 {7,D} {11,S} {14,S}
-11 C u0 p0 c0 {9,D} {10,S} {15,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3111)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  O u0 p2 c0 {7,S} {17,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,D} {13,S}
-7  C u0 p0 c0 {3,S} {6,D} {10,S}
-8  C u0 p0 c0 {5,S} {11,D} {14,S}
-9  C u0 p0 c0 {2,S} {10,D} {11,S}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 C u0 p0 c0 {8,D} {9,S} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3113)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {8,S} {17,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,D}
-7  C u0 p0 c0 {5,S} {11,D} {13,S}
-8  C u0 p0 c0 {3,S} {9,S} {10,D}
-9  C u0 p0 c0 {6,D} {8,S} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {15,S}
-11 C u0 p0 c0 {7,D} {10,S} {14,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {11,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3114)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {7,S} {17,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,D}
-7  C u0 p0 c0 {3,S} {5,S} {8,D}
-8  C u0 p0 c0 {7,D} {10,S} {14,S}
-9  C u0 p0 c0 {6,D} {11,S} {16,S}
-10 C u0 p0 c0 {8,S} {11,D} {13,S}
-11 C u0 p0 c0 {9,S} {10,D} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {10,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3117)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {11,S} {17,S}
-10 C u0 p0 c0 {8,D} {11,S} {16,S}
-11 C u0 p0 c0 {3,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3116)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {11,D}
-8  C u0 p0 c0 {5,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 C u0 p0 c0 {3,D} {5,S} {11,S}
-11 C u0 p0 c0 {7,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3035)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {7,S} {13,S}
-7  C u1 p0 c0 {6,S} {9,S} {15,S}
-8  C u1 p0 c0 {5,S} {10,S} {14,S}
-9  C u0 p0 c0 {3,S} {7,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3044)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {8,S} {10,S} {12,S}
-7  C u0 p0 c0 {1,S} {4,S} {9,D}
-8  C u1 p0 c0 {5,S} {6,S} {15,S}
-9  C u0 p0 c0 {3,S} {7,D} {10,S}
-10 C u1 p0 c0 {6,S} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2475)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
-6  C u0 p0 c0 {2,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {11,S} {14,S}
-9  C u0 p0 c0 {5,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {5,S} {6,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3082)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {16,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,D} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {11,S}
-6  C u0 p0 c0 {2,S} {4,D} {8,S}
-7  C u0 p0 c0 {5,D} {9,S} {13,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {7,S} {8,D} {14,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1311)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {16,S}
-2  O u1 p2 c0 {9,S}
-3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {5,D} {12,S}
-5  C u0 p0 c0 {1,S} {4,D} {7,S}
-6  C u0 p0 c0 {3,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {15,S}
-8  C u0 p0 c0 {6,D} {9,S} {14,S}
-9  C u0 p0 c0 {2,S} {7,D} {8,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(930)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {2,S} {7,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u1 p0 c0 {4,S} {6,S} {15,S}
-8  C u0 p0 c0 {3,D} {5,S} {6,S}
-9  C u0 p0 c0 {4,S} {10,D} {16,S}
-10 C u0 p0 c0 {5,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3269)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {15,S}
-9  C u0 p0 c0 {3,D} {5,S} {11,S}
-10 C u0 p0 c0 {6,S} {11,D} {16,S}
-11 C u0 p0 c0 {9,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2415)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {1,S} {18,S}
-4  O u0 p2 c0 {7,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,D}
-7  C u0 p0 c0 {4,D} {5,S} {9,S}
-8  C u0 p0 c0 {6,D} {10,S} {15,S}
-9  C u0 p0 c0 {7,S} {11,D} {13,S}
-10 C u1 p0 c0 {8,S} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {14,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {11,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3267)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {8,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {7,D} {11,S} {15,S}
-10 C u0 p0 c0 {8,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3270)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,D}
-8  C u0 p0 c0 {6,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {11,S} {17,S}
-10 C u0 p0 c0 {8,D} {11,S} {16,S}
-11 C u0 p0 c0 {3,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3312)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {16,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
-6  C u0 p0 c0 {4,S} {9,D} {12,S}
-7  C u0 p0 c0 {3,D} {5,S} {8,S}
-8  C u0 p0 c0 {7,S} {10,D} {13,S}
-9  C u0 p0 c0 {6,D} {10,S} {15,S}
-10 C u0 p0 c0 {8,D} {9,S} {14,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3237)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {3,S} {6,S} {10,S} {15,S}
-9  C u1 p0 c0 {7,S} {11,S} {16,S}
-10 C u0 p0 c0 {8,S} {11,D} {17,S}
-11 C u0 p0 c0 {4,S} {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3238)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {11,S} {14,S}
-8  C u0 p0 c0 {3,S} {9,S} {10,S} {15,S}
-9  C u1 p0 c0 {6,S} {8,S} {16,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {7,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3239)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {8,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {3,S} {4,S} {9,S} {11,S}
-9  C u1 p0 c0 {7,S} {8,S} {15,S}
-10 C u0 p0 c0 {6,S} {11,D} {16,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2409)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {7,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,D}
-7  C u0 p0 c0 {3,D} {5,S} {9,S}
-8  C u0 p0 c0 {6,D} {10,S} {13,S}
-9  C u0 p0 c0 {7,S} {11,D} {15,S}
-10 C u1 p0 c0 {8,S} {11,S} {14,S}
-11 C u0 p0 c0 {9,D} {10,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3061)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {16,S}
-9  C u1 p0 c0 {3,S} {6,S} {11,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3384)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {6,S} {20,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {4,S} {8,S} {10,S}
-7  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u1 p0 c0 {6,S} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3370)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u1 p2 c0 {9,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {14,S}
-9  C u0 p0 c0 {4,S} {6,S} {11,S} {17,S}
-10 C u0 p0 c0 {3,S} {8,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3396)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u1 p0 c0 {1,S} {7,S} {8,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {6,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3305)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {17,S}
-3  O u1 p2 c0 {7,S}
-4  O u0 p2 c0 {6,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,D} {5,S} {8,S}
-7  C u0 p0 c0 {3,S} {5,S} {9,D}
-8  C u0 p0 c0 {6,S} {11,D} {13,S}
-9  C u0 p0 c0 {7,D} {10,S} {14,S}
-10 C u1 p0 c0 {9,S} {11,S} {16,S}
-11 C u0 p0 c0 {8,D} {10,S} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2288)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {15,S}
-2  O u1 p2 c0 {7,S}
-3  C u0 p0 c0 {1,S} {4,D} {5,S}
-4  C u0 p0 c0 {3,D} {7,S} {10,S}
-5  C u0 p0 c0 {3,S} {8,D} {11,S}
-6  C u1 p0 c0 {8,S} {9,S} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {9,D}
-8  C u0 p0 c0 {5,D} {6,S} {12,S}
-9  C u0 p0 c0 {6,S} {7,D} {13,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3311)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {16,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {7,D}
-7  C u0 p0 c0 {5,S} {6,D} {14,S}
-8  C u0 p0 c0 {3,D} {4,S} {10,S}
-9  C u0 p0 c0 {5,S} {10,D} {13,S}
-10 C u0 p0 c0 {8,S} {9,D} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2315)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {17,S}
-3  O u0 p2 c0 {7,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u1 p0 c0 {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {3,D} {5,S} {9,S}
-8  C u0 p0 c0 {2,S} {9,D} {10,S}
-9  C u0 p0 c0 {7,S} {8,D} {14,S}
-10 C u0 p0 c0 {8,S} {11,D} {15,S}
-11 C u0 p0 c0 {6,S} {10,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3163)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {17,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u1 p0 c0 {5,S} {7,S} {13,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {14,S}
-9  C u0 p0 c0 {7,D} {11,S} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {15,S}
-11 C u0 p0 c0 {3,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2396)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {17,S}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {11,D} {14,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {2,S} {9,S} {10,D}
-9  C u0 p0 c0 {7,D} {8,S} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {15,S}
-11 C u0 p0 c0 {3,S} {6,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3147)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u1 p2 c0 {8,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u0 p0 c0 {5,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {12,S}
-8  C u0 p0 c0 {3,S} {6,D} {10,S}
-9  C u0 p0 c0 {7,D} {11,S} {14,S}
-10 C u0 p0 c0 {8,S} {11,D} {16,S}
-11 C u0 p0 c0 {9,S} {10,D} {15,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2434)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,D}
-7  C u1 p0 c0 {5,S} {9,S} {13,S}
-8  C u0 p0 c0 {6,D} {11,S} {14,S}
-9  C u0 p0 c0 {7,S} {10,D} {16,S}
-10 C u0 p0 c0 {9,D} {11,S} {15,S}
-11 C u0 p0 c0 {3,D} {8,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2220)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {11,S} {16,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {3,S} {6,S} {10,S} {17,S}
-10 C u1 p0 c0 {9,S} {11,S} {18,S}
-11 C u0 p0 c0 {4,D} {7,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1056)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {1,S} {6,S} {7,S} {14,S}
-4  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
-6  C u0 p0 c0 {1,S} {3,S} {9,D}
-7  C u0 p0 c0 {2,D} {3,S} {4,S}
-8  C u1 p0 c0 {5,S} {9,S} {15,S}
-9  C u0 p0 c0 {6,D} {8,S} {16,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(1848)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {6,S} {16,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {9,D}
-6  C u0 p0 c0 {2,S} {3,S} {7,D}
-7  C u0 p0 c0 {4,S} {6,D} {14,S}
-8  C u1 p0 c0 {4,S} {9,S} {13,S}
-9  C u0 p0 c0 {5,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2252)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {10,S} {19,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {9,S} {11,S} {16,S}
-9  C u1 p0 c0 {3,S} {7,S} {8,S}
-10 C u0 p0 c0 {4,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {4,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3552)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {11,S} {14,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {17,S}
-8  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u0 p0 c0 {3,D} {7,S} {8,S}
-11 C u0 p0 c0 {6,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(2248)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {13,S}
-7  C u0 p0 c0 {1,S} {6,S} {11,S} {14,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,S} {15,S}
-9  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-10 C u1 p0 c0 {6,S} {8,S} {18,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3553)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {12,S}
-7  C u0 p0 c0 {8,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {7,S} {11,S} {13,S} {14,S}
-9  C u0 p0 c0 {3,D} {6,S} {7,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(2078)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {16,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u1 p0 c0 {4,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {7,D} {12,S}
-7  C u0 p0 c0 {2,S} {6,D} {9,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,D}
-9  C u1 p0 c0 {7,S} {10,S} {14,S}
-10 C u0 p0 c0 {8,D} {9,S} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {1,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3240)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {4,S} {9,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1300)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {9,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,D} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {2,S} {4,D} {8,S}
-7  C u0 p0 c0 {5,D} {9,S} {15,S}
-8  C u0 p0 c0 {6,S} {9,D} {14,S}
-9  C u0 p0 c0 {1,S} {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3554)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {7,S} {10,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {1,S} {6,S} {10,D}
-9  C u0 p0 c0 {3,S} {6,S} {11,D}
-10 C u0 p0 c0 {5,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3630)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u1 p0 c0 {6,S} {7,S} {17,S}
-11 C u0 p0 c0 {4,S} {8,S} {9,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3651)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {6,S} {17,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {2,S} {7,S} {9,S}
-6  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
-7  C u1 p0 c0 {5,S} {6,S} {13,S}
-8  C u0 p0 c0 {6,S} {10,D} {14,S}
-9  C u0 p0 c0 {5,S} {11,D} {15,S}
-10 C u0 p0 c0 {4,S} {8,D} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {16,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {3,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3650)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {17,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {7,S} {20,S}
-4  O u0 p2 c0 {10,S} {19,S}
-5  C u0 p0 c0 {2,S} {7,S} {11,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-7  C u0 p0 c0 {3,S} {5,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {14,S}
-9  C u1 p0 c0 {6,S} {10,S} {15,S}
-10 C u0 p0 c0 {4,S} {9,S} {11,D}
-11 C u0 p0 c0 {5,S} {10,D} {16,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {4,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3609)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {16,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {7,S} {18,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,D}
-6  C u0 p0 c0 {2,S} {4,S} {9,D}
-7  C u1 p0 c0 {3,S} {8,S} {10,S}
-8  C u0 p0 c0 {5,D} {7,S} {13,S}
-9  C u0 p0 c0 {6,D} {10,S} {15,S}
-10 C u1 p0 c0 {7,S} {9,S} {14,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {1,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2730)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-8  C u0 p0 c0 {6,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {7,S} {11,S} {15,S} {16,S}
-10 C u1 p0 c0 {3,S} {8,S} {11,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3531)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {6,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {8,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {7,S} {15,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {7,S} {11,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2727)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {10,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {9,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {1,S} {6,S} {8,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2728)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {10,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {5,S} {11,S} {14,S} {17,S}
-9  C u1 p0 c0 {1,S} {5,S} {6,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3730)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,S} {10,S} {14,S}
-6  C u0 p0 c0 {2,S} {9,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-9  C u0 p0 c0 {6,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {5,S} {6,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2731)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,S} {19,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,D}
-10 C u1 p0 c0 {7,S} {11,S} {17,S}
-11 C u0 p0 c0 {4,S} {9,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {4,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2978)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {8,S} {21,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {10,S} {11,S} {13,S}
-8  C u0 p0 c0 {4,S} {5,S} {11,D}
-9  C u0 p0 c0 {3,S} {6,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 C u0 p0 c0 {7,S} {8,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {3,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3366)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {13,S}
-6  C u0 p0 c0 {2,S} {7,S} {10,S} {14,S}
-7  C u0 p0 c0 {5,S} {6,S} {12,S} {15,S}
-8  C u0 p0 c0 {3,S} {9,S} {11,S} {16,S}
-9  C u1 p0 c0 {1,S} {5,S} {8,S}
-10 C u0 p0 c0 {4,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3555)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {18,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {12,S}
-7  C u0 p0 c0 {10,S} {11,S} {13,S} {14,S}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {17,S}
-10 C u0 p0 c0 {7,S} {8,D} {16,S}
-11 C u0 p0 c0 {7,S} {9,D} {15,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2977)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {18,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {8,S} {21,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {12,S}
-7  C u0 p0 c0 {9,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {4,S} {5,S} {11,D}
-9  C u0 p0 c0 {3,S} {7,S} {10,D}
-10 C u0 p0 c0 {6,S} {9,D} {16,S}
-11 C u0 p0 c0 {7,S} {8,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(934)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u1 p0 c0 {5,S} {10,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {9,S}
-9  C u0 p0 c0 {2,S} {8,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1301)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {5,S}
-2  O u1 p2 c0 {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {7,D} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {6,D}
-6  C u0 p0 c0 {5,D} {8,S} {13,S}
-7  C u0 p0 c0 {4,D} {9,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u0 p0 c0 {7,S} {8,D} {14,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(2313)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,D} {5,S} {10,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {8,D} {11,S} {16,S}
-10 C u0 p0 c0 {7,S} {11,D} {17,S}
-11 C u0 p0 c0 {3,S} {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(1417)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u1 p2 c0 {7,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {16,S}
-9  C u0 p0 c0 {3,D} {5,S} {11,S}
-10 C u0 p0 c0 {6,S} {11,D} {15,S}
-11 C u0 p0 c0 {9,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(1419)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {8,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,D} {5,S} {6,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,D}
-9  C u0 p0 c0 {6,S} {11,D} {15,S}
-10 C u0 p0 c0 {8,D} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(2432)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u1 p2 c0 {8,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {9,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,D} {16,S}
-8  C u0 p0 c0 {2,S} {5,S} {11,D}
-9  C u0 p0 c0 {6,S} {7,D} {15,S}
-10 C u0 p0 c0 {3,D} {6,S} {11,S}
-11 C u0 p0 c0 {8,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(3805)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {18,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,D}
-7  C u0 p0 c0 {1,S} {4,S} {9,D}
-8  C u0 p0 c0 {3,S} {6,D} {10,S}
-9  C u0 p0 c0 {7,D} {10,S} {15,S}
-10 C u1 p0 c0 {8,S} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2394)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,D}
-3  O u1 p2 c0 {11,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {10,D} {15,S}
-8  C u0 p0 c0 {2,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {11,D} {17,S}
-10 C u0 p0 c0 {7,D} {11,S} {16,S}
-11 C u0 p0 c0 {3,S} {9,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(2425)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-6  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u1 p0 c0 {9,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(637)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {20,S}
-2  O u1 p2 c0 {5,S}
-3  C u0 p0 c0 {4,S} {5,S} {14,S} {15,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {6,S} {9,D} {19,S}
-9  C u0 p0 c0 {7,S} {8,D} {18,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2713)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {9,S} {11,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {6,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {6,S} {9,S} {14,S} {17,S}
-9  C u1 p0 c0 {1,S} {8,S} {11,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {1,S} {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3626)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {7,S} {10,S} {13,S}
-6  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {9,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {3,S} {6,S} {8,S}
-10 C u0 p0 c0 {1,S} {5,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3901)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {15,S}
-7  C u0 p0 c0 {3,S} {8,S} {16,S} {17,S}
-8  C u0 p0 c0 {7,S} {9,D} {18,S}
-9  C u1 p0 c0 {6,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3900)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  O u0 p2 c0 {7,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,D}
-8  C u1 p0 c0 {6,S} {9,S} {17,S}
-9  C u0 p0 c0 {7,D} {8,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3898)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {9,S} {14,S} {15,S}
-6  C u0 p0 c0 {2,S} {7,S} {8,S} {11,S}
-7  C u1 p0 c0 {4,S} {6,S} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {18,S}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3899)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {14,S} {15,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {3,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {6,S} {9,D} {18,S}
-9  C u1 p0 c0 {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3937)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {21,S}
-2  O u0 p2 c0 {6,S} {22,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {6,S} {7,S} {15,S} {16,S}
-9  C u0 p0 c0 {5,S} {11,S} {17,S} {18,S}
-10 C u0 p0 c0 {6,S} {11,D} {20,S}
-11 C u0 p0 c0 {9,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {1,S}
-22 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(905)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {21,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {10,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {16,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,S} {11,S} {17,S}
-9  C u0 p0 c0 {7,S} {10,S} {18,S} {19,S}
-10 C u0 p0 c0 {3,S} {9,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {1,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2429)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-6  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-10 C u0 p0 c0 {4,D} {7,S} {11,S}
-11 C u1 p0 c0 {9,S} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3628)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {6,S} {11,S} {14,S} {17,S}
-9  C u1 p0 c0 {3,S} {6,S} {7,S}
-10 C u0 p0 c0 {1,S} {5,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2427)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-9  C u1 p0 c0 {5,S} {6,S} {16,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3992)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {1,S} {6,S} {11,S} {13,S}
-8  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-9  C u0 p0 c0 {8,S} {11,S} {16,S} {17,S}
-10 C u1 p0 c0 {5,S} {6,S} {18,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2569)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {12,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {11,D}
-10 C u1 p0 c0 {7,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3993)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {3,S} {6,S} {8,S}
-6  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
-7  C u0 p0 c0 {1,S} {10,S} {11,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {6,S} {11,S} {14,S} {18,S}
-10 C u1 p0 c0 {1,S} {7,S} {8,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3989)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {6,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
-7  C u0 p0 c0 {1,S} {5,S} {11,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {10,S} {11,S} {16,S} {17,S}
-10 C u1 p0 c0 {6,S} {9,S} {18,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3355)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {14,S} {16,S}
-8  C u0 p0 c0 {3,S} {9,S} {11,S} {15,S}
-9  C u1 p0 c0 {1,S} {6,S} {8,S}
-10 C u0 p0 c0 {4,S} {7,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1438)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u1 p2 c0 {5,S}
-3  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-4  C u0 p0 c0 {1,S} {7,S} {9,S} {16,S}
-5  C u0 p0 c0 {2,S} {3,S} {6,S} {10,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {9,D} {17,S}
-9  C u0 p0 c0 {4,S} {8,D} {18,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {4,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(3990)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {8,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {6,S} {11,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3368)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,S} {5,S} {10,S} {14,S}
-9  C u0 p0 c0 {3,S} {7,S} {11,S} {15,S}
-10 C u1 p0 c0 {8,S} {11,S} {18,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4040)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {6,S} {10,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u1 p0 c0 {5,S} {7,S} {17,S}
-11 C u0 p0 c0 {4,S} {8,S} {9,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4033)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {14,S}
-6  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-7  C u1 p0 c0 {5,S} {6,S} {15,S}
-8  C u0 p0 c0 {4,S} {9,D} {16,S}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4038)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-8  C u0 p0 c0 {10,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {5,S} {8,S} {17,S}
-11 C u0 p0 c0 {4,S} {8,S} {9,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4035)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {11,S}
-5  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {6,S} {9,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {17,S}
-9  C u1 p0 c0 {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2430)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {6,S} {10,D}
-10 C u0 p0 c0 {4,S} {9,D} {11,S}
-11 C u1 p0 c0 {8,S} {10,S} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4039)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {9,S} {11,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {10,S} {16,S} {17,S}
-9  C u1 p0 c0 {1,S} {7,S} {11,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {1,S} {9,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4032)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {15,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {17,S}
-9  C u1 p0 c0 {7,S} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4074)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {8,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {3,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {1,S} {6,S} {11,S} {17,S}
-9  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-10 C u0 p0 c0 {7,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3927)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {19,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {7,S} {8,S} {15,S} {16,S}
-7  C u1 p0 c0 {3,S} {6,S} {17,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u0 p0 c0 {5,S} {8,D} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4116)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {1,S} {9,S} {11,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u1 p0 c0 {3,S} {7,S} {8,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {7,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1807)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3693)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {9,S} {20,S}
-5  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {9,D}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {4,S} {7,D} {11,S}
-10 C u0 p0 c0 {5,S} {8,D} {16,S}
-11 C u1 p0 c0 {5,S} {9,S} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4129)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {7,S}
-3  O u0 p2 c0 {4,S} {18,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {8,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-6  C u0 p0 c0 {2,S} {4,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {12,S}
-8  C u0 p0 c0 {4,S} {5,S} {14,S} {15,S}
-9  C u0 p0 c0 {7,S} {10,D} {17,S}
-10 C u0 p0 c0 {6,S} {9,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3353)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {3,S} {6,S} {10,S} {15,S}
-9  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
-10 C u1 p0 c0 {8,S} {11,S} {18,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3991)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u1 p2 c0 {6,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-7  C u0 p0 c0 {1,S} {5,S} {11,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {6,S} {10,S} {16,S} {17,S}
-10 C u0 p0 c0 {9,S} {11,S} {18,S} {19,S}
-11 C u0 p0 c0 {4,D} {7,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4117)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {9,S} {13,S}
-9  C u1 p0 c0 {1,S} {8,S} {11,S}
-10 C u0 p0 c0 {6,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4206)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {7,S} {19,S}
-4  O u0 p2 c0 {2,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {3,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {7,S} {11,D}
-10 C u1 p0 c0 {6,S} {7,S} {17,S}
-11 C u0 p0 c0 {8,S} {9,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4219)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {9,S}
-3  O u0 p2 c0 {7,S} {18,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {11,S}
-7  C u0 p0 c0 {3,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {2,S} {7,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1568)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {6,S} {8,S} {13,S} {14,S}
-6  C u1 p0 c0 {2,S} {4,S} {5,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,D}
-8  C u1 p0 c0 {5,S} {9,S} {15,S}
-9  C u0 p0 c0 {7,D} {8,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4165)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {5,S} {6,S}
-3  O u0 p2 c0 {4,S} {18,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {8,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-7  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-8  C u0 p0 c0 {4,S} {10,S} {14,S} {15,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4041)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {11,S} {20,S}
-4  O u1 p2 c0 {5,S}
-5  C u0 p0 c0 {2,S} {4,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {8,S} {11,S} {17,S} {18,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {3,S} {9,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2426)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u1 p2 c0 {6,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {6,S} {11,S} {16,S} {17,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(956)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,D} {4,S} {5,S}
-8  C u0 p0 c0 {2,S} {4,S} {10,D}
-9  C u1 p0 c0 {6,S} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3101)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {6,S} {18,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {4,S} {8,D}
-7  C u0 p0 c0 {2,S} {4,S} {10,D}
-8  C u0 p0 c0 {5,S} {6,D} {14,S}
-9  C u1 p0 c0 {5,S} {10,S} {15,S}
-10 C u0 p0 c0 {7,D} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3604)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {8,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {18,S}
-4  O u1 p2 c0 {9,S}
-5  C u0 p0 c0 {1,S} {2,S} {8,S} {10,S}
-6  C u0 p0 c0 {7,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {6,S} {11,S} {12,S} {13,S}
-8  C u0 p0 c0 {1,S} {5,S} {9,D}
-9  C u0 p0 c0 {4,S} {6,S} {8,D}
-10 C u0 p0 c0 {5,S} {11,D} {17,S}
-11 C u0 p0 c0 {7,S} {10,D} {16,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3592)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {18,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {11,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-8  C u0 p0 c0 {1,S} {6,S} {9,D}
-9  C u0 p0 c0 {5,S} {8,D} {17,S}
-10 C u0 p0 c0 {7,S} {11,D} {16,S}
-11 C u0 p0 c0 {4,S} {6,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3350)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {11,S} {14,S}
-8  C u0 p0 c0 {9,S} {10,S} {15,S} {16,S}
-9  C u1 p0 c0 {3,S} {6,S} {8,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {7,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4303)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {8,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {6,S} {9,S} {14,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,D}
-9  C u0 p0 c0 {3,D} {4,S} {7,S}
-10 C u0 p0 c0 {5,S} {8,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(4295)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {8,S}
-5  C u0 p0 c0 {1,S} {2,S} {4,S} {9,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {10,S} {11,S} {12,S}
-8  C u0 p0 c0 {3,D} {4,S} {6,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {15,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(2474)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {11,S} {14,S}
-9  C u0 p0 c0 {10,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {6,S} {9,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3063)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {9,S} {19,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {4,S} {7,S} {11,D}
-10 C u1 p0 c0 {3,S} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {4,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3067)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {3,S} {6,S} {9,S} {15,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
-8  C u0 p0 c0 {1,S} {9,S} {10,S} {16,S}
-9  C u1 p0 c0 {1,S} {5,S} {8,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {7,S} {10,D} {17,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4338)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {11,S} {14,S}
-8  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {8,S} {10,S} {17,S}
-10 C u1 p0 c0 {9,S} {11,S} {18,S}
-11 C u0 p0 c0 {4,D} {7,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4339)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {4,S} {9,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3530)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {11,S} {13,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {7,S} {11,S} {15,S} {18,S}
-10 C u1 p0 c0 {3,S} {7,S} {8,S}
-11 C u0 p0 c0 {4,D} {6,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3528)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {11,S} {16,S}
-7  C u0 p0 c0 {2,S} {8,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-9  C u0 p0 c0 {10,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {3,S} {7,S} {9,S}
-11 C u0 p0 c0 {4,D} {6,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3731)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {11,S} {14,S}
-9  C u0 p0 c0 {10,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {3,S} {6,S} {9,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(144)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u1 p0 c0 {3,S} {9,S} {15,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {4,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(2909)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {4,S} {11,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {17,S}
-6  C u0 p0 c0 {7,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {6,S} {10,S} {12,S}
-9  C u0 p0 c0 {1,S} {5,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {18,S}
-11 C u0 p0 c0 {3,S} {9,D} {10,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3533)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {6,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {10,S} {11,S} {17,S}
-8  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,S} {14,S} {18,S}
-10 C u1 p0 c0 {1,S} {7,S} {8,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4378)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {5,S} {11,S} {13,S} {17,S}
-9  C u1 p0 c0 {3,S} {6,S} {7,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='C7H8(122)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-2  C u1 p0 c0 {1,S} {5,S} {11,S}
-3  C u0 p0 c0 {1,S} {4,D} {10,S}
-4  C u0 p0 c0 {3,D} {6,S} {12,S}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u1 p0 c0 {4,S} {7,S} {13,S}
-7  C u0 p0 c0 {5,D} {6,S} {14,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-        """),
-)
-
-
-species(
-    label='C7H8O(213)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
-3  C u0 p0 c0 {1,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {7,D} {16,S}
-6  C u0 p0 c0 {3,S} {8,D} {15,S}
-7  C u0 p0 c0 {3,S} {5,D} {14,S}
-8  C u0 p0 c0 {4,S} {6,D} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {5,S}
-        """),
-)
-
-
-species(
-    label='S(318)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {3,S} {7,S}
-3  O u1 p2 c0 {2,S}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {10,D} {19,S}
-9  C u0 p0 c0 {7,S} {11,D} {18,S}
-10 C u0 p0 c0 {7,S} {8,D} {17,S}
-11 C u0 p0 c0 {6,S} {9,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(298)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u1 p2 c0 {1,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {10,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {18,S}
-9  C u0 p0 c0 {6,S} {11,D} {19,S}
-10 C u0 p0 c0 {7,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(4358)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {6,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,S} {17,S} {18,S}
-10 C u1 p0 c0 {1,S} {7,S} {11,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3728)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {14,S}
-8  C u0 p0 c0 {6,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {3,S} {10,S} {11,S} {17,S}
-10 C u1 p0 c0 {7,S} {9,S} {18,S}
-11 C u0 p0 c0 {4,D} {8,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3407)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {5,S} {19,S}
-4  O u0 p2 c0 {9,S} {20,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-6  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,S} {12,S} {16,S}
-9  C u1 p0 c0 {4,S} {6,S} {7,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4269)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
-5  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {15,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {3,S} {4,S} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4377)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {7,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {13,S}
-6  C u0 p0 c0 {2,S} {5,S} {10,S} {12,S}
-7  C u0 p0 c0 {3,S} {8,S} {10,S} {14,S}
-8  C u0 p0 c0 {7,S} {11,S} {15,S} {16,S}
-9  C u0 p0 c0 {1,S} {5,S} {11,D}
-10 C u1 p0 c0 {6,S} {7,S} {17,S}
-11 C u0 p0 c0 {4,S} {8,S} {9,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3732)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {9,S} {20,S}
-3  O u1 p2 c0 {8,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,S} {14,S}
-9  C u0 p0 c0 {2,S} {7,S} {11,S} {17,S}
-10 C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4460)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {20,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {21,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {14,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,S} {15,S}
-8  C u0 p0 c0 {6,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {4,D} {5,S} {7,S}
-10 C u0 p0 c0 {3,S} {7,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {1,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4270)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  O u0 p2 c0 {8,D}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {4,S} {10,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,D} {5,S} {6,S}
-9  C u0 p0 c0 {3,S} {6,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2973)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,S} {13,S}
-8  C u0 p0 c0 {3,S} {5,S} {9,D}
-9  C u0 p0 c0 {7,S} {8,D} {16,S}
-10 C u0 p0 c0 {7,S} {11,D} {17,S}
-11 C u0 p0 c0 {4,S} {6,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(458)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
-6  C u1 p0 c0 {4,S} {9,S} {15,S}
-7  C u0 p0 c0 {2,D} {5,S} {8,S}
-8  C u0 p0 c0 {7,S} {9,D} {16,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2089)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {4,S} {9,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {13,S}
-9  C u0 p0 c0 {3,S} {6,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4357)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {11,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {10,S} {13,S}
-8  C u0 p0 c0 {3,S} {9,S} {10,S} {15,S}
-9  C u0 p0 c0 {8,S} {11,S} {16,S} {17,S}
-10 C u1 p0 c0 {7,S} {8,S} {18,S}
-11 C u0 p0 c0 {4,D} {6,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1871)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {7,D}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {15,S}
-6  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-7  C u0 p0 c0 {2,D} {4,S} {5,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(131)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {5,D} {9,S} {16,S}
-8  C u0 p0 c0 {6,D} {9,S} {17,S}
-9  C u1 p0 c0 {7,S} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(4489)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {11,S} {20,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {8,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {11,D}
-9  C u0 p0 c0 {4,D} {6,S} {7,S}
-10 C u1 p0 c0 {5,S} {11,S} {17,S}
-11 C u0 p0 c0 {3,S} {8,D} {10,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2121)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {9,S} {18,S}
-4  O u0 p2 c0 {2,S} {19,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u1 p0 c0 {2,S} {6,S} {10,S}
-9  C u0 p0 c0 {3,S} {7,S} {11,D}
-10 C u1 p0 c0 {8,S} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2118)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {5,S} {18,S}
-4  O u0 p2 c0 {2,S} {19,S}
-5  C u0 p0 c0 {3,S} {7,S} {10,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u1 p0 c0 {1,S} {6,S} {7,S}
-9  C u0 p0 c0 {2,S} {6,S} {11,D}
-10 C u1 p0 c0 {5,S} {11,S} {16,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3470)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {17,S}
-3  O u1 p2 c0 {7,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u1 p0 c0 {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {3,S} {5,S} {8,D}
-8  C u0 p0 c0 {7,D} {10,S} {14,S}
-9  C u0 p0 c0 {6,S} {11,D} {16,S}
-10 C u0 p0 c0 {4,D} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {15,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4565)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,D}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,D} {4,S} {8,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {6,S} {10,D} {14,S}
-9  C u0 p0 c0 {7,D} {10,S} {15,S}
-10 C u0 p0 c0 {3,S} {8,D} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(4581)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {15,S}
-3  O u1 p2 c0 {8,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,D}
-6  C u0 p0 c0 {4,S} {9,D} {12,S}
-7  C u0 p0 c0 {2,S} {9,S} {10,D}
-8  C u0 p0 c0 {3,S} {5,D} {10,S}
-9  C u0 p0 c0 {6,D} {7,S} {14,S}
-10 C u0 p0 c0 {7,D} {8,S} {13,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {10,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4582)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {15,S}
-3  O u1 p2 c0 {6,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,D}
-6  C u0 p0 c0 {3,S} {4,S} {9,D}
-7  C u0 p0 c0 {2,S} {9,S} {10,D}
-8  C u0 p0 c0 {5,D} {10,S} {12,S}
-9  C u0 p0 c0 {6,D} {7,S} {13,S}
-10 C u0 p0 c0 {7,D} {8,S} {14,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4589)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {15,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,D}
-6  C u0 p0 c0 {2,S} {4,S} {8,D}
-7  C u0 p0 c0 {5,D} {9,S} {12,S}
-8  C u0 p0 c0 {6,D} {10,S} {13,S}
-9  C u0 p0 c0 {7,S} {10,D} {14,S}
-10 C u0 p0 c0 {3,S} {8,S} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4585)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {8,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,D}
-7  C u0 p0 c0 {2,D} {4,S} {5,S}
-8  C u0 p0 c0 {3,S} {5,S} {10,D}
-9  C u0 p0 c0 {6,D} {10,S} {14,S}
-10 C u0 p0 c0 {8,D} {9,S} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(4607)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {14,S}
-3  O u0 p2 c0 {8,S} {15,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,D}
-6  C u0 p0 c0 {2,S} {4,S} {7,D}
-7  C u0 p0 c0 {6,D} {8,S} {12,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,D} {10,S} {13,S}
-10 C u1 p0 c0 {8,D} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {2,S}
-15 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4636)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {5,S} {16,S}
-3  O u0 p2 c0 {7,S} {17,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
-6  C u0 p0 c0 {1,S} {5,S} {7,S} {12,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {13,S}
-9  C u0 p0 c0 {7,D} {11,S} {14,S}
-10 C u0 p0 c0 {8,D} {11,S} {15,S}
-11 C u0 p0 c0 {4,D} {9,S} {10,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {2,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4587)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {15,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,D}
-6  C u0 p0 c0 {2,S} {5,D} {8,S}
-7  C u0 p0 c0 {4,S} {9,D} {12,S}
-8  C u0 p0 c0 {6,S} {10,D} {13,S}
-9  C u0 p0 c0 {7,D} {10,S} {14,S}
-10 C u0 p0 c0 {3,S} {8,D} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4606)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {14,S}
-3  O u0 p2 c0 {7,S} {15,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {8,D}
-6  C u0 p0 c0 {1,S} {4,S} {10,D}
-7  C u0 p0 c0 {3,S} {8,S} {9,D}
-8  C u0 p0 c0 {5,D} {7,S} {12,S}
-9  C u0 p0 c0 {7,D} {10,S} {13,S}
-10 C u1 p0 c0 {6,D} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {2,S}
-15 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3882)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u0 p2 c0 {10,S} {21,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {16,S}
-10 C u0 p0 c0 {4,S} {8,D} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2181)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {7,S} {9,S}
-3  O u0 p2 c0 {8,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {8,S} {10,S} {15,S}
-8  C u1 p0 c0 {3,S} {6,S} {7,S}
-9  C u0 p0 c0 {2,S} {5,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4555)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {8,S}
-3  O u0 p2 c0 {5,S} {17,S}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {9,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-7  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-8  C u1 p0 c0 {2,S} {6,S} {10,S}
-9  C u0 p0 c0 {5,S} {10,D} {15,S}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4696)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {6,S} {7,S}
-3  O u0 p2 c0 {7,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-8  C u1 p0 c0 {5,S} {7,S} {14,S}
-9  C u0 p0 c0 {7,S} {10,D} {15,S}
-10 C u0 p0 c0 {6,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4703)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {9,S} {10,S}
-3  O u0 p2 c0 {5,S} {18,S}
-4  O u0 p2 c0 {5,S} {19,S}
-5  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
-6  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {13,S}
-8  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-9  C u0 p0 c0 {2,S} {5,S} {11,S} {16,S}
-10 C u0 p0 c0 {2,S} {7,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2182)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {5,S} {9,S}
-3  O u0 p2 c0 {4,S} {17,S}
-4  C u0 p0 c0 {3,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {10,S} {14,S}
-6  C u0 p0 c0 {1,S} {7,S} {8,S} {15,S}
-7  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-8  C u1 p0 c0 {1,S} {6,S} {9,S}
-9  C u0 p0 c0 {2,S} {8,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4701)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {9,S}
-2  O u0 p2 c0 {5,S} {8,S}
-3  O u0 p2 c0 {4,S} {17,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {7,S}
-5  C u0 p0 c0 {2,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {10,S} {11,S} {15,S}
-8  C u1 p0 c0 {2,S} {5,S} {6,S}
-9  C u0 p0 c0 {1,S} {5,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4145)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {9,S} {11,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {6,S} {9,D}
-9  C u0 p0 c0 {2,S} {7,S} {8,D}
-10 C u0 p0 c0 {5,S} {11,D} {17,S}
-11 C u0 p0 c0 {4,S} {7,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4733)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {9,S}
-2  O u0 p2 c0 {6,S} {8,S}
-3  O u0 p2 c0 {5,S} {17,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {10,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {10,S} {14,S}
-7  C u0 p0 c0 {4,S} {9,S} {13,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u0 p0 c0 {1,S} {7,S} {8,D}
-10 C u1 p0 c0 {5,S} {6,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4698)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  O u0 p2 c0 {4,S} {17,S}
-4  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {12,S}
-7  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-8  C u0 p0 c0 {4,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {2,S} {6,S} {10,D}
-10 C u1 p0 c0 {8,S} {9,D}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4740)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {6,S} {10,S}
-3  O u0 p2 c0 {6,S} {18,S}
-4  O u0 p2 c0 {5,S} {19,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {8,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {12,S}
-8  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-9  C u0 p0 c0 {6,S} {11,S} {15,S} {16,S}
-10 C u0 p0 c0 {2,S} {7,S} {11,D}
-11 C u0 p0 c0 {9,S} {10,D} {17,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4143)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u0 p2 c0 {8,S} {20,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {9,S} {11,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {6,S} {11,D}
-9  C u0 p0 c0 {2,S} {7,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {17,S}
-11 C u0 p0 c0 {4,S} {7,S} {8,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4540)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {9,S} {20,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-8  C u0 p0 c0 {9,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {2,S} {8,S} {11,D}
-10 C u0 p0 c0 {3,D} {6,S} {8,S}
-11 C u0 p0 c0 {4,S} {7,S} {9,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4541)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {9,S} {20,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {10,S} {11,S} {17,S} {18,S}
-9  C u0 p0 c0 {2,S} {7,S} {11,D}
-10 C u0 p0 c0 {3,D} {6,S} {8,S}
-11 C u0 p0 c0 {4,S} {8,S} {9,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(974)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {9,D} {15,S}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {7,D} {10,S} {16,S}
-10 C u1 p0 c0 {8,D} {9,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4790)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,D} {5,S} {7,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4780)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  O u0 p2 c0 {6,S} {20,S}
-3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {15,S}
-7  C u0 p0 c0 {1,S} {5,S} {10,S} {12,S}
-8  C u0 p0 c0 {9,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,D} {6,S} {8,S}
-10 C u0 p0 c0 {7,S} {11,D} {18,S}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4375)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {9,S} {19,S}
-4  O u0 p2 c0 {11,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {9,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {3,S} {7,S} {8,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {4,S} {8,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4811)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {3,D} {7,S} {10,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u1 p0 c0 {8,S} {9,D}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4379)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {9,S} {11,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {7,S} {18,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,S} {13,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u1 p0 c0 {1,S} {7,S} {11,S}
-10 C u0 p0 c0 {4,S} {8,S} {11,D}
-11 C u0 p0 c0 {1,S} {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {3,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4142)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u0 p2 c0 {8,S} {19,S}
-3  O u0 p2 c0 {9,S} {20,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {11,S} {13,S} {14,S}
-7  C u0 p0 c0 {8,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {11,D}
-9  C u0 p0 c0 {3,S} {7,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {17,S}
-11 C u0 p0 c0 {4,S} {6,S} {8,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4823)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u1 p2 c0 {4,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {3,D} {7,S} {10,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(4822)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u1 p0 c0 {4,S} {6,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {16,S}
-9  C u0 p0 c0 {3,D} {6,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4261)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {6,S} {9,S} {12,S}
-8  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-9  C u1 p0 c0 {1,S} {7,S} {11,S}
-10 C u0 p0 c0 {8,S} {11,D} {17,S}
-11 C u0 p0 c0 {9,S} {10,D} {18,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(970)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u1 p0 c0 {4,S} {10,S} {15,S}
-8  C u0 p0 c0 {3,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4820)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {4,S} {19,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {10,D} {17,S}
-10 C u1 p0 c0 {7,S} {9,D}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {1,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4858)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {6,S} {21,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u0 p0 c0 {3,S} {5,S} {8,S} {12,S}
-7  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {7,S} {11,D} {17,S}
-10 C u0 p0 c0 {4,D} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4894)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {8,S} {21,S}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {9,S} {11,S} {16,S}
-9  C u0 p0 c0 {4,D} {7,S} {8,S}
-10 C u0 p0 c0 {5,S} {11,D} {17,S}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4895)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {8,S}
-4  O u0 p2 c0 {3,S} {21,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {9,S}
-6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {17,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4893)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {7,S} {21,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {3,S} {5,S} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,S} {15,S} {16,S}
-9  C u0 p0 c0 {7,S} {11,D} {17,S}
-10 C u0 p0 c0 {4,D} {8,S} {11,S}
-11 C u0 p0 c0 {9,D} {10,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3627)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {11,S} {20,S}
-4  O u1 p2 c0 {8,S}
-5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-8  C u0 p0 c0 {4,S} {5,S} {9,S} {14,S}
-9  C u0 p0 c0 {8,S} {11,S} {17,S} {18,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {3,S} {9,S} {10,D}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(1799)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {20,S}
-2  O u0 p2 c0 {3,S} {21,S}
-3  C u0 p0 c0 {1,S} {2,S} {4,S} {8,S}
-4  C u0 p0 c0 {3,S} {5,S} {14,S} {15,S}
-5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
-7  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {3,S} {9,D} {19,S}
-9  C u0 p0 c0 {7,S} {8,D} {18,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {1,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(3897)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {20,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  C u0 p0 c0 {4,S} {5,S} {14,S} {15,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,S} {13,S}
-7  C u1 p0 c0 {5,S} {9,S} {16,S}
-8  C u0 p0 c0 {6,S} {9,D} {17,S}
-9  C u0 p0 c0 {7,S} {8,D} {18,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1798)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {20,S}
-2  O u0 p2 c0 {8,S} {21,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
-5  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,S} {16,S}
-7  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
-8  C u0 p0 c0 {2,S} {7,S} {9,D}
-9  C u0 p0 c0 {6,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {1,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(2283)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {8,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {9,S} {10,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,S} {6,S} {10,D}
-9  C u1 p0 c0 {5,S} {7,S} {18,S}
-10 C u0 p0 c0 {7,S} {8,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(904)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {22,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {9,S} {21,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {16,S} {17,S}
-7  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
-8  C u0 p0 c0 {2,S} {5,S} {11,S} {18,S}
-9  C u0 p0 c0 {3,S} {7,S} {10,S} {15,S}
-10 C u0 p0 c0 {9,S} {11,D} {19,S}
-11 C u0 p0 c0 {8,S} {10,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {3,S}
-22 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2489)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {9,S} {20,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {16,S}
-8  C u0 p0 c0 {3,S} {9,S} {11,S} {15,S}
-9  C u1 p0 c0 {4,S} {7,S} {8,S}
-10 C u0 p0 c0 {1,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(3729)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {7,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {3,S} {8,S} {11,S} {14,S}
-8  C u0 p0 c0 {7,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-10 C u1 p0 c0 {1,S} {6,S} {8,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2256)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,S} {19,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,S} {14,S}
-8  C u0 p0 c0 {3,S} {7,S} {11,S} {15,S}
-9  C u1 p0 c0 {5,S} {7,S} {16,S}
-10 C u0 p0 c0 {4,S} {6,S} {11,D}
-11 C u0 p0 c0 {8,S} {10,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(2477)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u0 p2 c0 {10,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,S} {8,S} {11,S} {14,S}
-8  C u0 p0 c0 {7,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {5,S} {11,S} {15,S} {18,S}
-10 C u1 p0 c0 {3,S} {6,S} {8,S}
-11 C u0 p0 c0 {4,D} {7,S} {9,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {2,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='C7H10(480)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  C u0 p0 c0 {2,S} {6,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {3,D} {10,S}
-3  C u0 p0 c0 {2,D} {4,S} {12,S}
-4  C u0 p0 c0 {3,S} {5,D} {13,S}
-5  C u0 p0 c0 {4,D} {7,S} {11,S}
-6  C u1 p0 c0 {1,S} {14,S} {15,S}
-7  C u1 p0 c0 {5,S} {16,S} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H10(483)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-2  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
-5  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
-6  C u0 p0 c0 {2,S} {7,D} {16,S}
-7  C u0 p0 c0 {1,S} {6,D} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H12(578)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
-2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
-3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
-5  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
-6  C u0 p0 c0 {4,S} {7,D} {18,S}
-7  C u0 p0 c0 {5,S} {6,D} {19,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {1,S}
-11 H u0 p0 c0 {1,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {6,S}
-19 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H11(509)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
 1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {3,S} {7,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {14,S} {15,S}
-4  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {5,S} {7,S} {16,S} {17,S}
-7  C u1 p0 c0 {2,S} {6,S} {18,S}
+2  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+3  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {6,D} {14,S}
+5  C u0 p0 c0 {2,S} {7,D} {15,S}
+6  C u0 p0 c0 {2,S} {4,D} {13,S}
+7  C u0 p0 c0 {3,S} {5,D} {12,S}
 8  H u0 p0 c0 {1,S}
 9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C7H11(510)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {6,S} {8,S}
-2  C u0 p0 c0 {1,S} {4,S} {7,S} {9,S}
-3  C u0 p0 c0 {1,S} {5,S} {14,S} {15,S}
-4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
-6  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
-7  C u1 p0 c0 {2,S} {6,S} {18,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(651)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  C u0 p0 c0 {1,S} {4,S} {8,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {17,S}
-6  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
-8  C u0 p0 c0 {3,S} {9,S} {18,S} {19,S}
-9  C u1 p0 c0 {5,S} {8,S} {20,S}
 10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(650)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {6,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
-5  C u0 p0 c0 {3,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {17,S}
-7  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-8  C u0 p0 c0 {7,S} {9,S} {18,S} {19,S}
-9  C u1 p0 c0 {6,S} {8,S} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(620)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {4,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {3,S} {9,S} {17,S}
-5  C u0 p0 c0 {3,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
-8  C u0 p0 c0 {7,S} {9,S} {18,S} {19,S}
-9  C u1 p0 c0 {4,S} {8,S} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {7,S}
 13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {4,S}
 15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {4,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='C7H11(508)',
+    label='S(1189)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  C u0 p0 c0 {2,S} {5,S} {7,S} {8,S}
-2  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
-3  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {6,D} {16,S}
-6  C u0 p0 c0 {4,S} {5,D} {15,S}
-7  C u1 p0 c0 {1,S} {17,S} {18,S}
-8  H u0 p0 c0 {1,S}
+1  O u1 p2 c0 {5,S}
+2  C u0 p0 c0 {3,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {3,S} {7,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {8,D} {18,S}
+8  C u0 p0 c0 {6,S} {7,D} {19,S}
 9  H u0 p0 c0 {3,S}
 10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(889)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {4,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {9,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {17,S} {18,S}
-6  C u0 p0 c0 {3,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-9  C u1 p0 c0 {4,S} {7,S} {19,S}
-10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
 16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {5,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1046)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {7,S} {8,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
-8  C u0 p0 c0 {3,S} {9,D} {20,S}
-9  C u0 p0 c0 {6,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {6,S}
 18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(810)',
+    label='S(1660)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -13576,446 +1451,7 @@ multiplicity 2
 
 
 species(
-    label='S(901)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {3,S} {4,S} {15,S} {16,S}
-7  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
-8  C u0 p0 c0 {5,S} {9,S} {17,S} {18,S}
-9  C u1 p0 c0 {4,S} {8,S} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1297)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {7,S}
-3  O u0 p2 c0 {4,S} {5,S}
-4  O u0 p2 c0 {3,S} {22,S}
-5  C u0 p0 c0 {3,S} {7,S} {9,S} {13,S}
-6  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
-7  C u0 p0 c0 {2,S} {5,S} {11,S} {18,S}
-8  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-9  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-10 C u0 p0 c0 {6,S} {11,S} {19,S} {20,S}
-11 C u1 p0 c0 {7,S} {10,S} {21,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1363)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {20,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {12,S}
-5  C u0 p0 c0 {3,S} {8,S} {13,S} {14,S}
-6  C u1 p0 c0 {4,S} {7,S} {15,S}
-7  C u0 p0 c0 {6,S} {9,D} {16,S}
-8  C u0 p0 c0 {2,D} {5,S} {17,S}
-9  C u0 p0 c0 {7,D} {18,S} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1346)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {9,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u0 p2 c0 {3,S} {22,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {13,S}
-6  C u0 p0 c0 {3,S} {7,S} {10,S} {12,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
-9  C u0 p0 c0 {2,S} {8,S} {11,S} {18,S}
-10 C u0 p0 c0 {6,S} {11,S} {19,S} {20,S}
-11 C u1 p0 c0 {9,S} {10,S} {21,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(1296)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {9,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u0 p2 c0 {3,S} {22,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-7  C u0 p0 c0 {3,S} {10,S} {11,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,S} {18,S} {19,S}
-9  C u0 p0 c0 {2,S} {8,S} {11,S} {20,S}
-10 C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-11 C u1 p0 c0 {7,S} {9,S} {21,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {10,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='C7H10(526)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {4,D} {11,S}
-3  C u0 p0 c0 {1,S} {6,D} {10,S}
-4  C u0 p0 c0 {2,D} {5,S} {13,S}
-5  C u0 p0 c0 {4,S} {7,D} {12,S}
-6  C u0 p0 c0 {3,D} {16,S} {17,S}
-7  C u0 p0 c0 {5,D} {14,S} {15,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='C7H10(529)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {5,D} {13,S}
-5  C u0 p0 c0 {4,D} {6,S} {15,S}
-6  C u0 p0 c0 {5,S} {7,D} {14,S}
-7  C u0 p0 c0 {6,D} {16,S} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(1794)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {8,S} {10,S} {16,S} {17,S}
-8  C u0 p0 c0 {3,D} {5,S} {7,S}
-9  C u0 p0 c0 {6,S} {10,D} {18,S}
-10 C u0 p0 c0 {7,S} {9,D} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H9(500)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {6,S} {8,S}
-2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
-3  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {2,S} {3,S} {12,S} {13,S}
-5  C u1 p0 c0 {2,S} {7,S} {15,S}
-6  C u0 p0 c0 {1,S} {7,D} {14,S}
-7  C u0 p0 c0 {5,S} {6,D} {16,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(1101)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {18,S}
-2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {3,S} {7,D}
-6  C u0 p0 c0 {4,S} {8,D} {15,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u0 p0 c0 {6,D} {7,S} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1437)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
-7  C u0 p0 c0 {4,S} {6,S} {9,D}
-8  C u1 p0 c0 {5,S} {9,S} {18,S}
-9  C u0 p0 c0 {7,D} {8,S} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1546)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {21,S}
-3  C u0 p0 c0 {4,S} {7,S} {8,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
-8  C u0 p0 c0 {3,S} {9,D} {20,S}
-9  C u0 p0 c0 {6,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {8,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1435)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {9,S} {15,S}
-5  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-7  C u0 p0 c0 {6,S} {9,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,S} {3,S} {18,S} {19,S}
-9  C u1 p0 c0 {4,S} {7,S} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(1584)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {10,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
-8  C u0 p0 c0 {6,S} {9,D} {19,S}
-9  C u0 p0 c0 {8,D} {10,S} {20,S}
-10 C u0 p0 c0 {2,D} {9,S} {21,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(2672)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-6  C u1 p0 c0 {4,S} {7,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,D} {15,S}
-8  C u0 p0 c0 {2,D} {5,S} {16,S}
-9  C u0 p0 c0 {7,D} {17,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(1457)',
+    label='S(2171)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -14044,323 +1480,36 @@ multiplicity 2
 
 
 species(
-    label='S(2550)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {7,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-5  C u0 p0 c0 {2,D} {3,S} {8,S}
-6  C u0 p0 c0 {4,S} {9,D} {14,S}
-7  C u0 p0 c0 {1,S} {8,D} {9,S}
-8  C u0 p0 c0 {5,S} {7,D} {16,S}
-9  C u0 p0 c0 {6,D} {7,S} {15,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(2918)',
+    label='S(2308)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {3,S} {9,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {6,S} {7,S} {14,S} {15,S}
-6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {11,S} {16,S}
-8  C u0 p0 c0 {6,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {1,S} {10,S} {19,S} {20,S}
-10 C u0 p0 c0 {8,S} {9,S} {11,D}
-11 C u0 p0 c0 {7,S} {10,D} {21,S}
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {2,S} {8,S} {12,S} {17,S}
+7  C u1 p0 c0 {4,S} {5,S} {18,S}
+8  C u0 p0 c0 {1,D} {6,S} {19,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(2818)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {6,S}
-2  C u0 p0 c0 {1,S} {3,S} {6,S} {7,S}
-3  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
-4  C u0 p0 c0 {3,S} {5,S} {9,S} {10,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {2,S} {15,S} {16,S}
-7  C u0 p0 c0 {2,S} {8,D} {18,S}
-8  C u0 p0 c0 {5,S} {7,D} {17,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(1004)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {4,S} {5,S} {8,S}
-2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {13,S} {14,S} {15,S}
-5  C u1 p0 c0 {1,S} {7,S} {17,S}
-6  C u0 p0 c0 {3,S} {7,D} {16,S}
-7  C u0 p0 c0 {5,S} {6,D} {18,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
 15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(2919)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {10,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-8  C u0 p0 c0 {7,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {1,S} {5,S} {18,S} {19,S}
-10 C u0 p0 c0 {5,S} {11,D} {21,S}
-11 C u0 p0 c0 {8,S} {10,D} {20,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3521)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {7,S} {8,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {15,S}
-7  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
-8  C u0 p0 c0 {3,S} {9,D} {19,S}
-9  C u0 p0 c0 {6,S} {8,D} {20,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
 18 H u0 p0 c0 {7,S}
 19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(3116)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {7,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
-4  C u1 p0 c0 {1,S} {3,S} {12,S}
-5  C u0 p0 c0 {6,S} {7,D} {13,S}
-6  C u0 p0 c0 {5,S} {9,D} {14,S}
-7  C u0 p0 c0 {1,S} {5,D} {15,S}
-8  C u0 p0 c0 {2,D} {3,S} {16,S}
-9  C u0 p0 c0 {6,D} {17,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(3520)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
-8  C u0 p0 c0 {5,S} {9,D} {20,S}
-9  C u0 p0 c0 {6,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(3098)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {17,S}
-8  C u0 p0 c0 {2,S} {5,S} {18,S} {19,S}
-9  C u1 p0 c0 {6,S} {7,S} {20,S}
-10 C u0 p0 c0 {3,D} {7,S} {21,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(1746)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {17,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
-3  C u1 p0 c0 {2,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {8,D} {12,S}
-5  C u0 p0 c0 {3,S} {6,D} {11,S}
-6  C u0 p0 c0 {5,D} {13,S} {14,S}
-7  C u0 p0 c0 {8,D} {15,S} {16,S}
-8  C u0 p0 c0 {4,D} {7,D}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1208)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {5,S}
-2  C u0 p0 c0 {1,S} {3,S} {5,S} {9,S}
-3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {2,S} {7,D}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {5,D} {8,S} {15,S}
-8  C u0 p0 c0 {6,D} {7,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(3230)',
+    label='S(2380)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -14391,415 +1540,7 @@ multiplicity 2
 
 
 species(
-    label='C7H9(817)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {5,S} {9,S}
-2  C u0 p0 c0 {1,S} {3,S} {6,S} {8,S}
-3  C u0 p0 c0 {1,S} {2,S} {10,S} {11,S}
-4  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
-5  C u1 p0 c0 {1,S} {4,S} {14,S}
-6  C u0 p0 c0 {2,S} {7,D} {16,S}
-7  C u0 p0 c0 {4,S} {6,D} {15,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='C7H9(821)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
-2  C u0 p0 c0 {5,S} {6,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {5,D} {11,S}
-4  C u0 p0 c0 {1,S} {6,D} {14,S}
-5  C u0 p0 c0 {2,S} {3,D} {12,S}
-6  C u0 p0 c0 {2,S} {4,D} {13,S}
-7  C u1 p0 c0 {1,S} {15,S} {16,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3547)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {21,S}
-3  C u0 p0 c0 {4,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
-8  C u0 p0 c0 {4,S} {9,D} {20,S}
-9  C u0 p0 c0 {6,S} {8,D} {19,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {8,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1722)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {6,S}
-2  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
-3  C u0 p0 c0 {2,S} {5,S} {9,S} {12,S}
-4  C u0 p0 c0 {2,S} {6,D} {13,S}
-5  C u0 p0 c0 {3,S} {7,D} {14,S}
-6  C u0 p0 c0 {1,S} {4,D} {8,S}
-7  C u0 p0 c0 {5,D} {8,S} {16,S}
-8  C u1 p0 c0 {6,S} {7,S} {15,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3465)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
-4  C u0 p0 c0 {1,S} {6,D} {14,S}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u0 p0 c0 {4,D} {7,S} {16,S}
-7  C u0 p0 c0 {5,D} {6,S} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3461)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-2  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
-3  C u0 p0 c0 {4,S} {12,S} {13,S} {14,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,D}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u0 p0 c0 {4,D} {7,S} {17,S}
-7  C u0 p0 c0 {5,D} {6,S} {16,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {1,S}
-11 H u0 p0 c0 {1,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(4386)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,D}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,D} {2,S} {3,S}
-7  C u0 p0 c0 {3,S} {8,D} {16,S}
-8  C u0 p0 c0 {5,S} {7,D} {15,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3029)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {3,S} {18,S}
-3  C u0 p0 c0 {2,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {14,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,D} {9,S} {15,S}
-8  C u0 p0 c0 {1,S} {6,D} {16,S}
-9  C u1 p0 c0 {1,S} {7,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4697)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,D}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {4,S} {11,S} {14,S}
-6  C u0 p0 c0 {1,D} {2,S} {8,S}
-7  C u0 p0 c0 {3,S} {8,D} {15,S}
-8  C u0 p0 c0 {6,S} {7,D} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(4761)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {5,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {8,S} {9,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
-6  C u0 p0 c0 {3,S} {8,D} {15,S}
-7  C u0 p0 c0 {3,S} {9,D} {18,S}
-8  C u0 p0 c0 {4,S} {6,D} {16,S}
-9  C u0 p0 c0 {4,S} {7,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3158)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,D}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
-5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {8,S} {12,S} {17,S}
-7  C u1 p0 c0 {4,S} {5,S} {18,S}
-8  C u0 p0 c0 {1,D} {6,S} {19,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {4,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(1141)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {3,S}
-3  C u0 p0 c0 {2,S} {5,S} {7,S} {13,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {10,S}
-5  C u0 p0 c0 {3,S} {4,S} {11,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {14,S} {15,S}
-7  C u1 p0 c0 {3,S} {6,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {18,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(5256)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {19,S}
-3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
-5  C u0 p0 c0 {8,S} {9,S} {11,S} {12,S}
-6  C u0 p0 c0 {3,S} {8,D} {15,S}
-7  C u0 p0 c0 {3,S} {9,D} {18,S}
-8  C u0 p0 c0 {5,S} {6,D} {16,S}
-9  C u0 p0 c0 {5,S} {7,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(5229)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {11,S}
-5  C u0 p0 c0 {2,S} {3,S} {14,S} {15,S}
-6  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
-7  C u1 p0 c0 {4,S} {6,S} {16,S}
-8  C u0 p0 c0 {3,S} {9,D} {18,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(3221)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {8,S} {20,S}
-2  C u0 p0 c0 {3,S} {4,S} {7,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
-4  C u0 p0 c0 {2,S} {6,S} {16,S} {17,S}
-5  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-7  C u0 p0 c0 {2,S} {8,D} {18,S}
-8  C u0 p0 c0 {1,S} {7,D} {19,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {3,S}
-16 H u0 p0 c0 {4,S}
-17 H u0 p0 c0 {4,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(5260)',
+    label='S(2504)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -14830,449 +1571,161 @@ multiplicity 2
 
 
 species(
-    label='S(3883)',
+    label='S(2317)',
     reactive=True,
     structure=adjacencyList(
         """
-1 O u0 p2 c0 {4,D}
-2 O u0 p2 c0 {5,D}
-3 C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
-4 C u0 p0 c0 {1,D} {3,S} {8,S}
-5 C u0 p0 c0 {2,D} {3,S} {9,S}
-6 H u0 p0 c0 {3,S}
-7 H u0 p0 c0 {3,S}
-8 H u0 p0 c0 {4,S}
-9 H u0 p0 c0 {5,S}
-        """),
-)
-
-
-species(
-    label='C4H5(2168)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1 C u0 p0 c0 {2,S} {3,D} {5,S}
-2 C u0 p0 c0 {1,S} {4,D} {6,S}
-3 C u0 p0 c0 {1,D} {7,S} {8,S}
-4 C u1 p0 c0 {2,D} {9,S}
-5 H u0 p0 c0 {1,S}
-6 H u0 p0 c0 {2,S}
-7 H u0 p0 c0 {3,S}
-8 H u0 p0 c0 {3,S}
-9 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(4452)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {2,S} {5,S} {6,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {10,D} {14,S}
-8  C u0 p0 c0 {6,D} {15,S} {16,S}
-9  C u0 p0 c0 {10,D} {17,S} {18,S}
-10 C u0 p0 c0 {7,D} {9,D}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3991)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {14,S}
-6  C u0 p0 c0 {5,S} {10,S} {12,S} {13,S}
-7  C u0 p0 c0 {8,S} {9,D} {15,S}
-8  C u0 p0 c0 {7,S} {11,D} {16,S}
-9  C u0 p0 c0 {1,S} {7,D} {17,S}
-10 C u0 p0 c0 {3,D} {6,S} {18,S}
-11 C u0 p0 c0 {8,D} {19,S} {20,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(2728)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {9,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {7,D} {15,S}
-7  C u0 p0 c0 {4,S} {6,D} {14,S}
-8  C u1 p0 c0 {5,S} {17,S} {18,S}
-9  C u0 p0 c0 {2,D} {4,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(1782)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {8,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u0 p2 c0 {2,S} {21,S}
-5  C u0 p0 c0 {6,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {11,S} {13,S}
-7  C u0 p0 c0 {2,S} {5,S} {6,S} {15,S}
-8  C u0 p0 c0 {1,S} {9,S} {10,S} {14,S}
-9  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
-10 C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
-11 C u1 p0 c0 {6,S} {10,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {4,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(5518)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {7,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {14,S}
-6  C u0 p0 c0 {5,S} {10,S} {12,S} {13,S}
-7  C u0 p0 c0 {1,S} {3,S} {8,S} {15,S}
-8  C u1 p0 c0 {7,S} {9,S} {16,S}
-9  C u0 p0 c0 {8,S} {11,D} {17,S}
-10 C u0 p0 c0 {4,D} {6,S} {18,S}
-11 C u0 p0 c0 {9,D} {19,S} {20,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(5530)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {7,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {14,S}
-6  C u0 p0 c0 {5,S} {11,S} {12,S} {13,S}
-7  C u0 p0 c0 {3,S} {8,S} {15,S} {16,S}
-8  C u1 p0 c0 {7,S} {9,S} {17,S}
-9  C u0 p0 c0 {8,S} {10,D} {18,S}
-10 C u0 p0 c0 {1,S} {9,D} {19,S}
-11 C u0 p0 c0 {4,D} {6,S} {20,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(2192)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {6,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
-4  C u0 p0 c0 {1,S} {5,D} {15,S}
-5  C u0 p0 c0 {3,S} {4,D} {14,S}
-6  C u0 p0 c0 {2,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {16,S} {17,S}
-8  H u0 p0 c0 {1,S}
+1  O u0 p2 c0 {8,S} {20,S}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {5,S} {16,S} {17,S}
+7  C u0 p0 c0 {2,S} {8,D} {18,S}
+8  C u0 p0 c0 {1,S} {7,D} {19,S}
 9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
 14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(4947)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {5,S} {8,S} {9,S}
-2  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
-3  C u0 p0 c0 {4,S} {12,S} {13,S} {14,S}
-4  C u0 p0 c0 {3,S} {5,D} {7,S}
-5  C u0 p0 c0 {1,S} {4,D} {15,S}
-6  C u0 p0 c0 {2,S} {7,D} {16,S}
-7  C u0 p0 c0 {4,S} {6,D} {17,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {1,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {3,S}
 15 H u0 p0 c0 {5,S}
 16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='C7H9(2271)',
+    label='S(2325)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {22,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {9,S} {18,S} {19,S}
+7  C u0 p0 c0 {1,S} {4,S} {10,S} {20,S}
+8  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
+9  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+10 C u0 p0 c0 {3,D} {7,S} {21,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(1122)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {7,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {5,D} {11,S}
-4  C u0 p0 c0 {1,S} {6,D} {12,S}
-5  C u0 p0 c0 {3,D} {6,S} {13,S}
-6  C u0 p0 c0 {4,D} {5,S} {14,S}
-7  C u1 p0 c0 {2,S} {15,S} {16,S}
-8  H u0 p0 c0 {1,S}
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {18,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {16,S}
+6  C u1 p0 c0 {3,S} {9,S} {15,S}
+7  C u0 p0 c0 {4,S} {5,D} {14,S}
+8  C u0 p0 c0 {4,S} {9,D} {13,S}
+9  C u0 p0 c0 {6,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(1558)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {2,S} {7,S} {8,S} {11,S}
+5  C u0 p0 c0 {3,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {3,S} {8,D} {17,S}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u0 p0 c0 {4,S} {6,D} {15,S}
+9  C u0 p0 c0 {5,S} {7,D} {14,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(2823)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {7,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,D} {11,S}
+4  C u0 p0 c0 {3,D} {5,S} {13,S}
+5  C u0 p0 c0 {4,S} {6,D} {14,S}
+6  C u0 p0 c0 {5,D} {8,S} {12,S}
+7  C u0 p0 c0 {1,D} {2,S} {15,S}
+8  C u1 p0 c0 {6,S} {16,S} {17,S}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3300)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u1 p0 c0 {3,S} {5,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {7,D}
-6  C u0 p0 c0 {3,S} {9,D} {12,S}
-7  C u0 p0 c0 {5,D} {13,S} {14,S}
-8  C u0 p0 c0 {9,D} {15,S} {16,S}
-9  C u0 p0 c0 {6,D} {8,D}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(5684)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {8,S} {18,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,D}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C2H4(516)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 C u0 p0 c0 {2,D} {3,S} {4,S}
-2 C u0 p0 c0 {1,D} {5,S} {6,S}
-3 H u0 p0 c0 {1,S}
-4 H u0 p0 c0 {1,S}
-5 H u0 p0 c0 {2,S}
-6 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C7H8(642)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
-2  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
-3  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {6,D} {13,S}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u0 p0 c0 {2,S} {4,D} {14,S}
-7  C u0 p0 c0 {3,S} {5,D} {12,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {7,S}
 13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='C5H5(2269)',
+    label='C5H6(960)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  C u1 p0 c0 {2,S} {4,S} {7,S}
-2  C u0 p0 c0 {1,S} {3,D} {6,S}
-3  C u0 p0 c0 {2,D} {5,S} {8,S}
-4  C u0 p0 c0 {1,S} {5,D} {9,S}
-5  C u0 p0 c0 {3,S} {4,D} {10,S}
+multiplicity 3
+1  C u0 p0 c0 {2,D} {3,S} {7,S}
+2  C u0 p0 c0 {1,D} {4,S} {6,S}
+3  C u0 p0 c0 {1,S} {5,D} {8,S}
+4  C u1 p0 c0 {2,S} {9,S} {10,S}
+5  C u1 p0 c0 {3,D} {11,S}
 6  H u0 p0 c0 {2,S}
 7  H u0 p0 c0 {1,S}
 8  H u0 p0 c0 {3,S}
 9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-        """),
-)
-
-
-species(
-    label='S(6120)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
-4  C u0 p0 c0 {3,S} {6,D} {9,S}
-5  C u0 p0 c0 {3,S} {7,D} {10,S}
-6  C u0 p0 c0 {4,D} {7,S} {11,S}
-7  C u0 p0 c0 {5,D} {6,S} {12,S}
-8  H u0 p0 c0 {3,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='C5H6(6116)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
-2  C u0 p0 c0 {1,S} {4,D} {8,S}
-3  C u0 p0 c0 {1,S} {5,D} {9,S}
-4  C u0 p0 c0 {2,D} {5,S} {10,S}
-5  C u0 p0 c0 {3,D} {4,S} {11,S}
-6  H u0 p0 c0 {1,S}
-7  H u0 p0 c0 {1,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {3,S}
 10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {5,S}
         """),
@@ -15280,918 +1733,7 @@ species(
 
 
 species(
-    label='S(6143)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {12,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {7,S}
-3  C u0 p0 c0 {2,S} {5,D} {8,S}
-4  C u0 p0 c0 {2,S} {6,D} {9,S}
-5  C u0 p0 c0 {3,D} {6,S} {10,S}
-6  C u0 p0 c0 {4,D} {5,S} {11,S}
-7  H u0 p0 c0 {2,S}
-8  H u0 p0 c0 {3,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1990)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {17,S}
-2  C u0 p0 c0 {3,S} {4,S} {10,S} {11,S}
-3  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-4  C u0 p0 c0 {2,S} {5,D} {13,S}
-5  C u0 p0 c0 {1,S} {4,D} {7,S}
-6  C u0 p0 c0 {3,S} {8,D} {14,S}
-7  C u1 p0 c0 {5,S} {8,S} {15,S}
-8  C u0 p0 c0 {6,D} {7,S} {16,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(6376)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {9,S} {19,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {6,S} {9,D} {16,S}
-8  C u0 p0 c0 {5,S} {10,D} {17,S}
-9  C u0 p0 c0 {2,S} {7,D} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {18,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(6375)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {7,S} {10,S} {15,S}
-5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,S} {11,S} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {5,S} {7,D} {16,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u0 p0 c0 {4,S} {9,D} {18,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {4,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(5940)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {7,S} {9,S}
-2  O u0 p2 c0 {5,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,S} {4,S} {8,S} {13,S}
-6  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {6,S} {9,D}
-8  C u0 p0 c0 {5,S} {10,D} {16,S}
-9  C u0 p0 c0 {1,S} {7,D} {17,S}
-10 C u0 p0 c0 {3,D} {8,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(6377)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {19,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
-5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {4,S} {9,D}
-8  C u0 p0 c0 {6,S} {10,D} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {17,S}
-10 C u0 p0 c0 {8,D} {9,S} {18,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(6485)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u1 p2 c0 {8,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,D} {16,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u1 p0 c0 {8,D} {18,S}
-10 C u0 p0 c0 {3,D} {7,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(6486)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,S} {18,S}
-2  O u1 p2 c0 {8,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,D} {16,S}
-8  C u0 p0 c0 {2,S} {9,D} {17,S}
-9  C u1 p0 c0 {6,S} {8,D}
-10 C u0 p0 c0 {3,D} {7,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1443)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {6,S}
-2  C u0 p0 c0 {3,S} {6,S} {7,S} {9,S}
-3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {2,S} {16,S} {17,S}
-7  C u0 p0 c0 {2,S} {8,D} {18,S}
-8  C u0 p0 c0 {5,S} {7,D} {19,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(5102)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {17,S}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {4,S} {11,S} {14,S}
-6  C u0 p0 c0 {1,S} {2,S} {8,D}
-7  C u1 p0 c0 {3,S} {8,S} {15,S}
-8  C u0 p0 c0 {6,D} {7,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='C6H9(674)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
-4  C u1 p0 c0 {2,S} {6,S} {13,S}
-5  C u0 p0 c0 {3,S} {6,D} {14,S}
-6  C u0 p0 c0 {4,S} {5,D} {15,S}
-7  H u0 p0 c0 {1,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(6588)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  C u0 p0 c0 {3,S} {5,S} {7,S} {9,S}
-3  C u0 p0 c0 {2,S} {6,S} {10,S} {11,S}
-4  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {2,S} {14,S} {15,S}
-6  C u1 p0 c0 {3,S} {4,S} {16,S}
-7  C u0 p0 c0 {2,S} {8,D} {17,S}
-8  C u0 p0 c0 {4,S} {7,D} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(6589)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {19,S}
-2  C u0 p0 c0 {3,S} {6,S} {7,S} {9,S}
-3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
-6  C u0 p0 c0 {1,S} {2,S} {16,S} {17,S}
-7  C u0 p0 c0 {2,S} {8,D} {18,S}
-8  C u1 p0 c0 {5,S} {7,D}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='CH2O(6573)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {2,D}
-2 C u0 p0 c0 {1,D} {3,S} {4,S}
-3 H u0 p0 c0 {2,S}
-4 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1788)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {11,S}
-3  O u0 p2 c0 {1,S} {22,S}
-4  O u0 p2 c0 {2,S} {21,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {11,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {6,S} {10,D} {19,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 C u1 p0 c0 {2,S} {6,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {4,S}
-22 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3871)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {7,S} {9,S}
-5  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {4,S} {8,D} {16,S}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(6713)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {8,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {6,S} {8,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {4,S} {17,S} {18,S}
-9  C u0 p0 c0 {4,S} {10,D} {19,S}
-10 C u0 p0 c0 {7,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(6675)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  C u0 p0 c0 {3,S} {5,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {6,S} {8,S} {11,S}
-4  C u0 p0 c0 {5,S} {7,S} {8,S} {10,S}
-5  C u0 p0 c0 {2,S} {4,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {3,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {4,S} {16,S} {17,S}
-8  C u1 p0 c0 {3,S} {4,S} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7117)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {20,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {6,S} {8,S} {10,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {5,S} {9,D} {18,S}
-9  C u0 p0 c0 {7,S} {8,D} {17,S}
-10 C u0 p0 c0 {3,D} {5,S} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='C6H8(3463)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {5,D} {11,S}
-4  C u0 p0 c0 {2,S} {6,D} {12,S}
-5  C u0 p0 c0 {3,D} {6,S} {13,S}
-6  C u0 p0 c0 {4,D} {5,S} {14,S}
-7  H u0 p0 c0 {1,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(7169)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {20,S}
-3  O u0 p2 c0 {1,S} {21,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,S} {8,S} {16,S} {17,S}
-8  C u0 p0 c0 {5,S} {7,S} {10,D}
-9  C u1 p0 c0 {6,S} {10,S} {18,S}
-10 C u0 p0 c0 {8,D} {9,S} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {2,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4682)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {18,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {9,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {3,S} {8,D} {16,S}
-8  C u0 p0 c0 {6,S} {7,D} {17,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(6680)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  C u0 p0 c0 {4,S} {5,S} {6,S} {9,S}
-3  C u0 p0 c0 {4,S} {7,S} {8,S} {10,S}
-4  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {2,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {7,D} {15,S}
-7  C u0 p0 c0 {3,S} {6,D} {16,S}
-8  C u1 p0 c0 {3,S} {17,S} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(6336)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {12,S}
-2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,D}
-4  C u0 p0 c0 {2,S} {6,D} {9,S}
-5  C u0 p0 c0 {3,D} {6,S} {10,S}
-6  C u0 p0 c0 {4,D} {5,S} {11,S}
-7  H u0 p0 c0 {2,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7301)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {8,S} {21,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-8  C u0 p0 c0 {2,S} {9,S} {18,S} {19,S}
-9  C u0 p0 c0 {6,S} {8,S} {10,D}
-10 C u0 p0 c0 {7,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4453)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {19,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {7,D} {14,S}
-7  C u0 p0 c0 {5,S} {6,D} {15,S}
-8  C u0 p0 c0 {4,S} {10,D} {16,S}
-9  C u0 p0 c0 {10,D} {17,S} {18,S}
-10 C u0 p0 c0 {8,D} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7459)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-3  C u0 p0 c0 {2,S} {8,S} {9,S} {10,S}
-4  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {4,S} {5,S} {8,D}
-7  C u1 p0 c0 {2,S} {4,S} {17,S}
-8  C u0 p0 c0 {3,S} {6,D} {18,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {2,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7469)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  O u0 p2 c0 {9,S} {21,S}
-4  C u0 p0 c0 {1,S} {6,S} {9,S} {10,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {11,S}
-6  C u0 p0 c0 {4,S} {5,S} {14,S} {15,S}
-7  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
-8  C u0 p0 c0 {7,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {4,S} {18,S} {19,S}
-10 C u1 p0 c0 {4,S} {8,S} {20,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(7517)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {19,S}
-2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
-3  C u0 p0 c0 {2,S} {4,S} {5,S} {9,S}
-4  C u0 p0 c0 {2,S} {3,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,S} {2,S} {16,S} {17,S}
-8  C u1 p0 c0 {2,S} {6,S} {18,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7470)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  O u0 p2 c0 {9,S} {21,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {7,S} {10,S} {16,S}
-6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
-8  C u0 p0 c0 {4,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {3,S} {10,S} {19,S} {20,S}
-10 C u1 p0 c0 {5,S} {8,S} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4332)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {16,S}
-2  C u0 p0 c0 {1,S} {3,D} {5,S}
-3  C u0 p0 c0 {2,D} {4,S} {9,S}
-4  C u0 p0 c0 {3,S} {6,D} {10,S}
-5  C u0 p0 c0 {2,S} {8,D} {11,S}
-6  C u0 p0 c0 {4,D} {12,S} {13,S}
-7  C u0 p0 c0 {8,D} {14,S} {15,S}
-8  C u0 p0 c0 {5,D} {7,D}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3091)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {17,S}
-7  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {2,S} {7,S} {18,S} {19,S}
-9  C u0 p0 c0 {6,S} {10,D} {20,S}
-10 C u0 p0 c0 {3,S} {9,D} {21,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(1395)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {7,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
-3  C u1 p0 c0 {2,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {6,D} {11,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,D} {8,S} {12,S}
-7  C u0 p0 c0 {1,S} {5,D} {14,S}
-8  C u1 p0 c0 {6,S} {15,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(3140)',
+    label='S(2292)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -16218,290 +1760,192 @@ species(
 
 
 species(
-    label='S(7527)',
+    label='C5H6(2966)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  C u0 p0 c0 {3,S} {6,S} {8,S} {9,S}
-3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {6,S} {14,S} {15,S}
-6  C u0 p0 c0 {2,S} {5,S} {7,D}
-7  C u0 p0 c0 {4,S} {6,D} {16,S}
-8  C u1 p0 c0 {2,S} {17,S} {18,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {1,S}
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {6,S}
+2  C u0 p0 c0 {1,S} {3,D} {8,S}
+3  C u0 p0 c0 {1,S} {2,D} {9,S}
+4  C u0 p0 c0 {1,S} {5,D} {7,S}
+5  C u0 p0 c0 {4,D} {10,S} {11,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {4,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
         """),
 )
 
 
 species(
-    label='S(7756)',
+    label='C5H6(118)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {5,D} {8,S}
+3  C u0 p0 c0 {1,S} {4,D} {9,S}
+4  C u0 p0 c0 {3,D} {5,S} {10,S}
+5  C u0 p0 c0 {2,D} {4,S} {11,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(2795)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {2,S} {6,D} {7,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,D}
-6  C u0 p0 c0 {4,D} {5,S} {13,S}
-7  C u0 p0 c0 {4,S} {8,D} {11,S}
-8  C u0 p0 c0 {7,D} {10,S} {12,S}
-9  C u0 p0 c0 {5,D} {16,S} {17,S}
-10 C u1 p0 c0 {8,S} {14,S} {15,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(7411)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {12,S}
-2  C u0 p0 c0 {3,S} {5,S} {7,S} {8,S}
-3  C u0 p0 c0 {2,S} {4,D} {9,S}
-4  C u0 p0 c0 {1,S} {3,D} {6,S}
-5  C u0 p0 c0 {2,S} {6,D} {10,S}
-6  C u0 p0 c0 {4,S} {5,D} {11,S}
-7  H u0 p0 c0 {2,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7682)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {8,S}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {2,S} {8,D} {15,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {1,S} {6,D} {16,S}
-9  H u0 p0 c0 {2,S}
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u1 p0 c0 {3,S} {7,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,D} {11,S}
+6  C u0 p0 c0 {5,D} {8,S} {14,S}
+7  C u0 p0 c0 {4,S} {9,D} {13,S}
+8  C u1 p0 c0 {2,S} {6,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
 10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(1403)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {7,S}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {10,S}
-3  C u0 p0 c0 {2,S} {4,S} {5,S} {9,S}
-4  C u0 p0 c0 {1,S} {2,S} {3,S} {11,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {2,S} {8,D} {12,S}
-7  C u0 p0 c0 {1,S} {5,D} {14,S}
-8  C u0 p0 c0 {6,D} {15,S} {16,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(4099)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {7,S} {17,S}
-3  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-4  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {4,S} {8,D}
-7  C u0 p0 c0 {2,S} {5,S} {9,D}
-8  C u0 p0 c0 {3,S} {6,D} {15,S}
-9  C u0 p0 c0 {3,S} {7,D} {16,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4476)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
-4  C u0 p0 c0 {3,S} {7,S} {9,S} {10,S}
-5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,D} {4,S} {6,S}
-8  C u0 p0 c0 {3,S} {9,D} {15,S}
-9  C u0 p0 c0 {4,S} {8,D} {16,S}
-10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
 14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {8,S}
 16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(3354)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {3,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u1 p0 c0 {3,S} {7,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,D} {11,S}
+6  C u0 p0 c0 {5,D} {8,S} {14,S}
+7  C u0 p0 c0 {4,S} {9,D} {13,S}
+8  C u0 p0 c0 {2,D} {6,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(3382)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,D} {3,S} {6,S}
+5  C u0 p0 c0 {3,S} {8,D} {12,S}
+6  C u0 p0 c0 {4,S} {7,D} {13,S}
+7  C u0 p0 c0 {6,D} {9,S} {14,S}
+8  C u0 p0 c0 {5,D} {16,S} {17,S}
+9  C u0 p0 c0 {2,D} {7,S} {15,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(1055)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {6,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {5,D} {15,S}
+5  C u0 p0 c0 {3,S} {4,D} {14,S}
+6  C u0 p0 c0 {2,S} {7,D} {13,S}
+7  C u0 p0 c0 {6,D} {16,S} {17,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(1190)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {17,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {7,D} {13,S}
+5  C u0 p0 c0 {3,S} {6,D} {12,S}
+6  C u0 p0 c0 {5,D} {8,S} {16,S}
+7  C u0 p0 c0 {4,D} {8,S} {15,S}
+8  C u1 p0 c0 {6,S} {7,S} {14,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
 17 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(7165)',
+    label='S(2980)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {7,S}
-3  O u0 p2 c0 {9,S} {21,S}
-4  C u0 p0 c0 {6,S} {7,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {10,S} {15,S}
-8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,S} {4,S} {18,S} {19,S}
-10 C u1 p0 c0 {7,S} {8,S} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(4063)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {10,S} {19,S}
-2  O u1 p2 c0 {6,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {9,S} {11,S} {12,S}
-6  C u0 p0 c0 {2,S} {4,S} {7,D}
-7  C u0 p0 c0 {6,D} {8,S} {16,S}
-8  C u0 p0 c0 {7,S} {10,D} {15,S}
-9  C u0 p0 c0 {3,D} {5,S} {17,S}
-10 C u0 p0 c0 {1,S} {8,D} {18,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1928)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {22,S}
-2  O u0 p2 c0 {4,S} {7,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {5,S} {9,S} {15,S}
-8  C u0 p0 c0 {6,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {7,S} {11,D} {18,S}
-10 C u0 p0 c0 {3,D} {8,S} {19,S}
-11 C u0 p0 c0 {9,D} {20,S} {21,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(1823)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {18,S}
-2  C u0 p0 c0 {3,S} {6,S} {9,S} {10,S}
-3  C u0 p0 c0 {2,S} {7,S} {11,S} {12,S}
-4  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-5  C u0 p0 c0 {1,S} {4,S} {6,D}
-6  C u0 p0 c0 {2,S} {5,D} {15,S}
-7  C u0 p0 c0 {3,S} {8,D} {17,S}
-8  C u0 p0 c0 {4,S} {7,D} {16,S}
+1  O u1 p2 c0 {8,S}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {6,D} {7,S}
+6  C u0 p0 c0 {4,S} {5,D} {15,S}
+7  C u0 p0 c0 {5,S} {8,D} {16,S}
+8  C u0 p0 c0 {1,S} {7,D} {17,S}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {3,S}
@@ -16509,276 +1953,669 @@ species(
 13 H u0 p0 c0 {4,S}
 14 H u0 p0 c0 {4,S}
 15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(5235)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {4,S}
-2  C u0 p0 c0 {4,S} {5,S} {6,S} {9,S}
-3  C u0 p0 c0 {7,S} {8,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {2,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,S} {7,D} {14,S}
-6  C u0 p0 c0 {2,S} {8,D} {16,S}
-7  C u0 p0 c0 {3,S} {5,D} {15,S}
-8  C u0 p0 c0 {3,S} {6,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
 17 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='C6H7(4420)',
+    label='S(2999)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
-2  C u1 p0 c0 {1,S} {5,S} {10,S}
-3  C u0 p0 c0 {1,S} {4,D} {9,S}
-4  C u0 p0 c0 {3,D} {6,S} {11,S}
-5  C u0 p0 c0 {2,S} {6,D} {13,S}
-6  C u0 p0 c0 {4,S} {5,D} {12,S}
-7  H u0 p0 c0 {1,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-        """),
-)
-
-
-species(
-    label='S(8312)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {17,S}
-2  C u0 p0 c0 {3,S} {5,S} {7,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {10,S} {11,S}
-4  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,S} {6,D} {14,S}
-6  C u0 p0 c0 {4,S} {5,D} {15,S}
-7  C u0 p0 c0 {2,S} {8,D} {16,S}
-8  C u1 p0 c0 {4,S} {7,D}
-9  H u0 p0 c0 {2,S}
+1  O u0 p2 c0 {7,S} {20,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {8,S} {9,S} {18,S}
+8  C u1 p0 c0 {5,S} {6,S} {7,S}
+9  C u0 p0 c0 {2,D} {7,S} {19,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {4,S}
 14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(4179)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {19,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {5,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,S} {4,S} {8,S} {14,S}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {6,S} {10,D} {16,S}
+9  C u0 p0 c0 {7,D} {10,S} {18,S}
+10 C u0 p0 c0 {8,D} {9,S} {17,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(4177)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {19,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
+5  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {9,S} {10,S} {14,S}
+7  C u0 p0 c0 {4,S} {10,D} {16,S}
+8  C u0 p0 c0 {5,S} {9,D} {15,S}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 C u0 p0 c0 {6,S} {7,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
 16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(4178)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {19,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {10,D} {16,S}
+8  C u0 p0 c0 {6,S} {9,D} {15,S}
+9  C u0 p0 c0 {8,D} {10,S} {18,S}
+10 C u0 p0 c0 {7,D} {9,S} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(2929)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {17,S}
+2  C u0 p0 c0 {3,D} {5,S} {10,S}
+3  C u0 p0 c0 {2,D} {4,S} {12,S}
+4  C u0 p0 c0 {3,S} {6,D} {13,S}
+5  C u0 p0 c0 {2,S} {7,D} {9,S}
+6  C u0 p0 c0 {4,D} {8,S} {11,S}
+7  C u0 p0 c0 {1,S} {5,D} {14,S}
+8  C u1 p0 c0 {6,S} {15,S} {16,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
 17 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(8307)',
+    label='S(4584)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {3,S} {4,S}
-2  C u0 p0 c0 {3,S} {4,S} {7,S} {9,S}
-3  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {2,S} {13,S} {14,S}
-5  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
-6  C u1 p0 c0 {3,S} {5,S} {15,S}
-7  C u0 p0 c0 {2,S} {8,D} {16,S}
-8  C u0 p0 c0 {5,S} {7,D} {17,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
+2  O u0 p2 c0 {9,S} {19,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,D} {13,S}
+6  C u0 p0 c0 {4,S} {10,D} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {15,S}
+8  C u0 p0 c0 {7,S} {9,D} {14,S}
+9  C u0 p0 c0 {2,S} {8,D} {16,S}
+10 C u0 p0 c0 {6,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(8301)',
+    label='S(4586)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {19,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {2,S} {5,S} {11,S}
+5  C u0 p0 c0 {4,S} {6,D} {12,S}
+6  C u0 p0 c0 {5,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,D} {15,S}
+8  C u0 p0 c0 {7,D} {9,S} {16,S}
+9  C u0 p0 c0 {8,S} {10,D} {14,S}
+10 C u0 p0 c0 {9,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(4585)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,S} {19,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,D} {13,S}
+6  C u0 p0 c0 {4,S} {9,D} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {15,S}
+8  C u0 p0 c0 {7,S} {10,D} {14,S}
+9  C u0 p0 c0 {2,S} {6,D} {16,S}
+10 C u0 p0 c0 {8,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(2907)',
     reactive=True,
     structure=adjacencyList(
         """
 1  O u0 p2 c0 {8,D}
-2  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
-3  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,D} {13,S}
-5  C u0 p0 c0 {2,S} {7,D} {15,S}
-6  C u0 p0 c0 {3,S} {4,D} {12,S}
-7  C u0 p0 c0 {3,S} {5,D} {14,S}
-8  C u0 p0 c0 {1,D} {2,S} {16,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
+2  C u0 p0 c0 {3,D} {5,S} {10,S}
+3  C u0 p0 c0 {2,D} {4,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,D} {12,S}
+5  C u0 p0 c0 {2,S} {7,D} {9,S}
+6  C u0 p0 c0 {4,D} {8,S} {13,S}
+7  C u0 p0 c0 {5,D} {14,S} {15,S}
+8  C u0 p0 c0 {1,D} {6,S} {16,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='C6H6(8362)',
+    label='S(4183)',
     reactive=True,
     structure=adjacencyList(
         """
-1  C u0 p0 c0 {2,B} {3,B} {7,S}
-2  C u0 p0 c0 {1,B} {4,B} {8,S}
-3  C u0 p0 c0 {1,B} {5,B} {9,S}
-4  C u0 p0 c0 {2,B} {6,B} {10,S}
-5  C u0 p0 c0 {3,B} {6,B} {11,S}
-6  C u0 p0 c0 {4,B} {5,B} {12,S}
-7  H u0 p0 c0 {1,S}
-8  H u0 p0 c0 {2,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {8,S} {22,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+6  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {10,S} {18,S} {19,S}
+8  C u0 p0 c0 {2,S} {5,S} {11,S} {20,S}
+9  C u0 p0 c0 {6,S} {10,S} {12,S} {13,S}
+10 C u0 p0 c0 {7,S} {9,S} {14,S} {15,S}
+11 C u0 p0 c0 {3,D} {8,S} {21,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {8,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(8420)',
+    label='S(4181)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
-4  C u0 p0 c0 {7,S} {8,S} {10,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,D} {14,S}
-6  C u0 p0 c0 {3,S} {7,D} {15,S}
-7  C u0 p0 c0 {4,S} {6,D} {13,S}
-8  C u0 p0 c0 {4,S} {5,D} {12,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {4,S}
+1  O u0 p2 c0 {3,S} {7,S}
+2  O u0 p2 c0 {10,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
+7  C u0 p0 c0 {1,S} {8,S} {10,S} {17,S}
+8  C u0 p0 c0 {5,S} {7,S} {9,D}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 C u0 p0 c0 {2,D} {7,S} {19,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(8419)',
+    label='S(4182)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u1 p2 c0 {1,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
-4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,D} {13,S}
-6  C u0 p0 c0 {4,S} {7,D} {12,S}
-7  C u0 p0 c0 {6,D} {8,S} {14,S}
-8  C u0 p0 c0 {5,D} {7,S} {15,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {10,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {8,S} {15,S}
+5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
+7  C u0 p0 c0 {6,S} {8,S} {16,S} {17,S}
+8  C u0 p0 c0 {4,S} {7,S} {9,D}
+9  C u0 p0 c0 {8,D} {10,S} {18,S}
+10 C u0 p0 c0 {2,D} {9,S} {19,S}
+11 H u0 p0 c0 {6,S}
 12 H u0 p0 c0 {6,S}
 13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='C6H7(8368)',
+    label='S(2408)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  C u0 p0 c0 {2,S} {3,S} {5,S} {8,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,S} {7,S}
-3  C u0 p0 c0 {1,S} {2,S} {9,S} {10,S}
-4  C u1 p0 c0 {2,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {6,D} {12,S}
-6  C u0 p0 c0 {4,S} {5,D} {13,S}
-7  H u0 p0 c0 {2,S}
-8  H u0 p0 c0 {1,S}
-9  H u0 p0 c0 {3,S}
+1  O u0 p2 c0 {3,S} {8,S}
+2  C u0 p0 c0 {4,S} {5,S} {7,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+6  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {8,S} {17,S} {18,S}
+8  C u1 p0 c0 {1,S} {7,S} {19,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(5142)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {7,S} {10,S} {15,S}
+5  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {4,S} {8,S} {9,D}
+8  C u1 p0 c0 {5,S} {7,S} {16,S}
+9  C u0 p0 c0 {6,S} {7,D} {17,S}
+10 C u0 p0 c0 {3,D} {4,S} {18,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(5164)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  O u1 p2 c0 {10,S}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
+5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {4,S} {8,D} {9,S}
+8  C u0 p0 c0 {6,S} {7,D} {16,S}
+9  C u0 p0 c0 {7,S} {10,D} {17,S}
+10 C u0 p0 c0 {3,S} {9,D} {18,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C5H7(596)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {3,S} {8,S} {9,S}
+3  C u1 p0 c0 {2,S} {5,S} {10,S}
+4  C u0 p0 c0 {1,S} {5,D} {11,S}
+5  C u0 p0 c0 {3,S} {4,D} {12,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(3269)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,S} {10,S}
+5  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {4,S} {7,D} {14,S}
+7  C u0 p0 c0 {5,S} {6,D} {13,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H9(1521)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {7,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,D} {11,S}
+4  C u0 p0 c0 {1,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,D} {6,S} {13,S}
+6  C u0 p0 c0 {4,D} {5,S} {14,S}
+7  C u1 p0 c0 {2,S} {15,S} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H5(98)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u1 p0 c0 {2,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {3,D} {7,S}
+3  C u0 p0 c0 {2,D} {4,S} {8,S}
+4  C u0 p0 c0 {3,S} {5,D} {9,S}
+5  C u0 p0 c0 {1,S} {4,D} {10,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(5256)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {1,S} {7,S} {9,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {5,S} {8,D}
+8  C u0 p0 c0 {6,S} {7,D} {16,S}
+9  C u0 p0 c0 {2,D} {5,S} {17,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
 13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='CH3(3464)',
+    label='S(5475)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 C u1 p0 c0 {2,S} {3,S} {4,S}
-2 H u0 p0 c0 {1,S}
-3 H u0 p0 c0 {1,S}
-4 H u0 p0 c0 {1,S}
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
+4  C u0 p0 c0 {3,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,D} {7,S} {11,S}
+7  C u0 p0 c0 {5,D} {6,S} {12,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='CH4(8506)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
-2 H u0 p0 c0 {1,S}
-3 H u0 p0 c0 {1,S}
-4 H u0 p0 c0 {1,S}
-5 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(8508)',
+    label='S(5116)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u0 p2 c0 {2,S} {3,S}
-2 O u1 p2 c0 {1,S}
-3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
-4 H u0 p0 c0 {3,S}
-5 H u0 p0 c0 {3,S}
-6 H u0 p0 c0 {3,S}
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {10,S} {21,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {10,S}
+6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {9,S} {18,S} {19,S}
+8  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
+9  C u0 p0 c0 {7,S} {8,S} {14,S} {15,S}
+10 C u0 p0 c0 {2,S} {5,S} {11,S} {20,S}
+11 C u1 p0 c0 {4,D} {10,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(4588)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {10,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u1 p0 c0 {4,S} {7,S} {13,S}
+6  C u0 p0 c0 {4,S} {9,D} {12,S}
+7  C u0 p0 c0 {5,S} {8,D} {15,S}
+8  C u0 p0 c0 {7,D} {10,S} {14,S}
+9  C u0 p0 c0 {6,D} {17,S} {18,S}
+10 C u0 p0 c0 {2,D} {8,S} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(3423)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u1 p0 c0 {4,S} {8,S} {13,S}
+6  C u0 p0 c0 {4,S} {7,D} {12,S}
+7  C u0 p0 c0 {6,D} {9,S} {15,S}
+8  C u0 p0 c0 {5,S} {10,D} {14,S}
+9  C u0 p0 c0 {2,D} {7,S} {16,S}
+10 C u0 p0 c0 {8,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
         """),
 )
 
@@ -16789,82 +2626,107 @@ species(
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u0 p2 c0 {5,S} {10,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u0 p2 c0 {3,S} {6,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {5,S} {16,S}
-7  C u0 p0 c0 {1,S} {3,S} {8,S} {15,S}
-8  C u0 p0 c0 {7,S} {10,S} {13,S} {14,S}
-9  C u0 p0 c0 {5,S} {11,D} {17,S}
-10 C u1 p0 c0 {2,S} {8,S} {18,S}
-11 C u0 p0 c0 {9,D} {19,S} {20,S}
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,S} {19,S}
+3  O u0 p2 c0 {1,S} {20,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {6,S} {7,S} {16,S} {17,S}
+9  C u1 p0 c0 {2,S} {4,S} {18,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(3863)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,S} {17,S}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {5,S} {7,D}
+7  C u0 p0 c0 {1,S} {6,D} {16,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(5102)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {9,S} {11,S}
+5  C u0 p0 c0 {4,S} {6,D} {12,S}
+6  C u0 p0 c0 {5,D} {7,S} {15,S}
+7  C u0 p0 c0 {6,S} {8,D} {14,S}
+8  C u0 p0 c0 {7,D} {10,S} {13,S}
+9  C u0 p0 c0 {2,D} {4,S} {16,S}
+10 C u1 p0 c0 {8,S} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(8617)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {18,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,S} {3,S} {8,D}
-7  C u0 p0 c0 {4,S} {9,D} {17,S}
-8  C u0 p0 c0 {5,S} {6,D} {15,S}
-9  C u0 p0 c0 {5,S} {7,D} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(1142)',
+    label='S(5729)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
 1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {3,S}
-3  C u0 p0 c0 {2,S} {6,S} {7,S} {11,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {10,S}
-5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {9,S} {14,S} {15,S}
-7  C u1 p0 c0 {3,S} {5,S} {16,S}
-8  C u0 p0 c0 {4,S} {9,D} {18,S}
-9  C u0 p0 c0 {6,S} {8,D} {17,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {2,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {4,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,S} {6,D} {16,S}
+9  C u0 p0 c0 {7,D} {10,S} {17,S}
+10 C u0 p0 c0 {3,D} {9,S} {18,S}
+11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
 17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {10,S}
         """),
 )
 
@@ -16874,664 +2736,130 @@ species(
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {8,S} {11,S}
-3  O u0 p2 c0 {4,S} {5,S}
-4  O u0 p2 c0 {3,S} {7,S}
-5  C u0 p0 c0 {1,S} {3,S} {6,S} {14,S}
-6  C u0 p0 c0 {5,S} {11,S} {12,S} {13,S}
-7  C u0 p0 c0 {1,S} {4,S} {9,S} {15,S}
-8  C u0 p0 c0 {2,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {7,S} {10,D} {18,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 C u1 p0 c0 {2,S} {6,S} {20,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(2569)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {18,S}
-3  O u0 p2 c0 {1,S} {19,S}
-4  C u0 p0 c0 {2,S} {6,D} {7,S}
-5  C u0 p0 c0 {1,S} {6,S} {9,D}
-6  C u0 p0 c0 {4,D} {5,S} {13,S}
-7  C u0 p0 c0 {4,S} {8,D} {12,S}
-8  C u0 p0 c0 {7,D} {10,S} {11,S}
-9  C u0 p0 c0 {5,D} {16,S} {17,S}
-10 C u1 p0 c0 {8,S} {14,S} {15,S}
-11 H u0 p0 c0 {8,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {2,S}
-19 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(9111)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {20,S}
-2  O u0 p2 c0 {4,S} {6,S}
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {5,S}
 3  O u0 p2 c0 {9,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {11,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,D} {5,S} {6,S}
-10 C u0 p0 c0 {7,S} {11,D} {19,S}
-11 C u0 p0 c0 {8,S} {10,D} {18,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
+6  C u0 p0 c0 {4,S} {7,D} {14,S}
+7  C u0 p0 c0 {5,S} {6,D} {15,S}
+8  C u0 p0 c0 {4,S} {10,D} {13,S}
+9  C u0 p0 c0 {3,D} {5,S} {16,S}
+10 C u0 p0 c0 {8,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(4080)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {17,S}
-2  O u0 p2 c0 {6,D}
-3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
-4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
-5  C u0 p0 c0 {1,S} {3,S} {7,D}
-6  C u0 p0 c0 {2,D} {4,S} {8,S}
-7  C u0 p0 c0 {5,D} {9,S} {15,S}
-8  C u0 p0 c0 {6,S} {9,D} {14,S}
-9  C u0 p0 c0 {7,S} {8,D} {16,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(4820)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {2,D} {3,S} {6,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,D}
-7  C u0 p0 c0 {4,S} {9,D} {14,S}
-8  C u0 p0 c0 {6,D} {9,S} {15,S}
-9  C u0 p0 c0 {7,D} {8,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7861)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {5,S} {17,S}
-3  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,D}
-5  C u0 p0 c0 {2,S} {6,S} {7,D}
-6  C u0 p0 c0 {4,D} {5,S} {12,S}
-7  C u0 p0 c0 {5,D} {8,S} {13,S}
-8  C u0 p0 c0 {7,S} {9,D} {14,S}
-9  C u0 p0 c0 {8,D} {15,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(8607)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,D} {3,S} {4,S}
-6  C u0 p0 c0 {3,S} {8,D} {13,S}
-7  C u0 p0 c0 {4,S} {9,D} {14,S}
-8  C u0 p0 c0 {6,D} {9,S} {15,S}
-9  C u0 p0 c0 {7,D} {8,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3191)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u1 p2 c0 {6,S}
-3  C u0 p0 c0 {1,S} {4,D} {5,S}
-4  C u0 p0 c0 {3,D} {6,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {11,S}
-6  C u0 p0 c0 {2,S} {4,S} {9,D}
-7  C u0 p0 c0 {5,D} {8,S} {10,S}
-8  C u1 p0 c0 {7,S} {13,S} {14,S}
-9  C u0 p0 c0 {6,D} {15,S} {16,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(7855)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {5,S} {17,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {8,D}
-5  C u0 p0 c0 {2,S} {3,S} {6,D}
-6  C u0 p0 c0 {5,D} {7,S} {11,S}
-7  C u0 p0 c0 {6,S} {9,D} {12,S}
-8  C u0 p0 c0 {4,D} {15,S} {16,S}
-9  C u0 p0 c0 {7,D} {13,S} {14,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {9,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4818)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {18,S}
-2  O u0 p2 c0 {8,S} {17,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {9,D}
-7  C u0 p0 c0 {3,D} {5,S} {8,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,D}
-9  C u0 p0 c0 {6,D} {10,S} {16,S}
-10 C u0 p0 c0 {8,D} {9,S} {15,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {2,S}
-18 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3594)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {18,S}
-2  O u0 p2 c0 {7,D}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-7  C u0 p0 c0 {2,D} {4,S} {5,S}
-8  C u0 p0 c0 {3,D} {4,S} {10,S}
-9  C u0 p0 c0 {6,S} {10,D} {16,S}
-10 C u0 p0 c0 {8,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {9,S}
 17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(5182)',
+    label='S(3425)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {6,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,S} {4,S} {7,D}
-7  C u0 p0 c0 {5,S} {6,D} {14,S}
-8  C u0 p0 c0 {3,D} {4,S} {10,S}
-9  C u0 p0 c0 {5,S} {10,D} {15,S}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u1 p2 c0 {5,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {2,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {4,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,S} {6,D} {16,S}
+9  C u0 p0 c0 {7,D} {10,S} {17,S}
+10 C u0 p0 c0 {3,D} {9,S} {18,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(4657)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {17,S}
-2  O u0 p2 c0 {7,S} {18,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
-5  C u0 p0 c0 {4,S} {8,S} {11,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {7,D}
-7  C u0 p0 c0 {2,S} {6,D} {9,S}
-8  C u0 p0 c0 {3,D} {5,S} {10,S}
-9  C u0 p0 c0 {7,S} {10,D} {15,S}
-10 C u0 p0 c0 {8,S} {9,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {4,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {1,S}
-18 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(1611)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {22,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
-8  C u0 p0 c0 {6,S} {9,D} {19,S}
-9  C u0 p0 c0 {8,D} {10,S} {20,S}
-10 C u0 p0 c0 {3,D} {9,S} {21,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {9,S}
-21 H u0 p0 c0 {10,S}
-22 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(7643)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
-8  C u0 p0 c0 {2,S} {6,S} {9,D}
-9  C u0 p0 c0 {8,D} {10,S} {19,S}
-10 C u0 p0 c0 {3,D} {9,S} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(10545)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {7,S}
-2  O u0 p2 c0 {8,D}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
-8  C u0 p0 c0 {2,D} {6,S} {9,S}
-9  C u0 p0 c0 {8,S} {10,D} {19,S}
-10 C u0 p0 c0 {3,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(10551)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {7,S} {8,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {9,S} {10,S} {17,S}
-8  C u0 p0 c0 {1,S} {5,S} {18,S} {19,S}
-9  C u0 p0 c0 {2,D} {6,S} {7,S}
-10 C u0 p0 c0 {3,D} {7,S} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(10834)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {5,D}
-2  O u1 p2 c0 {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,D} {3,S} {6,S}
-6  C u0 p0 c0 {5,S} {8,D} {13,S}
-7  C u1 p0 c0 {4,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {6,D} {16,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(10861)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {7,S} {8,S}
-2  O u1 p2 c0 {8,S}
-3  O u1 p2 c0 {9,S}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
-7  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
-8  C u0 p0 c0 {1,S} {2,S} {10,S} {19,S}
-9  C u0 p0 c0 {3,S} {6,S} {10,D}
-10 C u0 p0 c0 {8,S} {9,D} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(10843)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {7,S} {20,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
-6  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {5,S} {8,D}
-8  C u0 p0 c0 {7,D} {10,S} {17,S}
-9  C u0 p0 c0 {2,D} {6,S} {18,S}
-10 C u0 p0 c0 {3,D} {8,S} {19,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(10958)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {8,S}
-2  O u0 p2 c0 {6,D}
-3  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
-6  C u0 p0 c0 {2,D} {4,S} {7,S}
-7  C u0 p0 c0 {6,S} {8,D} {15,S}
-8  C u0 p0 c0 {1,S} {7,D} {16,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(5339)',
+    label='S(5535)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {9,S} {12,S}
-5  C u0 p0 c0 {6,S} {8,S} {9,S} {11,S}
-6  C u0 p0 c0 {1,S} {3,S} {5,S} {13,S}
-7  C u0 p0 c0 {3,S} {4,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
-9  C u1 p0 c0 {4,S} {5,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(10960)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {4,S} {7,D}
-7  C u0 p0 c0 {6,D} {8,S} {15,S}
-8  C u0 p0 c0 {2,D} {7,S} {16,S}
-9  H u0 p0 c0 {3,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(10959)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {7,D}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {4,S} {7,S} {8,S} {9,S}
-4  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
-5  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
-6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
-7  C u0 p0 c0 {1,D} {3,S} {6,S}
-8  C u0 p0 c0 {2,D} {3,S} {16,S}
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,D} {7,S} {11,S}
+7  C u0 p0 c0 {5,D} {6,S} {12,S}
+8  H u0 p0 c0 {3,S}
 9  H u0 p0 c0 {3,S}
 10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='S(1146)',
+    label='S(6339)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {3,S}
+3  C u0 p0 c0 {1,S} {2,S} {4,S} {5,S}
+4  C u0 p0 c0 {3,S} {6,S} {8,S} {9,S}
+5  C u1 p0 c0 {3,S} {7,S} {11,S}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u0 p0 c0 {5,S} {6,D} {12,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(6025)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u1 p2 c0 {5,S}
+3  O u0 p2 c0 {9,D}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
+6  C u0 p0 c0 {4,S} {7,D} {14,S}
+7  C u0 p0 c0 {5,S} {6,D} {15,S}
+8  C u0 p0 c0 {4,S} {10,D} {13,S}
+9  C u0 p0 c0 {3,D} {5,S} {16,S}
+10 C u0 p0 c0 {8,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(1590)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17540,15 +2868,15 @@ multiplicity 2
 2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
 3  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
 4  C u0 p0 c0 {1,S} {2,S} {8,D}
-5  C u0 p0 c0 {2,S} {6,D} {12,S}
-6  C u0 p0 c0 {3,S} {5,D} {13,S}
+5  C u0 p0 c0 {2,S} {6,D} {13,S}
+6  C u0 p0 c0 {3,S} {5,D} {12,S}
 7  C u1 p0 c0 {3,S} {8,S} {14,S}
 8  C u0 p0 c0 {4,D} {7,S} {15,S}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {8,S}
         """),
@@ -17556,93 +2884,7 @@ multiplicity 2
 
 
 species(
-    label='S(5091)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {11,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,S} {15,S}
-8  C u0 p0 c0 {5,S} {9,D} {17,S}
-9  C u0 p0 c0 {7,S} {8,D} {18,S}
-10 C u0 p0 c0 {6,S} {11,D} {16,S}
-11 C u0 p0 c0 {1,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(10431)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {4,S} {15,S}
-3  O u0 p2 c0 {7,S} {16,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,D}
-6  C u0 p0 c0 {4,S} {9,D} {11,S}
-7  C u0 p0 c0 {3,S} {5,D} {8,S}
-8  C u0 p0 c0 {7,S} {10,D} {12,S}
-9  C u0 p0 c0 {6,D} {10,S} {14,S}
-10 C u0 p0 c0 {8,D} {9,S} {13,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {10,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {2,S}
-16 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(7164)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {9,S} {21,S}
-4  C u0 p0 c0 {6,S} {9,S} {10,S} {11,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {5,S} {13,S} {14,S}
-7  C u0 p0 c0 {5,S} {8,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {17,S}
-9  C u0 p0 c0 {3,S} {4,S} {18,S} {19,S}
-10 C u1 p0 c0 {4,S} {8,S} {20,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(11562)',
+    label='S(6567)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17655,21 +2897,21 @@ multiplicity 2
 6  C u0 p0 c0 {4,S} {10,S} {13,S} {14,S}
 7  C u0 p0 c0 {1,S} {5,S} {8,D}
 8  C u0 p0 c0 {4,S} {7,D} {17,S}
-9  C u0 p0 c0 {5,S} {10,D} {15,S}
-10 C u0 p0 c0 {6,S} {9,D} {16,S}
+9  C u0 p0 c0 {5,S} {10,D} {16,S}
+10 C u0 p0 c0 {6,S} {9,D} {15,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {9,S}
 17 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(11589)',
+    label='S(6576)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17696,7 +2938,34 @@ multiplicity 2
 
 
 species(
-    label='S(11590)',
+    label='S(6568)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
+5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
+6  C u0 p0 c0 {9,S} {10,S} {12,S} {13,S}
+7  C u0 p0 c0 {4,S} {10,D} {17,S}
+8  C u0 p0 c0 {5,S} {9,D} {15,S}
+9  C u0 p0 c0 {6,S} {8,D} {14,S}
+10 C u0 p0 c0 {6,S} {7,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(6577)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17723,61 +2992,7 @@ multiplicity 2
 
 
 species(
-    label='S(11563)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {7,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
-6  C u0 p0 c0 {9,S} {10,S} {12,S} {13,S}
-7  C u0 p0 c0 {4,S} {10,D} {17,S}
-8  C u0 p0 c0 {5,S} {9,D} {14,S}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 C u0 p0 c0 {6,S} {7,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(11588)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {8,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u0 p2 c0 {2,S} {5,S}
-4  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
-7  C u0 p0 c0 {4,S} {10,S} {14,S} {15,S}
-8  C u1 p0 c0 {1,S} {5,S} {6,S}
-9  C u0 p0 c0 {6,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(11640)',
+    label='S(6673)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17804,26 +3019,26 @@ multiplicity 2
 
 
 species(
-    label='S(11641)',
+    label='S(6575)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
+1  O u0 p2 c0 {6,S} {8,S}
 2  O u0 p2 c0 {3,S} {4,S}
-3  O u0 p2 c0 {2,S} {6,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
-6  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
-7  C u0 p0 c0 {6,S} {10,S} {13,S} {14,S}
-8  C u1 p0 c0 {5,S} {6,S} {15,S}
-9  C u0 p0 c0 {4,S} {10,D} {17,S}
+3  O u0 p2 c0 {2,S} {5,S}
+4  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
+5  C u0 p0 c0 {3,S} {4,S} {8,S} {12,S}
+6  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
+7  C u0 p0 c0 {4,S} {10,S} {14,S} {15,S}
+8  C u1 p0 c0 {1,S} {5,S} {6,S}
+9  C u0 p0 c0 {6,S} {10,D} {17,S}
 10 C u0 p0 c0 {7,S} {9,D} {16,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {10,S}
 17 H u0 p0 c0 {9,S}
         """),
@@ -17831,7 +3046,7 @@ multiplicity 2
 
 
 species(
-    label='S(4692)',
+    label='S(6463)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17840,23 +3055,23 @@ multiplicity 2
 2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
 3  C u0 p0 c0 {2,S} {5,D} {11,S}
 4  C u0 p0 c0 {2,S} {6,D} {12,S}
-5  C u0 p0 c0 {3,D} {7,S} {13,S}
+5  C u0 p0 c0 {3,D} {7,S} {14,S}
 6  C u0 p0 c0 {4,D} {8,S} {15,S}
-7  C u0 p0 c0 {5,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,S} {8,D} {13,S}
 8  C u0 p0 c0 {1,S} {6,S} {7,D}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
         """),
 )
 
 
 species(
-    label='S(11450)',
+    label='S(6441)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17879,7 +3094,7 @@ species(
 
 
 species(
-    label='S(11763)',
+    label='S(7159)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17906,7 +3121,7 @@ multiplicity 2
 
 
 species(
-    label='S(11762)',
+    label='S(7158)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17933,31 +3148,31 @@ multiplicity 2
 
 
 species(
-    label='S(3811)',
+    label='S(6769)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
-1  O u1 p2 c0 {5,S}
-2  C u1 p0 c0 {3,S} {4,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,D} {11,S}
-4  C u0 p0 c0 {2,S} {6,D} {10,S}
-5  C u0 p0 c0 {1,S} {3,D} {7,S}
-6  C u0 p0 c0 {4,D} {8,S} {12,S}
-7  C u0 p0 c0 {5,S} {8,D} {14,S}
-8  C u0 p0 c0 {6,S} {7,D} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
+1  O u1 p2 c0 {4,S}
+2  C u1 p0 c0 {5,S} {8,S} {12,S}
+3  C u0 p0 c0 {4,S} {5,D} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {2,S} {3,D} {10,S}
+6  C u0 p0 c0 {4,D} {7,S} {11,S}
+7  C u0 p0 c0 {6,S} {8,D} {13,S}
+8  C u0 p0 c0 {2,S} {7,D} {14,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(4957)',
+    label='S(6460)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17968,21 +3183,90 @@ multiplicity 2
 4  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
 5  C u0 p0 c0 {1,D} {2,S} {3,S}
 6  C u1 p0 c0 {2,S} {4,S} {13,S}
-7  C u0 p0 c0 {3,S} {8,D} {14,S}
-8  C u0 p0 c0 {4,S} {7,D} {15,S}
+7  C u0 p0 c0 {3,S} {8,D} {15,S}
+8  C u0 p0 c0 {4,S} {7,D} {14,S}
 9  H u0 p0 c0 {3,S}
 10 H u0 p0 c0 {2,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='S(8391)',
+    label='S(7425)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  C u0 p0 c0 {3,S} {5,S} {7,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,S} {6,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {12,S}
+5  C u0 p0 c0 {2,S} {4,D} {13,S}
+6  C u0 p0 c0 {1,D} {3,S} {8,S}
+7  C u0 p0 c0 {2,S} {8,D} {11,S}
+8  C u0 p0 c0 {6,S} {7,D} {14,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(7426)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,D} {7,S}
+4  C u0 p0 c0 {2,S} {3,D} {10,S}
+5  C u0 p0 c0 {2,S} {6,D} {11,S}
+6  C u0 p0 c0 {5,D} {8,S} {14,S}
+7  C u0 p0 c0 {3,S} {8,D} {12,S}
+8  C u0 p0 c0 {6,S} {7,D} {13,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(6844)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,D} {2,S} {3,S}
+5  C u0 p0 c0 {2,S} {7,D} {11,S}
+6  C u0 p0 c0 {3,S} {8,D} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {14,S}
+8  C u0 p0 c0 {6,D} {7,S} {13,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(6794)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -17990,971 +3274,465 @@ multiplicity 2
 1  O u0 p2 c0 {8,D}
 2  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
 3  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,D} {13,S}
+4  C u0 p0 c0 {2,S} {6,D} {14,S}
 5  C u0 p0 c0 {2,S} {7,D} {15,S}
 6  C u0 p0 c0 {3,S} {4,D} {12,S}
-7  C u0 p0 c0 {3,S} {5,D} {14,S}
+7  C u0 p0 c0 {3,S} {5,D} {13,S}
 8  C u1 p0 c0 {1,D} {2,S}
 9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {4,S}
 15 H u0 p0 c0 {5,S}
         """),
 )
 
 
 species(
-    label='S(11905)',
+    label='C6H7(363)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 3
-1  O u0 p2 c0 {8,S} {17,S}
-2  O u1 p2 c0 {5,S}
-3  C u0 p0 c0 {5,S} {7,D} {12,S}
-4  C u0 p0 c0 {5,D} {6,S} {13,S}
-5  C u0 p0 c0 {2,S} {3,S} {4,D}
-6  C u0 p0 c0 {4,S} {8,D} {11,S}
-7  C u0 p0 c0 {3,D} {9,S} {10,S}
-8  C u0 p0 c0 {1,S} {6,D} {14,S}
-9  C u1 p0 c0 {7,S} {15,S} {16,S}
-10 H u0 p0 c0 {7,S}
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u1 p0 c0 {1,S} {4,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,D} {10,S}
+4  C u0 p0 c0 {2,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,D} {6,S} {13,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
         """),
 )
 
 
 species(
-    label='S(11991)',
+    label='C5H5O(143)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
-3  C u0 p0 c0 {1,S} {4,D} {7,S}
-4  C u0 p0 c0 {2,S} {3,D} {11,S}
-5  C u0 p0 c0 {2,S} {6,D} {10,S}
-6  C u0 p0 c0 {5,D} {8,S} {12,S}
-7  C u0 p0 c0 {3,S} {8,D} {14,S}
-8  C u0 p0 c0 {6,S} {7,D} {13,S}
-9  H u0 p0 c0 {2,S}
+multiplicity 2
+1  O u1 p2 c0 {3,S}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {2,S} {5,D}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,D} {6,S} {10,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {4,S}
 10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {6,S}
         """),
 )
 
 
 species(
-    label='S(11993)',
+    label='S(8088)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {6,D}
-2  C u0 p0 c0 {3,S} {4,S} {6,S} {9,S}
-3  C u0 p0 c0 {2,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {2,S} {5,D} {11,S}
-5  C u0 p0 c0 {3,S} {4,D} {12,S}
-6  C u0 p0 c0 {1,D} {2,S} {8,S}
-7  C u0 p0 c0 {3,S} {8,D} {13,S}
-8  C u0 p0 c0 {6,S} {7,D} {14,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(12057)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {8,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {3,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,D} {3,S} {4,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {3,S} {9,D} {12,S}
-8  C u0 p0 c0 {1,S} {6,D} {14,S}
-9  C u0 p0 c0 {7,D} {15,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(11992)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
-3  C u0 p0 c0 {1,S} {6,S} {8,D}
-4  C u0 p0 c0 {2,S} {7,D} {10,S}
-5  C u0 p0 c0 {2,S} {6,D} {11,S}
-6  C u0 p0 c0 {3,S} {5,D} {14,S}
-7  C u0 p0 c0 {4,D} {8,S} {12,S}
-8  C u0 p0 c0 {3,D} {7,S} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(12059)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {7,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,D} {3,S} {8,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {3,S} {9,D} {12,S}
-8  C u0 p0 c0 {5,S} {6,D} {14,S}
-9  C u0 p0 c0 {7,D} {15,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(12055)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {9,S} {17,S}
-2  O u0 p2 c0 {5,D}
-3  C u0 p0 c0 {4,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {2,D} {3,S} {8,S}
-6  C u0 p0 c0 {3,S} {9,D} {14,S}
-7  C u0 p0 c0 {4,S} {8,D} {13,S}
-8  C u0 p0 c0 {5,S} {7,D} {15,S}
-9  C u0 p0 c0 {1,S} {6,D} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(12292)',
-    reactive=True,
-    structure=adjacencyList(
-        """
+multiplicity 2
 1  O u0 p2 c0 {3,S} {4,S}
-2  C u0 p0 c0 {3,S} {5,S} {9,S} {10,S}
-3  C u0 p0 c0 {1,S} {2,S} {7,D}
-4  C u0 p0 c0 {1,S} {6,S} {8,D}
-5  C u0 p0 c0 {2,S} {6,D} {11,S}
-6  C u0 p0 c0 {4,S} {5,D} {12,S}
-7  C u0 p0 c0 {3,D} {8,S} {14,S}
-8  C u0 p0 c0 {4,D} {7,S} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {2,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(12239)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {10,S}
-2  O u0 p2 c0 {10,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,D} {15,S}
-7  C u0 p0 c0 {4,S} {9,D} {17,S}
-8  C u0 p0 c0 {5,S} {6,D} {14,S}
-9  C u0 p0 c0 {5,S} {7,D} {16,S}
-10 C u0 p0 c0 {1,S} {2,D} {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3810)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,D}
-2  C u0 p0 c0 {3,D} {4,S} {9,S}
-3  C u0 p0 c0 {2,D} {5,S} {11,S}
-4  C u0 p0 c0 {2,S} {6,D} {10,S}
-5  C u0 p0 c0 {1,D} {3,S} {7,S}
-6  C u0 p0 c0 {4,D} {8,S} {12,S}
-7  C u0 p0 c0 {5,S} {8,D} {14,S}
-8  C u0 p0 c0 {6,S} {7,D} {13,S}
-9  H u0 p0 c0 {2,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(3323)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {16,S}
-2  O u0 p2 c0 {6,D}
-3  C u0 p0 c0 {4,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
-6  C u0 p0 c0 {2,D} {3,S} {4,S}
-7  C u0 p0 c0 {1,S} {4,S} {9,D}
-8  C u1 p0 c0 {5,S} {9,S} {14,S}
-9  C u0 p0 c0 {7,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(12556)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {10,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {8,S} {10,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
-7  C u1 p0 c0 {5,S} {6,S} {15,S}
-8  C u0 p0 c0 {4,S} {9,D} {17,S}
-9  C u0 p0 c0 {6,S} {8,D} {16,S}
-10 C u0 p0 c0 {2,S} {3,D} {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(3827)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {16,S}
-2  O u0 p2 c0 {6,D}
-3  C u0 p0 c0 {4,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {3,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,D} {3,S} {4,S}
-7  C u0 p0 c0 {4,S} {9,D} {14,S}
-8  C u1 p0 c0 {5,S} {9,S} {13,S}
-9  C u0 p0 c0 {7,D} {8,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(3303)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {3,S} {15,S}
 2  O u0 p2 c0 {7,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,D}
-4  C u0 p0 c0 {3,S} {6,D} {10,S}
-5  C u0 p0 c0 {3,D} {7,S} {11,S}
-6  C u0 p0 c0 {4,D} {8,S} {12,S}
-7  C u0 p0 c0 {2,D} {5,S} {9,S}
-8  C u0 p0 c0 {6,S} {9,D} {13,S}
-9  C u0 p0 c0 {7,S} {8,D} {14,S}
-10 H u0 p0 c0 {4,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {4,S} {8,D} {12,S}
+7  C u0 p0 c0 {2,D} {5,S} {8,S}
+8  C u0 p0 c0 {6,D} {7,S} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
 11 H u0 p0 c0 {5,S}
 12 H u0 p0 c0 {6,S}
 13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(13028)',
+    label='S(8087)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {10,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {7,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,S} {10,S} {13,S}
-8  C u0 p0 c0 {4,S} {5,S} {15,S} {16,S}
-9  C u1 p0 c0 {5,S} {7,S} {17,S}
-10 C u0 p0 c0 {2,S} {3,D} {7,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(11940)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
 1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {10,D}
+2  O u0 p2 c0 {6,D}
 3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u1 p0 c0 {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {15,S}
-8  C u0 p0 c0 {6,D} {10,S} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {14,S}
-10 C u0 p0 c0 {2,D} {8,S} {9,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {9,S}
+5  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,D} {4,S} {5,S}
+7  C u0 p0 c0 {4,S} {8,D} {13,S}
+8  C u0 p0 c0 {5,S} {7,D} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='S(12668)',
+    label='S(7883)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {2,S} {10,S}
-2  O u0 p2 c0 {1,S} {18,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {8,D} {15,S}
-7  C u0 p0 c0 {4,S} {9,D} {17,S}
-8  C u0 p0 c0 {5,S} {6,D} {14,S}
-9  C u0 p0 c0 {5,S} {7,D} {16,S}
-10 C u0 p0 c0 {1,S} {3,D} {4,S}
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {8,D} {13,S}
+6  C u0 p0 c0 {4,S} {7,D} {12,S}
+7  C u0 p0 c0 {6,D} {8,S} {15,S}
+8  C u0 p0 c0 {5,D} {7,S} {14,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {7,S}
         """),
 )
 
 
 species(
-    label='CHO(1454)',
+    label='S(7884)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u0 p2 c0 {2,D}
-2 C u1 p0 c0 {1,D} {3,S}
-3 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(13180)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1 O u0 p2 c0 {3,S} {4,S}
-2 O u0 p2 c0 {4,D}
-3 O u1 p2 c0 {1,S}
-4 C u0 p0 c0 {1,S} {2,D} {5,S}
-5 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(13185)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {2,S} {4,S}
-2 O u0 p2 c0 {1,S} {6,S}
-3 O u0 p2 c0 {4,D}
-4 C u0 p0 c0 {1,S} {3,D} {5,S}
-5 H u0 p0 c0 {4,S}
-6 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(13349)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {11,D}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-5  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,D} {17,S}
-7  C u1 p0 c0 {4,S} {10,S} {18,S}
-8  C u0 p0 c0 {5,S} {6,D} {15,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {19,S}
-11 C u0 p0 c0 {2,S} {3,D} {20,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(13693)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {11,D}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-5  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
-6  C u0 p0 c0 {5,S} {10,S} {15,S} {16,S}
-7  C u0 p0 c0 {4,S} {9,D} {18,S}
-8  C u0 p0 c0 {4,S} {10,D} {19,S}
-9  C u0 p0 c0 {5,S} {7,D} {17,S}
-10 C u0 p0 c0 {6,S} {8,D} {20,S}
-11 C u0 p0 c0 {2,S} {3,D} {21,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+4  C u0 p0 c0 {7,S} {8,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u0 p0 c0 {3,S} {8,D} {15,S}
+7  C u0 p0 c0 {4,S} {5,D} {12,S}
+8  C u0 p0 c0 {4,S} {6,D} {13,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
 14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {8,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
         """),
 )
 
 
 species(
-    label='S(13335)',
+    label='C6H7(7867)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u1 p2 c0 {3,S}
-2 O u0 p2 c0 {3,D}
-3 C u0 p0 c0 {1,S} {2,D} {4,S}
-4 H u0 p0 c0 {3,S}
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {7,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {8,S}
+3  C u0 p0 c0 {1,S} {2,S} {9,S} {10,S}
+4  C u1 p0 c0 {2,S} {6,S} {12,S}
+5  C u0 p0 c0 {1,S} {6,D} {11,S}
+6  C u0 p0 c0 {4,S} {5,D} {13,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
         """),
 )
 
 
 species(
-    label='S(13641)',
+    label='C6H6(100)',
     reactive=True,
     structure=adjacencyList(
         """
+1  C u0 p0 c0 {2,B} {6,B} {7,S}
+2  C u0 p0 c0 {1,B} {3,B} {8,S}
+3  C u0 p0 c0 {2,B} {4,B} {9,S}
+4  C u0 p0 c0 {3,B} {5,B} {10,S}
+5  C u0 p0 c0 {4,B} {6,B} {11,S}
+6  C u0 p0 c0 {1,B} {5,B} {12,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(8095)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
 1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {11,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {12,S}
-5  C u0 p0 c0 {4,S} {7,D} {13,S}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {5,D} {9,S} {15,S}
-8  C u0 p0 c0 {6,D} {10,S} {16,S}
-9  C u0 p0 c0 {7,S} {10,D} {17,S}
-10 C u0 p0 c0 {8,S} {9,D} {18,S}
-11 C u0 p0 c0 {2,S} {3,D} {19,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(13639)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {11,D}
-4  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,D}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {4,S} {10,D} {15,S}
-8  C u0 p0 c0 {5,S} {6,D} {17,S}
-9  C u0 p0 c0 {5,D} {10,S} {16,S}
-10 C u0 p0 c0 {7,D} {9,S} {18,S}
-11 C u0 p0 c0 {2,S} {3,D} {19,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='CO2(14144)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {3,D}
-2 O u0 p2 c0 {3,D}
-3 C u0 p0 c0 {1,D} {2,D}
-        """),
-)
-
-
-species(
-    label='S(14288)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {10,S}
-2  O u0 p2 c0 {10,D}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-4  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
-5  C u0 p0 c0 {3,S} {7,D} {16,S}
-6  C u1 p0 c0 {3,S} {9,S} {17,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {4,S} {9,D} {15,S}
-9  C u0 p0 c0 {6,S} {8,D} {18,S}
-10 C u0 p0 c0 {1,S} {2,D} {19,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(15325)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u1 p0 c0 {3,S} {7,S} {14,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {15,S}
-8  C u0 p0 c0 {2,S} {6,D} {16,S}
-9  C u0 p0 c0 {7,D} {17,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(927)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {4,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {2,S} {7,S} {8,S} {11,S}
-5  C u0 p0 c0 {3,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {3,S} {8,D} {17,S}
-7  C u0 p0 c0 {4,S} {9,D} {14,S}
-8  C u0 p0 c0 {4,S} {6,D} {16,S}
-9  C u0 p0 c0 {5,S} {7,D} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(1929)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {22,S}
-2  O u0 p2 c0 {4,S} {8,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {14,S}
-7  C u0 p0 c0 {5,S} {11,S} {15,S} {16,S}
-8  C u0 p0 c0 {2,S} {10,S} {17,S} {18,S}
-9  C u0 p0 c0 {6,S} {10,D} {19,S}
-10 C u0 p0 c0 {8,S} {9,D} {20,S}
-11 C u0 p0 c0 {3,D} {7,S} {21,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(15495)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {10,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {7,S} {10,D} {16,S}
-9  C u0 p0 c0 {6,S} {11,D} {17,S}
-10 C u0 p0 c0 {2,S} {8,D} {18,S}
-11 C u0 p0 c0 {9,D} {19,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(15398)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {3,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u1 p0 c0 {3,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {6,D} {12,S}
-6  C u0 p0 c0 {5,D} {8,S} {14,S}
-7  C u0 p0 c0 {4,S} {9,D} {13,S}
-8  C u1 p0 c0 {2,S} {6,S} {15,S}
-9  C u0 p0 c0 {7,D} {16,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {9,S}
+5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
+7  C u1 p0 c0 {4,S} {5,S} {13,S}
+8  C u0 p0 c0 {3,D} {5,S} {6,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(15496)',
+    label='C5H4O(142)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {3,S} {10,S} {15,S} {16,S}
-8  C u0 p0 c0 {5,S} {10,D} {18,S}
-9  C u0 p0 c0 {6,S} {11,D} {17,S}
-10 C u0 p0 c0 {7,S} {8,D} {19,S}
-11 C u0 p0 c0 {2,S} {9,D} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(11692)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {15,S}
-2  C u0 p0 c0 {1,S} {3,S} {4,D}
-3  C u0 p0 c0 {2,S} {7,D} {14,S}
-4  C u0 p0 c0 {2,D} {8,S} {13,S}
-5  C u1 p0 c0 {6,S} {7,S} {9,S}
-6  C u0 p0 c0 {5,S} {8,D} {10,S}
-7  C u0 p0 c0 {3,D} {5,S} {11,S}
-8  C u0 p0 c0 {4,S} {6,D} {12,S}
+1  O u0 p2 c0 {2,D}
+2  C u0 p0 c0 {1,D} {3,S} {6,S}
+3  C u0 p0 c0 {2,S} {4,D} {7,S}
+4  C u0 p0 c0 {3,D} {5,S} {8,S}
+5  C u0 p0 c0 {4,S} {6,D} {9,S}
+6  C u0 p0 c0 {2,S} {5,D} {10,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
 9  H u0 p0 c0 {5,S}
 10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {3,S}
-15 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(15669)',
+    label='S(7443)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
-1  O u1 p2 c0 {3,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u1 p0 c0 {3,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {6,D} {12,S}
-6  C u0 p0 c0 {5,D} {8,S} {14,S}
-7  C u0 p0 c0 {4,S} {9,D} {13,S}
-8  C u0 p0 c0 {2,D} {6,S} {15,S}
-9  C u0 p0 c0 {7,D} {16,S} {17,S}
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,D} {10,S}
+4  C u0 p0 c0 {2,S} {6,D} {11,S}
+5  C u0 p0 c0 {3,D} {7,S} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {14,S}
+7  C u1 p0 c0 {5,S} {6,S} {13,S}
+8  C u1 p0 c0 {1,D} {2,S}
+9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {7,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(12051)',
+    label='S(3596)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {3,S} {17,S}
-2  O u0 p2 c0 {8,D}
-3  C u0 p0 c0 {1,S} {4,D} {5,S}
-4  C u0 p0 c0 {3,D} {7,S} {12,S}
-5  C u0 p0 c0 {3,S} {6,D} {13,S}
-6  C u0 p0 c0 {5,D} {8,S} {11,S}
-7  C u0 p0 c0 {4,S} {9,D} {10,S}
-8  C u0 p0 c0 {2,D} {6,S} {14,S}
-9  C u0 p0 c0 {7,D} {15,S} {16,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
+multiplicity 3
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,D}
+3  O u1 p2 c0 {11,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,D} {5,S} {6,S}
+8  C u0 p0 c0 {5,S} {11,D} {16,S}
+9  C u0 p0 c0 {6,S} {10,D} {15,S}
+10 C u0 p0 c0 {9,D} {18,S} {19,S}
+11 C u0 p0 c0 {3,S} {8,D} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(15693)',
+    label='C6H6(7863)',
     reactive=True,
     structure=adjacencyList(
         """
+multiplicity 3
+1  C u1 p0 c0 {2,S} {5,S} {11,S}
+2  C u1 p0 c0 {1,S} {6,S} {12,S}
+3  C u0 p0 c0 {4,S} {5,D} {7,S}
+4  C u0 p0 c0 {3,S} {6,D} {8,S}
+5  C u0 p0 c0 {1,S} {3,D} {9,S}
+6  C u0 p0 c0 {2,S} {4,D} {10,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(8171)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u1 p0 c0 {3,S} {6,S} {10,S}
+5  C u0 p0 c0 {3,S} {7,D} {11,S}
+6  C u0 p0 c0 {4,S} {8,D} {13,S}
+7  C u0 p0 c0 {5,D} {8,S} {14,S}
+8  C u0 p0 c0 {6,D} {7,S} {12,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(2953)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
 1  O u0 p2 c0 {3,S} {4,S}
 2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u0 p0 c0 {3,S} {8,D} {14,S}
-7  C u0 p0 c0 {4,S} {5,D} {15,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u0 p0 c0 {2,D} {8,S} {17,S}
-10 H u0 p0 c0 {3,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {7,D} {16,S}
+7  C u0 p0 c0 {5,S} {6,D} {14,S}
+8  C u0 p0 c0 {4,S} {10,D} {15,S}
+9  C u0 p0 c0 {2,D} {5,S} {17,S}
+10 C u0 p0 c0 {8,D} {18,S} {19,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
 17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(12050)',
+    label='S(2954)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {4,D}
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
 2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,D} {3,S} {6,S}
-5  C u0 p0 c0 {3,S} {8,D} {12,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {4,S} {9,S} {12,S} {13,S}
 6  C u0 p0 c0 {4,S} {7,D} {14,S}
-7  C u0 p0 c0 {6,D} {9,S} {13,S}
-8  C u0 p0 c0 {5,D} {16,S} {17,S}
-9  C u0 p0 c0 {2,D} {7,S} {15,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
+7  C u0 p0 c0 {6,D} {8,S} {16,S}
+8  C u0 p0 c0 {7,S} {10,D} {15,S}
+9  C u0 p0 c0 {2,D} {5,S} {17,S}
+10 C u0 p0 c0 {8,D} {18,S} {19,S}
+11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(15692)',
+    label='S(4610)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u1 p0 c0 {4,S} {7,S} {13,S}
+6  C u0 p0 c0 {4,S} {9,D} {12,S}
+7  C u0 p0 c0 {5,S} {8,D} {15,S}
+8  C u0 p0 c0 {7,D} {10,S} {14,S}
+9  C u0 p0 c0 {6,D} {17,S} {18,S}
+10 C u0 p0 c0 {3,D} {8,S} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(3429)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  O u0 p2 c0 {9,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u1 p0 c0 {4,S} {8,S} {13,S}
+6  C u0 p0 c0 {4,S} {7,D} {12,S}
+7  C u0 p0 c0 {6,D} {9,S} {15,S}
+8  C u0 p0 c0 {5,S} {10,D} {14,S}
+9  C u0 p0 c0 {3,D} {7,S} {16,S}
+10 C u0 p0 c0 {8,D} {17,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(3385)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -18980,7 +3758,7 @@ species(
 
 
 species(
-    label='S(15968)',
+    label='S(8779)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -19007,7 +3785,7 @@ multiplicity 3
 
 
 species(
-    label='S(16171)',
+    label='S(8926)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -19033,7 +3811,7 @@ species(
 
 
 species(
-    label='S(16170)',
+    label='S(8925)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -19059,28 +3837,237 @@ species(
 
 
 species(
-    label='S(15619)',
+    label='S(3570)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {8,S} {18,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {9,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,D} {14,S}
+8  C u0 p0 c0 {1,S} {7,D} {15,S}
+9  C u0 p0 c0 {5,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(8137)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u1 p0 c0 {4,S} {8,S} {10,S}
+6  C u0 p0 c0 {2,D} {4,S} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {12,S}
+8  C u0 p0 c0 {5,S} {7,D} {11,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(5511)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {7,S}
+2  O u0 p2 c0 {9,S} {17,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {12,S}
+4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {7,S} {8,D}
+7  C u0 p0 c0 {1,S} {6,S} {9,D}
+8  C u0 p0 c0 {5,S} {6,D} {15,S}
+9  C u0 p0 c0 {2,S} {7,D} {16,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(1604)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {7,S} {8,S}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u1 p0 c0 {2,S} {5,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,S} {8,D} {13,S}
+6  C u0 p0 c0 {4,D} {7,S} {14,S}
+7  C u1 p0 c0 {1,S} {6,S} {16,S}
+8  C u0 p0 c0 {1,S} {5,D} {15,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(9457)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {9,S} {17,S}
+2  O u1 p2 c0 {8,S}
+3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {7,S} {12,S} {13,S}
+5  C u0 p0 c0 {6,S} {7,D} {8,S}
+6  C u1 p0 c0 {3,S} {5,S} {14,S}
+7  C u0 p0 c0 {4,S} {5,D} {15,S}
+8  C u0 p0 c0 {2,S} {5,S} {9,D}
+9  C u0 p0 c0 {1,S} {8,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(9465)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {17,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {5,S} {7,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
+6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
+7  C u0 p0 c0 {3,S} {8,S} {9,D}
+8  C u0 p0 c0 {2,D} {5,S} {7,S}
+9  C u0 p0 c0 {6,S} {7,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(1209)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,S} {13,S}
+6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+7  C u1 p0 c0 {5,S} {9,S} {17,S}
+8  C u0 p0 c0 {6,S} {9,D} {16,S}
+9  C u0 p0 c0 {7,S} {8,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(9656)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {17,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {7,S} {12,S} {13,S}
+5  C u0 p0 c0 {6,D} {7,S} {9,S}
+6  C u0 p0 c0 {3,S} {5,D} {15,S}
+7  C u0 p0 c0 {2,D} {4,S} {5,S}
+8  C u0 p0 c0 {3,S} {9,D} {14,S}
+9  C u0 p0 c0 {5,S} {8,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(10145)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {7,S}
-3  O u0 p2 c0 {4,S} {7,S}
-4  O u0 p2 c0 {3,S} {8,S}
-5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {3,S} {9,S} {15,S}
-8  C u0 p0 c0 {4,S} {11,S} {16,S} {17,S}
-9  C u1 p0 c0 {6,S} {7,S} {18,S}
-10 C u0 p0 c0 {5,S} {11,D} {19,S}
-11 C u0 p0 c0 {8,S} {10,D} {20,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u0 p2 c0 {4,S} {9,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
+8  C u0 p0 c0 {2,S} {6,S} {10,S} {15,S}
+9  C u0 p0 c0 {3,S} {7,S} {11,S} {18,S}
+10 C u0 p0 c0 {8,S} {11,D} {19,S}
+11 C u0 p0 c0 {9,S} {10,D} {20,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
 18 H u0 p0 c0 {9,S}
 19 H u0 p0 c0 {10,S}
 20 H u0 p0 c0 {11,S}
@@ -19089,272 +4076,221 @@ multiplicity 2
 
 
 species(
-    label='S(15592)',
+    label='S(9964)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {8,S}
-4  O u0 p2 c0 {1,S} {10,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {7,S} {10,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,D} {17,S}
-10 C u1 p0 c0 {4,S} {8,S} {18,S}
-11 C u0 p0 c0 {9,D} {19,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(15406)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
-7  C u1 p0 c0 {5,S} {6,S} {15,S}
-8  C u0 p0 c0 {3,S} {9,D} {16,S}
-9  C u0 p0 c0 {8,D} {17,S} {18,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(15593)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {5,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {1,S} {8,S}
-4  O u0 p2 c0 {2,S} {8,S}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,S} {4,S} {9,S} {16,S}
-9  C u1 p0 c0 {7,S} {8,S} {17,S}
-10 C u0 p0 c0 {6,S} {11,D} {18,S}
-11 C u0 p0 c0 {10,D} {19,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(15740)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {6,S} {17,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,D} {13,S}
-6  C u0 p0 c0 {2,S} {5,D} {8,S}
-7  C u0 p0 c0 {4,S} {9,D} {12,S}
-8  C u0 p0 c0 {6,S} {10,D} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {14,S}
-10 C u0 p0 c0 {8,D} {9,S} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(12695)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {4,S} {17,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {2,S} {5,S} {6,S}
-5  C u0 p0 c0 {4,S} {7,D} {11,S}
-6  C u0 p0 c0 {4,S} {8,D} {12,S}
-7  C u0 p0 c0 {5,D} {9,S} {13,S}
-8  C u0 p0 c0 {6,D} {10,S} {16,S}
-9  C u0 p0 c0 {7,S} {10,D} {14,S}
-10 C u0 p0 c0 {8,S} {9,D} {15,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(15739)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,S} {17,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {10,D} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {2,S} {8,S} {9,D}
-8  C u0 p0 c0 {6,D} {7,S} {16,S}
-9  C u0 p0 c0 {7,D} {10,S} {15,S}
-10 C u0 p0 c0 {5,D} {9,S} {14,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(15741)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {5,S} {17,S}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {7,D}
-6  C u0 p0 c0 {4,S} {8,D} {12,S}
-7  C u0 p0 c0 {5,D} {10,S} {16,S}
-8  C u0 p0 c0 {6,D} {9,S} {13,S}
-9  C u0 p0 c0 {8,S} {10,D} {14,S}
-10 C u0 p0 c0 {7,S} {9,D} {15,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(15395)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,D}
-5  C u0 p0 c0 {3,S} {8,D} {12,S}
-6  C u0 p0 c0 {4,D} {7,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,D} {13,S}
-8  C u0 p0 c0 {2,S} {5,D} {15,S}
-9  C u0 p0 c0 {7,D} {16,S} {17,S}
+1  O u0 p2 c0 {4,S} {17,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {8,D}
+6  C u0 p0 c0 {2,D} {4,S} {5,S}
+7  C u0 p0 c0 {3,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,D} {9,S} {16,S}
+9  C u0 p0 c0 {7,D} {8,S} {15,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(17121)',
+    label='S(10199)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {17,S}
+2  O u0 p2 c0 {5,D}
+3  C u0 p0 c0 {5,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,D} {3,S} {4,S}
+6  C u0 p0 c0 {3,S} {8,D} {13,S}
+7  C u0 p0 c0 {3,S} {9,D} {14,S}
+8  C u0 p0 c0 {6,D} {9,S} {15,S}
+9  C u0 p0 c0 {7,D} {8,S} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(10144)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u1 p2 c0 {5,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {3,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {10,S} {16,S}
-9  C u0 p0 c0 {6,S} {11,D} {17,S}
-10 C u0 p0 c0 {4,D} {8,S} {18,S}
-11 C u0 p0 c0 {9,D} {19,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {4,S} {8,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {2,S} {7,S} {8,S} {13,S}
+6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
+7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,S} {5,S} {10,S} {16,S}
+9  C u0 p0 c0 {6,S} {11,S} {17,S} {18,S}
+10 C u0 p0 c0 {8,S} {11,D} {20,S}
+11 C u0 p0 c0 {9,S} {10,D} {19,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {8,S}
 17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
 19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {10,S}
         """),
 )
 
 
 species(
-    label='S(16045)',
+    label='S(7901)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {5,S}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {5,D} {9,S}
+4  C u0 p0 c0 {2,S} {6,D} {10,S}
+5  C u0 p0 c0 {1,S} {3,D} {6,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(9472)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {8,S}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
+4  C u0 p0 c0 {2,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {8,D} {14,S}
+6  C u0 p0 c0 {3,S} {7,D} {15,S}
+7  C u0 p0 c0 {4,S} {6,D} {13,S}
+8  C u0 p0 c0 {1,S} {5,D} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(8372)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {9,S} {18,S}
-3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+2  O u0 p2 c0 {6,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,D} {4,S} {8,S}
+7  C u0 p0 c0 {5,S} {8,D} {12,S}
+8  C u0 p0 c0 {6,S} {7,D} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(10568)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {7,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
+3  C u1 p0 c0 {2,S} {5,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,D} {11,S}
 5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u1 p0 c0 {3,S} {8,S} {14,S}
-7  C u0 p0 c0 {4,S} {5,D} {15,S}
-8  C u0 p0 c0 {6,S} {9,D} {16,S}
-9  C u0 p0 c0 {2,S} {8,D} {17,S}
+6  C u0 p0 c0 {4,D} {8,S} {12,S}
+7  C u0 p0 c0 {1,S} {5,D} {14,S}
+8  C u1 p0 c0 {6,S} {15,S} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(10726)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {7,S}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {2,S} {3,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,D} {13,S}
+6  C u0 p0 c0 {3,S} {8,D} {12,S}
+7  C u0 p0 c0 {1,S} {5,D} {14,S}
+8  C u0 p0 c0 {6,D} {15,S} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(1585)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {6,D} {13,S}
+6  C u0 p0 c0 {3,S} {5,D} {14,S}
+7  C u0 p0 c0 {3,S} {8,D} {15,S}
+8  C u0 p0 c0 {4,S} {7,D} {16,S}
+9  H u0 p0 c0 {2,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {4,S}
@@ -19362,6 +4298,631 @@ multiplicity 2
 14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(1397)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {2,S}
+2  C u0 p0 c0 {1,S} {3,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {4,D} {9,S}
+4  C u0 p0 c0 {3,D} {5,S} {11,S}
+5  C u0 p0 c0 {4,S} {6,D} {10,S}
+6  C u0 p0 c0 {5,D} {12,S} {13,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(10864)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,S} {7,S} {8,S}
+3  C u1 p0 c0 {2,S} {4,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,D} {10,S}
+5  C u0 p0 c0 {6,D} {11,S} {12,S}
+6  C u0 p0 c0 {4,D} {5,D}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11105)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {15,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+5  C u0 p0 c0 {4,S} {7,D} {11,S}
+6  C u0 p0 c0 {2,S} {7,S} {8,D}
+7  C u0 p0 c0 {5,D} {6,S} {12,S}
+8  C u0 p0 c0 {6,D} {13,S} {14,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11104)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {15,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+6  C u0 p0 c0 {4,S} {8,D} {12,S}
+7  C u0 p0 c0 {8,D} {13,S} {14,S}
+8  C u0 p0 c0 {6,D} {7,D}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(11116)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  O u0 p2 c0 {5,S} {15,S}
+4  C u0 p0 c0 {1,S} {2,S} {6,S} {8,S}
+5  C u0 p0 c0 {3,S} {7,S} {9,S} {10,S}
+6  C u0 p0 c0 {4,S} {7,D} {12,S}
+7  C u0 p0 c0 {5,S} {6,D} {11,S}
+8  C u1 p0 c0 {4,S} {13,S} {14,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(11125)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {14,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {4,D} {6,S} {11,S}
+6  C u0 p0 c0 {2,S} {5,S} {7,D}
+7  C u0 p0 c0 {6,D} {12,S} {13,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11364)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {16,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {8,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {14,S}
+8  C u0 p0 c0 {3,D} {6,S} {9,S}
+9  C u0 p0 c0 {7,D} {8,S} {15,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11373)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {7,S} {16,S}
+4  O u0 p2 c0 {9,D}
+5  C u0 p0 c0 {1,S} {8,S} {9,S} {10,S}
+6  C u0 p0 c0 {2,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+8  C u1 p0 c0 {5,S} {7,S} {15,S}
+9  C u0 p0 c0 {4,D} {5,S} {6,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(10567)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {8,S}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {2,S} {6,S} {10,S} {11,S}
+4  C u1 p0 c0 {2,S} {7,S} {12,S}
+5  C u0 p0 c0 {2,S} {8,D} {14,S}
+6  C u0 p0 c0 {3,S} {7,D} {13,S}
+7  C u0 p0 c0 {4,S} {6,D} {15,S}
+8  C u0 p0 c0 {1,S} {5,D} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(11278)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {14,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {5,D}
+5  C u0 p0 c0 {4,D} {6,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,D} {11,S}
+7  C u0 p0 c0 {1,S} {6,D} {13,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11483)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,D} {3,S} {5,S}
+5  C u0 p0 c0 {4,S} {6,D} {12,S}
+6  C u0 p0 c0 {5,D} {7,S} {11,S}
+7  C u0 p0 c0 {2,D} {6,S} {13,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='CH3OO(57)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u1 p2 c0 {1,S}
+3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4 H u0 p0 c0 {3,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(10210)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {17,S}
+2  O u0 p2 c0 {6,S} {18,S}
+3  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,D} {8,S}
+6  C u0 p0 c0 {2,S} {4,S} {5,D}
+7  C u0 p0 c0 {3,S} {9,D} {14,S}
+8  C u1 p0 c0 {5,S} {9,S} {15,S}
+9  C u0 p0 c0 {7,D} {8,S} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(11446)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {8,S}
+2  C u0 p0 c0 {3,S} {5,S} {7,S} {9,S}
+3  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,S} {12,S}
+5  C u0 p0 c0 {2,S} {6,D} {13,S}
+6  C u0 p0 c0 {4,S} {5,D} {15,S}
+7  C u0 p0 c0 {2,S} {8,D} {14,S}
+8  C u0 p0 c0 {1,S} {7,D} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(10576)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {8,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {3,S} {7,D} {15,S}
+7  C u0 p0 c0 {5,S} {6,D} {14,S}
+8  C u0 p0 c0 {1,D} {4,S} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='HCCOH(53)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {5,S}
+2 C u0 p0 c0 {1,S} {3,T}
+3 C u0 p0 c0 {2,T} {4,S}
+4 H u0 p0 c0 {3,S}
+5 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(11847)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {19,S}
+3  O u0 p2 c0 {9,S} {20,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {9,S} {15,S} {16,S}
+8  C u0 p0 c0 {6,S} {9,D} {11,S}
+9  C u0 p0 c0 {3,S} {7,S} {8,D}
+10 C u0 p0 c0 {5,S} {11,D} {17,S}
+11 C u0 p0 c0 {8,S} {10,D} {18,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(6034)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {10,S} {19,S}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {2,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u1 p0 c0 {4,S} {9,S} {14,S}
+8  C u0 p0 c0 {5,S} {6,D} {16,S}
+9  C u0 p0 c0 {7,S} {10,D} {17,S}
+10 C u0 p0 c0 {3,S} {9,D} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(3657)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {6,S}
+2  O u0 p2 c0 {6,S} {20,S}
+3  O u0 p2 c0 {7,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {1,S} {2,S} {8,S} {14,S}
+7  C u0 p0 c0 {3,D} {5,S} {10,S}
+8  C u0 p0 c0 {6,S} {10,D} {16,S}
+9  C u0 p0 c0 {5,S} {11,D} {15,S}
+10 C u0 p0 c0 {7,S} {8,D} {17,S}
+11 C u0 p0 c0 {9,D} {18,S} {19,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='HOC2H2(54)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {6,S}
+2 C u0 p0 c0 {1,S} {3,D} {4,S}
+3 C u1 p0 c0 {2,D} {5,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(10227)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {7,S} {19,S}
+3  O u0 p2 c0 {1,S} {20,S}
+4  O u1 p2 c0 {9,S}
+5  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
+6  C u0 p0 c0 {8,S} {11,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {9,S} {15,S} {16,S}
+8  C u0 p0 c0 {5,S} {6,S} {9,D}
+9  C u0 p0 c0 {4,S} {7,S} {8,D}
+10 C u0 p0 c0 {5,S} {11,D} {18,S}
+11 C u0 p0 c0 {6,S} {10,D} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(11846)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {19,S}
+3  O u0 p2 c0 {9,S} {20,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
+6  C u0 p0 c0 {8,S} {11,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {9,S} {15,S} {16,S}
+8  C u0 p0 c0 {5,S} {6,S} {9,D}
+9  C u0 p0 c0 {3,S} {7,S} {8,D}
+10 C u0 p0 c0 {5,S} {11,D} {18,S}
+11 C u0 p0 c0 {6,S} {10,D} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(10230)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {5,S} {19,S}
+3  O u0 p2 c0 {7,S} {20,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {2,S} {7,S} {8,S}
+6  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
+7  C u0 p0 c0 {3,S} {5,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {6,S} {10,D}
+9  C u0 p0 c0 {6,S} {11,D} {16,S}
+10 C u0 p0 c0 {8,D} {11,S} {18,S}
+11 C u0 p0 c0 {9,D} {10,S} {17,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(3569)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {18,S}
+2  O u1 p2 c0 {9,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {8,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,D} {16,S} {17,S}
+9  C u0 p0 c0 {2,S} {7,D} {15,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(12205)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {18,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
+5  C u0 p0 c0 {1,S} {4,S} {9,S} {11,S}
+6  C u0 p0 c0 {4,S} {10,S} {12,S} {13,S}
+7  C u0 p0 c0 {2,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,D} {4,S} {7,S}
+9  C u0 p0 c0 {5,S} {10,D} {17,S}
+10 C u0 p0 c0 {6,S} {9,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
 17 H u0 p0 c0 {9,S}
 18 H u0 p0 c0 {2,S}
         """),
@@ -19369,170 +4930,812 @@ multiplicity 2
 
 
 species(
-    label='S(15612)',
+    label='S(9078)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {3,S} {7,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {1,S} {8,S}
-4  O u0 p2 c0 {2,S} {11,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {6,S} {11,S} {15,S}
-8  C u0 p0 c0 {3,S} {10,S} {16,S} {17,S}
-9  C u0 p0 c0 {5,S} {10,D} {18,S}
-10 C u0 p0 c0 {8,S} {9,D} {19,S}
-11 C u1 p0 c0 {4,S} {7,S} {20,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {9,S} {18,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u1 p0 c0 {3,S} {7,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {1,S} {6,D} {17,S}
+9  C u0 p0 c0 {2,S} {7,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
 17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(17500)',
+    label='S(9433)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {9,S}
-3  O u0 p2 c0 {10,D}
-4  O u0 p2 c0 {8,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {9,S} {11,D} {15,S}
-8  C u0 p0 c0 {4,D} {5,S} {18,S}
-9  C u1 p0 c0 {2,S} {7,S} {17,S}
-10 C u0 p0 c0 {3,D} {6,S} {16,S}
-11 C u0 p0 c0 {7,D} {19,S} {20,S}
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {10,S} {20,S}
+3  O u0 p2 c0 {7,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,D} {5,S} {6,S}
+8  C u0 p0 c0 {5,S} {10,D} {16,S}
+9  C u0 p0 c0 {6,S} {11,D} {15,S}
+10 C u0 p0 c0 {2,S} {8,D} {17,S}
+11 C u0 p0 c0 {9,D} {18,S} {19,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
 19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(12089)',
+    label='HOCO(55)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {3,S} {4,S}
+2 O u0 p2 c0 {3,D}
+3 C u1 p0 c0 {1,S} {2,D}
+4 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='CH3OOH(56)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {7,S}
+3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4 H u0 p0 c0 {3,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H5O(58)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u1 p2 c0 {3,S}
+2 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3 C u0 p0 c0 {1,S} {2,S} {7,S} {8,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='cC2H4O(59)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {3,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(3597)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
-1  O u1 p2 c0 {4,S}
+1  O u0 p2 c0 {4,S} {5,S}
 2  O u1 p2 c0 {8,S}
-3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
-4  C u0 p0 c0 {1,S} {3,S} {6,D}
-5  C u0 p0 c0 {3,S} {8,D} {12,S}
-6  C u0 p0 c0 {4,D} {7,S} {14,S}
-7  C u0 p0 c0 {6,S} {9,D} {13,S}
-8  C u0 p0 c0 {2,S} {5,D} {15,S}
-9  C u0 p0 c0 {7,D} {16,S} {17,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {3,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(17499)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {6,S}
-3  O u0 p2 c0 {9,D}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {10,S} {13,S}
-7  C u0 p0 c0 {5,S} {11,D} {14,S}
-8  C u1 p0 c0 {6,S} {16,S} {17,S}
-9  C u0 p0 c0 {3,D} {5,S} {15,S}
-10 C u0 p0 c0 {4,D} {6,S} {18,S}
-11 C u0 p0 c0 {7,D} {19,S} {20,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
+6  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {8,D} {16,S}
+8  C u0 p0 c0 {2,S} {6,S} {7,D}
+9  C u0 p0 c0 {6,S} {11,D} {15,S}
+10 C u0 p0 c0 {3,D} {5,S} {17,S}
+11 C u0 p0 c0 {9,D} {18,S} {19,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
 19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
         """),
 )
 
 
 species(
-    label='S(17507)',
+    label='S(2819)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {3,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {7,S} {11,S} {16,S}
-9  C u0 p0 c0 {6,S} {10,D} {17,S}
-10 C u0 p0 c0 {9,D} {18,S} {19,S}
-11 C u1 p0 c0 {4,D} {8,S}
+1  O u0 p2 c0 {3,S} {6,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {1,S} {20,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
+7  C u0 p0 c0 {5,S} {11,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {10,D} {19,S}
+9  C u0 p0 c0 {6,S} {11,D} {18,S}
+10 C u0 p0 c0 {6,S} {8,D} {17,S}
+11 C u0 p0 c0 {7,S} {9,D} {16,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {11,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {8,S}
 20 H u0 p0 c0 {3,S}
         """),
 )
 
 
 species(
-    label='S(17706)',
+    label='S(6674)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {6,D}
-2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
-4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,D} {4,S} {8,S}
-7  C u0 p0 c0 {5,S} {8,D} {15,S}
-8  C u0 p0 c0 {6,S} {7,D} {16,S}
-9  C u0 p0 c0 {2,D} {3,S} {17,S}
-10 H u0 p0 c0 {3,S}
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u0 p2 c0 {2,S} {6,S}
+4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
+5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
+6  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
+7  C u0 p0 c0 {6,S} {10,S} {13,S} {14,S}
+8  C u1 p0 c0 {5,S} {6,S} {15,S}
+9  C u0 p0 c0 {4,S} {10,D} {17,S}
+10 C u0 p0 c0 {7,S} {9,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C2H3O2(60)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u1 p2 c0 {1,S}
+3 C u0 p0 c0 {1,S} {4,D} {5,S}
+4 C u0 p0 c0 {3,D} {6,S} {7,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {4,S}
+7 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(12794)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {20,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {8,S} {10,S} {12,S}
+6  C u0 p0 c0 {7,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {6,S} {8,D}
+8  C u0 p0 c0 {5,S} {7,D} {16,S}
+9  C u0 p0 c0 {6,S} {11,D} {15,S}
+10 C u0 p0 c0 {3,D} {5,S} {17,S}
+11 C u0 p0 c0 {9,D} {18,S} {19,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(12545)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {6,S} {10,S}
+2  O u0 p2 c0 {5,S} {18,S}
+3  O u1 p2 c0 {7,S}
+4  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {1,S} {4,S} {7,D}
+7  C u0 p0 c0 {3,S} {5,S} {6,D}
+8  C u0 p0 c0 {4,S} {9,D} {15,S}
+9  C u0 p0 c0 {8,D} {10,S} {16,S}
+10 C u1 p0 c0 {1,S} {9,S} {17,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(9125)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {11,S}
+2  O u0 p2 c0 {4,S} {7,S}
+3  O u0 p2 c0 {7,S} {20,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {3,S} {9,S} {15,S}
+8  C u0 p0 c0 {5,S} {9,D} {16,S}
+9  C u0 p0 c0 {7,S} {8,D} {18,S}
+10 C u0 p0 c0 {6,S} {11,D} {17,S}
+11 C u0 p0 c0 {1,S} {10,D} {19,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(12558)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {17,S}
+3  O u0 p2 c0 {10,S} {18,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5  C u0 p0 c0 {1,S} {4,S} {8,S} {11,S}
+6  C u0 p0 c0 {4,S} {9,S} {12,S} {13,S}
+7  C u0 p0 c0 {2,S} {4,S} {10,D}
+8  C u0 p0 c0 {5,S} {9,D} {15,S}
+9  C u0 p0 c0 {6,S} {8,D} {14,S}
+10 C u0 p0 c0 {3,S} {7,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C2(61)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u1 p0 c0 {2,T}
+2 C u1 p0 c0 {1,T}
+        """),
+)
+
+
+species(
+    label='C2O(62)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u0 p2 c0 {2,D}
+2 C u0 p0 c0 {1,D} {3,D}
+3 C u2 p0 c0 {2,D}
+        """),
+)
+
+
+species(
+    label='S(6317)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {6,S}
+2  O u1 p2 c0 {5,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+5  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {1,S} {9,S} {13,S} {14,S}
+7  C u1 p0 c0 {4,S} {5,S} {15,S}
+8  C u0 p0 c0 {5,S} {9,D} {16,S}
+9  C u0 p0 c0 {6,S} {8,D} {17,S}
+10 C u0 p0 c0 {3,D} {4,S} {18,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(12938)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {8,S}
+2  O u0 p2 c0 {7,S} {10,S}
+3  O u0 p2 c0 {6,S} {18,S}
+4  C u0 p0 c0 {1,S} {5,S} {9,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {2,S} {5,S} {8,D}
+8  C u0 p0 c0 {1,S} {6,S} {7,D}
+9  C u0 p0 c0 {4,S} {10,D} {16,S}
+10 C u0 p0 c0 {2,S} {9,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(12937)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,S} {10,S}
+2  O u0 p2 c0 {5,S} {18,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {7,S} {9,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {8,S} {13,S} {14,S}
+6  C u0 p0 c0 {1,S} {7,D} {8,S}
+7  C u0 p0 c0 {4,S} {6,D} {15,S}
+8  C u0 p0 c0 {3,D} {5,S} {6,S}
+9  C u0 p0 c0 {4,S} {10,D} {16,S}
+10 C u0 p0 c0 {1,S} {9,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(12555)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {7,S}
+2  O u0 p2 c0 {4,S} {8,S}
+3  O u0 p2 c0 {6,S} {18,S}
+4  C u0 p0 c0 {1,S} {2,S} {9,S} {11,S}
+5  C u0 p0 c0 {7,S} {10,S} {12,S} {13,S}
+6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {1,S} {5,S} {8,D}
+8  C u0 p0 c0 {2,S} {6,S} {7,D}
+9  C u0 p0 c0 {4,S} {10,D} {17,S}
+10 C u0 p0 c0 {5,S} {9,D} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(12939)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {10,S}
+2  O u0 p2 c0 {7,S} {18,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
+5  C u0 p0 c0 {4,S} {6,S} {9,S} {11,S}
+6  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+7  C u0 p0 c0 {2,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,D} {4,S} {7,S}
+9  C u0 p0 c0 {5,S} {10,D} {16,S}
+10 C u0 p0 c0 {1,S} {9,D} {17,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(3652)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {5,S} {20,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {5,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {6,S} {10,D} {14,S}
+9  C u0 p0 c0 {7,D} {11,S} {16,S}
+10 C u0 p0 c0 {8,D} {18,S} {19,S}
+11 C u0 p0 c0 {3,D} {9,S} {17,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(9900)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {2,S} {4,S} {8,D}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {6,D} {9,S} {17,S}
+9  C u0 p0 c0 {7,D} {8,S} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(8981)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u1 p0 c0 {3,S} {6,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {11,S}
+6  C u0 p0 c0 {4,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,D} {9,S} {13,S}
+8  C u0 p0 c0 {1,S} {6,D} {15,S}
+9  C u0 p0 c0 {2,D} {7,S} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(1496)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {16,S}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {2,S} {5,D}
+4  C u0 p0 c0 {2,S} {6,D} {11,S}
+5  C u0 p0 c0 {3,D} {7,S} {12,S}
+6  C u0 p0 c0 {4,D} {8,S} {15,S}
+7  C u0 p0 c0 {5,S} {8,D} {13,S}
+8  C u0 p0 c0 {6,S} {7,D} {14,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(13750)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {4,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {2,S} {7,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,D} {13,S}
+6  C u1 p0 c0 {3,S} {8,S} {12,S}
+7  C u0 p0 c0 {4,S} {5,D} {14,S}
+8  C u0 p0 c0 {6,S} {9,D} {15,S}
+9  C u0 p0 c0 {2,S} {8,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(13818)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {6,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {1,S} {2,S} {9,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {5,S} {10,D} {14,S}
+9  C u0 p0 c0 {6,S} {7,D} {16,S}
+10 C u0 p0 c0 {8,D} {11,S} {17,S}
+11 C u0 p0 c0 {3,D} {10,S} {18,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(13927)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {7,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u0 p2 c0 {2,S} {7,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
+6  C u0 p0 c0 {2,S} {8,S} {11,S} {13,S}
+7  C u0 p0 c0 {1,S} {3,S} {10,S} {14,S}
+8  C u1 p0 c0 {5,S} {6,S} {15,S}
+9  C u0 p0 c0 {5,S} {10,D} {16,S}
+10 C u0 p0 c0 {7,S} {9,D} {17,S}
+11 C u0 p0 c0 {4,D} {6,S} {18,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(13817)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {10,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {14,S}
+8  C u0 p0 c0 {6,S} {10,D} {15,S}
+9  C u0 p0 c0 {7,D} {11,S} {16,S}
+10 C u0 p0 c0 {1,S} {8,D} {17,S}
+11 C u0 p0 c0 {3,D} {9,S} {18,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(13868)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {3,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {2,S} {4,S} {8,D}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {6,D} {9,S} {17,S}
+9  C u0 p0 c0 {7,D} {8,S} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(13736)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {4,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {6,S} {11,S}
+5  C u1 p0 c0 {3,S} {7,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,D} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {14,S}
+8  C u0 p0 c0 {1,S} {6,D} {15,S}
+9  C u0 p0 c0 {2,S} {7,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C2H6O(63)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {9,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 C u0 p0 c0 {2,S} {6,S} {7,S} {8,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(3386)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u0 p0 c0 {3,S} {8,D} {13,S}
+7  C u0 p0 c0 {4,S} {5,D} {15,S}
+8  C u0 p0 c0 {6,D} {9,S} {16,S}
+9  C u0 p0 c0 {2,D} {8,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {7,S}
 16 H u0 p0 c0 {8,S}
@@ -19542,165 +5745,812 @@ species(
 
 
 species(
-    label='S(6491)',
+    label='S(4224)',
     reactive=True,
     structure=adjacencyList(
         """
-1 O u0 p2 c0 {5,D}
-2 C u0 p0 c0 {3,S} {4,D} {6,S}
-3 C u0 p0 c0 {2,S} {5,D} {7,S}
-4 C u0 p0 c0 {2,D} {8,S} {9,S}
-5 C u0 p0 c0 {1,D} {3,D}
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,S} {18,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {5,S} {10,D}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u1 p0 c0 {4,S} {10,S} {14,S}
+9  C u0 p0 c0 {5,S} {7,D} {15,S}
+10 C u0 p0 c0 {6,D} {8,S} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(13821)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,S} {18,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {5,S} {7,D}
+7  C u0 p0 c0 {4,S} {6,D} {15,S}
+8  C u1 p0 c0 {4,S} {10,S} {16,S}
+9  C u0 p0 c0 {5,S} {10,D} {14,S}
+10 C u0 p0 c0 {8,S} {9,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(13723)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u0 p0 c0 {3,S} {7,D} {11,S}
+5  C u0 p0 c0 {3,D} {6,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,D} {13,S}
+7  C u0 p0 c0 {4,D} {9,S} {10,S}
+8  C u0 p0 c0 {1,S} {6,D} {14,S}
+9  C u0 p0 c0 {2,D} {7,S} {15,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(13877)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {7,S} {9,S} {15,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+7  C u0 p0 c0 {2,D} {4,S} {5,S}
+8  C u0 p0 c0 {6,S} {9,D} {16,S}
+9  C u0 p0 c0 {4,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(14214)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {7,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,D} {12,S}
+5  C u0 p0 c0 {4,D} {6,S} {13,S}
+6  C u1 p0 c0 {5,S} {7,S} {14,S}
+7  C u0 p0 c0 {1,S} {6,S} {9,D}
+8  C u0 p0 c0 {2,D} {3,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(14206)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
+5  C u0 p0 c0 {3,S} {4,S} {11,S} {12,S}
+6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u0 p0 c0 {2,D} {6,S} {9,S}
+9  C u0 p0 c0 {7,D} {8,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(14213)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,D}
+5  C u0 p0 c0 {4,D} {6,S} {14,S}
+6  C u0 p0 c0 {5,S} {7,D} {13,S}
+7  C u0 p0 c0 {6,D} {9,S} {12,S}
+8  C u0 p0 c0 {2,D} {3,S} {15,S}
+9  C u1 p0 c0 {7,S} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(14837)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
+6  C u0 p0 c0 {1,D} {3,S} {5,S}
+7  C u0 p0 c0 {3,S} {8,D} {16,S}
+8  C u0 p0 c0 {4,S} {7,D} {15,S}
+9  C u0 p0 c0 {2,D} {5,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(13344)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {9,S}
+2  O u0 p2 c0 {7,S} {17,S}
+3  O u0 p2 c0 {10,S} {18,S}
+4  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {6,D} {7,S}
+6  C u0 p0 c0 {4,S} {5,D} {13,S}
+7  C u0 p0 c0 {2,S} {5,S} {10,D}
+8  C u0 p0 c0 {4,S} {9,D} {14,S}
+9  C u0 p0 c0 {1,S} {8,D} {16,S}
+10 C u0 p0 c0 {3,S} {7,D} {15,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(11447)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,S} {5,S} {6,S} {9,S}
+3  C u0 p0 c0 {2,S} {4,S} {8,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,S} {7,S} {10,S}
+5  C u0 p0 c0 {2,S} {4,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {7,D} {14,S}
+7  C u0 p0 c0 {4,S} {6,D} {15,S}
+8  C u0 p0 c0 {1,D} {3,S} {16,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(14679)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {5,S} {10,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u1 p0 c0 {5,S} {8,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {12,S}
+8  C u0 p0 c0 {6,S} {10,D} {15,S}
+9  C u0 p0 c0 {7,D} {11,S} {14,S}
+10 C u0 p0 c0 {1,S} {8,D} {16,S}
+11 C u0 p0 c0 {3,D} {9,S} {17,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='C2H5O(64)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {3,S} {8,S}
+2 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3 C u1 p0 c0 {1,S} {2,S} {7,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
 6 H u0 p0 c0 {2,S}
 7 H u0 p0 c0 {3,S}
-8 H u0 p0 c0 {4,S}
-9 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(17652)',
+    label='S(13770)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {16,S}
+2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,D} {6,S}
+4  C u0 p0 c0 {2,S} {3,D} {11,S}
+5  C u0 p0 c0 {2,S} {7,D} {12,S}
+6  C u0 p0 c0 {3,S} {8,D} {13,S}
+7  C u0 p0 c0 {5,D} {8,S} {15,S}
+8  C u0 p0 c0 {6,D} {7,S} {14,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(14182)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u1 p2 c0 {4,S}
-2  O u0 p2 c0 {7,D}
-3  O u0 p2 c0 {6,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
-5  C u0 p0 c0 {4,S} {7,S} {9,S} {10,S}
-6  C u0 p0 c0 {3,D} {4,S} {12,S}
-7  C u0 p0 c0 {2,D} {5,S} {11,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {5,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {6,S}
+1  O u0 p2 c0 {6,S} {10,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u0 p2 c0 {2,S} {18,S}
+4  O u1 p2 c0 {11,S}
+5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {1,S} {5,S} {8,D}
+7  C u0 p0 c0 {5,S} {10,D} {13,S}
+8  C u0 p0 c0 {6,D} {9,S} {14,S}
+9  C u0 p0 c0 {8,S} {11,D} {15,S}
+10 C u0 p0 c0 {1,S} {7,D} {16,S}
+11 C u0 p0 c0 {4,S} {9,D} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {3,S}
         """),
 )
 
 
 species(
-    label='S(16159)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {4,D}
-2 C u0 p0 c0 {3,D} {4,S} {5,S}
-3 C u0 p0 c0 {2,D} {6,S} {7,S}
-4 C u0 p0 c0 {1,D} {2,S} {8,S}
-5 H u0 p0 c0 {2,S}
-6 H u0 p0 c0 {3,S}
-7 H u0 p0 c0 {3,S}
-8 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(13332)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1 O u0 p2 c0 {3,D}
-2 O u0 p2 c0 {4,D}
-3 C u0 p0 c0 {1,D} {4,S} {5,S}
-4 C u0 p0 c0 {2,D} {3,S} {6,S}
-5 H u0 p0 c0 {3,S}
-6 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(18012)',
+    label='S(4240)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {6,S} {12,S}
-2  O u1 p2 c0 {5,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {5,S} {7,S} {8,S} {9,S}
-5  C u0 p0 c0 {2,S} {4,S} {6,D}
-6  C u0 p0 c0 {1,S} {5,D} {11,S}
-7  C u0 p0 c0 {3,D} {4,S} {10,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {1,S}
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,S} {18,S}
+3  O u0 p2 c0 {1,S} {19,S}
+4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {5,S} {10,D}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u1 p0 c0 {4,S} {10,S} {15,S}
+9  C u0 p0 c0 {5,S} {7,D} {14,S}
+10 C u0 p0 c0 {6,D} {8,S} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
         """),
 )
 
 
 species(
-    label='S(16583)',
+    label='S(6855)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {6,S} {20,S}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {3,S} {10,S} {13,S}
-7  C u0 p0 c0 {1,S} {11,S} {14,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,D} {16,S}
-9  C u0 p0 c0 {5,S} {10,D} {17,S}
-10 C u0 p0 c0 {6,S} {9,D} {19,S}
-11 C u0 p0 c0 {7,S} {8,D} {18,S}
+1  O u0 p2 c0 {3,S} {16,S}
+2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {7,D}
+4  C u0 p0 c0 {2,S} {6,D} {11,S}
+5  C u0 p0 c0 {2,S} {8,D} {12,S}
+6  C u0 p0 c0 {3,S} {4,D} {14,S}
+7  C u0 p0 c0 {3,D} {8,S} {13,S}
+8  C u0 p0 c0 {5,D} {7,S} {15,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(14951)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {6,S} {9,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,D}
+6  C u0 p0 c0 {3,S} {8,D} {14,S}
+7  C u0 p0 c0 {5,D} {8,S} {16,S}
+8  C u0 p0 c0 {6,D} {7,S} {15,S}
+9  C u0 p0 c0 {2,D} {3,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(3799)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,D} {10,S}
+4  C u0 p0 c0 {2,S} {6,D} {11,S}
+5  C u0 p0 c0 {3,D} {7,S} {12,S}
+6  C u0 p0 c0 {4,D} {8,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,D} {14,S}
+8  C u0 p0 c0 {6,S} {7,D} {15,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(1853)',
+    label='S(14950)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {6,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {13,S}
+6  C u0 p0 c0 {1,S} {7,S} {9,D}
+7  C u0 p0 c0 {5,D} {6,S} {14,S}
+8  C u0 p0 c0 {2,D} {4,S} {15,S}
+9  C u0 p0 c0 {6,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(14952)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,D}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {9,S} {11,S} {12,S}
+6  C u0 p0 c0 {3,S} {8,D} {15,S}
+7  C u0 p0 c0 {1,D} {4,S} {8,S}
+8  C u0 p0 c0 {6,D} {7,S} {16,S}
+9  C u0 p0 c0 {2,D} {5,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(12935)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,S} {10,S}
+2  O u0 p2 c0 {4,S} {17,S}
+3  O u0 p2 c0 {5,S} {18,S}
+4  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {4,S} {6,D}
+6  C u0 p0 c0 {1,S} {5,D} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {13,S}
+8  C u0 p0 c0 {7,D} {9,S} {14,S}
+9  C u0 p0 c0 {8,S} {10,D} {15,S}
+10 C u0 p0 c0 {1,S} {9,D} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(15164)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,S} {17,S}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {11,S}
+5  C u0 p0 c0 {6,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {5,S} {7,D}
+7  C u0 p0 c0 {4,S} {6,D} {16,S}
+8  C u0 p0 c0 {3,S} {9,D} {15,S}
+9  C u0 p0 c0 {5,S} {8,D} {14,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(15738)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {7,S} {18,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {9,S} {10,S} {12,S} {13,S}
+6  C u1 p0 c0 {4,S} {7,S} {16,S}
+7  C u0 p0 c0 {2,S} {6,S} {9,D}
+8  C u0 p0 c0 {4,S} {10,D} {17,S}
+9  C u0 p0 c0 {5,S} {7,D} {14,S}
+10 C u0 p0 c0 {5,S} {8,D} {15,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(15736)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,S} {18,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {4,S} {7,D}
+7  C u0 p0 c0 {5,S} {6,D} {14,S}
+8  C u1 p0 c0 {4,S} {10,S} {16,S}
+9  C u0 p0 c0 {5,S} {10,D} {15,S}
+10 C u0 p0 c0 {8,S} {9,D} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H5O(65)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u1 p2 c0 {3,S}
-2 C u0 p0 c0 {3,D} {4,S} {5,S}
-3 C u0 p0 c0 {1,S} {2,D} {6,S}
+1 O u0 p2 c0 {2,S} {8,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 C u1 p0 c0 {2,S} {6,S} {7,S}
 4 H u0 p0 c0 {2,S}
 5 H u0 p0 c0 {2,S}
 6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(18577)',
+    label='S(14682)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {6,S} {10,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {2,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {1,S} {7,S} {8,D}
+7  C u1 p0 c0 {5,S} {6,S} {13,S}
+8  C u0 p0 c0 {6,D} {9,S} {14,S}
+9  C u0 p0 c0 {8,S} {10,D} {15,S}
+10 C u0 p0 c0 {1,S} {9,D} {16,S}
+11 C u0 p0 c0 {3,D} {5,S} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(394)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u0 p2 c0 {3,S} {4,S}
-2 O u0 p2 c0 {5,D}
-3 O u1 p2 c0 {1,S}
-4 C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
-5 C u0 p0 c0 {2,D} {4,S} {8,S}
-6 H u0 p0 c0 {4,S}
-7 H u0 p0 c0 {4,S}
-8 H u0 p0 c0 {5,S}
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {10,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+6  H u0 p0 c0 {4,S}
+7  H u0 p0 c0 {4,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(5501)',
+    label='S(14342)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,S} {18,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u1 p0 c0 {3,S} {8,S} {13,S}
+7  C u0 p0 c0 {4,S} {5,D} {15,S}
+8  C u0 p0 c0 {6,S} {9,D} {16,S}
+9  C u0 p0 c0 {2,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(1184)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {20,S}
+3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {5,S} {9,D}
+8  C u1 p0 c0 {6,S} {9,S} {18,S}
+9  C u0 p0 c0 {7,D} {8,S} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(6893)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {4,S} {18,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+5  C u0 p0 c0 {8,S} {9,S} {11,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,D} {16,S}
+7  C u1 p0 c0 {4,S} {10,S} {15,S}
+8  C u0 p0 c0 {5,S} {6,D} {14,S}
+9  C u0 p0 c0 {5,S} {10,D} {13,S}
+10 C u0 p0 c0 {7,S} {9,D} {17,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(14886)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,D} {3,S} {5,S}
+5  C u0 p0 c0 {4,S} {6,D} {14,S}
+6  C u0 p0 c0 {5,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,D} {12,S}
+8  C u0 p0 c0 {2,D} {3,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C2H4O(66)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -19716,80 +6566,385 @@ species(
 
 
 species(
-    label='S(18731)',
+    label='cC2H3O(67)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {9,S}
-2  C u0 p0 c0 {1,S} {4,S} {5,S} {11,S}
-3  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
-4  C u0 p0 c0 {2,S} {6,D} {16,S}
-5  C u1 p0 c0 {2,S} {8,S} {17,S}
-6  C u0 p0 c0 {3,S} {4,D} {14,S}
-7  C u0 p0 c0 {3,S} {8,D} {15,S}
-8  C u0 p0 c0 {5,S} {7,D} {18,S}
-9  C u0 p0 c0 {1,S} {10,D} {19,S}
-10 C u0 p0 c0 {9,D} {20,S} {21,S}
-11 H u0 p0 c0 {2,S}
-12 H u0 p0 c0 {3,S}
-13 H u0 p0 c0 {3,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {4,S}
-17 H u0 p0 c0 {5,S}
-18 H u0 p0 c0 {8,S}
-19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {10,S}
+1 O u0 p2 c0 {2,S} {3,S}
+2 C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3 C u1 p0 c0 {1,S} {2,S} {6,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
         """),
 )
 
 
 species(
-    label='S(17996)',
+    label='OCHCHO(68)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {5,D}
-2  O u0 p2 c0 {6,D}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {5,S} {6,S} {8,S} {9,S}
-5  C u0 p0 c0 {1,D} {4,S} {7,S}
-6  C u0 p0 c0 {2,D} {4,S} {10,S}
-7  C u0 p0 c0 {3,D} {5,S} {11,S}
+1 O u0 p2 c0 {3,D}
+2 O u0 p2 c0 {4,D}
+3 C u0 p0 c0 {1,D} {4,S} {5,S}
+4 C u0 p0 c0 {2,D} {3,S} {6,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C2H6O2(69)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4  C u0 p0 c0 {3,S} {7,S} {8,S} {9,S}
+5  H u0 p0 c0 {3,S}
+6  H u0 p0 c0 {3,S}
+7  H u0 p0 c0 {4,S}
 8  H u0 p0 c0 {4,S}
 9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {7,S}
+10 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(5524)',
+    label='S(14373)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
+1  O u0 p2 c0 {6,S} {10,S}
 2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {20,S}
+3  O u0 p2 c0 {2,S} {18,S}
+4  O u1 p2 c0 {11,S}
+5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {1,S} {5,S} {8,D}
+7  C u0 p0 c0 {5,S} {11,D} {13,S}
+8  C u0 p0 c0 {6,D} {9,S} {14,S}
+9  C u0 p0 c0 {8,S} {10,D} {15,S}
+10 C u0 p0 c0 {1,S} {9,D} {16,S}
+11 C u0 p0 c0 {4,S} {7,D} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(14327)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {9,S} {16,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u1 p0 c0 {3,S} {6,S} {11,S}
+5  C u0 p0 c0 {3,D} {7,S} {12,S}
+6  C u0 p0 c0 {4,S} {9,D} {10,S}
+7  C u0 p0 c0 {5,S} {8,D} {13,S}
+8  C u0 p0 c0 {1,S} {7,D} {15,S}
+9  C u0 p0 c0 {2,S} {6,D} {14,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(12924)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {8,S} {20,S}
 4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {12,S}
-6  C u0 p0 c0 {5,S} {11,S} {13,S} {14,S}
-7  C u0 p0 c0 {8,S} {9,D} {15,S}
-8  C u0 p0 c0 {7,S} {10,D} {16,S}
-9  C u0 p0 c0 {1,S} {7,D} {17,S}
-10 C u0 p0 c0 {8,D} {18,S} {19,S}
-11 C u1 p0 c0 {4,D} {6,S}
+5  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
+6  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {9,S} {15,S} {16,S}
+8  C u0 p0 c0 {3,S} {6,S} {10,D}
+9  C u1 p0 c0 {6,S} {7,S} {17,S}
+10 C u0 p0 c0 {5,S} {8,D} {18,S}
+11 C u0 p0 c0 {4,D} {5,S} {19,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
 17 H u0 p0 c0 {9,S}
 18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(13833)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {5,S} {20,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {1,S} {3,S} {6,S} {8,S}
+6  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
+7  C u0 p0 c0 {2,S} {6,S} {10,S} {14,S}
+8  C u0 p0 c0 {5,S} {9,D} {15,S}
+9  C u0 p0 c0 {8,D} {11,S} {16,S}
+10 C u1 p0 c0 {7,S} {17,S} {18,S}
+11 C u0 p0 c0 {4,D} {9,S} {19,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C2H5O2(70)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u1 p2 c0 {1,S}
+3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4 C u0 p0 c0 {3,S} {7,S} {8,S} {9,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C2H5O2(71)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {9,S}
+3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4 C u1 p0 c0 {3,S} {7,S} {8,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(16697)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {7,S} {25,S}
+4  C u0 p0 c0 {1,S} {8,S} {9,S} {13,S}
+5  C u0 p0 c0 {10,S} {11,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+7  C u0 p0 c0 {3,S} {6,S} {16,S} {17,S}
+8  C u0 p0 c0 {4,S} {10,D} {23,S}
+9  C u1 p0 c0 {4,S} {12,S} {22,S}
+10 C u0 p0 c0 {5,S} {8,D} {21,S}
+11 C u0 p0 c0 {5,S} {12,D} {20,S}
+12 C u0 p0 c0 {9,S} {11,D} {24,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {9,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {12,S}
+25 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(1649)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,D} {17,S}
+7  C u0 p0 c0 {1,D} {5,S} {8,S}
+8  C u0 p0 c0 {6,D} {7,S} {18,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(17376)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u0 p2 c0 {4,S} {8,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {2,S} {6,S} {11,S} {18,S}
+9  C u0 p0 c0 {7,S} {10,S} {19,S} {20,S}
+10 C u0 p0 c0 {1,S} {9,S} {11,D}
+11 C u0 p0 c0 {8,S} {10,D} {21,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(17377)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
+6  C u0 p0 c0 {5,S} {7,S} {16,S} {17,S}
+7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+9  C u0 p0 c0 {8,S} {11,S} {18,S} {19,S}
+10 C u0 p0 c0 {5,S} {11,D} {21,S}
+11 C u0 p0 c0 {9,S} {10,D} {20,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(1653)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {7,S}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
+6  C u1 p0 c0 {4,S} {8,S} {17,S}
+7  C u0 p0 c0 {1,S} {5,S} {8,D}
+8  C u0 p0 c0 {6,S} {7,D} {18,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(14370)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {7,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {6,S} {20,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
+6  C u0 p0 c0 {2,S} {3,S} {10,S} {13,S}
+7  C u0 p0 c0 {1,S} {11,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {11,D} {17,S}
+9  C u0 p0 c0 {5,S} {10,D} {16,S}
+10 C u0 p0 c0 {6,S} {9,D} {19,S}
+11 C u0 p0 c0 {7,S} {8,D} {18,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {11,S}
 19 H u0 p0 c0 {10,S}
 20 H u0 p0 c0 {3,S}
         """),
@@ -19797,470 +6952,37 @@ multiplicity 2
 
 
 species(
-    label='S(17741)',
+    label='S(16896)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {6,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
-5  C u0 p0 c0 {4,S} {7,D} {9,S}
-6  C u0 p0 c0 {2,D} {4,S} {10,S}
-7  C u0 p0 c0 {5,D} {11,S} {12,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {5,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(5528)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {9,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {6,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {2,S} {7,S} {14,S}
-6  C u0 p0 c0 {3,S} {8,S} {9,S} {15,S}
-7  C u0 p0 c0 {5,S} {10,S} {12,S} {13,S}
-8  C u0 p0 c0 {6,S} {11,D} {16,S}
-9  C u1 p0 c0 {1,S} {6,S} {17,S}
-10 C u0 p0 c0 {4,D} {7,S} {18,S}
-11 C u0 p0 c0 {8,D} {19,S} {20,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(18073)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u0 p2 c0 {6,D}
-3  O u1 p2 c0 {1,S}
-4  C u1 p0 c0 {5,S} {6,S} {9,S}
-5  C u0 p0 c0 {4,S} {7,D} {8,S}
-6  C u0 p0 c0 {1,S} {2,D} {4,S}
-7  C u0 p0 c0 {5,D} {10,S} {11,S}
-8  H u0 p0 c0 {5,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(1446)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u1 p2 c0 {5,S}
-2  C u0 p0 c0 {3,S} {5,D} {6,S}
-3  C u0 p0 c0 {2,S} {4,D} {7,S}
-4  C u0 p0 c0 {3,D} {9,S} {10,S}
-5  C u0 p0 c0 {1,S} {2,D} {8,S}
-6  H u0 p0 c0 {2,S}
-7  H u0 p0 c0 {3,S}
-8  H u0 p0 c0 {5,S}
-9  H u0 p0 c0 {4,S}
+1  O u0 p2 c0 {7,S} {20,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {9,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {8,S} {9,S} {18,S}
+8  C u1 p0 c0 {6,S} {7,S} {19,S}
+9  C u0 p0 c0 {2,D} {5,S} {7,S}
 10 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(23417)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {6,S}
-3  O u0 p2 c0 {6,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
-5  C u0 p0 c0 {4,S} {7,D} {9,S}
-6  C u0 p0 c0 {2,S} {3,D} {4,S}
-7  C u0 p0 c0 {5,D} {10,S} {11,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {5,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(23418)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {7,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
-5  C u0 p0 c0 {4,S} {6,D} {10,S}
-6  C u0 p0 c0 {5,D} {7,S} {11,S}
-7  C u0 p0 c0 {2,S} {3,D} {6,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-        """),
-)
-
-
-species(
-    label='S(23416)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {11,S}
-3  O u0 p2 c0 {5,D}
-4  C u0 p0 c0 {5,S} {7,D} {8,S}
-5  C u0 p0 c0 {1,S} {3,D} {4,S}
-6  C u0 p0 c0 {7,D} {9,S} {10,S}
-7  C u0 p0 c0 {4,D} {6,D}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {6,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(23996)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {7,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
-5  C u0 p0 c0 {4,S} {6,D} {10,S}
-6  C u0 p0 c0 {5,D} {7,S} {11,S}
-7  C u0 p0 c0 {2,D} {6,S} {12,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {7,S}
-        """),
-)
-
-
-species(
-    label='S(23975)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {8,S}
-2  O u0 p2 c0 {1,S} {13,S}
-3  O u0 p2 c0 {8,D}
-4  N u0 p1 c0 {5,D} {6,S}
-5  N u1 p1 c0 {4,D}
-6  C u0 p0 c0 {4,S} {7,S} {9,D}
-7  C u1 p0 c0 {6,S} {8,S} {10,S}
-8  C u0 p0 c0 {1,S} {3,D} {7,S}
-9  C u0 p0 c0 {6,D} {11,S} {12,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {9,S}
-12 H u0 p0 c0 {9,S}
-13 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(23366)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  O u0 p2 c0 {8,D}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {15,S}
-6  C u0 p0 c0 {1,S} {2,S} {7,S} {12,S}
-7  C u0 p0 c0 {6,S} {8,S} {13,S} {14,S}
-8  C u0 p0 c0 {4,D} {5,S} {7,S}
-9  C u1 p0 c0 {5,S} {10,S} {16,S}
-10 C u0 p0 c0 {9,S} {11,D} {17,S}
-11 C u0 p0 c0 {10,D} {18,S} {19,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(23369)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {11,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  O u0 p2 c0 {8,D}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {8,S} {9,S} {15,S} {16,S}
-8  C u0 p0 c0 {4,D} {6,S} {7,S}
-9  C u0 p0 c0 {7,S} {10,D} {17,S}
-10 C u0 p0 c0 {9,D} {11,S} {18,S}
-11 C u1 p0 c0 {1,S} {10,S} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(24575)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {9,S}
-2  O u0 p2 c0 {1,S} {13,S}
-3  O u0 p2 c0 {9,D}
-4  N u0 p0 c+1 {5,D} {6,S} {7,S}
-5  N u0 p2 c-1 {4,D}
-6  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
-7  C u0 p0 c0 {4,S} {6,S} {8,D}
-8  C u0 p0 c0 {7,D} {9,S} {12,S}
-9  C u0 p0 c0 {1,S} {3,D} {8,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(24577)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {9,S}
-2  O u0 p2 c0 {1,S} {13,S}
-3  O u0 p2 c0 {9,D}
-4  N u0 p0 c+1 {5,D} {8,D}
-5  N u0 p2 c-1 {4,D}
-6  C u0 p0 c0 {7,S} {8,S} {9,S} {10,S}
-7  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
-8  C u0 p0 c0 {4,D} {6,S} {7,S}
-9  C u0 p0 c0 {1,S} {3,D} {6,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(24574)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {8,S}
-2  O u0 p2 c0 {1,S} {13,S}
-3  O u0 p2 c0 {8,D}
-4  N u0 p0 c+1 {5,D} {6,S} {7,S}
-5  N u0 p2 c-1 {4,D}
-6  C u0 p0 c0 {4,S} {7,S} {8,S} {10,S}
-7  C u0 p0 c0 {4,S} {6,S} {9,D}
-8  C u0 p0 c0 {1,S} {3,D} {6,S}
-9  C u0 p0 c0 {7,D} {11,S} {12,S}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {9,S}
-12 H u0 p0 c0 {9,S}
-13 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(24578)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {6,S} {9,S}
-2  O u0 p2 c0 {3,S} {9,S}
-3  O u0 p2 c0 {2,S} {13,S}
-4  N u0 p0 c+1 {5,D} {7,D}
-5  N u0 p2 c-1 {4,D}
-6  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
-7  C u0 p0 c0 {4,D} {6,S} {8,S}
-8  C u0 p0 c0 {7,S} {9,D} {12,S}
-9  C u0 p0 c0 {1,S} {2,S} {8,D}
-10 H u0 p0 c0 {6,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(24639)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {6,S}
-2  O u0 p2 c0 {5,S} {6,S}
-3  O u0 p2 c0 {8,D}
-4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {4,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {2,S} {7,S} {13,S}
-7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
-8  C u0 p0 c0 {3,D} {4,S} {7,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {9,D} {17,S} {18,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {10,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(24648)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {8,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  O u1 p2 c0 {9,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {10,S} {15,S} {16,S} {17,S}
-8  C u0 p0 c0 {1,S} {9,D} {11,S}
-9  C u0 p0 c0 {4,S} {6,S} {8,D}
-10 C u0 p0 c0 {7,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {7,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(24635)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {3,S} {7,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  O u1 p2 c0 {8,S}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {2,S} {9,S} {15,S}
-8  C u0 p0 c0 {4,S} {5,S} {9,D}
-9  C u0 p0 c0 {7,S} {8,D} {16,S}
-10 C u0 p0 c0 {6,S} {11,D} {17,S}
-11 C u0 p0 c0 {10,D} {18,S} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(24650)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {20,S}
-4  O u1 p2 c0 {8,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {1,S} {2,S} {10,S} {13,S}
-7  C u0 p0 c0 {11,S} {14,S} {15,S} {16,S}
-8  C u0 p0 c0 {4,S} {5,S} {10,D}
-9  C u0 p0 c0 {5,S} {11,D} {18,S}
-10 C u0 p0 c0 {6,S} {8,D} {17,S}
-11 C u0 p0 c0 {7,S} {9,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {7,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(17563)',
+    label='S(17375)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -20290,56 +7012,1421 @@ multiplicity 2
 
 
 species(
-    label='S(18091)',
+    label='S(16286)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {12,S}
-3  O u0 p2 c0 {6,D}
-4  C u1 p0 c0 {5,S} {6,S} {9,S}
-5  C u0 p0 c0 {4,S} {7,D} {8,S}
-6  C u0 p0 c0 {1,S} {3,D} {4,S}
-7  C u0 p0 c0 {5,D} {10,S} {11,S}
-8  H u0 p0 c0 {5,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {7,S}
-11 H u0 p0 c0 {7,S}
-12 H u0 p0 c0 {2,S}
+1 O u0 p2 c0 {3,S} {9,S}
+2 O u1 p2 c0 {4,S}
+3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
+4 C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {1,S}
         """),
 )
 
 
 species(
-    label='S(21284)',
+    label='S(16253)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {6,S} {10,S}
+3  O u0 p2 c0 {9,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {12,S}
+5  C u0 p0 c0 {1,S} {4,S} {9,S} {11,S}
+6  C u0 p0 c0 {2,S} {4,S} {7,D}
+7  C u0 p0 c0 {6,D} {8,S} {13,S}
+8  C u0 p0 c0 {7,S} {10,D} {14,S}
+9  C u0 p0 c0 {3,D} {5,S} {15,S}
+10 C u0 p0 c0 {2,S} {8,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(19452)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {5,S} {11,S}
-2  O u0 p2 c0 {3,S} {4,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {2,S} {6,S} {7,S} {13,S}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {14,S}
-6  C u0 p0 c0 {4,S} {10,S} {15,S} {16,S}
-7  C u0 p0 c0 {4,S} {9,D} {20,S}
-8  C u0 p0 c0 {5,S} {10,D} {18,S}
-9  C u0 p0 c0 {5,S} {7,D} {19,S}
-10 C u0 p0 c0 {6,S} {8,D} {17,S}
-11 C u0 p0 c0 {1,S} {12,D} {21,S}
-12 C u0 p0 c0 {11,D} {22,S} {23,S}
+1  O u0 p2 c0 {4,S} {20,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {5,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {14,S}
+5  C u0 p0 c0 {3,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,D} {3,S} {4,S}
+7  C u0 p0 c0 {4,S} {9,D} {15,S}
+8  C u1 p0 c0 {5,S} {16,S} {17,S}
+9  C u0 p0 c0 {7,D} {18,S} {19,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(19451)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {8,S} {20,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {9,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {8,D} {18,S}
+8  C u0 p0 c0 {1,S} {7,D} {19,S}
+9  C u1 p0 c0 {2,D} {6,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(19568)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {22,S}
+3  O u0 p2 c0 {11,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
+7  C u0 p0 c0 {2,S} {5,S} {11,S} {19,S}
+8  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
+9  C u0 p0 c0 {8,S} {10,S} {15,S} {16,S}
+10 C u0 p0 c0 {9,S} {11,S} {20,S} {21,S}
+11 C u0 p0 c0 {3,D} {7,S} {10,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C2H4O2(72)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {8,S}
+3 C u0 p0 c0 {1,S} {4,D} {5,S}
+4 C u0 p0 c0 {3,D} {6,S} {7,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {4,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C3H6O(73)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3  C u0 p0 c0 {2,S} {7,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,D} {2,S} {10,S}
+5  H u0 p0 c0 {2,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C2H5CO(74)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {4,D}
+2 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+3 C u0 p0 c0 {2,S} {7,S} {8,S} {9,S}
+4 C u1 p0 c0 {1,D} {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(19454)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {9,S} {20,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+4  C u0 p0 c0 {3,S} {5,S} {15,S} {16,S}
+5  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
+7  C u0 p0 c0 {6,S} {8,S} {17,S} {18,S}
+8  C u0 p0 c0 {2,D} {3,S} {7,S}
+9  C u1 p0 c0 {1,S} {3,S} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(20155)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {18,S}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u1 p0 c0 {4,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {5,D} {15,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(20203)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {9,S} {21,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
+5  C u0 p0 c0 {4,S} {7,S} {16,S} {17,S}
+6  C u0 p0 c0 {3,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {5,S} {9,D} {18,S}
+8  C u0 p0 c0 {2,D} {6,S} {19,S}
+9  C u0 p0 c0 {1,S} {7,D} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(20445)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {10,S}
+2  O u0 p2 c0 {11,S} {22,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
+8  C u0 p0 c0 {6,S} {10,S} {18,S} {19,S}
+9  C u0 p0 c0 {7,S} {11,D} {20,S}
+10 C u0 p0 c0 {1,S} {3,D} {8,S}
+11 C u0 p0 c0 {2,S} {9,D} {21,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(20818)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {9,S}
+2  O u0 p2 c0 {1,S} {11,S}
+3  O u0 p2 c0 {9,S} {22,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
+8  C u0 p0 c0 {6,S} {11,S} {18,S} {19,S}
+9  C u0 p0 c0 {1,S} {3,S} {10,S} {20,S}
+10 C u1 p0 c0 {7,S} {9,S} {21,S}
+11 C u0 p0 c0 {2,S} {4,D} {8,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(5811)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {18,S}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {5,S} {15,S} {16,S}
+7  C u1 p0 c0 {1,S} {2,S} {17,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(20947)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {7,S}
+2  O u0 p2 c0 {9,S} {20,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {1,S} {5,S} {16,S} {17,S}
+8  C u0 p0 c0 {6,S} {9,D} {18,S}
+9  C u0 p0 c0 {2,S} {8,D} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
 18 H u0 p0 c0 {8,S}
 19 H u0 p0 c0 {9,S}
-20 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(20771)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {18,S}
+2  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {4,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {12,S}
+5  C u0 p0 c0 {2,S} {6,S} {8,S} {9,S}
+6  C u0 p0 c0 {5,S} {7,S} {15,S} {16,S}
+7  C u1 p0 c0 {4,S} {6,S} {17,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C3H6(75)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
+2 C u0 p0 c0 {1,S} {3,D} {7,S}
+3 C u0 p0 c0 {2,D} {8,S} {9,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(20811)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {8,S}
+2  O u0 p2 c0 {1,S} {11,S}
+3  O u0 p2 c0 {10,S} {22,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {1,S} {6,S} {10,S} {18,S}
+9  C u0 p0 c0 {7,S} {11,S} {19,S} {20,S}
+10 C u1 p0 c0 {3,S} {8,S} {21,S}
+11 C u0 p0 c0 {2,S} {4,D} {9,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(16854)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,S} {17,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {6,S} {7,D}
+5  C u0 p0 c0 {3,S} {6,D} {12,S}
+6  C u0 p0 c0 {4,S} {5,D} {15,S}
+7  C u0 p0 c0 {4,D} {8,S} {14,S}
+8  C u0 p0 c0 {7,S} {9,D} {13,S}
+9  C u0 p0 c0 {2,S} {8,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(20232)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u0 p2 c0 {11,S} {22,S}
+3  O u0 p2 c0 {1,S} {23,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
+8  C u0 p0 c0 {6,S} {10,S} {18,S} {19,S}
+9  C u0 p0 c0 {7,S} {11,D} {20,S}
+10 C u0 p0 c0 {1,S} {4,D} {8,S}
+11 C u0 p0 c0 {2,S} {9,D} {21,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
 21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {12,S}
-23 H u0 p0 c0 {12,S}
+22 H u0 p0 c0 {2,S}
+23 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(20813)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u0 p2 c0 {11,S} {21,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
+7  C u0 p0 c0 {8,S} {10,S} {16,S} {17,S}
+8  C u1 p0 c0 {5,S} {7,S} {18,S}
+9  C u0 p0 c0 {6,S} {11,D} {19,S}
+10 C u0 p0 c0 {1,S} {4,D} {7,S}
+11 C u0 p0 c0 {2,S} {9,D} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C3H4(76)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {3,D} {4,S} {5,S}
+2 C u0 p0 c0 {3,D} {6,S} {7,S}
+3 C u0 p0 c0 {1,D} {2,D}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C3H5(77)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {3,D} {4,S}
+2 C u1 p0 c0 {1,S} {5,S} {6,S}
+3 C u0 p0 c0 {1,D} {7,S} {8,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(20094)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {8,S}
+2  O u0 p2 c0 {7,S} {9,S}
+3  O u1 p2 c0 {10,S}
+4  C u0 p0 c0 {1,S} {5,D} {7,S}
+5  C u0 p0 c0 {4,D} {6,S} {11,S}
+6  C u0 p0 c0 {5,S} {8,D} {12,S}
+7  C u1 p0 c0 {2,S} {4,S} {14,S}
+8  C u0 p0 c0 {1,S} {6,D} {15,S}
+9  C u0 p0 c0 {2,S} {10,D} {13,S}
+10 C u0 p0 c0 {3,S} {9,D} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C3H5(78)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+2 C u0 p0 c0 {3,D} {7,S} {8,S}
+3 C u1 p0 c0 {1,S} {2,D}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C3H5(79)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
+2 C u0 p0 c0 {1,S} {3,D} {7,S}
+3 C u1 p0 c0 {2,D} {8,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C3H4O(80)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,D}
+2 C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+3 C u0 p0 c0 {2,S} {4,D} {8,S}
+4 C u0 p0 c0 {1,D} {3,D}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='H3CCCH(81)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
+2 C u0 p0 c0 {1,S} {3,T}
+3 C u0 p0 c0 {2,T} {7,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C3H4O(82)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,D}
+2 C u0 p0 c0 {3,D} {4,S} {5,S}
+3 C u0 p0 c0 {2,D} {6,S} {7,S}
+4 C u0 p0 c0 {1,D} {2,S} {8,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='H2CCCH(83)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,D} {4,S} {5,S}
+2 C u0 p0 c0 {1,D} {3,D}
+3 C u1 p0 c0 {2,D} {6,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C3H2(84)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u0 p0 c0 {2,S} {3,T}
+2 C u2 p0 c0 {1,S} {5,S}
+3 C u0 p0 c0 {1,T} {4,S}
+4 H u0 p0 c0 {3,S}
+5 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='H2CC(85)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u0 p0 c0 {2,D} {3,S} {4,S}
+2 C u2 p0 c0 {1,D}
+3 H u0 p0 c0 {1,S}
+4 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(5810)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {6,S} {9,S} {10,S}
+6  C u0 p0 c0 {4,S} {5,S} {11,S} {12,S}
+7  C u0 p0 c0 {1,D} {2,S} {17,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(21071)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u0 p2 c0 {8,S} {20,S}
+4  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {9,S} {14,S} {15,S}
+7  C u0 p0 c0 {1,S} {5,S} {16,S} {17,S}
+8  C u0 p0 c0 {2,S} {3,S} {9,S} {18,S}
+9  C u1 p0 c0 {6,S} {8,S} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(21064)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u0 p2 c0 {9,S} {20,S}
+4  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {1,S} {5,S} {9,S} {16,S}
+7  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
+8  C u0 p0 c0 {2,S} {7,S} {17,S} {18,S}
+9  C u1 p0 c0 {3,S} {6,S} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(19487)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {8,S}
+2  O u0 p2 c0 {9,S} {17,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {9,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,D} {14,S}
+8  C u0 p0 c0 {1,S} {7,D} {16,S}
+9  C u0 p0 c0 {2,S} {5,D} {15,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(21649)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u1 p2 c0 {1,S}
+3 C u0 p0 c0 {1,S} {4,S} {6,S} {7,S}
+4 C u0 p0 c0 {3,S} {5,T}
+5 C u0 p0 c0 {4,T} {8,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(20106)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {8,S}
+2  O u0 p2 c0 {4,S} {9,S}
+3  O u0 p2 c0 {5,S} {10,S}
+4  C u0 p0 c0 {1,S} {2,S} {5,S} {11,S}
+5  C u0 p0 c0 {3,S} {4,S} {6,D}
+6  C u0 p0 c0 {5,D} {7,S} {12,S}
+7  C u0 p0 c0 {6,S} {10,D} {13,S}
+8  C u0 p0 c0 {1,S} {9,D} {14,S}
+9  C u0 p0 c0 {2,S} {8,D} {15,S}
+10 C u0 p0 c0 {3,S} {7,D} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21215)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {6,S}
+2  O u0 p2 c0 {5,S} {9,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {12,S}
+5  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+6  C u0 p0 c0 {1,S} {8,S} {9,D}
+7  C u0 p0 c0 {4,S} {8,D} {13,S}
+8  C u0 p0 c0 {6,S} {7,D} {14,S}
+9  C u0 p0 c0 {2,S} {6,D} {15,S}
+10 C u0 p0 c0 {3,D} {5,S} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21213)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {8,S}
+2  O u0 p2 c0 {6,S} {9,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {1,S} {4,S} {10,S} {12,S}
+6  C u0 p0 c0 {2,S} {4,S} {8,D}
+7  C u0 p0 c0 {4,S} {9,D} {13,S}
+8  C u0 p0 c0 {1,S} {6,D} {14,S}
+9  C u0 p0 c0 {2,S} {7,D} {15,S}
+10 C u0 p0 c0 {3,D} {5,S} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21190)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {10,S} {21,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {6,S} {7,S} {9,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {10,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {6,S} {7,S} {16,S} {17,S}
+9  C u0 p0 c0 {5,S} {11,S} {18,S} {19,S}
+10 C u1 p0 c0 {2,S} {6,S} {20,S}
+11 C u0 p0 c0 {1,S} {4,D} {9,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(22524)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {4,S}
+3 C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+4 C u0 p0 c0 {2,S} {5,D} {8,S}
+5 C u1 p0 c0 {3,S} {4,D}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H2(86)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {3,T}
+2 C u0 p0 c0 {1,S} {4,T}
+3 C u0 p0 c0 {1,T} {5,S}
+4 C u0 p0 c0 {2,T} {6,S}
+5 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='nC4H3(87)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {3,D} {5,S}
+2 C u0 p0 c0 {1,S} {4,T}
+3 C u1 p0 c0 {1,D} {6,S}
+4 C u0 p0 c0 {2,T} {7,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='iC4H3(88)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,D} {5,S} {6,S}
+2 C u1 p0 c0 {1,D} {3,S}
+3 C u0 p0 c0 {2,S} {4,T}
+4 C u0 p0 c0 {3,T} {7,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H4(89)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,D} {3,S} {5,S}
+2 C u0 p0 c0 {1,D} {6,S} {7,S}
+3 C u0 p0 c0 {1,S} {4,T}
+4 C u0 p0 c0 {3,T} {8,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H6(90)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,D} {5,S}
+2  C u0 p0 c0 {1,S} {4,D} {6,S}
+3  C u0 p0 c0 {1,D} {7,S} {8,S}
+4  C u0 p0 c0 {2,D} {9,S} {10,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(22782)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {6,S}
+2  O u1 p2 c0 {10,S}
+3  O u0 p2 c0 {9,D}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
+5  C u1 p0 c0 {4,S} {8,S} {13,S}
+6  C u0 p0 c0 {1,S} {8,D} {9,S}
+7  C u0 p0 c0 {4,S} {10,D} {12,S}
+8  C u0 p0 c0 {5,S} {6,D} {14,S}
+9  C u0 p0 c0 {3,D} {6,S} {15,S}
+10 C u0 p0 c0 {2,S} {7,D} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='nC4H5(91)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {3,D} {5,S}
+2 C u0 p0 c0 {1,S} {4,D} {6,S}
+3 C u0 p0 c0 {1,D} {7,S} {8,S}
+4 C u1 p0 c0 {2,D} {9,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='iC4H5(92)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,D} {4,S} {5,S}
+2 C u0 p0 c0 {1,D} {6,S} {7,S}
+3 C u0 p0 c0 {4,D} {8,S} {9,S}
+4 C u1 p0 c0 {1,S} {3,D}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='nC3H7(93)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3  C u1 p0 c0 {1,S} {9,S} {10,S}
+4  H u0 p0 c0 {1,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C4H7(94)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {4,D} {7,S}
+3  C u1 p0 c0 {1,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,D} {10,S} {11,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C3H8(95)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  H u0 p0 c0 {1,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(23384)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {4,S} {9,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {2,S} {6,S} {10,S}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+6  C u0 p0 c0 {4,S} {7,D} {14,S}
+7  C u0 p0 c0 {5,S} {6,D} {13,S}
+8  C u0 p0 c0 {5,S} {9,D} {12,S}
+9  C u0 p0 c0 {2,S} {8,D} {16,S}
+10 C u0 p0 c0 {3,D} {4,S} {15,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(20164)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {6,S} {22,S}
+4  O u1 p2 c0 {7,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,S} {13,S}
+7  C u0 p0 c0 {2,S} {4,S} {6,S} {9,S}
+8  C u0 p0 c0 {5,S} {10,S} {18,S} {19,S}
+9  C u0 p0 c0 {7,S} {11,S} {20,S} {21,S}
+10 C u0 p0 c0 {8,S} {11,S} {14,S} {15,S}
+11 C u0 p0 c0 {9,S} {10,S} {16,S} {17,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {10,S}
+16 H u0 p0 c0 {11,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {9,S}
+22 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(23383)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,S} {8,S}
+2  O u0 p2 c0 {9,D}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {7,S} {12,S}
+5  C u0 p0 c0 {4,S} {6,S} {9,S} {11,S}
+6  C u0 p0 c0 {1,S} {4,S} {5,S} {13,S}
+7  C u0 p0 c0 {4,S} {8,D} {14,S}
+8  C u0 p0 c0 {1,S} {7,D} {10,S}
+9  C u0 p0 c0 {2,D} {5,S} {15,S}
+10 C u0 p0 c0 {3,D} {8,S} {16,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21631)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {20,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,S} {11,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {9,S} {18,S} {19,S}
+8  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
+9  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C4H81(96)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {7,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,D} {10,S}
+4  C u0 p0 c0 {3,D} {11,S} {12,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(23699)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {19,S}
+3  O u0 p2 c0 {1,S} {20,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,S} {10,S}
+6  C u0 p0 c0 {4,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,S} {16,S} {17,S}
+8  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
+9  C u1 p0 c0 {7,S} {8,S} {18,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(22863)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {9,S}
+2  O u0 p2 c0 {11,S} {21,S}
+3  O u0 p2 c0 {1,S} {22,S}
+4  O u0 p2 c0 {9,D}
+5  C u0 p0 c0 {6,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
+8  C u0 p0 c0 {5,S} {11,D} {17,S}
+9  C u0 p0 c0 {1,S} {4,D} {6,S}
+10 C u1 p0 c0 {7,S} {18,S} {19,S}
+11 C u0 p0 c0 {2,S} {8,D} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {3,S}
         """),
 )
 
@@ -20349,17 +8436,162 @@ species(
     reactive=True,
     structure=adjacencyList(
         """
+1  O u0 p2 c0 {4,S} {7,S}
+2  O u0 p2 c0 {5,S} {9,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
+5  C u0 p0 c0 {2,S} {4,S} {6,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,D} {14,S}
+7  C u0 p0 c0 {1,S} {6,D} {10,S}
+8  C u0 p0 c0 {4,S} {9,D} {13,S}
+9  C u0 p0 c0 {2,S} {8,D} {15,S}
+10 C u0 p0 c0 {3,D} {7,S} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21148)',
+    reactive=True,
+    structure=adjacencyList(
+        """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  O u0 p2 c0 {7,D}
-4  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
-5  C u0 p0 c0 {2,S} {6,S} {9,S} {10,S}
-6  C u1 p0 c0 {4,S} {5,S} {11,S}
-7  C u0 p0 c0 {3,D} {4,S} {12,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {5,S}
+1  O u0 p2 c0 {2,S} {10,S}
+2  O u0 p2 c0 {1,S} {22,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {11,S}
+5  C u0 p0 c0 {6,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
+7  C u0 p0 c0 {6,S} {9,S} {18,S} {19,S}
+8  C u0 p0 c0 {5,S} {10,S} {16,S} {17,S}
+9  C u0 p0 c0 {7,S} {11,D} {20,S}
+10 C u0 p0 c0 {1,S} {3,D} {8,S}
+11 C u0 p0 c0 {4,S} {9,D} {21,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C4H612(97)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,D} {8,S}
+3  C u0 p0 c0 {4,D} {9,S} {10,S}
+4  C u0 p0 c0 {2,D} {3,D}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C6H5(99)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,B} {3,B} {8,S}
+2  C u0 p0 c0 {1,B} {4,B} {7,S}
+3  C u0 p0 c0 {1,B} {5,B} {9,S}
+4  C u0 p0 c0 {2,B} {6,B} {10,S}
+5  C u0 p0 c0 {3,B} {6,B} {11,S}
+6  C u1 p0 c0 {4,B} {5,B}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C7H7(101)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,B} {3,B} {7,S}
+2  C u0 p0 c0 {1,B} {4,B} {8,S}
+3  C u0 p0 c0 {1,B} {6,B} {12,S}
+4  C u0 p0 c0 {2,B} {5,B} {9,S}
+5  C u0 p0 c0 {4,B} {6,B} {10,S}
+6  C u0 p0 c0 {3,B} {5,B} {11,S}
+7  C u1 p0 c0 {1,S} {13,S} {14,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {4,S}
 10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H8(102)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {8,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {3,B} {4,B}
+3  C u0 p0 c0 {2,B} {5,B} {11,S}
+4  C u0 p0 c0 {2,B} {7,B} {15,S}
+5  C u0 p0 c0 {3,B} {6,B} {12,S}
+6  C u0 p0 c0 {5,B} {7,B} {13,S}
+7  C u0 p0 c0 {4,B} {6,B} {14,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C6H5O(138)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {2,S}
+2  C u0 p0 c0 {1,S} {3,B} {7,B}
+3  C u0 p0 c0 {2,B} {4,B} {9,S}
+4  C u0 p0 c0 {3,B} {5,B} {10,S}
+5  C u0 p0 c0 {4,B} {6,B} {8,S}
+6  C u0 p0 c0 {5,B} {7,B} {11,S}
+7  C u0 p0 c0 {2,B} {6,B} {12,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {6,S}
 12 H u0 p0 c0 {7,S}
         """),
@@ -20367,228 +8599,12143 @@ multiplicity 2
 
 
 species(
-    label='S(21283)',
+    label='S(583)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {4,S} {11,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u1 p2 c0 {2,S}
-4  C u0 p0 c0 {1,S} {5,S} {7,S} {13,S}
-5  C u0 p0 c0 {2,S} {4,S} {8,S} {14,S}
-6  C u0 p0 c0 {9,S} {10,S} {15,S} {16,S}
-7  C u0 p0 c0 {4,S} {9,D} {19,S}
-8  C u0 p0 c0 {5,S} {10,D} {20,S}
-9  C u0 p0 c0 {6,S} {7,D} {17,S}
-10 C u0 p0 c0 {6,S} {8,D} {18,S}
-11 C u0 p0 c0 {1,S} {12,D} {21,S}
-12 C u0 p0 c0 {11,D} {22,S} {23,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {6,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {7,S}
-20 H u0 p0 c0 {8,S}
-21 H u0 p0 c0 {11,S}
-22 H u0 p0 c0 {12,S}
-23 H u0 p0 c0 {12,S}
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,B} {5,B}
+4  C u0 p0 c0 {3,B} {6,B} {9,S}
+5  C u0 p0 c0 {3,B} {8,B} {13,S}
+6  C u0 p0 c0 {4,B} {7,B} {10,S}
+7  C u0 p0 c0 {6,B} {8,B} {11,S}
+8  C u0 p0 c0 {5,B} {7,B} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {5,S}
         """),
 )
 
 
 species(
-    label='S(21363)',
+    label='S(24214)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {4,S} {7,D} {11,S}
+6  C u0 p0 c0 {4,S} {8,D} {12,S}
+7  C u0 p0 c0 {5,D} {9,S} {13,S}
+8  C u0 p0 c0 {6,D} {9,S} {14,S}
+9  C u0 p0 c0 {2,D} {7,S} {8,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(24003)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
+4  C u1 p0 c0 {3,S} {7,S} {10,S}
+5  C u0 p0 c0 {2,S} {7,D} {8,S}
+6  C u0 p0 c0 {3,S} {8,D} {11,S}
+7  C u0 p0 c0 {4,S} {5,D} {12,S}
+8  C u0 p0 c0 {5,S} {6,D} {13,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(24213)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {2,D} {4,S} {8,S}
+6  C u0 p0 c0 {4,S} {7,D} {11,S}
+7  C u0 p0 c0 {6,D} {9,S} {12,S}
+8  C u0 p0 c0 {5,S} {9,D} {14,S}
+9  C u0 p0 c0 {7,S} {8,D} {13,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(23997)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {3,S}
+3  C u0 p0 c0 {1,S} {2,S} {4,S} {5,S}
+4  C u1 p0 c0 {3,S} {6,S} {9,S}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,S} {8,D} {11,S}
+7  C u0 p0 c0 {5,D} {8,S} {13,S}
+8  C u0 p0 c0 {6,D} {7,S} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(24545)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {4,S} {5,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {3,S} {7,S} {8,S}
+6  C u0 p0 c0 {2,S} {9,S} {10,S} {11,S}
+7  C u0 p0 c0 {5,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,S} {10,D} {15,S}
+9  C u0 p0 c0 {6,S} {7,D} {12,S}
+10 C u0 p0 c0 {6,S} {8,D} {13,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(588)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {3,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,D} {10,S}
+5  C u0 p0 c0 {3,S} {7,D} {11,S}
+6  C u0 p0 c0 {4,D} {8,S} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {13,S}
+8  C u0 p0 c0 {2,D} {6,S} {7,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(24544)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {9,S} {11,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,S} {12,S}
+7  C u0 p0 c0 {6,S} {8,D} {14,S}
+8  C u0 p0 c0 {2,S} {7,D} {10,S}
+9  C u0 p0 c0 {5,S} {10,D} {13,S}
+10 C u0 p0 c0 {8,S} {9,D} {15,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(24044)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {15,S}
+3  O u0 p2 c0 {5,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {3,D} {4,S} {8,S}
+6  C u0 p0 c0 {4,S} {7,D} {11,S}
+7  C u0 p0 c0 {6,D} {9,S} {12,S}
+8  C u0 p0 c0 {5,S} {9,D} {14,S}
+9  C u0 p0 c0 {7,S} {8,D} {13,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(24609)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {14,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,D} {10,S}
+5  C u0 p0 c0 {3,S} {7,D} {11,S}
+6  C u0 p0 c0 {4,D} {8,S} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {13,S}
+8  C u0 p0 c0 {2,D} {6,S} {7,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(24558)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {3,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {1,S} {5,B} {8,B}
+4  C u0 p0 c0 {5,B} {6,B} {9,S}
+5  C u0 p0 c0 {3,B} {4,B} {10,S}
+6  C u0 p0 c0 {2,S} {4,B} {7,B}
+7  C u0 p0 c0 {6,B} {8,B} {11,S}
+8  C u0 p0 c0 {3,B} {7,B} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(24566)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,D} {10,S}
+5  C u0 p0 c0 {3,S} {8,D} {11,S}
+6  C u0 p0 c0 {4,D} {7,S} {12,S}
+7  C u0 p0 c0 {2,D} {6,S} {8,S}
+8  C u1 p0 c0 {5,D} {7,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(24561)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u1 p2 c0 {8,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,S} {10,S}
+5  C u0 p0 c0 {4,S} {8,D} {12,S}
+6  C u0 p0 c0 {3,S} {7,D} {11,S}
+7  C u0 p0 c0 {6,D} {8,S} {13,S}
+8  C u0 p0 c0 {2,S} {5,D} {7,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(24923)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {13,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {5,S} {6,S} {7,S} {9,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {10,S}
+5  C u0 p0 c0 {3,S} {7,S} {8,D}
+6  C u1 p0 c0 {3,S} {4,S} {11,S}
+7  C u0 p0 c0 {2,D} {3,S} {5,S}
+8  C u0 p0 c0 {4,S} {5,D} {12,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25021)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {6,S}
+2  O u0 p2 c0 {4,S} {7,S}
+3  O u0 p2 c0 {9,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {1,S} {5,S} {8,S} {12,S}
+7  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
+8  C u0 p0 c0 {6,S} {10,D} {14,S}
+9  C u0 p0 c0 {3,D} {7,S} {10,S}
+10 C u0 p0 c0 {8,D} {9,S} {15,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(24565)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {4,D} {6,S} {11,S}
+6  C u0 p0 c0 {2,D} {5,S} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {12,S}
+8  C u1 p0 c0 {3,S} {7,D}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25016)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {6,D}
+3  O u1 p2 c0 {9,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,D} {5,S} {8,S}
+7  C u0 p0 c0 {5,S} {9,D} {12,S}
+8  C u0 p0 c0 {6,S} {10,D} {14,S}
+9  C u0 p0 c0 {3,S} {7,D} {10,S}
+10 C u0 p0 c0 {8,D} {9,S} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(25096)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {7,D}
+4  O u1 p2 c0 {10,S}
+5  C u0 p0 c0 {1,S} {7,S} {9,S} {11,S}
+6  C u0 p0 c0 {2,S} {7,S} {8,S} {12,S}
+7  C u0 p0 c0 {3,D} {5,S} {6,S}
+8  C u1 p0 c0 {6,S} {10,S} {14,S}
+9  C u0 p0 c0 {5,S} {10,D} {13,S}
+10 C u0 p0 c0 {4,S} {8,S} {9,D}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(25092)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {7,D}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,S} {5,S} {8,S} {12,S}
+7  C u0 p0 c0 {3,D} {5,S} {9,S}
+8  C u0 p0 c0 {4,D} {6,S} {10,S}
+9  C u0 p0 c0 {7,S} {10,D} {14,S}
+10 C u0 p0 c0 {8,S} {9,D} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(141)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,D}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {1,D} {4,S} {8,S}
+4  C u0 p0 c0 {3,S} {5,D} {9,S}
+5  C u0 p0 c0 {4,D} {6,S} {10,S}
+6  C u0 p0 c0 {2,D} {5,S} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {11,S}
+8  C u0 p0 c0 {3,S} {7,D} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(24928)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u1 p0 c0 {3,S} {6,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,S} {7,S} {8,D}
+7  C u0 p0 c0 {5,D} {6,S} {12,S}
+8  C u0 p0 c0 {2,D} {6,D}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='iC4H7(103)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,D}
+3  C u1 p0 c0 {2,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,D} {10,S} {11,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='cC3H4(104)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2 C u0 p0 c0 {1,S} {3,D} {6,S}
+3 C u0 p0 c0 {1,S} {2,D} {7,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='iC4H8(106)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {3,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {2,S} {4,D}
+4  C u0 p0 c0 {3,D} {11,S} {12,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='iC3H7(107)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {5,S} {6,S}
+2  C u0 p0 c0 {3,S} {7,S} {8,S} {9,S}
+3  C u1 p0 c0 {1,S} {2,S} {10,S}
+4  H u0 p0 c0 {1,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(24603)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {14,S}
+3  O u0 p2 c0 {1,S} {15,S}
+4  C u0 p0 c0 {1,S} {5,B} {6,B}
+5  C u0 p0 c0 {2,S} {4,B} {7,B}
+6  C u0 p0 c0 {4,B} {8,B} {10,S}
+7  C u0 p0 c0 {5,B} {9,B} {13,S}
+8  C u0 p0 c0 {6,B} {9,B} {11,S}
+9  C u0 p0 c0 {7,B} {8,B} {12,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(25709)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {6,S} {15,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u1 p2 c0 {2,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {1,S} {5,S} {8,S} {11,S}
+7  C u0 p0 c0 {5,S} {9,S} {10,D}
+8  C u0 p0 c0 {6,S} {9,D} {13,S}
+9  C u0 p0 c0 {7,S} {8,D} {14,S}
+10 C u0 p0 c0 {4,D} {7,D}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25576)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {1,S} {4,B} {5,B}
+4  C u0 p0 c0 {2,S} {3,B} {6,B}
+5  C u0 p0 c0 {3,B} {8,B} {12,S}
+6  C u0 p0 c0 {4,B} {7,B} {9,S}
+7  C u0 p0 c0 {6,B} {8,B} {10,S}
+8  C u0 p0 c0 {5,B} {7,B} {11,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25710)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {15,S}
+2  O u0 p2 c0 {4,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+6  C u0 p0 c0 {7,D} {9,S} {10,S}
+7  C u0 p0 c0 {5,S} {6,D} {13,S}
+8  C u0 p0 c0 {5,S} {9,D} {12,S}
+9  C u0 p0 c0 {6,S} {8,D} {14,S}
+10 C u0 p0 c0 {2,S} {3,D} {6,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C3H6O(108)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {5,S}
+3  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+4  C u0 p0 c0 {2,S} {8,S} {9,S} {10,S}
+5  H u0 p0 c0 {2,S}
+6  H u0 p0 c0 {3,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(25532)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {5,S}
+2  O u1 p2 c0 {6,S}
+3  O u0 p2 c0 {7,D}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,S} {5,S} {8,S} {12,S}
+7  C u0 p0 c0 {3,D} {5,S} {9,S}
+8  C u0 p0 c0 {4,D} {6,S} {10,S}
+9  C u0 p0 c0 {7,S} {10,D} {14,S}
+10 C u0 p0 c0 {8,S} {9,D} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(25550)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {13,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {6,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,D}
+5  C u0 p0 c0 {6,D} {7,S} {8,S}
+6  C u0 p0 c0 {3,S} {5,D} {11,S}
+7  C u0 p0 c0 {4,D} {5,S} {12,S}
+8  C u1 p0 c0 {2,D} {5,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25542)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {12,S}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {1,S} {5,D} {6,S}
+4  C u0 p0 c0 {5,S} {7,S} {8,D}
+5  C u0 p0 c0 {3,D} {4,S} {9,S}
+6  C u0 p0 c0 {3,S} {7,D} {10,S}
+7  C u0 p0 c0 {4,S} {6,D} {11,S}
+8  C u0 p0 c0 {2,D} {4,D}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C3H3O(109)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {4,D}
+2 C u0 p0 c0 {3,D} {4,S} {5,S}
+3 C u0 p0 c0 {2,D} {6,S} {7,S}
+4 C u1 p0 c0 {1,D} {2,S}
+5 H u0 p0 c0 {2,S}
+6 H u0 p0 c0 {3,S}
+7 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(25873)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {8,S}
+2  O u0 p2 c0 {7,D}
+3  O u1 p2 c0 {9,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,D} {7,S} {12,S}
+6  C u0 p0 c0 {5,D} {8,S} {11,S}
+7  C u0 p0 c0 {2,D} {5,S} {10,S}
+8  C u0 p0 c0 {1,S} {6,S} {9,D}
+9  C u0 p0 c0 {3,S} {8,D} {14,S}
+10 C u0 p0 c0 {4,D} {7,S} {13,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(24564)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u1 p2 c0 {8,S}
+3  C u0 p0 c0 {1,S} {4,B} {5,B}
+4  C u0 p0 c0 {3,B} {6,B} {9,S}
+5  C u0 p0 c0 {3,B} {7,B} {10,S}
+6  C u0 p0 c0 {4,B} {8,B} {11,S}
+7  C u0 p0 c0 {5,B} {8,B} {12,S}
+8  C u0 p0 c0 {2,S} {6,B} {7,B}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(25881)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {7,S} {14,S}
+2  O u1 p2 c0 {5,S}
+3  O u1 p2 c0 {6,S}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {2,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,D}
+7  C u0 p0 c0 {1,S} {6,D} {9,S}
+8  C u0 p0 c0 {4,D} {5,S} {10,S}
+9  C u0 p0 c0 {7,S} {10,D} {13,S}
+10 C u0 p0 c0 {8,S} {9,D} {12,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {10,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(26372)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {8,S} {14,S}
+3  O u1 p2 c0 {1,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,D}
+7  C u1 p0 c0 {5,S} {8,S} {12,S}
+8  C u0 p0 c0 {2,S} {7,S} {9,D}
+9  C u0 p0 c0 {6,S} {8,D} {13,S}
+10 C u0 p0 c0 {4,D} {6,D}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(25994)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {5,S} {15,S}
+3  O u0 p2 c0 {10,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {5,S} {8,D} {11,S}
+7  C u0 p0 c0 {5,S} {9,D} {12,S}
+8  C u0 p0 c0 {6,D} {10,S} {13,S}
+9  C u0 p0 c0 {7,D} {10,S} {14,S}
+10 C u0 p0 c0 {3,D} {8,S} {9,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(26654)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {7,S}
+2  O u0 p2 c0 {8,D}
+3  O u0 p2 c0 {9,D}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {5,S} {7,D} {12,S}
+7  C u0 p0 c0 {1,S} {6,D} {9,S}
+8  C u0 p0 c0 {2,D} {5,S} {10,S}
+9  C u0 p0 c0 {3,D} {7,S} {14,S}
+10 C u0 p0 c0 {4,D} {8,S} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(26715)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {6,S}
+2  O u0 p2 c0 {9,S} {14,S}
+3  O u0 p2 c0 {7,D}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+6  C u0 p0 c0 {1,S} {7,S} {10,S} {12,S}
+7  C u0 p0 c0 {3,D} {5,S} {6,S}
+8  C u0 p0 c0 {4,D} {5,S} {9,S}
+9  C u0 p0 c0 {2,S} {8,S} {10,D}
+10 C u0 p0 c0 {6,S} {9,D} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(25129)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {15,S}
+3  O u0 p2 c0 {8,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {5,S} {7,D} {12,S}
+7  C u0 p0 c0 {2,S} {6,D} {9,S}
+8  C u0 p0 c0 {3,D} {5,S} {10,S}
+9  C u0 p0 c0 {7,S} {10,D} {13,S}
+10 C u0 p0 c0 {8,S} {9,D} {14,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(26369)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {5,S} {14,S}
+3  O u1 p2 c0 {1,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u1 p0 c0 {5,S} {8,S} {11,S}
+7  C u0 p0 c0 {5,S} {9,D} {12,S}
+8  C u0 p0 c0 {6,S} {9,S} {10,D}
+9  C u0 p0 c0 {7,D} {8,S} {13,S}
+10 C u0 p0 c0 {4,D} {8,D}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(26365)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {15,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {6,D}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {3,D} {5,S} {8,S}
+7  C u0 p0 c0 {5,S} {9,D} {11,S}
+8  C u0 p0 c0 {6,S} {10,D} {12,S}
+9  C u0 p0 c0 {7,D} {10,S} {14,S}
+10 C u0 p0 c0 {8,D} {9,S} {13,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(26367)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {15,S}
+3  O u0 p2 c0 {6,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {3,D} {5,S} {7,S}
+7  C u0 p0 c0 {2,S} {6,S} {9,D}
+8  C u0 p0 c0 {5,S} {10,D} {12,S}
+9  C u0 p0 c0 {7,D} {10,S} {14,S}
+10 C u0 p0 c0 {8,D} {9,S} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(26371)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {6,S} {14,S}
+3  O u1 p2 c0 {1,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,S} {5,S} {9,D}
+7  C u1 p0 c0 {5,S} {8,S} {12,S}
+8  C u0 p0 c0 {7,S} {9,S} {10,D}
+9  C u0 p0 c0 {6,D} {8,S} {13,S}
+10 C u0 p0 c0 {4,D} {8,D}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C3H6O(110)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
+3  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,D} {2,S} {3,S}
+5  H u0 p0 c0 {2,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='H2C4O(111)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {5,D}
+2 C u0 p0 c0 {3,D} {6,S} {7,S}
+3 C u0 p0 c0 {2,D} {4,D}
+4 C u0 p0 c0 {3,D} {5,D}
+5 C u0 p0 c0 {1,D} {4,D}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C6H2(112)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 C u0 p0 c0 {2,T} {3,S}
+2 C u0 p0 c0 {1,T} {4,S}
+3 C u0 p0 c0 {1,S} {5,T}
+4 C u0 p0 c0 {2,S} {6,T}
+5 C u0 p0 c0 {3,T} {7,S}
+6 C u0 p0 c0 {4,T} {8,S}
+7 H u0 p0 c0 {5,S}
+8 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H3(113)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {4,D} {7,S}
+2 C u0 p0 c0 {1,S} {3,T}
+3 C u0 p0 c0 {2,T} {5,S}
+4 C u1 p0 c0 {1,D} {8,S}
+5 C u0 p0 c0 {3,S} {6,T}
+6 C u0 p0 c0 {5,T} {9,S}
+7 H u0 p0 c0 {1,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H4(114)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,D} {3,S} {7,S}
+2  C u0 p0 c0 {1,D} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,T}
+4  C u0 p0 c0 {3,T} {5,S}
+5  C u0 p0 c0 {4,S} {6,T}
+6  C u0 p0 c0 {5,T} {10,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H4(115)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,D} {8,S}
+2  C u0 p0 c0 {1,S} {4,D} {7,S}
+3  C u0 p0 c0 {1,D} {6,S} {10,S}
+4  C u0 p0 c0 {2,D} {5,S} {9,S}
+5  C u0 p0 c0 {4,S} {6,T}
+6  C u0 p0 c0 {3,S} {5,T}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C4H5O(116)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {5,S}
+2  C u0 p0 c0 {3,S} {4,D} {6,S}
+3  C u0 p0 c0 {2,S} {5,D} {7,S}
+4  C u0 p0 c0 {2,D} {8,S} {9,S}
+5  C u0 p0 c0 {1,S} {3,D} {10,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C4H5(117)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+2 C u0 p0 c0 {4,D} {8,S} {9,S}
+3 C u1 p0 c0 {1,S} {4,D}
+4 C u0 p0 c0 {2,D} {3,D}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {1,S}
+8 H u0 p0 c0 {2,S}
+9 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C4H5O(119)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,D}
+2  C u0 p0 c0 {3,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {4,D} {9,S}
+4  C u0 p0 c0 {3,D} {5,S} {10,S}
+5  C u1 p0 c0 {1,D} {4,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(22271)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {7,S}
+4  C u0 p0 c0 {3,S} {5,D} {8,S}
+5  C u0 p0 c0 {4,D} {9,S} {10,S}
+6  H u0 p0 c0 {3,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(25788)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {6,S} {14,S}
+3  O u1 p2 c0 {1,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u0 p0 c0 {2,S} {5,S} {9,D}
+7  C u0 p0 c0 {5,S} {8,S} {10,D}
+8  C u1 p0 c0 {7,S} {9,S} {13,S}
+9  C u0 p0 c0 {6,D} {8,S} {12,S}
+10 C u0 p0 c0 {4,D} {7,D}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(26366)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,S} {15,S}
+3  O u0 p2 c0 {9,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {5,S} {7,D} {13,S}
+7  C u0 p0 c0 {2,S} {6,D} {9,S}
+8  C u0 p0 c0 {5,S} {10,D} {12,S}
+9  C u0 p0 c0 {3,D} {7,S} {10,S}
+10 C u0 p0 c0 {8,D} {9,S} {14,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C4H6O(120)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+3  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {2,S} {4,D} {11,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(27339)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {7,S} {14,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+6  C u0 p0 c0 {8,D} {9,S} {10,S}
+7  C u0 p0 c0 {3,S} {5,S} {9,D}
+8  C u0 p0 c0 {5,S} {6,D} {12,S}
+9  C u0 p0 c0 {6,S} {7,D} {13,S}
+10 C u0 p0 c0 {2,S} {4,D} {6,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(26686)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,D}
+2  O u0 p2 c0 {7,D}
+3  O u0 p2 c0 {9,D}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,D} {7,S} {12,S}
+6  C u0 p0 c0 {5,D} {8,S} {11,S}
+7  C u0 p0 c0 {2,D} {5,S} {10,S}
+8  C u0 p0 c0 {1,D} {6,S} {9,S}
+9  C u0 p0 c0 {3,D} {8,S} {14,S}
+10 C u0 p0 c0 {4,D} {7,S} {13,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(26660)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {5,S} {10,S}
+2  O u1 p2 c0 {5,S}
+3  O u0 p2 c0 {6,D}
+4  O u1 p2 c0 {9,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {11,S}
+6  C u0 p0 c0 {3,D} {5,S} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {13,S}
+8  C u0 p0 c0 {7,D} {9,S} {12,S}
+9  C u0 p0 c0 {4,S} {8,S} {10,D}
+10 C u0 p0 c0 {1,S} {9,D} {14,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(25852)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {6,S} {15,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {3,S} {8,S} {9,S} {11,S}
+7  C u0 p0 c0 {5,S} {9,D} {10,S}
+8  C u1 p0 c0 {5,S} {6,S} {13,S}
+9  C u0 p0 c0 {6,S} {7,D} {14,S}
+10 C u0 p0 c0 {2,S} {4,D} {7,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C4H6O(121)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {6,S}
+3  C u0 p0 c0 {1,S} {2,S} {7,S} {8,S}
+4  C u0 p0 c0 {2,S} {5,D} {9,S}
+5  C u0 p0 c0 {4,D} {10,S} {11,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C4H6(122)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,T}
+4  C u0 p0 c0 {2,S} {3,T}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='C4H6O(123)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {5,S}
+2  C u0 p0 c0 {3,S} {4,S} {6,S} {7,S}
+3  C u0 p0 c0 {1,S} {2,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,S} {5,D} {10,S}
+5  C u0 p0 c0 {1,S} {4,D} {11,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C4H6O(124)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,D}
+2  C u0 p0 c0 {3,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {2,S} {4,D} {9,S}
+4  C u0 p0 c0 {3,D} {5,S} {10,S}
+5  C u0 p0 c0 {1,D} {4,S} {11,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C4H4O(125)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,S} {5,S}
+2 C u0 p0 c0 {3,S} {5,D} {6,S}
+3 C u0 p0 c0 {2,S} {4,D} {7,S}
+4 C u0 p0 c0 {1,S} {3,D} {8,S}
+5 C u0 p0 c0 {1,S} {2,D} {9,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='pC4H9(126)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  C u1 p0 c0 {2,S} {12,S} {13,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='sC4H9(127)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {7,S} {8,S} {9,S}
+3  C u0 p0 c0 {4,S} {10,S} {11,S} {12,S}
+4  C u1 p0 c0 {1,S} {3,S} {13,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H82(128)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,D} {11,S}
+4  C u0 p0 c0 {2,S} {3,D} {12,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(27643)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {5,S} {14,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {3,S} {6,S} {8,S} {11,S}
+6  C u0 p0 c0 {1,S} {5,S} {9,D}
+7  C u0 p0 c0 {8,D} {9,S} {10,S}
+8  C u0 p0 c0 {5,S} {7,D} {12,S}
+9  C u0 p0 c0 {6,D} {7,S} {13,S}
+10 C u0 p0 c0 {2,S} {4,D} {7,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(27644)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {8,S} {14,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,D} {10,S}
+7  C u0 p0 c0 {1,S} {5,S} {8,D}
+8  C u0 p0 c0 {3,S} {7,D} {9,S}
+9  C u0 p0 c0 {6,D} {8,S} {13,S}
+10 C u0 p0 c0 {2,S} {4,D} {6,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(582)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,D}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {1,D} {4,S} {8,S}
+4  C u0 p0 c0 {2,D} {3,S} {5,S}
+5  C u0 p0 c0 {4,S} {6,D} {9,S}
+6  C u0 p0 c0 {5,D} {7,S} {10,S}
+7  C u0 p0 c0 {6,S} {8,D} {11,S}
+8  C u0 p0 c0 {3,S} {7,D} {12,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(25947)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {13,S}
+2  O u0 p2 c0 {4,S} {14,S}
+3  C u0 p0 c0 {1,S} {4,B} {5,B}
+4  C u0 p0 c0 {2,S} {3,B} {6,B}
+5  C u0 p0 c0 {3,B} {7,B} {9,S}
+6  C u0 p0 c0 {4,B} {8,B} {11,S}
+7  C u0 p0 c0 {5,B} {8,B} {10,S}
+8  C u0 p0 c0 {6,B} {7,B} {12,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='iC4H9(129)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  C u1 p0 c0 {1,S} {12,S} {13,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H10(130)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {6,S}
+2  C u0 p0 c0 {1,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {12,S} {13,S} {14,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C4H10(131)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='tC4H9(132)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {4,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {4,S} {11,S} {12,S} {13,S}
+4  C u1 p0 c0 {1,S} {2,S} {3,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C7H7(133)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {8,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {3,B} {4,B}
+3  C u0 p0 c0 {2,B} {5,B} {11,S}
+4  C u0 p0 c0 {2,B} {6,B} {12,S}
+5  C u0 p0 c0 {3,B} {7,B} {13,S}
+6  C u0 p0 c0 {4,B} {7,B} {14,S}
+7  C u1 p0 c0 {5,B} {6,B}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H7O(134)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {8,S}
+2  C u0 p0 c0 {3,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {4,B} {5,B}
+4  C u0 p0 c0 {3,B} {6,B} {12,S}
+5  C u0 p0 c0 {3,B} {8,B} {15,S}
+6  C u0 p0 c0 {4,B} {7,B} {13,S}
+7  C u0 p0 c0 {6,B} {8,B} {14,S}
+8  C u0 p0 c0 {1,S} {5,B} {7,B}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(27807)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {9,S} {14,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {5,S} {7,D} {12,S}
+7  C u0 p0 c0 {1,S} {6,D} {9,S}
+8  C u0 p0 c0 {5,S} {9,D} {13,S}
+9  C u0 p0 c0 {3,S} {7,S} {8,D}
+10 C u0 p0 c0 {2,S} {4,D} {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(27812)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {8,S} {14,S}
+2  O u0 p2 c0 {7,D}
+3  O u1 p2 c0 {10,S}
+4  O u1 p2 c0 {10,S}
+5  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,D}
+7  C u0 p0 c0 {2,D} {5,S} {8,S}
+8  C u0 p0 c0 {1,S} {7,S} {9,D}
+9  C u0 p0 c0 {6,S} {8,D} {13,S}
+10 C u0 p0 c0 {3,S} {4,S} {6,D}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(27789)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {5,S} {14,S}
+2  O u0 p2 c0 {8,D}
+3  O u1 p2 c0 {10,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+6  C u0 p0 c0 {7,S} {9,D} {10,S}
+7  C u1 p0 c0 {5,S} {6,S} {12,S}
+8  C u0 p0 c0 {2,D} {5,S} {9,S}
+9  C u0 p0 c0 {6,D} {8,S} {13,S}
+10 C u0 p0 c0 {3,S} {4,D} {6,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(27314)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,D}
+3  O u0 p2 c0 {8,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+6  C u1 p0 c0 {5,S} {9,S} {12,S}
+7  C u0 p0 c0 {2,D} {5,S} {8,S}
+8  C u0 p0 c0 {3,D} {7,S} {10,S}
+9  C u0 p0 c0 {6,S} {10,D} {13,S}
+10 C u0 p0 c0 {8,S} {9,D} {14,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(28121)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
+4  C u0 p0 c0 {2,D} {3,S} {6,S}
+5  C u1 p0 c0 {3,S} {7,S} {9,S}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u1 p0 c0 {5,S} {6,D}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28063)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {8,S} {14,S}
+2  O u1 p2 c0 {9,S}
+3  O u1 p2 c0 {10,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {5,S} {8,D} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {12,S}
+8  C u0 p0 c0 {1,S} {6,D} {9,S}
+9  C u0 p0 c0 {2,S} {7,D} {8,S}
+10 C u0 p0 c0 {3,S} {4,D} {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28079)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {11,S}
+2  O u1 p2 c0 {5,S}
+3  C u0 p0 c0 {5,S} {7,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,S} {5,D} {6,S}
+5  C u0 p0 c0 {2,S} {3,S} {4,D}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u1 p0 c0 {3,S} {6,D}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28120)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
+4  C u0 p0 c0 {2,D} {3,S} {6,S}
+5  C u0 p0 c0 {3,S} {7,D} {9,S}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u0 p0 c0 {5,D} {6,D}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28324)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+4  C u0 p0 c0 {5,S} {6,S} {8,S} {9,S}
+5  C u0 p0 c0 {3,S} {4,S} {7,D}
+6  C u0 p0 c0 {2,D} {3,S} {4,S}
+7  C u0 p0 c0 {3,S} {5,D} {10,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28266)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {5,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {8,S}
+4  C u1 p0 c0 {3,S} {6,S} {9,S}
+5  C u0 p0 c0 {2,D} {3,S} {7,S}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u1 p0 c0 {5,S} {6,D}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28321)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {11,S}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {4,S} {6,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,D} {3,S} {5,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,D}
+6  C u0 p0 c0 {3,S} {7,D} {10,S}
+7  C u0 p0 c0 {5,D} {6,D}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28658)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {6,S}
+2  O u0 p2 c0 {7,S} {13,S}
+3  O u1 p2 c0 {8,S}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {1,S} {5,S} {9,D}
+7  C u0 p0 c0 {2,S} {8,D} {9,S}
+8  C u0 p0 c0 {3,S} {5,S} {7,D}
+9  C u0 p0 c0 {6,D} {7,S} {12,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(29234)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {11,S}
+3  C u0 p0 c0 {2,S} {4,S} {6,S} {8,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,D}
+5  C u0 p0 c0 {1,S} {4,D} {7,S}
+6  C u0 p0 c0 {3,S} {7,D} {9,S}
+7  C u0 p0 c0 {5,S} {6,D} {10,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(29272)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {8,S} {13,S}
+4  O u0 p2 c0 {9,D}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,S} {11,S}
+7  C u0 p0 c0 {5,S} {8,D} {12,S}
+8  C u0 p0 c0 {3,S} {7,D} {9,S}
+9  C u0 p0 c0 {4,D} {6,S} {8,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(29273)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {8,S} {13,S}
+4  O u1 p2 c0 {9,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,S} {11,S}
+7  C u1 p0 c0 {5,S} {8,S} {12,S}
+8  C u0 p0 c0 {3,S} {7,S} {9,D}
+9  C u0 p0 c0 {4,S} {6,S} {8,D}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(29265)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {12,S}
+2  O u0 p2 c0 {6,D}
+3  O u0 p2 c0 {7,D}
+4  C u0 p0 c0 {6,S} {7,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,D}
+6  C u0 p0 c0 {2,D} {4,S} {5,S}
+7  C u0 p0 c0 {3,D} {4,S} {8,S}
+8  C u0 p0 c0 {5,D} {7,S} {11,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(29377)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {8,S} {13,S}
+2  O u1 p2 c0 {5,S}
+3  O u1 p2 c0 {5,S}
+4  O u0 p2 c0 {9,D}
+5  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,S} {11,S}
+7  C u0 p0 c0 {5,S} {8,D} {12,S}
+8  C u0 p0 c0 {1,S} {7,D} {9,S}
+9  C u0 p0 c0 {4,D} {6,S} {8,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28268)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u1 p2 c0 {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u1 p0 c0 {3,S} {7,S} {9,S}
+5  C u0 p0 c0 {2,S} {3,D} {6,S}
+6  C u0 p0 c0 {5,S} {7,D} {10,S}
+7  C u0 p0 c0 {4,S} {6,D} {8,S}
+8  H u0 p0 c0 {7,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(29232)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {11,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {4,S} {5,S} {6,S} {8,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {9,S}
+5  C u0 p0 c0 {3,S} {6,D} {7,S}
+6  C u0 p0 c0 {3,S} {5,D} {10,S}
+7  C u0 p0 c0 {2,D} {4,S} {5,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(28260)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {11,S}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u0 p0 c0 {2,D} {3,S} {6,S}
+5  C u0 p0 c0 {3,D} {7,S} {9,S}
+6  C u0 p0 c0 {4,S} {7,D} {10,S}
+7  C u0 p0 c0 {5,S} {6,D} {8,S}
+8  H u0 p0 c0 {7,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H6O(135)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,B} {4,B} {8,S}
+3  C u0 p0 c0 {2,B} {5,B} {9,S}
+4  C u0 p0 c0 {2,B} {7,B} {13,S}
+5  C u0 p0 c0 {3,B} {6,B} {10,S}
+6  C u0 p0 c0 {5,B} {7,B} {11,S}
+7  C u0 p0 c0 {4,B} {6,B} {12,S}
+8  C u0 p0 c0 {1,D} {2,S} {14,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(24207)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {7,S} {8,S} {9,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {1,S} {4,D} {6,S}
+6  C u1 p0 c0 {5,S} {11,S} {12,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H8O(136)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,B} {5,B}
+4  C u0 p0 c0 {3,B} {6,B} {11,S}
+5  C u0 p0 c0 {3,B} {8,B} {15,S}
+6  C u0 p0 c0 {4,B} {7,B} {12,S}
+7  C u0 p0 c0 {6,B} {8,B} {13,S}
+8  C u0 p0 c0 {5,B} {7,B} {14,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C6H6O(137)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,B} {4,B}
+3  C u0 p0 c0 {2,B} {5,B} {8,S}
+4  C u0 p0 c0 {2,B} {7,B} {12,S}
+5  C u0 p0 c0 {3,B} {6,B} {9,S}
+6  C u0 p0 c0 {5,B} {7,B} {10,S}
+7  C u0 p0 c0 {4,B} {6,B} {11,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H8O(139)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {16,S}
+2  C u0 p0 c0 {3,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {5,B} {6,B}
+4  C u0 p0 c0 {1,S} {5,B} {7,B}
+5  C u0 p0 c0 {3,B} {4,B} {15,S}
+6  C u0 p0 c0 {3,B} {8,B} {12,S}
+7  C u0 p0 c0 {4,B} {8,B} {14,S}
+8  C u0 p0 c0 {6,B} {7,B} {13,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H5O(140)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,B} {4,B} {8,S}
+3  C u0 p0 c0 {2,B} {5,B} {9,S}
+4  C u0 p0 c0 {2,B} {7,B} {13,S}
+5  C u0 p0 c0 {3,B} {6,B} {10,S}
+6  C u0 p0 c0 {5,B} {7,B} {11,S}
+7  C u0 p0 c0 {4,B} {6,B} {12,S}
+8  C u1 p0 c0 {1,D} {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C5H5O(144)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {2,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {7,S}
+3  C u0 p0 c0 {2,S} {5,D} {8,S}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,D} {6,S} {10,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C5H5O(145)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,D}
+3  C u1 p0 c0 {2,S} {5,S} {7,S}
+4  C u0 p0 c0 {2,D} {6,S} {10,S}
+5  C u0 p0 c0 {3,S} {6,D} {8,S}
+6  C u0 p0 c0 {4,S} {5,D} {9,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(29864)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {7,S} {13,S}
+2  O u0 p2 c0 {6,D}
+3  O u1 p2 c0 {8,S}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,D} {5,S} {7,S}
+7  C u0 p0 c0 {1,S} {6,S} {9,D}
+8  C u0 p0 c0 {3,S} {4,D} {5,S}
+9  C u1 p0 c0 {7,D} {12,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(29422)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {13,S}
+2  O u0 p2 c0 {6,S} {12,S}
+3  O u1 p2 c0 {7,S}
+4  C u0 p0 c0 {5,S} {7,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {8,D}
+6  C u0 p0 c0 {2,S} {7,D} {8,S}
+7  C u0 p0 c0 {3,S} {4,S} {6,D}
+8  C u0 p0 c0 {5,D} {6,S} {11,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(23118)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {9,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,D}
+7  C u0 p0 c0 {2,S} {6,D} {10,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(29421)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {13,S}
+2  O u0 p2 c0 {6,S} {12,S}
+3  O u1 p2 c0 {7,S}
+4  C u0 p0 c0 {5,S} {7,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {6,D}
+6  C u0 p0 c0 {2,S} {5,D} {8,S}
+7  C u0 p0 c0 {3,S} {4,S} {8,D}
+8  C u0 p0 c0 {6,S} {7,D} {11,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(30089)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,S} {9,S}
+2  O u0 p2 c0 {7,S} {13,S}
+3  O u0 p2 c0 {6,D}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {6,S} {8,S} {10,S} {11,S}
+6  C u0 p0 c0 {3,D} {5,S} {7,S}
+7  C u0 p0 c0 {2,S} {6,S} {9,D}
+8  C u0 p0 c0 {1,S} {4,D} {5,S}
+9  C u0 p0 c0 {1,S} {7,D} {12,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(17259)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,D}
+4  C u0 p0 c0 {2,S} {3,S} {5,D}
+5  C u0 p0 c0 {4,D} {7,S} {8,S}
+6  C u1 p0 c0 {3,D} {9,S}
+7  H u0 p0 c0 {5,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(30129)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u0 p2 c0 {3,S} {7,S}
+5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
+6  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
+7  C u1 p0 c0 {4,S} {5,S} {10,S}
+8  H u0 p0 c0 {6,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(11427)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {4,S}
+2 O u0 p2 c0 {1,S} {6,S}
+3 O u1 p2 c0 {5,S}
+4 C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+5 C u0 p0 c0 {3,S} {4,S} {6,D}
+6 C u0 p0 c0 {2,S} {5,D} {9,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C5H5O(592)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,D}
+2  C u0 p0 c0 {3,D} {4,S} {7,S}
+3  C u0 p0 c0 {2,D} {5,S} {8,S}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u0 p0 c0 {1,D} {3,S} {10,S}
+6  C u1 p0 c0 {4,D} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(28329)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {2,S} {4,D} {7,S}
+7  C u0 p0 c0 {5,D} {6,S} {11,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(30818)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u1 p2 c0 {4,S}
+2 O u0 p2 c0 {5,D}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+5 C u0 p0 c0 {2,D} {4,S} {6,S}
+6 C u0 p0 c0 {3,D} {5,S} {9,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(30866)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {7,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u0 p2 c0 {2,S} {11,S}
+4  C u0 p0 c0 {1,S} {5,S} {8,S} {12,S}
+5  C u0 p0 c0 {4,S} {9,S} {13,S} {14,S}
+6  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
+7  C u0 p0 c0 {1,S} {6,S} {11,D}
+8  C u1 p0 c0 {4,S} {10,S} {18,S}
+9  C u0 p0 c0 {5,S} {10,D} {17,S}
+10 C u0 p0 c0 {8,S} {9,D} {19,S}
+11 C u0 p0 c0 {3,S} {7,D} {20,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='C5H6O(146)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {12,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,S} {7,S}
+3  C u0 p0 c0 {2,S} {5,D} {8,S}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,D} {6,S} {10,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C4H5(147)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {3,S} {5,S} {6,S}
+2 C u1 p0 c0 {1,S} {4,S} {7,S}
+3 C u0 p0 c0 {1,S} {4,D} {8,S}
+4 C u0 p0 c0 {2,S} {3,D} {9,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C5H9(148)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {6,S} {7,S}
+3  C u0 p0 c0 {1,S} {5,D} {10,S}
+4  C u1 p0 c0 {2,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,D} {13,S} {14,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H8(149)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {6,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,D} {9,S}
+3  C u0 p0 c0 {2,D} {4,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,D} {10,S}
+5  C u0 p0 c0 {4,D} {12,S} {13,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H10(150)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {5,D} {13,S}
+5  C u0 p0 c0 {4,D} {14,S} {15,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(27152)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {5,S} {9,S}
+2  O u0 p2 c0 {7,S} {14,S}
+3  O u1 p2 c0 {6,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,D}
+7  C u0 p0 c0 {2,S} {6,D} {8,S}
+8  C u0 p0 c0 {7,S} {9,D} {12,S}
+9  C u0 p0 c0 {1,S} {8,D} {13,S}
+10 C u1 p0 c0 {4,D} {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='cC5H9(151)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+5  C u1 p0 c0 {3,S} {4,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='cC5H8(152)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,D} {12,S}
+5  C u0 p0 c0 {2,S} {4,D} {13,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(1097)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {7,D} {15,S}
+5  C u0 p0 c0 {1,S} {6,D} {14,S}
+6  C u0 p0 c0 {3,S} {5,D} {16,S}
+7  C u0 p0 c0 {3,S} {4,D} {17,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H9(153)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {6,S} {7,S}
+2  C u0 p0 c0 {3,S} {8,S} {9,S} {10,S}
+3  C u1 p0 c0 {1,S} {2,S} {11,S}
+4  C u0 p0 c0 {1,S} {5,D} {12,S}
+5  C u0 p0 c0 {4,D} {13,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H8(154)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,D} {8,S}
+3  C u0 p0 c0 {1,S} {5,D} {9,S}
+4  C u0 p0 c0 {2,D} {10,S} {11,S}
+5  C u0 p0 c0 {3,D} {12,S} {13,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H9(155)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {6,S}
+2  C u0 p0 c0 {1,S} {7,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,D} {10,S}
+4  C u1 p0 c0 {1,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,D} {13,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H9(156)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,D} {11,S}
+4  C u0 p0 c0 {3,D} {5,S} {12,S}
+5  C u1 p0 c0 {4,S} {13,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H11(157)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {12,S} {13,S} {14,S}
+5  C u1 p0 c0 {3,S} {15,S} {16,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H11(158)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
+4  C u0 p0 c0 {5,S} {13,S} {14,S} {15,S}
+5  C u1 p0 c0 {2,S} {4,S} {16,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(30985)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {6,S}
+2  C u0 p0 c0 {3,D} {4,S} {7,S}
+3  C u0 p0 c0 {2,D} {5,S} {8,S}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u1 p0 c0 {1,S} {3,S} {10,S}
+6  C u0 p0 c0 {1,S} {4,D} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(16923)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {3,D}
+2 O u0 p2 c0 {4,D}
+3 C u0 p0 c0 {1,D} {4,S} {5,S}
+4 C u1 p0 c0 {2,D} {3,S}
+5 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(31016)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {4,S} {9,S}
+2 O u1 p2 c0 {5,S}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {1,S} {5,D} {6,S}
+5 C u0 p0 c0 {2,S} {4,D} {7,S}
+6 C u0 p0 c0 {3,D} {4,S} {8,S}
+7 H u0 p0 c0 {5,S}
+8 H u0 p0 c0 {6,S}
+9 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C7H9(1019)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
+2  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {4,D} {13,S}
+4  C u0 p0 c0 {2,S} {3,D} {14,S}
+5  C u1 p0 c0 {1,S} {7,S} {12,S}
+6  C u0 p0 c0 {2,S} {7,D} {15,S}
+7  C u0 p0 c0 {5,S} {6,D} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H11(159)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {6,S} {7,S}
+2  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {13,S} {14,S} {15,S}
+5  C u1 p0 c0 {1,S} {2,S} {16,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(7919)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {12,S}
+2  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {2,S} {5,D}
+4  C u0 p0 c0 {2,S} {6,D} {9,S}
+5  C u0 p0 c0 {3,D} {6,S} {10,S}
+6  C u0 p0 c0 {4,D} {5,S} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(31426)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {7,S}
+4  C u0 p0 c0 {3,S} {6,S} {8,S} {9,S}
+5  C u0 p0 c0 {3,S} {6,D} {11,S}
+6  C u0 p0 c0 {4,S} {5,D} {10,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H12(160)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {6,S} {7,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {12,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {15,S} {16,S} {17,S}
+6  H u0 p0 c0 {2,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(31045)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {6,S}
+2  C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {5,D} {13,S}
+5  C u0 p0 c0 {2,S} {4,D} {12,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C6H11(161)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,D} {13,S}
+5  C u1 p0 c0 {3,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H10(162)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {4,D} {12,S}
+4  C u0 p0 c0 {3,D} {5,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,D} {13,S}
+6  C u0 p0 c0 {5,D} {15,S} {16,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H12(163)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {6,D} {16,S}
+6  C u0 p0 c0 {5,D} {17,S} {18,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(164)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+3  C u0 p0 c0 {4,S} {11,S} {12,S} {13,S}
+4  C u1 p0 c0 {1,S} {3,S} {14,S}
+5  C u0 p0 c0 {2,S} {6,D} {15,S}
+6  C u0 p0 c0 {5,D} {16,S} {17,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(165)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u1 p0 c0 {1,S} {2,S} {14,S}
+5  C u0 p0 c0 {2,S} {6,D} {15,S}
+6  C u0 p0 c0 {5,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(166)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {5,D} {14,S}
+5  C u0 p0 c0 {4,D} {6,S} {15,S}
+6  C u1 p0 c0 {5,S} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H13(167)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {15,S} {16,S} {17,S}
+6  C u1 p0 c0 {4,S} {18,S} {19,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H13(168)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {6,S} {16,S} {17,S} {18,S}
+6  C u1 p0 c0 {3,S} {5,S} {19,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(23905)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {9,S}
+2  O u0 p2 c0 {1,S} {21,S}
+3  O u0 p2 c0 {9,D}
+4  O u0 p2 c0 {11,D}
+5  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {6,S} {10,D} {18,S}
+9  C u0 p0 c0 {1,S} {3,D} {7,S}
+10 C u0 p0 c0 {8,D} {11,S} {19,S}
+11 C u0 p0 c0 {4,D} {10,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+21 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(23820)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {18,S}
+3  C u0 p0 c0 {1,S} {5,S} {7,S} {10,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
+5  C u0 p0 c0 {2,S} {3,S} {6,S} {9,S}
+6  C u0 p0 c0 {4,S} {5,S} {16,S} {17,S}
+7  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
+8  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(23795)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {20,S}
+3  O u0 p2 c0 {1,S} {21,S}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {11,S}
+5  C u0 p0 c0 {2,S} {4,S} {6,S} {10,S}
+6  C u0 p0 c0 {5,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {4,S} {9,S} {18,S} {19,S}
+8  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
+9  C u0 p0 c0 {7,S} {8,S} {12,S} {13,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {2,S}
+21 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(23807)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {5,S} {18,S}
+3  O u0 p2 c0 {1,S} {19,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {2,S} {4,S} {8,S} {11,S}
+6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {9,D} {16,S}
+9  C u0 p0 c0 {7,S} {8,D} {17,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='C6H13(169)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
+3  C u0 p0 c0 {5,S} {6,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,S} {16,S} {17,S} {18,S}
+5  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+6  C u1 p0 c0 {2,S} {3,S} {19,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(31869)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {6,S} {8,S}
+3  C u0 p0 c0 {1,S} {2,S} {10,S} {11,S}
+4  C u0 p0 c0 {5,S} {7,S} {12,S} {13,S}
+5  C u1 p0 c0 {1,S} {4,S} {14,S}
+6  C u0 p0 c0 {2,S} {7,D} {16,S}
+7  C u0 p0 c0 {4,S} {6,D} {15,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(32442)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {8,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {1,S} {2,S} {5,S} {9,S}
+5  C u0 p0 c0 {4,S} {6,D} {10,S}
+6  C u0 p0 c0 {5,D} {7,S} {11,S}
+7  C u0 p0 c0 {6,S} {8,D} {12,S}
+8  C u0 p0 c0 {1,S} {7,D} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(1123)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {9,D} {18,S}
+7  C u0 p0 c0 {4,S} {8,D} {17,S}
+8  C u0 p0 c0 {5,S} {7,D} {15,S}
+9  C u0 p0 c0 {5,S} {6,D} {16,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(32443)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {8,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u1 p2 c0 {2,S}
+4  C u0 p0 c0 {2,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,D} {10,S}
+6  C u0 p0 c0 {4,S} {8,D} {11,S}
+7  C u0 p0 c0 {1,S} {5,D} {12,S}
+8  C u0 p0 c0 {1,S} {6,D} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C6H14(170)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {15,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H13(171)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,D} {16,S}
+6  C u1 p0 c0 {4,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H14(172)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {7,D} {19,S}
+7  C u0 p0 c0 {6,D} {20,S} {21,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H15(173)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
+7  C u1 p0 c0 {5,S} {21,S} {22,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H15(174)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {7,S} {19,S} {20,S} {21,S}
+7  C u1 p0 c0 {4,S} {6,S} {22,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H15(175)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {7,S} {14,S} {15,S}
+4  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+5  C u0 p0 c0 {2,S} {19,S} {20,S} {21,S}
+6  C u0 p0 c0 {4,S} {16,S} {17,S} {18,S}
+7  C u1 p0 c0 {3,S} {4,S} {22,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H15(176)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
+2  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {7,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+5  C u0 p0 c0 {1,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {2,S} {19,S} {20,S} {21,S}
+7  C u1 p0 c0 {3,S} {4,S} {22,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(30079)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  C u0 p0 c0 {1,S} {3,S} {5,S} {7,S}
+3  C u0 p0 c0 {1,S} {2,S} {4,S} {8,S}
+4  C u1 p0 c0 {3,S} {6,S} {10,S}
+5  C u0 p0 c0 {2,S} {6,D} {9,S}
+6  C u0 p0 c0 {4,S} {5,D} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(9973)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {12,S}
+2  C u0 p0 c0 {4,S} {5,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {4,D} {6,S}
+4  C u0 p0 c0 {2,S} {3,D} {9,S}
+5  C u0 p0 c0 {2,S} {6,D} {10,S}
+6  C u0 p0 c0 {3,S} {5,D} {11,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(31888)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+4  C u0 p0 c0 {2,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+6  C u1 p0 c0 {3,S} {4,S} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(31010)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,D}
+2 O u0 p2 c0 {5,D}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {1,D} {5,S} {6,S}
+5 C u0 p0 c0 {2,D} {4,S} {7,S}
+6 C u0 p0 c0 {3,D} {4,S} {8,S}
+7 H u0 p0 c0 {5,S}
+8 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(9915)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
+4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {4,S} {8,S} {13,S}
+6  C u0 p0 c0 {7,S} {9,S} {14,S} {15,S}
+7  C u1 p0 c0 {3,S} {6,S} {16,S}
+8  C u0 p0 c0 {5,S} {9,D} {17,S}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(33011)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {6,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {7,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {4,S} {14,S} {15,S}
+7  C u1 p0 c0 {3,S} {4,S} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H9(1525)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {6,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {7,S} {10,S} {13,S}
+5  C u1 p0 c0 {1,S} {3,S} {14,S}
+6  C u0 p0 c0 {2,S} {7,D} {15,S}
+7  C u0 p0 c0 {4,S} {6,D} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H9(1939)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+2  C u0 p0 c0 {5,S} {6,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,D} {11,S}
+4  C u0 p0 c0 {1,S} {6,D} {13,S}
+5  C u0 p0 c0 {2,S} {3,D} {12,S}
+6  C u0 p0 c0 {2,S} {4,D} {14,S}
+7  C u1 p0 c0 {1,S} {15,S} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H16(177)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+3  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {6,S} {8,S} {9,S}
+5  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
+7  C u0 p0 c0 {5,S} {21,S} {22,S} {23,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C8H15(178)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+4  C u0 p0 c0 {3,S} {6,S} {17,S} {18,S}
+5  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,D} {19,S}
+7  C u1 p0 c0 {5,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H16(179)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {7,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {8,D} {22,S}
+8  C u0 p0 c0 {7,D} {23,S} {24,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H17(180)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
+3  C u0 p0 c0 {2,S} {5,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {6,S} {9,S} {10,S}
+5  C u0 p0 c0 {3,S} {7,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {8,S} {19,S} {20,S}
+7  C u0 p0 c0 {5,S} {21,S} {22,S} {23,S}
+8  C u1 p0 c0 {6,S} {24,S} {25,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H17(181)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {8,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {8,S} {22,S} {23,S} {24,S}
+8  C u1 p0 c0 {5,S} {7,S} {25,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H17(182)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {7,S} {8,S} {15,S} {16,S}
+6  C u0 p0 c0 {3,S} {22,S} {23,S} {24,S}
+7  C u0 p0 c0 {5,S} {19,S} {20,S} {21,S}
+8  C u1 p0 c0 {4,S} {5,S} {25,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H17(183)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {7,S} {13,S} {14,S}
+3  C u0 p0 c0 {4,S} {6,S} {9,S} {10,S}
+4  C u0 p0 c0 {3,S} {8,S} {15,S} {16,S}
+5  C u0 p0 c0 {1,S} {8,S} {17,S} {18,S}
+6  C u0 p0 c0 {3,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {2,S} {22,S} {23,S} {24,S}
+8  C u1 p0 c0 {4,S} {5,S} {25,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33085)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {7,S}
+4  C u0 p0 c0 {3,S} {5,D} {8,S}
+5  C u0 p0 c0 {2,S} {4,D} {9,S}
+6  C u1 p0 c0 {3,S} {10,S} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(33029)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u0 p2 c0 {2,S} {5,S}
+4  C u0 p0 c0 {1,S} {2,S} {7,S} {9,S}
+5  C u0 p0 c0 {1,S} {3,S} {6,S} {10,S}
+6  C u1 p0 c0 {5,S} {8,S} {12,S}
+7  C u0 p0 c0 {4,S} {8,D} {11,S}
+8  C u0 p0 c0 {6,S} {7,D} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33030)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {8,S}
+2  O u0 p2 c0 {3,S} {4,S}
+3  O u0 p2 c0 {2,S} {5,S}
+4  C u0 p0 c0 {2,S} {6,S} {8,S} {9,S}
+5  C u0 p0 c0 {1,S} {3,S} {7,S} {10,S}
+6  C u0 p0 c0 {4,S} {7,D} {12,S}
+7  C u0 p0 c0 {5,S} {6,D} {11,S}
+8  C u1 p0 c0 {1,S} {4,S} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(2835)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {2,S} {5,S} {8,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {9,S} {12,S} {13,S}
+7  C u1 p0 c0 {3,S} {5,S} {16,S}
+8  C u0 p0 c0 {4,S} {9,D} {18,S}
+9  C u0 p0 c0 {6,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(5985)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+5  C u0 p0 c0 {4,S} {6,D} {10,S}
+6  C u0 p0 c0 {5,D} {7,S} {11,S}
+7  C u1 p0 c0 {2,S} {6,S} {12,S}
+8  C u0 p0 c0 {3,D} {4,S} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33038)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {2,S} {3,S} {7,S} {11,S}
+5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {7,S} {9,S} {14,S} {15,S}
+7  C u1 p0 c0 {4,S} {6,S} {16,S}
+8  C u0 p0 c0 {5,S} {9,D} {18,S}
+9  C u0 p0 c0 {6,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33549)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {5,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {8,S} {9,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {8,D} {15,S}
+7  C u0 p0 c0 {3,S} {9,D} {17,S}
+8  C u0 p0 c0 {4,S} {6,D} {16,S}
+9  C u0 p0 c0 {4,S} {7,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(33087)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {4,S}
 2  O u0 p2 c0 {1,S} {6,S}
-3  O u0 p2 c0 {12,D}
-4  C u0 p0 c0 {1,S} {7,S} {8,S} {13,S}
-5  C u0 p0 c0 {9,S} {10,S} {14,S} {15,S}
-6  C u0 p0 c0 {2,S} {12,S} {16,S} {17,S}
-7  C u0 p0 c0 {4,S} {9,D} {20,S}
-8  C u1 p0 c0 {4,S} {11,S} {21,S}
-9  C u0 p0 c0 {5,S} {7,D} {18,S}
-10 C u0 p0 c0 {5,S} {11,D} {19,S}
-11 C u0 p0 c0 {8,S} {10,D} {22,S}
-12 C u0 p0 c0 {3,D} {6,S} {23,S}
-13 H u0 p0 c0 {4,S}
-14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {5,S}
-16 H u0 p0 c0 {6,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
-19 H u0 p0 c0 {10,S}
-20 H u0 p0 c0 {7,S}
-21 H u0 p0 c0 {8,S}
-22 H u0 p0 c0 {11,S}
-23 H u0 p0 c0 {12,S}
+3  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,S} {8,S}
+5  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+6  C u1 p0 c0 {2,S} {3,S} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
         """),
 )
 
 
 species(
-    label='S(15853)',
+    label='C8H18(184)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
+3  C u0 p0 c0 {2,S} {4,S} {15,S} {16,S}
+4  C u0 p0 c0 {3,S} {6,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {7,S} {9,S} {10,S}
+6  C u0 p0 c0 {4,S} {8,S} {19,S} {20,S}
+7  C u0 p0 c0 {5,S} {21,S} {22,S} {23,S}
+8  C u0 p0 c0 {6,S} {24,S} {25,S} {26,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33550)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {3,S} {8,S}
-2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u1 p0 c0 {3,S} {6,S} {12,S}
-5  C u0 p0 c0 {3,S} {7,D} {11,S}
-6  C u0 p0 c0 {4,S} {8,D} {14,S}
-7  C u0 p0 c0 {5,D} {9,S} {13,S}
-8  C u0 p0 c0 {1,S} {6,D} {15,S}
-9  C u0 p0 c0 {2,D} {7,S} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {5,S}
-12 H u0 p0 c0 {4,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {9,S}
+6  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+7  C u0 p0 c0 {5,S} {8,D} {12,S}
+8  C u0 p0 c0 {2,S} {7,D} {13,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(23991)',
+    label='C9H17(185)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+5  C u0 p0 c0 {4,S} {7,S} {20,S} {21,S}
+6  C u0 p0 c0 {3,S} {8,S} {18,S} {19,S}
+7  C u0 p0 c0 {5,S} {9,D} {22,S}
+8  C u1 p0 c0 {6,S} {23,S} {24,S}
+9  C u0 p0 c0 {7,D} {25,S} {26,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H18(186)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {4,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,S} {14,S} {15,S}
+3  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {8,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {6,S} {9,D} {25,S}
+9  C u0 p0 c0 {8,D} {26,S} {27,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C7H9(8388)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u1 p0 c0 {1,S} {5,S} {12,S}
+4  C u0 p0 c0 {1,S} {6,D} {13,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u0 p0 c0 {4,D} {7,S} {16,S}
+7  C u0 p0 c0 {5,D} {6,S} {15,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(33322)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {6,S} {8,S}
+2  C u0 p0 c0 {5,S} {7,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {5,D} {14,S}
+5  C u0 p0 c0 {2,S} {4,D} {15,S}
+6  C u0 p0 c0 {1,S} {7,D} {16,S}
+7  C u1 p0 c0 {2,S} {6,D}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(34440)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  C u0 p0 c0 {5,S} {9,S} {10,S} {11,S}
+2  C u0 p0 c0 {6,S} {12,S} {13,S} {14,S}
+3  C u0 p0 c0 {4,S} {5,D} {7,S}
+4  C u0 p0 c0 {3,S} {6,D} {8,S}
+5  C u0 p0 c0 {1,S} {3,D} {15,S}
+6  C u0 p0 c0 {2,S} {4,D} {16,S}
+7  C u1 p0 c0 {3,S} {17,S} {18,S}
+8  C u1 p0 c0 {4,S} {19,S} {20,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C9H19(187)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,S} {14,S} {15,S}
+3  C u0 p0 c0 {2,S} {4,S} {16,S} {17,S}
+4  C u0 p0 c0 {3,S} {6,S} {18,S} {19,S}
+5  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {4,S} {8,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {9,S} {22,S} {23,S}
+8  C u0 p0 c0 {6,S} {24,S} {25,S} {26,S}
+9  C u1 p0 c0 {7,S} {27,S} {28,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H19(188)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,S} {14,S} {15,S}
+3  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {9,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {9,S} {25,S} {26,S} {27,S}
+9  C u1 p0 c0 {6,S} {8,S} {28,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(2570)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+5  C u0 p0 c0 {8,S} {9,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {8,D} {16,S}
+7  C u0 p0 c0 {3,S} {9,D} {17,S}
+8  C u0 p0 c0 {5,S} {6,D} {15,S}
+9  C u0 p0 c0 {5,S} {7,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(33910)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u1 p0 c0 {3,S} {7,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,D} {13,S}
+7  C u0 p0 c0 {5,S} {9,D} {15,S}
+8  C u0 p0 c0 {2,S} {6,D} {16,S}
+9  C u0 p0 c0 {7,D} {17,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(6403)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {4,S}
+2  O u0 p2 c0 {7,D}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {1,S} {5,S} {7,S} {9,S}
+5  C u0 p0 c0 {4,S} {6,D} {10,S}
+6  C u0 p0 c0 {5,D} {8,S} {11,S}
+7  C u0 p0 c0 {2,D} {4,S} {12,S}
+8  C u0 p0 c0 {3,D} {6,S} {13,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(33965)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1  O u0 p2 c0 {2,S} {4,S}
 2  O u0 p2 c0 {1,S} {5,S}
-3  O u1 p2 c0 {5,S}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {9,S}
-5  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
-6  C u0 p0 c0 {4,S} {7,D} {11,S}
-7  C u0 p0 c0 {5,S} {6,D} {12,S}
-8  H u0 p0 c0 {4,S}
-9  H u0 p0 c0 {4,S}
-10 H u0 p0 c0 {5,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {7,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {11,S}
+5  C u0 p0 c0 {2,S} {3,S} {14,S} {15,S}
+6  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+7  C u1 p0 c0 {4,S} {6,S} {16,S}
+8  C u0 p0 c0 {3,S} {9,D} {17,S}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(25512)',
+    label='S(3379)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,D}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {4,D} {5,S} {7,S}
+4  C u0 p0 c0 {3,D} {6,S} {8,S}
+5  C u0 p0 c0 {1,D} {3,S} {9,S}
+6  C u0 p0 c0 {2,D} {4,S} {10,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(34749)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {2,S}
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {7,D}
+3  O u1 p2 c0 {8,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,S} {9,S}
+6  C u0 p0 c0 {4,S} {8,D} {11,S}
+7  C u0 p0 c0 {2,D} {5,S} {12,S}
+8  C u0 p0 c0 {3,S} {6,D} {13,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(34760)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {13,S}
+2  O u1 p2 c0 {5,S}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {5,S} {6,D} {9,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,D}
+6  C u0 p0 c0 {4,D} {8,S} {10,S}
+7  C u0 p0 c0 {1,S} {5,D} {11,S}
+8  C u0 p0 c0 {3,D} {6,S} {12,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(34744)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  O u0 p2 c0 {7,D}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {5,D} {6,S} {10,S}
+5  C u0 p0 c0 {4,D} {7,S} {9,S}
+6  C u0 p0 c0 {1,D} {4,S} {8,S}
+7  C u0 p0 c0 {2,D} {5,S} {11,S}
+8  C u0 p0 c0 {3,D} {6,S} {12,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(8001)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {4,S}
+2  C u0 p0 c0 {4,S} {5,S} {6,S} {9,S}
+3  C u0 p0 c0 {7,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {2,S} {12,S} {13,S}
+5  C u0 p0 c0 {2,S} {7,D} {16,S}
+6  C u0 p0 c0 {2,S} {8,D} {17,S}
+7  C u0 p0 c0 {3,S} {5,D} {14,S}
+8  C u0 p0 c0 {3,S} {6,D} {15,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(35144)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {11,S}
+3  O u0 p2 c0 {4,S} {7,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {10,S} {15,S} {16,S}
+8  C u0 p0 c0 {5,S} {10,D} {18,S}
+9  C u0 p0 c0 {6,S} {11,D} {17,S}
+10 C u0 p0 c0 {7,S} {8,D} {19,S}
+11 C u0 p0 c0 {2,S} {9,D} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(35143)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u1 p2 c0 {3,S}
 5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {2,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {6,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {11,S} {16,S}
-10 C u0 p0 c0 {1,S} {8,D} {17,S}
-11 C u0 p0 c0 {3,D} {9,S} {18,S}
+6  C u0 p0 c0 {3,S} {5,S} {9,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {7,S} {10,D} {16,S}
+9  C u0 p0 c0 {6,S} {11,D} {17,S}
+10 C u0 p0 c0 {2,S} {8,D} {18,S}
+11 C u0 p0 c0 {9,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(34771)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  C u0 p0 c0 {4,S} {6,S} {7,S} {10,S}
+4  C u0 p0 c0 {3,S} {7,S} {9,S} {12,S}
+5  C u0 p0 c0 {6,S} {8,S} {9,S} {11,S}
+6  C u0 p0 c0 {1,S} {3,S} {5,S} {13,S}
+7  C u0 p0 c0 {3,S} {4,S} {14,S} {15,S}
+8  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+9  C u1 p0 c0 {4,S} {5,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(33332)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  C u0 p0 c0 {4,S} {5,S} {7,S} {8,S}
+4  C u0 p0 c0 {3,S} {6,D} {9,S}
+5  C u1 p0 c0 {1,S} {3,S} {10,S}
+6  C u0 p0 c0 {2,S} {4,D} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(321)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {7,S}
+2  C u0 p0 c0 {1,S} {3,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {10,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {6,D} {13,S}
+5  C u1 p0 c0 {1,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(34706)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {4,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,S} {8,S}
+5  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+6  C u0 p0 c0 {2,D} {3,S} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(33975)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u0 p2 c0 {2,S} {7,S}
+4  O u0 p2 c0 {1,S} {8,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {9,S}
+6  C u0 p0 c0 {2,S} {5,S} {8,S} {10,S}
+7  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+8  C u1 p0 c0 {4,S} {6,S} {13,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C9H19(189)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {7,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {9,S} {20,S} {21,S}
+6  C u0 p0 c0 {8,S} {9,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {25,S} {26,S} {27,S}
+8  C u0 p0 c0 {6,S} {22,S} {23,S} {24,S}
+9  C u1 p0 c0 {5,S} {6,S} {28,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H19(190)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {8,S} {16,S} {17,S}
+4  C u0 p0 c0 {5,S} {7,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {9,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {9,S} {20,S} {21,S}
+7  C u0 p0 c0 {4,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {3,S} {25,S} {26,S} {27,S}
+9  C u1 p0 c0 {5,S} {6,S} {28,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H19(191)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {12,S} {13,S}
+2  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {8,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {9,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {9,S} {20,S} {21,S}
+7  C u0 p0 c0 {3,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {4,S} {25,S} {26,S} {27,S}
+9  C u1 p0 c0 {5,S} {6,S} {28,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(28322)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,D}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,D} {3,S} {6,S}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {2,D} {4,S} {7,S}
+7  C u0 p0 c0 {5,D} {6,S} {11,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(34185)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {7,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {6,S} {12,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {5,S} {8,D}
+7  C u0 p0 c0 {2,D} {4,S} {9,S}
+8  C u0 p0 c0 {6,D} {10,S} {15,S}
+9  C u0 p0 c0 {7,S} {10,D} {17,S}
+10 C u0 p0 c0 {8,S} {9,D} {16,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(27153)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {5,S} {9,S}
+2  O u0 p2 c0 {6,S} {14,S}
+3  O u1 p2 c0 {8,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+6  C u0 p0 c0 {2,S} {7,D} {8,S}
+7  C u0 p0 c0 {5,S} {6,D} {12,S}
+8  C u0 p0 c0 {3,S} {6,S} {9,D}
+9  C u0 p0 c0 {1,S} {8,D} {13,S}
+10 C u1 p0 c0 {4,D} {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(34187)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {8,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {7,S} {8,S} {11,S}
+5  C u0 p0 c0 {6,S} {12,S} {13,S} {14,S}
+6  C u0 p0 c0 {5,S} {9,S} {10,D}
+7  C u0 p0 c0 {4,S} {9,D} {15,S}
+8  C u0 p0 c0 {2,D} {4,S} {10,S}
+9  C u0 p0 c0 {6,S} {7,D} {16,S}
+10 C u0 p0 c0 {6,D} {8,S} {17,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C9H20(192)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {3,S} {14,S} {15,S}
+3  C u0 p0 c0 {2,S} {4,S} {16,S} {17,S}
+4  C u0 p0 c0 {3,S} {5,S} {18,S} {19,S}
+5  C u0 p0 c0 {4,S} {7,S} {20,S} {21,S}
+6  C u0 p0 c0 {1,S} {8,S} {10,S} {11,S}
+7  C u0 p0 c0 {5,S} {9,S} {22,S} {23,S}
+8  C u0 p0 c0 {6,S} {24,S} {25,S} {26,S}
+9  C u0 p0 c0 {7,S} {27,S} {28,S} {29,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(36048)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {4,S} {7,S}
+4  O u0 p2 c0 {3,S} {8,S}
+5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {3,S} {9,S} {15,S}
+8  C u0 p0 c0 {4,S} {11,S} {16,S} {17,S}
+9  C u1 p0 c0 {6,S} {7,S} {18,S}
+10 C u0 p0 c0 {5,S} {11,D} {19,S}
+11 C u0 p0 c0 {8,S} {10,D} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(36061)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {3,S} {6,S}
+3  O u0 p2 c0 {2,S} {8,S}
+4  O u0 p2 c0 {1,S} {10,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {2,S} {5,S} {9,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,S} {7,S} {10,S} {16,S}
+9  C u0 p0 c0 {6,S} {11,D} {17,S}
+10 C u1 p0 c0 {4,S} {8,S} {18,S}
+11 C u0 p0 c0 {9,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(36040)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {7,S}
+2  O u0 p2 c0 {4,S} {5,S}
+3  O u0 p2 c0 {1,S} {8,S}
+4  O u0 p2 c0 {2,S} {11,S}
+5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
+7  C u0 p0 c0 {1,S} {6,S} {11,S} {15,S}
+8  C u0 p0 c0 {3,S} {10,S} {16,S} {17,S}
+9  C u0 p0 c0 {5,S} {10,D} {18,S}
+10 C u0 p0 c0 {8,S} {9,D} {19,S}
+11 C u1 p0 c0 {4,S} {7,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {10,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(36062)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {1,S} {8,S}
+4  O u0 p2 c0 {2,S} {8,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {2,S} {5,S} {10,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,S} {4,S} {9,S} {16,S}
+9  C u1 p0 c0 {7,S} {8,S} {17,S}
+10 C u0 p0 c0 {6,S} {11,D} {18,S}
+11 C u0 p0 c0 {10,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(36256)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,D}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
+4  C u1 p0 c0 {3,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,D} {3,S} {8,S}
+6  C u0 p0 c0 {2,D} {3,S} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(35475)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,D}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {4,S} {5,S} {7,S} {8,S}
+4  C u0 p0 c0 {3,S} {6,D} {9,S}
+5  C u0 p0 c0 {1,D} {3,S} {10,S}
+6  C u0 p0 c0 {2,S} {4,D} {11,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(193)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {5,S} {17,S} {18,S}
+4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,S} {19,S} {20,S}
+6  C u0 p0 c0 {5,S} {8,S} {23,S} {24,S}
+7  C u0 p0 c0 {4,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {6,S} {10,D} {25,S}
+9  C u1 p0 c0 {7,S} {26,S} {27,S}
+10 C u0 p0 c0 {8,D} {28,S} {29,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C4H7(332)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {7,S}
+2  C u1 p0 c0 {1,S} {3,S} {8,S}
+3  C u0 p0 c0 {2,S} {4,D} {9,S}
+4  C u0 p0 c0 {3,D} {10,S} {11,S}
+5  H u0 p0 c0 {1,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(194)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {4,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {6,S} {19,S} {20,S}
+5  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,S} {21,S} {22,S}
+7  C u0 p0 c0 {5,S} {9,S} {23,S} {24,S}
+8  C u0 p0 c0 {6,S} {25,S} {26,S} {27,S}
+9  C u0 p0 c0 {7,S} {10,D} {28,S}
+10 C u0 p0 c0 {9,D} {29,S} {30,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(3333)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {8,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,D} {14,S}
+8  C u0 p0 c0 {2,S} {5,D} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
 14 H u0 p0 c0 {7,S}
 15 H u0 p0 c0 {8,S}
 16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
+17 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(13287)',
+    label='S(34723)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1 O u1 p2 c0 {3,S}
-2 O u0 p2 c0 {4,D}
-3 C u0 p0 c0 {1,S} {4,S} {5,S} {6,S}
-4 C u0 p0 c0 {2,D} {3,S} {7,S}
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,S} {11,S}
+5  C u0 p0 c0 {2,S} {3,S} {7,S} {12,S}
+6  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+7  C u1 p0 c0 {5,S} {6,S} {15,S}
+8  C u0 p0 c0 {3,S} {9,D} {16,S}
+9  C u0 p0 c0 {8,D} {17,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(34003)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {5,D}
+2 C u0 p0 c0 {3,S} {6,S} {7,S} {8,S}
+3 C u0 p0 c0 {2,S} {4,T}
+4 C u0 p0 c0 {3,T} {5,S}
+5 C u1 p0 c0 {1,D} {4,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(7726)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,D}
+2  C u0 p0 c0 {3,S} {4,S} {5,S} {9,S}
+3  C u1 p0 c0 {2,S} {4,S} {6,S}
+4  C u0 p0 c0 {1,D} {2,S} {3,S}
+5  C u0 p0 c0 {2,S} {7,D} {10,S}
+6  C u0 p0 c0 {3,S} {8,D} {12,S}
+7  C u0 p0 c0 {5,D} {8,S} {13,S}
+8  C u0 p0 c0 {6,D} {7,S} {11,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(3535)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u1 p2 c0 {8,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {8,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,D} {14,S}
+8  C u0 p0 c0 {2,S} {5,D} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(195)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {4,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {5,S} {19,S} {20,S}
+5  C u0 p0 c0 {4,S} {7,S} {21,S} {22,S}
+6  C u0 p0 c0 {1,S} {8,S} {11,S} {12,S}
+7  C u0 p0 c0 {5,S} {9,S} {23,S} {24,S}
+8  C u0 p0 c0 {6,S} {10,S} {25,S} {26,S}
+9  C u0 p0 c0 {7,S} {27,S} {28,S} {29,S}
+10 C u1 p0 c0 {8,S} {30,S} {31,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(196)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {4,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {6,S} {19,S} {20,S}
+5  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {4,S} {8,S} {21,S} {22,S}
+7  C u0 p0 c0 {5,S} {10,S} {23,S} {24,S}
+8  C u0 p0 c0 {6,S} {25,S} {26,S} {27,S}
+9  C u0 p0 c0 {10,S} {28,S} {29,S} {30,S}
+10 C u1 p0 c0 {7,S} {9,S} {31,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(197)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {5,S} {17,S} {18,S}
+4  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {8,S} {19,S} {20,S}
+6  C u0 p0 c0 {4,S} {10,S} {23,S} {24,S}
+7  C u0 p0 c0 {9,S} {10,S} {21,S} {22,S}
+8  C u0 p0 c0 {5,S} {28,S} {29,S} {30,S}
+9  C u0 p0 c0 {7,S} {25,S} {26,S} {27,S}
+10 C u1 p0 c0 {6,S} {7,S} {31,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {8,S}
+30 H u0 p0 c0 {8,S}
+31 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(28348)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,S} {12,S}
+2  O u1 p2 c0 {4,S}
+3  C u0 p0 c0 {4,S} {6,S} {8,S} {9,S}
+4  C u0 p0 c0 {2,S} {3,S} {5,D}
+5  C u0 p0 c0 {1,S} {4,D} {7,S}
+6  C u0 p0 c0 {3,S} {7,D} {10,S}
+7  C u0 p0 c0 {5,S} {6,D} {11,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(27170)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {10,S}
+2  O u0 p2 c0 {6,S} {9,S}
+3  O u0 p2 c0 {7,S} {14,S}
+4  O u0 p2 c0 {9,D}
+5  C u0 p0 c0 {1,S} {8,S} {9,S} {11,S}
+6  C u0 p0 c0 {2,S} {7,S} {10,D}
+7  C u0 p0 c0 {3,S} {6,S} {8,D}
+8  C u0 p0 c0 {5,S} {7,D} {12,S}
+9  C u0 p0 c0 {2,S} {4,D} {5,S}
+10 C u0 p0 c0 {1,S} {6,D} {13,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {10,S}
+14 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(36998)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {5,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {6,S} {8,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {2,D} {7,S}
+6  C u0 p0 c0 {4,S} {7,T}
+7  C u0 p0 c0 {5,S} {6,T}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(29930)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {12,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,D}
+5  C u0 p0 c0 {3,S} {7,D} {10,S}
+6  C u0 p0 c0 {2,S} {4,D} {7,S}
+7  C u0 p0 c0 {5,D} {6,S} {11,S}
+8  H u0 p0 c0 {3,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(198)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {4,S} {17,S} {18,S}
+3  C u0 p0 c0 {1,S} {7,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {9,S} {19,S} {20,S}
+5  C u0 p0 c0 {6,S} {8,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {10,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {10,S} {23,S} {24,S}
+8  C u0 p0 c0 {5,S} {25,S} {26,S} {27,S}
+9  C u0 p0 c0 {4,S} {28,S} {29,S} {30,S}
+10 C u1 p0 c0 {6,S} {7,S} {31,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(199)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {17,S} {18,S}
+2  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {9,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {10,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {10,S} {23,S} {24,S}
+8  C u0 p0 c0 {4,S} {25,S} {26,S} {27,S}
+9  C u0 p0 c0 {5,S} {28,S} {29,S} {30,S}
+10 C u1 p0 c0 {6,S} {7,S} {31,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {1,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(200)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {7,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {4,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {5,S} {19,S} {20,S}
+5  C u0 p0 c0 {4,S} {6,S} {21,S} {22,S}
+6  C u0 p0 c0 {5,S} {8,S} {23,S} {24,S}
+7  C u0 p0 c0 {1,S} {9,S} {11,S} {12,S}
+8  C u0 p0 c0 {6,S} {10,S} {25,S} {26,S}
+9  C u0 p0 c0 {7,S} {27,S} {28,S} {29,S}
+10 C u0 p0 c0 {8,S} {30,S} {31,S} {32,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(201)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {6,S} {20,S} {21,S}
+5  C u0 p0 c0 {1,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {7,S} {22,S} {23,S}
+7  C u0 p0 c0 {6,S} {9,S} {26,S} {27,S}
+8  C u0 p0 c0 {5,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {7,S} {11,D} {28,S}
+10 C u1 p0 c0 {8,S} {29,S} {30,S}
+11 C u0 p0 c0 {9,D} {31,S} {32,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {11,S}
+32 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(202)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {5,S} {20,S} {21,S}
+5  C u0 p0 c0 {4,S} {7,S} {22,S} {23,S}
+6  C u0 p0 c0 {1,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,S} {24,S} {25,S}
+8  C u0 p0 c0 {6,S} {10,S} {26,S} {27,S}
+9  C u0 p0 c0 {7,S} {28,S} {29,S} {30,S}
+10 C u0 p0 c0 {8,S} {11,D} {31,S}
+11 C u0 p0 c0 {10,D} {32,S} {33,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {11,S}
+33 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(30452)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u0 p2 c0 {10,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {5,B} {6,B} {10,S}
+5  C u0 p0 c0 {4,B} {7,B} {11,S}
+6  C u0 p0 c0 {4,B} {9,B} {15,S}
+7  C u0 p0 c0 {5,B} {8,B} {12,S}
+8  C u0 p0 c0 {7,B} {9,B} {13,S}
+9  C u0 p0 c0 {6,B} {8,B} {14,S}
+10 C u0 p0 c0 {1,S} {2,D} {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(30103)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {5,S} {12,S}
+2  O u0 p2 c0 {6,D}
+3  O u0 p2 c0 {8,D}
+4  C u0 p0 c0 {5,S} {6,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,D}
+6  C u0 p0 c0 {2,D} {4,S} {8,S}
+7  C u0 p0 c0 {5,D} {8,S} {11,S}
+8  C u0 p0 c0 {3,D} {6,S} {7,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(203)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {5,S} {20,S} {21,S}
+5  C u0 p0 c0 {4,S} {6,S} {22,S} {23,S}
+6  C u0 p0 c0 {5,S} {8,S} {24,S} {25,S}
+7  C u0 p0 c0 {1,S} {9,S} {12,S} {13,S}
+8  C u0 p0 c0 {6,S} {10,S} {26,S} {27,S}
+9  C u0 p0 c0 {7,S} {11,S} {28,S} {29,S}
+10 C u0 p0 c0 {8,S} {30,S} {31,S} {32,S}
+11 C u1 p0 c0 {9,S} {33,S} {34,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(204)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {5,S} {20,S} {21,S}
+5  C u0 p0 c0 {4,S} {7,S} {22,S} {23,S}
+6  C u0 p0 c0 {1,S} {8,S} {12,S} {13,S}
+7  C u0 p0 c0 {5,S} {9,S} {24,S} {25,S}
+8  C u0 p0 c0 {6,S} {11,S} {26,S} {27,S}
+9  C u0 p0 c0 {7,S} {28,S} {29,S} {30,S}
+10 C u0 p0 c0 {11,S} {31,S} {32,S} {33,S}
+11 C u1 p0 c0 {8,S} {10,S} {34,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(205)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {6,S} {20,S} {21,S}
+5  C u0 p0 c0 {1,S} {7,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {9,S} {22,S} {23,S}
+7  C u0 p0 c0 {5,S} {11,S} {26,S} {27,S}
+8  C u0 p0 c0 {10,S} {11,S} {24,S} {25,S}
+9  C u0 p0 c0 {6,S} {31,S} {32,S} {33,S}
+10 C u0 p0 c0 {8,S} {28,S} {29,S} {30,S}
+11 C u1 p0 c0 {7,S} {8,S} {34,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {9,S}
+32 H u0 p0 c0 {9,S}
+33 H u0 p0 c0 {9,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(206)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {16,S} {17,S}
+2  C u0 p0 c0 {1,S} {3,S} {18,S} {19,S}
+3  C u0 p0 c0 {2,S} {5,S} {20,S} {21,S}
+4  C u0 p0 c0 {1,S} {8,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {10,S} {22,S} {23,S}
+6  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
+7  C u0 p0 c0 {6,S} {11,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {11,S} {26,S} {27,S}
+9  C u0 p0 c0 {6,S} {28,S} {29,S} {30,S}
+10 C u0 p0 c0 {5,S} {31,S} {32,S} {33,S}
+11 C u1 p0 c0 {7,S} {8,S} {34,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(34024)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {7,S}
+4  C u0 p0 c0 {3,S} {8,S} {9,S} {10,S}
+5  C u0 p0 c0 {3,S} {6,D} {11,S}
+6  C u0 p0 c0 {5,D} {12,S} {13,S}
+7  H u0 p0 c0 {3,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(207)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+2  C u0 p0 c0 {1,S} {6,S} {20,S} {21,S}
+3  C u0 p0 c0 {5,S} {7,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {8,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {10,S} {22,S} {23,S}
+7  C u0 p0 c0 {3,S} {11,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {11,S} {26,S} {27,S}
+9  C u0 p0 c0 {5,S} {28,S} {29,S} {30,S}
+10 C u0 p0 c0 {6,S} {31,S} {32,S} {33,S}
+11 C u1 p0 c0 {7,S} {8,S} {34,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {1,S}
+19 H u0 p0 c0 {1,S}
+20 H u0 p0 c0 {2,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(208)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {14,S} {15,S}
+2  C u0 p0 c0 {4,S} {6,S} {20,S} {21,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {2,S} {8,S} {18,S} {19,S}
+5  C u0 p0 c0 {1,S} {9,S} {12,S} {13,S}
+6  C u0 p0 c0 {2,S} {10,S} {22,S} {23,S}
+7  C u0 p0 c0 {3,S} {11,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {11,S} {26,S} {27,S}
+9  C u0 p0 c0 {5,S} {28,S} {29,S} {30,S}
+10 C u0 p0 c0 {6,S} {31,S} {32,S} {33,S}
+11 C u1 p0 c0 {7,S} {8,S} {34,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {2,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(209)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {8,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {4,S} {18,S} {19,S}
+4  C u0 p0 c0 {3,S} {5,S} {20,S} {21,S}
+5  C u0 p0 c0 {4,S} {6,S} {22,S} {23,S}
+6  C u0 p0 c0 {5,S} {7,S} {24,S} {25,S}
+7  C u0 p0 c0 {6,S} {9,S} {26,S} {27,S}
+8  C u0 p0 c0 {1,S} {10,S} {12,S} {13,S}
+9  C u0 p0 c0 {7,S} {11,S} {28,S} {29,S}
+10 C u0 p0 c0 {8,S} {30,S} {31,S} {32,S}
+11 C u0 p0 c0 {9,S} {33,S} {34,S} {35,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(210)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {7,S} {23,S} {24,S}
+6  C u0 p0 c0 {1,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {8,S} {25,S} {26,S}
+8  C u0 p0 c0 {7,S} {10,S} {29,S} {30,S}
+9  C u0 p0 c0 {6,S} {11,S} {27,S} {28,S}
+10 C u0 p0 c0 {8,S} {12,D} {31,S}
+11 C u1 p0 c0 {9,S} {32,S} {33,S}
+12 C u0 p0 c0 {10,D} {34,S} {35,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {8,S}
+30 H u0 p0 c0 {8,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {11,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {12,S}
+35 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(211)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {6,S} {23,S} {24,S}
+6  C u0 p0 c0 {5,S} {8,S} {25,S} {26,S}
+7  C u0 p0 c0 {1,S} {9,S} {13,S} {14,S}
+8  C u0 p0 c0 {6,S} {10,S} {27,S} {28,S}
+9  C u0 p0 c0 {7,S} {11,S} {29,S} {30,S}
+10 C u0 p0 c0 {8,S} {31,S} {32,S} {33,S}
+11 C u0 p0 c0 {9,S} {12,D} {34,S}
+12 C u0 p0 c0 {11,D} {35,S} {36,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {6,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {12,S}
+36 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(212)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {8,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {6,S} {23,S} {24,S}
+6  C u0 p0 c0 {5,S} {7,S} {25,S} {26,S}
+7  C u0 p0 c0 {6,S} {9,S} {27,S} {28,S}
+8  C u0 p0 c0 {1,S} {10,S} {13,S} {14,S}
+9  C u0 p0 c0 {7,S} {11,S} {29,S} {30,S}
+10 C u0 p0 c0 {8,S} {12,S} {31,S} {32,S}
+11 C u0 p0 c0 {9,S} {33,S} {34,S} {35,S}
+12 C u1 p0 c0 {10,S} {36,S} {37,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {6,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {7,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {12,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(213)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {7,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {6,S} {23,S} {24,S}
+6  C u0 p0 c0 {5,S} {8,S} {25,S} {26,S}
+7  C u0 p0 c0 {1,S} {9,S} {13,S} {14,S}
+8  C u0 p0 c0 {6,S} {10,S} {27,S} {28,S}
+9  C u0 p0 c0 {7,S} {12,S} {29,S} {30,S}
+10 C u0 p0 c0 {8,S} {31,S} {32,S} {33,S}
+11 C u0 p0 c0 {12,S} {34,S} {35,S} {36,S}
+12 C u1 p0 c0 {9,S} {11,S} {37,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {6,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {11,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(214)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {7,S} {23,S} {24,S}
+6  C u0 p0 c0 {1,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {10,S} {25,S} {26,S}
+8  C u0 p0 c0 {6,S} {12,S} {29,S} {30,S}
+9  C u0 p0 c0 {11,S} {12,S} {27,S} {28,S}
+10 C u0 p0 c0 {7,S} {34,S} {35,S} {36,S}
+11 C u0 p0 c0 {9,S} {31,S} {32,S} {33,S}
+12 C u1 p0 c0 {8,S} {9,S} {37,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {8,S}
+30 H u0 p0 c0 {8,S}
+31 H u0 p0 c0 {11,S}
+32 H u0 p0 c0 {11,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {10,S}
+35 H u0 p0 c0 {10,S}
+36 H u0 p0 c0 {10,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(215)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {17,S} {18,S}
+2  C u0 p0 c0 {1,S} {3,S} {19,S} {20,S}
+3  C u0 p0 c0 {2,S} {4,S} {21,S} {22,S}
+4  C u0 p0 c0 {3,S} {6,S} {23,S} {24,S}
+5  C u0 p0 c0 {1,S} {9,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {11,S} {25,S} {26,S}
+7  C u0 p0 c0 {8,S} {10,S} {13,S} {14,S}
+8  C u0 p0 c0 {7,S} {12,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {12,S} {29,S} {30,S}
+10 C u0 p0 c0 {7,S} {31,S} {32,S} {33,S}
+11 C u0 p0 c0 {6,S} {34,S} {35,S} {36,S}
+12 C u1 p0 c0 {8,S} {9,S} {37,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {1,S}
+19 H u0 p0 c0 {2,S}
+20 H u0 p0 c0 {2,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {3,S}
+23 H u0 p0 c0 {4,S}
+24 H u0 p0 c0 {4,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {6,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {11,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(216)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {19,S} {20,S}
+2  C u0 p0 c0 {1,S} {3,S} {21,S} {22,S}
+3  C u0 p0 c0 {2,S} {7,S} {23,S} {24,S}
+4  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
+5  C u0 p0 c0 {1,S} {9,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {10,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {11,S} {25,S} {26,S}
+8  C u0 p0 c0 {4,S} {12,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {12,S} {29,S} {30,S}
+10 C u0 p0 c0 {6,S} {31,S} {32,S} {33,S}
+11 C u0 p0 c0 {7,S} {34,S} {35,S} {36,S}
+12 C u1 p0 c0 {8,S} {9,S} {37,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {1,S}
+20 H u0 p0 c0 {1,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {2,S}
+23 H u0 p0 c0 {3,S}
+24 H u0 p0 c0 {3,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {11,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(217)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+2  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+3  C u0 p0 c0 {2,S} {7,S} {23,S} {24,S}
+4  C u0 p0 c0 {1,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {2,S} {9,S} {19,S} {20,S}
+6  C u0 p0 c0 {1,S} {10,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {11,S} {25,S} {26,S}
+8  C u0 p0 c0 {4,S} {12,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {12,S} {29,S} {30,S}
+10 C u0 p0 c0 {6,S} {31,S} {32,S} {33,S}
+11 C u0 p0 c0 {7,S} {34,S} {35,S} {36,S}
+12 C u1 p0 c0 {8,S} {9,S} {37,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {2,S}
+22 H u0 p0 c0 {2,S}
+23 H u0 p0 c0 {3,S}
+24 H u0 p0 c0 {3,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {10,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {11,S}
+37 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(218)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {9,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {3,S} {17,S} {18,S}
+3  C u0 p0 c0 {2,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {21,S} {22,S}
+5  C u0 p0 c0 {4,S} {6,S} {23,S} {24,S}
+6  C u0 p0 c0 {5,S} {7,S} {25,S} {26,S}
+7  C u0 p0 c0 {6,S} {8,S} {27,S} {28,S}
+8  C u0 p0 c0 {7,S} {10,S} {29,S} {30,S}
+9  C u0 p0 c0 {1,S} {11,S} {13,S} {14,S}
+10 C u0 p0 c0 {8,S} {12,S} {31,S} {32,S}
+11 C u0 p0 c0 {9,S} {33,S} {34,S} {35,S}
+12 C u0 p0 c0 {10,S} {36,S} {37,S} {38,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {2,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {4,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {5,S}
+25 H u0 p0 c0 {6,S}
+26 H u0 p0 c0 {6,S}
+27 H u0 p0 c0 {7,S}
+28 H u0 p0 c0 {7,S}
+29 H u0 p0 c0 {8,S}
+30 H u0 p0 c0 {8,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {11,S}
+36 H u0 p0 c0 {12,S}
+37 H u0 p0 c0 {12,S}
+38 H u0 p0 c0 {12,S}
+        """),
+)
+
+
+species(
+    label='S(219)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {13,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {12,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {5,S} {19,S} {20,S}
+5  C u0 p0 c0 {4,S} {6,S} {21,S} {22,S}
+6  C u0 p0 c0 {5,S} {7,S} {23,S} {24,S}
+7  C u0 p0 c0 {6,S} {8,S} {25,S} {26,S}
+8  C u0 p0 c0 {7,S} {9,S} {27,S} {28,S}
+9  C u0 p0 c0 {8,S} {10,S} {29,S} {30,S}
+10 C u0 p0 c0 {9,S} {11,S} {31,S} {32,S}
+11 C u0 p0 c0 {10,S} {13,S} {33,S} {34,S}
+12 C u0 p0 c0 {3,S} {14,S} {15,S} {16,S}
+13 C u0 p0 c0 {1,S} {11,S} {35,S} {36,S}
+14 C u0 p0 c0 {12,S} {37,S} {38,S} {39,S}
+15 H u0 p0 c0 {12,S}
+16 H u0 p0 c0 {12,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {9,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {10,S}
+33 H u0 p0 c0 {11,S}
+34 H u0 p0 c0 {11,S}
+35 H u0 p0 c0 {13,S}
+36 H u0 p0 c0 {13,S}
+37 H u0 p0 c0 {14,S}
+38 H u0 p0 c0 {14,S}
+39 H u0 p0 c0 {14,S}
+        """),
+)
+
+
+species(
+    label='S(220)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {12,S}
+2  O u0 p2 c0 {1,S} {39,S}
+3  C u0 p0 c0 {4,S} {9,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {5,S} {19,S} {20,S}
+5  C u0 p0 c0 {4,S} {6,S} {21,S} {22,S}
+6  C u0 p0 c0 {5,S} {7,S} {23,S} {24,S}
+7  C u0 p0 c0 {6,S} {8,S} {25,S} {26,S}
+8  C u0 p0 c0 {7,S} {10,S} {27,S} {28,S}
+9  C u0 p0 c0 {3,S} {13,S} {15,S} {16,S}
+10 C u0 p0 c0 {8,S} {14,S} {29,S} {30,S}
+11 C u0 p0 c0 {12,S} {14,S} {31,S} {32,S}
+12 C u0 p0 c0 {1,S} {11,S} {33,S} {34,S}
+13 C u0 p0 c0 {9,S} {35,S} {36,S} {37,S}
+14 C u1 p0 c0 {10,S} {11,S} {38,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {6,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {11,S}
+32 H u0 p0 c0 {11,S}
+33 H u0 p0 c0 {12,S}
+34 H u0 p0 c0 {12,S}
+35 H u0 p0 c0 {13,S}
+36 H u0 p0 c0 {13,S}
+37 H u0 p0 c0 {13,S}
+38 H u0 p0 c0 {14,S}
+39 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(221)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {13,S}
+2  O u0 p2 c0 {1,S} {39,S}
+3  O u0 p2 c0 {15,D}
+4  C u0 p0 c0 {5,S} {11,S} {18,S} {19,S}
+5  C u0 p0 c0 {4,S} {6,S} {20,S} {21,S}
+6  C u0 p0 c0 {5,S} {7,S} {22,S} {23,S}
+7  C u0 p0 c0 {6,S} {8,S} {24,S} {25,S}
+8  C u0 p0 c0 {7,S} {9,S} {26,S} {27,S}
+9  C u0 p0 c0 {8,S} {10,S} {28,S} {29,S}
+10 C u0 p0 c0 {9,S} {12,S} {30,S} {31,S}
+11 C u0 p0 c0 {4,S} {14,S} {16,S} {17,S}
+12 C u0 p0 c0 {10,S} {15,S} {32,S} {33,S}
+13 C u0 p0 c0 {1,S} {15,S} {37,S} {38,S}
+14 C u0 p0 c0 {11,S} {34,S} {35,S} {36,S}
+15 C u0 p0 c0 {3,D} {12,S} {13,S}
+16 H u0 p0 c0 {11,S}
+17 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+31 H u0 p0 c0 {10,S}
+32 H u0 p0 c0 {12,S}
+33 H u0 p0 c0 {12,S}
+34 H u0 p0 c0 {14,S}
+35 H u0 p0 c0 {14,S}
+36 H u0 p0 c0 {14,S}
+37 H u0 p0 c0 {13,S}
+38 H u0 p0 c0 {13,S}
+39 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(20127)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {5,D}
+2 C u0 p0 c0 {3,S} {4,D} {6,S}
+3 C u0 p0 c0 {2,S} {5,D} {7,S}
+4 C u0 p0 c0 {2,D} {8,S} {9,S}
+5 C u0 p0 c0 {1,D} {3,D}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {3,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(37603)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {5,S} {8,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+6  C u0 p0 c0 {1,D} {4,S} {5,S}
+7  C u0 p0 c0 {4,S} {9,D} {14,S}
+8  C u0 p0 c0 {2,D} {3,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(37605)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {1,D} {4,S} {8,S}
+7  C u0 p0 c0 {5,S} {8,D} {15,S}
+8  C u0 p0 c0 {6,S} {7,D} {16,S}
+9  C u0 p0 c0 {2,D} {3,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(36500)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {8,S}
+2  O u0 p2 c0 {5,D}
+3  C u0 p0 c0 {1,S} {5,S} {7,S} {10,S}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,D} {3,S} {4,S}
+6  C u0 p0 c0 {4,S} {8,D} {13,S}
+7  C u0 p0 c0 {3,S} {9,D} {14,S}
+8  C u0 p0 c0 {1,S} {6,D} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(222)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {7,S} {21,S} {22,S}
+4  C u0 p0 c0 {1,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {5,S} {7,S} {17,S} {18,S}
+7  C u0 p0 c0 {3,S} {6,S} {19,S} {20,S}
+8  C u0 p0 c0 {4,S} {9,S} {23,S} {24,S}
+9  C u1 p0 c0 {8,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {3,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(223)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {11,S}
+2  C u0 p0 c0 {1,S} {5,S} {16,S} {17,S}
+3  C u0 p0 c0 {1,S} {6,S} {18,S} {19,S}
+4  C u0 p0 c0 {1,S} {8,S} {26,S} {27,S}
+5  C u0 p0 c0 {2,S} {9,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {7,S} {20,S} {21,S}
+7  C u0 p0 c0 {6,S} {8,S} {22,S} {23,S}
+8  C u0 p0 c0 {4,S} {7,S} {24,S} {25,S}
+9  C u0 p0 c0 {5,S} {10,S} {12,S} {13,S}
+10 C u0 p0 c0 {9,S} {28,S} {29,S} {30,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {9,S}
+13 H u0 p0 c0 {9,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {4,S}
+27 H u0 p0 c0 {4,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C8H15(224)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {18,S} {19,S}
+4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+5  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {5,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {8,S} {20,S} {21,S}
+8  C u1 p0 c0 {7,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C7H13(225)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {17,S} {18,S}
+4  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {5,S} {15,S} {16,S}
+7  C u1 p0 c0 {1,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C6H11(226)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {7,S} {8,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {6,S} {15,S} {16,S}
+6  C u1 p0 c0 {4,S} {5,S} {17,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(37726)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {9,S}
+2  O u0 p2 c0 {1,S} {15,S}
+3  O u0 p2 c0 {9,D}
+4  C u0 p0 c0 {5,B} {9,S} {10,B}
+5  C u0 p0 c0 {4,B} {6,B} {13,S}
+6  C u0 p0 c0 {5,B} {7,B} {12,S}
+7  C u0 p0 c0 {6,B} {8,B} {11,S}
+8  C u0 p0 c0 {7,B} {10,B} {14,S}
+9  C u0 p0 c0 {1,S} {3,D} {4,S}
+10 C u1 p0 c0 {4,B} {8,B}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(37730)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
+5  C u0 p0 c0 {4,S} {7,D} {10,S}
+6  C u1 p0 c0 {4,S} {8,S} {12,S}
+7  C u0 p0 c0 {5,D} {9,S} {15,S}
+8  C u0 p0 c0 {6,S} {9,D} {13,S}
+9  C u0 p0 c0 {7,S} {8,D} {14,S}
+10 C u0 p0 c0 {2,S} {3,D} {5,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(37725)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {7,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5  C u1 p0 c0 {4,S} {8,S} {11,S}
+6  C u0 p0 c0 {4,S} {9,D} {12,S}
+7  C u0 p0 c0 {2,S} {3,D} {4,S}
+8  C u0 p0 c0 {5,S} {10,D} {13,S}
+9  C u0 p0 c0 {6,D} {10,S} {15,S}
+10 C u0 p0 c0 {8,D} {9,S} {14,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(37775)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {10,S}
+2  O u0 p2 c0 {1,S} {16,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,B} {6,B} {10,S}
+5  C u0 p0 c0 {4,B} {7,B} {11,S}
+6  C u0 p0 c0 {4,B} {8,B} {12,S}
+7  C u0 p0 c0 {5,B} {9,B} {13,S}
+8  C u0 p0 c0 {6,B} {9,B} {14,S}
+9  C u0 p0 c0 {7,B} {8,B} {15,S}
+10 C u0 p0 c0 {1,S} {3,D} {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(29306)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {4,S} {5,S}
+2  O u0 p2 c0 {9,S} {14,S}
+3  O u0 p2 c0 {8,D}
+4  O u1 p2 c0 {1,S}
+5  C u0 p0 c0 {1,S} {6,S} {7,S} {10,S}
+6  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
+7  C u0 p0 c0 {5,S} {9,D} {13,S}
+8  C u0 p0 c0 {3,D} {6,S} {9,S}
+9  C u0 p0 c0 {2,S} {7,D} {8,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(38213)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,D}
+2 C u0 p0 c0 {3,S} {4,S} {6,S} {7,S}
+3 C u0 p0 c0 {2,S} {5,D} {8,S}
+4 C u0 p0 c0 {1,D} {2,S} {5,S}
+5 C u0 p0 c0 {3,D} {4,S} {9,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(37708)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {6,D}
+4  C u0 p0 c0 {5,S} {8,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {7,D}
+6  C u0 p0 c0 {2,S} {3,D} {7,S}
+7  C u1 p0 c0 {5,D} {6,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(227)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+3  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {9,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {10,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {26,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {10,D} {29,S}
+10 C u0 p0 c0 {6,S} {9,D} {30,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+30 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(228)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+2  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+3  C u0 p0 c0 {1,S} {7,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {9,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {9,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {26,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {6,S} {10,D}
+10 C u0 p0 c0 {9,D} {29,S} {30,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {10,S}
+30 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C7H13(229)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {6,D} {17,S}
+6  C u0 p0 c0 {5,D} {7,S} {18,S}
+7  C u1 p0 c0 {6,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(230)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {6,S} {7,D}
+6  C u1 p0 c0 {5,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H14(231)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {6,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {5,S} {7,D}
+7  C u0 p0 c0 {6,D} {20,S} {21,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(232)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {6,S} {22,S} {23,S}
+4  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+5  C u0 p0 c0 {4,S} {6,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {5,S} {20,S} {21,S}
+7  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
+8  C u0 p0 c0 {7,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {7,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {1,S} {8,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {3,S}
+23 H u0 p0 c0 {3,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(39999)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {6,S} {7,S}
+2  O u0 p2 c0 {7,D}
+3  C u1 p0 c0 {4,S} {7,S} {11,S}
+4  C u0 p0 c0 {3,S} {8,D} {10,S}
+5  C u0 p0 c0 {6,S} {9,D} {12,S}
+6  C u1 p0 c0 {1,S} {5,S} {13,S}
+7  C u0 p0 c0 {1,S} {2,D} {3,S}
+8  C u0 p0 c0 {4,D} {14,S} {15,S}
+9  C u0 p0 c0 {5,D} {16,S} {17,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(12629)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {3,S}
+2 O u0 p2 c0 {1,S} {3,S}
+3 C u0 p0 c0 {1,S} {2,S} {4,S} {5,S}
+4 C u1 p0 c0 {3,S} {6,S} {7,S}
 5 H u0 p0 c0 {3,S}
-6 H u0 p0 c0 {3,S}
+6 H u0 p0 c0 {4,S}
 7 H u0 p0 c0 {4,S}
         """),
 )
 
 
 species(
-    label='S(25491)',
+    label='S(28649)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
+1 O u0 p2 c0 {3,S} {5,S}
+2 O u0 p2 c0 {5,D}
+3 O u1 p2 c0 {1,S}
+4 C u0 p0 c0 {5,S} {6,D} {7,S}
+5 C u0 p0 c0 {1,S} {2,D} {4,S}
+6 C u0 p0 c0 {4,D} {8,S} {9,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {6,S}
+9 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(39153)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {6,S}
+2  O u0 p2 c0 {6,D}
+3  O u1 p2 c0 {1,S}
+4  C u1 p0 c0 {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,D} {8,S}
+6  C u0 p0 c0 {1,S} {2,D} {4,S}
+7  C u0 p0 c0 {5,D} {10,S} {11,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(233)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {6,S} {20,S} {21,S}
+4  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+5  C u0 p0 c0 {4,S} {6,S} {16,S} {17,S}
+6  C u0 p0 c0 {3,S} {5,S} {18,S} {19,S}
+7  C u0 p0 c0 {1,S} {10,S} {24,S} {25,S}
+8  C u0 p0 c0 {9,S} {10,S} {22,S} {23,S}
+9  C u0 p0 c0 {8,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {7,S} {8,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(234)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {11,S}
+2  C u0 p0 c0 {1,S} {5,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {7,S} {22,S} {23,S}
+4  C u0 p0 c0 {1,S} {8,S} {12,S} {13,S}
+5  C u0 p0 c0 {2,S} {6,S} {16,S} {17,S}
+6  C u0 p0 c0 {5,S} {7,S} {18,S} {19,S}
+7  C u0 p0 c0 {3,S} {6,S} {20,S} {21,S}
+8  C u0 p0 c0 {4,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {10,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {8,S} {9,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {3,S}
+23 H u0 p0 c0 {3,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(235)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {11,S}
+2  C u0 p0 c0 {1,S} {8,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {5,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {7,S} {24,S} {25,S}
+5  C u0 p0 c0 {3,S} {6,S} {18,S} {19,S}
+6  C u0 p0 c0 {5,S} {7,S} {20,S} {21,S}
+7  C u0 p0 c0 {4,S} {6,S} {22,S} {23,S}
+8  C u0 p0 c0 {2,S} {9,S} {12,S} {13,S}
+9  C u0 p0 c0 {8,S} {10,S} {26,S} {27,S}
+10 C u1 p0 c0 {9,S} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {4,S}
+25 H u0 p0 c0 {4,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(236)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {17,S} {18,S}
+2  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {2,S} {9,S} {11,S} {12,S}
+6  C u0 p0 c0 {2,S} {10,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {10,S} {23,S} {24,S}
+8  C u0 p0 c0 {4,S} {10,S} {25,S} {26,S}
+9  C u0 p0 c0 {5,S} {27,S} {28,S} {29,S}
+10 C u1 p0 c0 {6,S} {7,S} {8,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {1,S}
+18 H u0 p0 c0 {1,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(237)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {16,S} {17,S}
+3  C u0 p0 c0 {1,S} {5,S} {22,S} {23,S}
+4  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {6,S} {20,S} {21,S}
+6  C u0 p0 c0 {5,S} {8,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {9,S} {12,S} {13,S}
+8  C u0 p0 c0 {6,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {7,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {1,S} {8,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {3,S}
+23 H u0 p0 c0 {3,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(41373)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {7,D}
+4  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+5  C u0 p0 c0 {4,S} {6,D} {10,S}
+6  C u0 p0 c0 {5,D} {7,S} {11,S}
+7  C u0 p0 c0 {2,S} {3,D} {6,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(41371)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {6,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
+5  C u0 p0 c0 {4,S} {7,D} {9,S}
+6  C u0 p0 c0 {2,S} {3,D} {4,S}
+7  C u0 p0 c0 {5,D} {10,S} {11,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(238)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {16,S} {17,S}
+3  C u0 p0 c0 {1,S} {5,S} {20,S} {21,S}
+4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {8,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {9,S} {12,S} {13,S}
+7  C u0 p0 c0 {1,S} {10,S} {22,S} {23,S}
+8  C u0 p0 c0 {5,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {6,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {7,S} {8,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(21432)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u1 p2 c0 {6,S}
+3  O u0 p2 c0 {6,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
+5  C u0 p0 c0 {4,S} {7,D} {9,S}
+6  C u0 p0 c0 {2,S} {3,D} {4,S}
+7  C u0 p0 c0 {5,D} {10,S} {11,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(2982)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {7,S}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {5,S} {8,D}
+7  C u0 p0 c0 {1,S} {8,D} {17,S}
+8  C u0 p0 c0 {6,D} {7,D}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(41366)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 O u0 p2 c0 {2,S} {4,S}
+2 O u0 p2 c0 {1,S} {6,S}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {1,S} {5,S} {7,S} {8,S}
+5 C u1 p0 c0 {4,S} {6,S} {9,S}
+6 C u0 p0 c0 {2,S} {3,D} {5,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {4,S}
+9 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(41449)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {5,D}
+4  C u0 p0 c0 {5,S} {6,D} {7,S}
+5  C u0 p0 c0 {1,S} {3,D} {4,S}
+6  C u0 p0 c0 {4,D} {8,S} {9,S}
+7  H u0 p0 c0 {4,S}
+8  H u0 p0 c0 {6,S}
+9  H u0 p0 c0 {6,S}
+10 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(43582)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {5,S}
+2 O u0 p2 c0 {1,S} {6,S}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {5,D} {6,S} {7,S}
+5 C u0 p0 c0 {1,S} {4,D} {8,S}
+6 C u0 p0 c0 {2,S} {3,D} {4,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(239)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {11,S}
+2  C u0 p0 c0 {1,S} {5,S} {16,S} {17,S}
+3  C u0 p0 c0 {1,S} {7,S} {18,S} {19,S}
+4  C u0 p0 c0 {1,S} {8,S} {20,S} {21,S}
+5  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {5,S} {9,S} {12,S} {13,S}
+7  C u0 p0 c0 {3,S} {10,S} {22,S} {23,S}
+8  C u0 p0 c0 {4,S} {10,S} {24,S} {25,S}
+9  C u0 p0 c0 {6,S} {26,S} {27,S} {28,S}
+10 C u1 p0 c0 {7,S} {8,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {4,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C9H16(240)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {19,S} {20,S}
+4  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {3,S} {5,S} {17,S} {18,S}
+7  C u0 p0 c0 {1,S} {8,S} {21,S} {22,S}
+8  C u0 p0 c0 {7,S} {9,D} {23,S}
+9  C u0 p0 c0 {8,D} {24,S} {25,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {9,S}
+25 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C8H14(241)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {18,S} {19,S}
+4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+5  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {5,S} {16,S} {17,S}
+7  C u0 p0 c0 {1,S} {8,D} {20,S}
+8  C u0 p0 c0 {7,D} {21,S} {22,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {8,S}
+22 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(242)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {5,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {3,S} {9,S} {21,S} {22,S}
+6  C u0 p0 c0 {1,S} {10,S} {17,S} {18,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {9,D} {26,S}
+9  C u0 p0 c0 {5,S} {8,D} {27,S}
+10 C u1 p0 c0 {6,S} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C7H12(243)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {6,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {5,S} {7,D}
+7  C u0 p0 c0 {6,D} {18,S} {19,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(244)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {1,S} {8,S} {21,S} {22,S}
+6  C u0 p0 c0 {2,S} {9,S} {17,S} {18,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {5,S} {10,D}
+9  C u1 p0 c0 {6,S} {26,S} {27,S}
+10 C u0 p0 c0 {8,D} {28,S} {29,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C6H10(245)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,D} {15,S}
+6  C u0 p0 c0 {3,S} {5,D} {16,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(246)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {1,S} {9,S} {21,S} {22,S}
+6  C u0 p0 c0 {2,S} {10,S} {17,S} {18,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {9,D} {26,S}
+9  C u0 p0 c0 {5,S} {8,D} {27,S}
+10 C u1 p0 c0 {6,S} {28,S} {29,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(3101)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
 1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {4,S} {9,S}
+2  O u1 p2 c0 {10,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
+8  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
+9  C u0 p0 c0 {4,S} {10,D} {19,S}
+10 C u0 p0 c0 {2,S} {9,D} {20,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(247)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+5  C u0 p0 c0 {4,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {9,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {1,S} {10,D} {25,S}
+9  C u1 p0 c0 {6,S} {26,S} {27,S}
+10 C u0 p0 c0 {8,D} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(44328)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u1 p2 c0 {6,S}
+2 O u1 p2 c0 {6,S}
+3 O u0 p2 c0 {5,D}
+4 C u0 p0 c0 {5,S} {6,D} {7,S}
+5 C u0 p0 c0 {3,D} {4,S} {8,S}
+6 C u0 p0 c0 {1,S} {2,S} {4,D}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='CHCHO(393)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u1 p2 c0 {2,S}
+2 C u0 p0 c0 {1,S} {3,D} {4,S}
+3 C u1 p0 c0 {2,D} {5,S}
+4 H u0 p0 c0 {2,S}
+5 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(44330)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {4,S} {5,S}
+2 O u0 p2 c0 {5,D}
+3 O u0 p2 c0 {6,D}
+4 C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5 C u0 p0 c0 {1,S} {2,D} {4,S}
+6 C u0 p0 c0 {3,D} {4,S} {8,S}
+7 H u0 p0 c0 {4,S}
+8 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(248)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {1,S} {8,S} {21,S} {22,S}
+6  C u0 p0 c0 {2,S} {9,S} {17,S} {18,S}
+7  C u0 p0 c0 {3,S} {23,S} {24,S} {25,S}
+8  C u1 p0 c0 {4,S} {5,S} {26,S}
+9  C u0 p0 c0 {6,S} {10,D} {27,S}
+10 C u0 p0 c0 {9,D} {28,S} {29,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(249)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+3  C u0 p0 c0 {2,S} {4,S} {14,S} {15,S}
+4  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {8,S} {20,S} {21,S}
+6  C u0 p0 c0 {1,S} {9,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {5,S} {10,D} {25,S}
+9  C u1 p0 c0 {6,S} {26,S} {27,S}
+10 C u0 p0 c0 {8,D} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(250)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+5  C u0 p0 c0 {4,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {8,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {22,S} {23,S} {24,S}
+8  C u0 p0 c0 {6,S} {10,D} {25,S}
+9  C u1 p0 c0 {1,S} {26,S} {27,S}
+10 C u0 p0 c0 {8,D} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='S(251)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+3  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {9,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {8,S} {19,S} {20,S}
+6  C u0 p0 c0 {3,S} {21,S} {22,S} {23,S}
+7  C u0 p0 c0 {2,S} {24,S} {25,S} {26,S}
+8  C u1 p0 c0 {5,S} {10,S} {27,S}
+9  C u0 p0 c0 {4,S} {10,D} {28,S}
+10 C u0 p0 c0 {8,S} {9,D} {29,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {9,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C8H15(252)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+3  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {1,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {7,D} {20,S}
+7  C u0 p0 c0 {2,S} {6,D} {21,S}
+8  C u1 p0 c0 {4,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(253)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+3  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {8,S} {19,S} {20,S}
+5  C u0 p0 c0 {3,S} {9,S} {17,S} {18,S}
+6  C u0 p0 c0 {3,S} {21,S} {22,S} {23,S}
+7  C u0 p0 c0 {2,S} {24,S} {25,S} {26,S}
+8  C u0 p0 c0 {4,S} {9,D} {10,S}
+9  C u0 p0 c0 {5,S} {8,D} {27,S}
+10 C u1 p0 c0 {8,S} {28,S} {29,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C8H15(254)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {6,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {4,S} {8,D}
+7  C u1 p0 c0 {4,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(255)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {15,S} {16,S}
+2  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {8,S} {17,S} {18,S}
+4  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {9,S} {19,S} {20,S}
+6  C u0 p0 c0 {4,S} {10,S} {21,S} {22,S}
+7  C u0 p0 c0 {4,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {3,S} {26,S} {27,S} {28,S}
+9  C u0 p0 c0 {5,S} {10,D} {29,S}
+10 C u1 p0 c0 {6,S} {9,D}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {1,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {8,S}
+28 H u0 p0 c0 {8,S}
+29 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C8H15(256)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {7,S} {8,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {7,D} {21,S}
+7  C u0 p0 c0 {4,S} {6,D} {20,S}
+8  C u1 p0 c0 {4,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(257)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+3  C u0 p0 c0 {4,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {8,S} {19,S} {20,S}
+6  C u0 p0 c0 {3,S} {21,S} {22,S} {23,S}
+7  C u0 p0 c0 {2,S} {24,S} {25,S} {26,S}
+8  C u1 p0 c0 {4,S} {5,S} {9,S}
+9  C u0 p0 c0 {8,S} {10,D} {27,S}
+10 C u0 p0 c0 {9,D} {28,S} {29,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {7,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C8H15(258)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {7,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {4,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {5,S} {14,S} {15,S}
+5  C u0 p0 c0 {4,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {1,S} {8,D} {19,S}
+7  C u1 p0 c0 {1,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(259)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {13,S} {14,S}
+2  C u0 p0 c0 {1,S} {3,S} {15,S} {16,S}
+3  C u0 p0 c0 {2,S} {5,S} {17,S} {18,S}
+4  C u0 p0 c0 {1,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {19,S} {20,S}
+6  C u0 p0 c0 {4,S} {8,S} {21,S} {22,S}
+7  C u0 p0 c0 {5,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {6,S} {9,D} {26,S}
+9  C u0 p0 c0 {8,D} {10,S} {27,S}
+10 C u1 p0 c0 {9,S} {28,S} {29,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C7H12(260)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,D} {14,S}
+5  C u0 p0 c0 {3,S} {7,D} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  C u0 p0 c0 {5,D} {18,S} {19,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(261)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {14,S} {15,S}
+3  C u0 p0 c0 {2,S} {5,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {5,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {1,S} {9,D} {26,S}
+9  C u0 p0 c0 {8,D} {10,S} {27,S}
+10 C u1 p0 c0 {9,S} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C8H15(262)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {6,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {17,S} {18,S} {19,S}
+6  C u1 p0 c0 {3,S} {4,S} {20,S}
+7  C u0 p0 c0 {4,S} {8,D} {21,S}
+8  C u0 p0 c0 {7,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(263)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+3  C u0 p0 c0 {2,S} {4,S} {14,S} {15,S}
+4  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {8,S} {18,S} {19,S}
+6  C u0 p0 c0 {1,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {4,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {5,S} {9,D} {26,S}
+9  C u0 p0 c0 {8,D} {10,S} {27,S}
+10 C u1 p0 c0 {9,S} {28,S} {29,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+28 H u0 p0 c0 {10,S}
+29 H u0 p0 c0 {10,S}
+        """),
+)
+
+
+species(
+    label='C6H10(264)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,D} {11,S}
+4  C u0 p0 c0 {2,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,D} {13,S} {14,S}
+6  C u0 p0 c0 {4,D} {15,S} {16,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H12(265)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {5,D} {15,S}
+5  C u0 p0 c0 {4,D} {6,S} {17,S}
+6  C u0 p0 c0 {5,S} {7,D} {16,S}
+7  C u0 p0 c0 {6,D} {18,S} {19,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C8H14(266)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {6,D} {18,S}
+6  C u0 p0 c0 {5,D} {7,S} {20,S}
+7  C u0 p0 c0 {6,S} {8,D} {19,S}
+8  C u0 p0 c0 {7,D} {21,S} {22,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {8,S}
+22 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H14(267)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {6,S} {7,D}
+6  C u0 p0 c0 {5,S} {8,D} {18,S}
+7  C u0 p0 c0 {5,D} {21,S} {22,S}
+8  C u0 p0 c0 {6,D} {19,S} {20,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {8,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(1086)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
+2  C u0 p0 c0 {4,S} {10,S} {11,S} {12,S}
+3  C u1 p0 c0 {1,S} {6,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,D} {15,S}
+5  C u0 p0 c0 {1,S} {7,D} {14,S}
+6  C u0 p0 c0 {3,S} {4,D} {16,S}
+7  C u0 p0 c0 {5,D} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H12(268)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {5,S} {6,D}
+5  C u0 p0 c0 {4,S} {7,D} {15,S}
+6  C u0 p0 c0 {4,D} {18,S} {19,S}
+7  C u0 p0 c0 {5,D} {16,S} {17,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(1085)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {3,S} {10,S} {11,S} {12,S}
+3  C u1 p0 c0 {1,S} {2,S} {13,S}
+4  C u0 p0 c0 {1,S} {5,D} {14,S}
+5  C u0 p0 c0 {4,D} {6,S} {16,S}
+6  C u0 p0 c0 {5,S} {7,D} {15,S}
+7  C u0 p0 c0 {6,D} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(44543)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {5,S} {9,S}
+3  C u0 p0 c0 {1,S} {2,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+5  C u0 p0 c0 {2,S} {6,D} {15,S}
+6  C u0 p0 c0 {5,D} {7,S} {16,S}
+7  C u1 p0 c0 {6,S} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(1117)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
 3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
-4  C u0 p0 c0 {1,S} {2,S} {7,S} {11,S}
-5  C u0 p0 c0 {3,S} {7,D} {13,S}
-6  C u1 p0 c0 {3,S} {8,S} {12,S}
-7  C u0 p0 c0 {4,S} {5,D} {14,S}
-8  C u0 p0 c0 {6,S} {9,D} {15,S}
-9  C u0 p0 c0 {2,S} {8,D} {16,S}
+4  C u0 p0 c0 {7,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {7,D} {18,S}
+7  C u0 p0 c0 {4,S} {6,D} {16,S}
+8  C u0 p0 c0 {4,S} {9,D} {17,S}
+9  C u0 p0 c0 {8,D} {19,S} {20,S}
 10 H u0 p0 c0 {3,S}
 11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44547)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {4,D} {12,S}
+4  C u0 p0 c0 {3,D} {5,S} {14,S}
+5  C u0 p0 c0 {4,S} {7,D} {13,S}
+6  C u1 p0 c0 {1,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,D} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(44550)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {3,S} {8,S} {11,S} {12,S}
+5  C u0 p0 c0 {7,S} {13,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {7,D} {18,S}
+7  C u0 p0 c0 {5,S} {6,D} {17,S}
+8  C u0 p0 c0 {4,S} {9,D} {16,S}
+9  C u0 p0 c0 {8,D} {19,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(1115)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {7,D} {16,S}
+7  C u0 p0 c0 {6,D} {8,S} {18,S}
+8  C u0 p0 c0 {7,S} {9,D} {17,S}
+9  C u0 p0 c0 {8,D} {19,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44690)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {6,S} {10,S}
+4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,S} {13,S}
+6  C u0 p0 c0 {3,S} {14,S} {15,S} {16,S}
+7  C u1 p0 c0 {5,S} {8,S} {17,S}
+8  C u0 p0 c0 {7,S} {9,D} {18,S}
+9  C u0 p0 c0 {8,D} {19,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44884)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  O u0 p2 c0 {4,S} {8,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {2,S} {7,S} {8,S} {13,S}
+6  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
+7  C u0 p0 c0 {5,S} {6,S} {14,S} {15,S}
+8  C u0 p0 c0 {3,S} {5,S} {10,S} {16,S}
+9  C u0 p0 c0 {6,S} {17,S} {18,S} {19,S}
+10 C u0 p0 c0 {8,S} {11,D} {20,S}
+11 C u0 p0 c0 {10,D} {21,S} {22,S}
 12 H u0 p0 c0 {6,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {10,S}
+21 H u0 p0 c0 {11,S}
+22 H u0 p0 c0 {11,S}
         """),
 )
 
 
 species(
-    label='S(25513)',
+    label='S(44885)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {4,S} {6,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {7,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {2,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {14,S}
-9  C u0 p0 c0 {6,S} {7,D} {16,S}
-10 C u0 p0 c0 {8,D} {11,S} {17,S}
-11 C u0 p0 c0 {3,D} {10,S} {18,S}
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {4,S} {9,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
+7  C u0 p0 c0 {2,S} {6,S} {10,S} {15,S}
+8  C u0 p0 c0 {5,S} {16,S} {17,S} {18,S}
+9  C u0 p0 c0 {3,S} {11,S} {19,S} {20,S}
+10 C u0 p0 c0 {7,S} {11,D} {21,S}
+11 C u0 p0 c0 {9,S} {10,D} {22,S}
 12 H u0 p0 c0 {5,S}
 13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {6,S}
 15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+21 H u0 p0 c0 {10,S}
+22 H u0 p0 c0 {11,S}
         """),
 )
 
 
 species(
-    label='S(18548)',
+    label='S(44670)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {4,S} {7,S} {10,S}
+4  C u0 p0 c0 {3,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {4,S} {9,S} {13,S}
+6  C u0 p0 c0 {8,S} {14,S} {15,S} {16,S}
+7  C u0 p0 c0 {3,S} {8,D} {18,S}
+8  C u0 p0 c0 {6,S} {7,D} {17,S}
+9  C u1 p0 c0 {5,S} {19,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44698)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+6  C u0 p0 c0 {2,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {4,S} {9,D} {18,S}
+8  C u1 p0 c0 {6,S} {9,S} {19,S}
+9  C u0 p0 c0 {7,D} {8,S} {20,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H18(269)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {10,S}
+2  C u0 p0 c0 {1,S} {8,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {5,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {7,S} {23,S} {24,S}
+5  C u0 p0 c0 {3,S} {6,S} {17,S} {18,S}
+6  C u0 p0 c0 {5,S} {7,S} {19,S} {20,S}
+7  C u0 p0 c0 {4,S} {6,S} {21,S} {22,S}
+8  C u0 p0 c0 {2,S} {9,S} {11,S} {12,S}
+9  C u0 p0 c0 {8,S} {25,S} {26,S} {27,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {8,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {4,S}
+24 H u0 p0 c0 {4,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H18(270)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {7,S} {14,S} {15,S}
+3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {8,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {9,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {2,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {9,D} {26,S}
+9  C u0 p0 c0 {5,S} {8,D} {27,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {8,S}
+27 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H18(271)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {7,S} {14,S} {15,S}
+3  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {8,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {8,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {2,S} {23,S} {24,S} {25,S}
+8  C u0 p0 c0 {4,S} {5,S} {9,D}
+9  C u0 p0 c0 {8,D} {26,S} {27,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {7,S}
+26 H u0 p0 c0 {9,S}
+27 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C6H11(272)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {5,S} {6,D}
+5  C u1 p0 c0 {4,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H12(273)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {5,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {4,S} {6,D}
+6  C u0 p0 c0 {5,D} {17,S} {18,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C9H17(274)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {19,S} {20,S}
+4  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {3,S} {5,S} {17,S} {18,S}
+7  C u0 p0 c0 {8,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {7,S} {23,S} {24,S} {25,S}
+9  C u1 p0 c0 {1,S} {7,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44641)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {5,S}
+3  C u0 p0 c0 {1,S} {6,S} {8,S} {10,S}
+4  C u0 p0 c0 {7,S} {9,S} {11,S} {12,S}
+5  C u0 p0 c0 {2,S} {7,S} {16,S} {17,S}
+6  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+7  C u1 p0 c0 {4,S} {5,S} {18,S}
+8  C u0 p0 c0 {3,S} {9,D} {20,S}
+9  C u0 p0 c0 {4,S} {8,D} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C9H17(275)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {19,S} {20,S}
+4  C u0 p0 c0 {2,S} {5,S} {13,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {3,S} {5,S} {17,S} {18,S}
+7  C u0 p0 c0 {1,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {9,S} {23,S} {24,S} {25,S}
+9  C u1 p0 c0 {7,S} {8,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(44655)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {5,D} {15,S}
+5  C u0 p0 c0 {4,D} {7,S} {16,S}
+6  C u0 p0 c0 {7,D} {17,S} {18,S}
+7  C u1 p0 c0 {5,S} {6,D}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(44654)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {7,D} {15,S}
+5  C u0 p0 c0 {6,D} {7,S} {16,S}
+6  C u0 p0 c0 {5,D} {17,S} {18,S}
+7  C u1 p0 c0 {4,D} {5,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C9H17(276)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {14,S} {15,S}
+2  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {5,S} {8,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {9,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {9,S} {20,S} {21,S}
+7  C u0 p0 c0 {3,S} {9,S} {22,S} {23,S}
+8  C u0 p0 c0 {4,S} {24,S} {25,S} {26,S}
+9  C u1 p0 c0 {5,S} {6,S} {7,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {1,S}
+15 H u0 p0 c0 {1,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C9H17(277)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {4,S} {19,S} {20,S}
+4  C u0 p0 c0 {3,S} {5,S} {17,S} {18,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
+7  C u0 p0 c0 {5,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {6,S} {23,S} {24,S} {25,S}
+9  C u1 p0 c0 {1,S} {7,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(278)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {4,S} {17,S} {18,S}
+4  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
+6  C u0 p0 c0 {1,S} {9,S} {19,S} {20,S}
+7  C u0 p0 c0 {4,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {5,S} {23,S} {24,S} {25,S}
+9  C u1 p0 c0 {6,S} {7,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(279)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {6,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {7,S} {17,S} {18,S}
+5  C u0 p0 c0 {2,S} {8,S} {11,S} {12,S}
+6  C u0 p0 c0 {3,S} {9,S} {19,S} {20,S}
+7  C u0 p0 c0 {4,S} {9,S} {21,S} {22,S}
+8  C u0 p0 c0 {5,S} {23,S} {24,S} {25,S}
+9  C u1 p0 c0 {6,S} {7,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(280)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {3,S} {12,S} {13,S}
+3  C u0 p0 c0 {2,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {9,S} {14,S} {15,S}
+5  C u0 p0 c0 {6,S} {8,S} {18,S} {19,S}
+6  C u0 p0 c0 {5,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {8,D} {23,S}
+8  C u0 p0 c0 {5,S} {7,D} {24,S}
+9  C u1 p0 c0 {4,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(281)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {2,S} {8,S} {18,S} {19,S}
+5  C u0 p0 c0 {1,S} {9,S} {14,S} {15,S}
+6  C u0 p0 c0 {2,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {8,D} {23,S}
+8  C u0 p0 c0 {4,S} {7,D} {24,S}
+9  C u1 p0 c0 {5,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(282)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {8,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {1,S} {9,D} {22,S}
+8  C u1 p0 c0 {5,S} {23,S} {24,S}
+9  C u0 p0 c0 {7,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(283)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {2,S} {7,S} {18,S} {19,S}
+5  C u0 p0 c0 {1,S} {8,S} {14,S} {15,S}
+6  C u0 p0 c0 {2,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {3,S} {4,S} {9,D}
+8  C u1 p0 c0 {5,S} {23,S} {24,S}
+9  C u0 p0 c0 {7,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(284)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {2,S} {7,S} {18,S} {19,S}
+5  C u0 p0 c0 {1,S} {8,S} {14,S} {15,S}
+6  C u0 p0 c0 {2,S} {20,S} {21,S} {22,S}
+7  C u1 p0 c0 {3,S} {4,S} {23,S}
+8  C u0 p0 c0 {5,S} {9,D} {24,S}
+9  C u0 p0 c0 {8,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(285)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {10,S}
+2  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+3  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {7,S} {17,S} {18,S}
+5  C u0 p0 c0 {1,S} {8,S} {15,S} {16,S}
+6  C u0 p0 c0 {3,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {4,S} {9,D} {22,S}
+8  C u1 p0 c0 {5,S} {23,S} {24,S}
+9  C u0 p0 c0 {7,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(286)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {5,S} {15,S} {16,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {19,S} {20,S} {21,S}
+7  C u0 p0 c0 {5,S} {9,D} {22,S}
+8  C u1 p0 c0 {1,S} {23,S} {24,S}
+9  C u0 p0 c0 {7,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C7H13(287)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {6,D} {18,S}
+6  C u0 p0 c0 {3,S} {5,D} {17,S}
+7  C u1 p0 c0 {3,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C9H17(288)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+5  C u0 p0 c0 {2,S} {21,S} {22,S} {23,S}
+6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
+7  C u1 p0 c0 {3,S} {9,S} {24,S}
+8  C u0 p0 c0 {4,S} {9,D} {25,S}
+9  C u0 p0 c0 {7,S} {8,D} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {5,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(289)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {14,S} {15,S}
+4  C u0 p0 c0 {2,S} {8,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {18,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {21,S} {22,S} {23,S}
+7  C u1 p0 c0 {3,S} {9,S} {24,S}
+8  C u0 p0 c0 {4,S} {9,D} {25,S}
+9  C u0 p0 c0 {7,S} {8,D} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {7,S}
+25 H u0 p0 c0 {8,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C7H13(290)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {6,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {1,S} {7,D} {16,S}
+6  C u1 p0 c0 {1,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(1082)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {10,S} {11,S}
+3  C u0 p0 c0 {2,S} {5,D} {13,S}
+4  C u0 p0 c0 {1,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,D} {7,S} {14,S}
+6  C u0 p0 c0 {4,D} {17,S} {18,S}
+7  C u1 p0 c0 {5,S} {15,S} {16,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C9H17(291)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {14,S} {15,S}
+4  C u0 p0 c0 {2,S} {7,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {18,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {21,S} {22,S} {23,S}
+7  C u1 p0 c0 {3,S} {4,S} {8,S}
+8  C u0 p0 c0 {7,S} {9,D} {24,S}
+9  C u0 p0 c0 {8,D} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C7H13(292)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {5,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {3,S} {7,D}
+6  C u1 p0 c0 {3,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C9H17(293)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+3  C u0 p0 c0 {2,S} {7,S} {16,S} {17,S}
+4  C u0 p0 c0 {1,S} {8,S} {14,S} {15,S}
+5  C u0 p0 c0 {1,S} {18,S} {19,S} {20,S}
+6  C u0 p0 c0 {2,S} {21,S} {22,S} {23,S}
+7  C u0 p0 c0 {3,S} {8,D} {9,S}
+8  C u0 p0 c0 {4,S} {7,D} {24,S}
+9  C u1 p0 c0 {7,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {6,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(294)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {12,S} {13,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {7,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {5,S} {8,D} {23,S}
+8  C u0 p0 c0 {7,D} {9,S} {24,S}
+9  C u1 p0 c0 {8,S} {25,S} {26,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {1,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(36444)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  O u1 p2 c0 {5,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {3,S} {6,S} {7,S} {12,S}
+6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
+7  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {2,S} {7,S} {10,S} {16,S}
+9  C u0 p0 c0 {6,S} {11,D} {17,S}
+10 C u0 p0 c0 {4,D} {8,S} {18,S}
+11 C u0 p0 c0 {9,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='C7H13(295)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {5,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+5  C u1 p0 c0 {2,S} {3,S} {17,S}
+6  C u0 p0 c0 {3,S} {7,D} {18,S}
+7  C u0 p0 c0 {6,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H9(958)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,D} {9,S}
+2  C u0 p0 c0 {1,S} {3,D} {10,S}
+3  C u0 p0 c0 {2,D} {5,S} {11,S}
+4  C u0 p0 c0 {1,D} {6,S} {8,S}
+5  C u0 p0 c0 {3,S} {7,D} {12,S}
+6  C u1 p0 c0 {4,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,D} {15,S} {16,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C9H17(296)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {1,S} {8,D} {23,S}
+8  C u0 p0 c0 {7,D} {9,S} {24,S}
+9  C u1 p0 c0 {8,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C9H17(297)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {10,S}
+2  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+3  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {1,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {20,S} {21,S} {22,S}
+7  C u0 p0 c0 {4,S} {8,D} {23,S}
+8  C u0 p0 c0 {7,D} {9,S} {24,S}
+9  C u1 p0 c0 {8,S} {25,S} {26,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {6,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+25 H u0 p0 c0 {9,S}
+26 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C6H10(298)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,D} {14,S}
+5  C u0 p0 c0 {6,D} {15,S} {16,S}
+6  C u0 p0 c0 {4,D} {5,D}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C8H16(299)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {20,S} {21,S}
+4  C u0 p0 c0 {1,S} {8,S} {10,S} {11,S}
+5  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {5,S} {7,S} {16,S} {17,S}
+7  C u0 p0 c0 {3,S} {6,S} {18,S} {19,S}
+8  C u0 p0 c0 {4,S} {22,S} {23,S} {24,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {3,S}
+21 H u0 p0 c0 {3,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H16(300)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {8,S} {15,S} {16,S}
+4  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
+5  C u0 p0 c0 {2,S} {20,S} {21,S} {22,S}
+6  C u0 p0 c0 {4,S} {17,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {8,D} {23,S}
+8  C u0 p0 c0 {3,S} {7,D} {24,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {7,S}
+24 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H16(301)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {7,S} {15,S} {16,S}
+4  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
+5  C u0 p0 c0 {2,S} {20,S} {21,S} {22,S}
+6  C u0 p0 c0 {4,S} {17,S} {18,S} {19,S}
+7  C u0 p0 c0 {3,S} {4,S} {8,D}
+8  C u0 p0 c0 {7,D} {23,S} {24,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {5,S}
+22 H u0 p0 c0 {5,S}
+23 H u0 p0 c0 {8,S}
+24 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C5H9(302)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u1 p0 c0 {3,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,D} {13,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C5H10(303)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {4,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {4,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {3,S} {5,D}
+5  C u0 p0 c0 {4,D} {14,S} {15,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C8H15(304)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {18,S} {19,S}
+4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+5  C u0 p0 c0 {4,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {3,S} {5,S} {16,S} {17,S}
+7  C u0 p0 c0 {8,S} {20,S} {21,S} {22,S}
+8  C u1 p0 c0 {1,S} {7,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {3,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(305)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {8,S} {17,S} {18,S}
+5  C u0 p0 c0 {3,S} {8,S} {19,S} {20,S}
+6  C u0 p0 c0 {7,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {6,S} {21,S} {22,S} {23,S}
+8  C u1 p0 c0 {4,S} {5,S} {6,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(45160)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,S} {8,D} {11,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {9,D} {14,S}
+8  C u0 p0 c0 {5,D} {15,S} {16,S}
+9  C u0 p0 c0 {7,D} {17,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45036)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  O u0 p2 c0 {9,D}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
+6  C u0 p0 c0 {2,S} {8,S} {10,S} {13,S}
+7  C u0 p0 c0 {5,S} {11,D} {14,S}
+8  C u1 p0 c0 {6,S} {16,S} {17,S}
+9  C u0 p0 c0 {3,D} {5,S} {15,S}
+10 C u0 p0 c0 {4,D} {6,S} {18,S}
+11 C u0 p0 c0 {7,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(45159)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,D} {12,S}
+5  C u0 p0 c0 {4,D} {6,S} {13,S}
+6  C u0 p0 c0 {5,S} {7,D} {14,S}
+7  C u0 p0 c0 {6,D} {8,S} {15,S}
+8  C u0 p0 c0 {7,S} {9,D} {16,S}
+9  C u0 p0 c0 {8,D} {17,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45037)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {9,S}
+3  O u0 p2 c0 {10,D}
+4  O u0 p2 c0 {8,D}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
+7  C u0 p0 c0 {9,S} {11,D} {15,S}
+8  C u0 p0 c0 {4,D} {5,S} {18,S}
+9  C u1 p0 c0 {2,S} {7,S} {17,S}
+10 C u0 p0 c0 {3,D} {6,S} {16,S}
+11 C u0 p0 c0 {7,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='C8H15(306)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {3,S} {16,S} {17,S}
+3  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+6  C u0 p0 c0 {5,S} {8,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {20,S} {21,S} {22,S}
+8  C u1 p0 c0 {1,S} {6,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {2,S}
+17 H u0 p0 c0 {2,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(45280)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {9,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u0 p2 c0 {2,S} {7,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {2,S} {6,S} {10,S} {12,S}
+6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
+7  C u0 p0 c0 {1,S} {3,S} {8,S} {15,S}
+8  C u0 p0 c0 {7,S} {11,D} {16,S}
+9  C u1 p0 c0 {1,S} {6,S} {17,S}
+10 C u0 p0 c0 {4,D} {5,S} {18,S}
+11 C u0 p0 c0 {8,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(45262)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {4,S}
+2  O u0 p2 c0 {7,D}
+3  O u0 p2 c0 {6,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {8,S}
+5  C u0 p0 c0 {4,S} {7,S} {9,S} {10,S}
+6  C u0 p0 c0 {3,D} {4,S} {12,S}
+7  C u0 p0 c0 {2,D} {5,S} {11,S}
+8  H u0 p0 c0 {4,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(45279)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {7,S} {9,S}
+2  O u0 p2 c0 {3,S} {5,S}
+3  O u0 p2 c0 {2,S} {7,S}
+4  O u0 p2 c0 {10,D}
+5  C u0 p0 c0 {2,S} {6,S} {9,S} {12,S}
+6  C u0 p0 c0 {5,S} {10,S} {13,S} {14,S}
+7  C u0 p0 c0 {1,S} {3,S} {8,S} {15,S}
+8  C u0 p0 c0 {7,S} {11,D} {16,S}
+9  C u1 p0 c0 {1,S} {5,S} {17,S}
+10 C u0 p0 c0 {4,D} {6,S} {18,S}
+11 C u0 p0 c0 {8,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='C8H15(307)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {14,S} {15,S}
+3  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,S} {8,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {8,S} {18,S} {19,S}
+7  C u0 p0 c0 {3,S} {20,S} {21,S} {22,S}
+8  C u1 p0 c0 {5,S} {6,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {2,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(308)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {6,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+5  C u0 p0 c0 {2,S} {8,S} {16,S} {17,S}
+6  C u0 p0 c0 {3,S} {8,S} {18,S} {19,S}
+7  C u0 p0 c0 {4,S} {20,S} {21,S} {22,S}
+8  C u1 p0 c0 {5,S} {6,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(309)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+3  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {8,S} {13,S} {14,S}
+5  C u0 p0 c0 {7,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {7,D} {20,S}
+7  C u0 p0 c0 {5,S} {6,D} {21,S}
+8  C u1 p0 c0 {4,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(45205)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {5,S} {7,S} {10,S}
+4  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+5  C u1 p0 c0 {3,S} {8,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,D} {15,S}
+7  C u0 p0 c0 {3,S} {9,D} {13,S}
+8  C u0 p0 c0 {5,S} {6,D} {16,S}
+9  C u0 p0 c0 {7,D} {17,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45554)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {4,S} {5,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {3,S} {7,S} {8,S} {12,S}
+6  C u0 p0 c0 {1,S} {9,S} {10,S} {13,S}
+7  C u0 p0 c0 {2,S} {5,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {9,D} {18,S}
+9  C u0 p0 c0 {6,S} {8,D} {17,S}
+10 C u0 p0 c0 {6,S} {11,D} {16,S}
+11 C u0 p0 c0 {10,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(45553)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  O u0 p2 c0 {4,S} {6,S}
+4  O u1 p2 c0 {3,S}
+5  C u0 p0 c0 {1,S} {6,S} {10,S} {12,S}
+6  C u0 p0 c0 {3,S} {5,S} {8,S} {13,S}
+7  C u0 p0 c0 {2,S} {9,S} {14,S} {15,S}
+8  C u0 p0 c0 {6,S} {9,D} {18,S}
+9  C u0 p0 c0 {7,S} {8,D} {17,S}
+10 C u0 p0 c0 {5,S} {11,D} {16,S}
+11 C u0 p0 c0 {10,D} {19,S} {20,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {10,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {11,S}
+20 H u0 p0 c0 {11,S}
+        """),
+)
+
+
+species(
+    label='S(45501)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {6,S}
+3  C u0 p0 c0 {4,S} {6,S} {7,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,S} {9,S} {10,S}
+5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
+6  C u0 p0 c0 {2,S} {3,S} {13,S} {14,S}
+7  C u0 p0 c0 {3,S} {8,D} {16,S}
+8  C u0 p0 c0 {5,S} {7,D} {15,S}
+9  C u1 p0 c0 {4,S} {17,S} {18,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45480)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,D} {8,S}
+5  C u0 p0 c0 {3,S} {7,D} {12,S}
+6  C u0 p0 c0 {4,D} {7,S} {14,S}
+7  C u0 p0 c0 {5,D} {6,S} {15,S}
+8  C u0 p0 c0 {4,S} {9,D} {13,S}
+9  C u0 p0 c0 {8,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45483)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {8,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {3,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,S} {9,D} {11,S}
+6  C u0 p0 c0 {4,D} {7,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,D} {14,S}
+8  C u0 p0 c0 {2,S} {7,D} {15,S}
+9  C u0 p0 c0 {5,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(45260)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {4,S}
+3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+5  C u1 p0 c0 {4,S} {8,S} {15,S}
+6  C u0 p0 c0 {3,S} {7,D} {14,S}
+7  C u0 p0 c0 {6,D} {9,S} {16,S}
+8  C u0 p0 c0 {5,S} {9,D} {18,S}
+9  C u0 p0 c0 {7,S} {8,D} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(310)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
+4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {3,S} {8,D}
+7  C u1 p0 c0 {4,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {3,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(46144)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {3,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+4  C u1 p0 c0 {3,S} {5,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,D} {15,S}
+6  C u0 p0 c0 {2,D} {7,S} {8,S}
+7  C u0 p0 c0 {5,D} {6,S} {14,S}
+8  C u0 p0 c0 {6,S} {9,D} {13,S}
+9  C u0 p0 c0 {8,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(5707)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {3,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u1 p0 c0 {3,S} {6,S} {12,S}
+5  C u0 p0 c0 {3,S} {8,D} {11,S}
+6  C u0 p0 c0 {4,S} {7,D} {13,S}
+7  C u0 p0 c0 {6,D} {9,S} {14,S}
+8  C u0 p0 c0 {5,D} {15,S} {16,S}
+9  C u0 p0 c0 {2,D} {7,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(23031)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1 C u0 p0 c0 {2,S} {5,S} {6,S} {7,S}
+2 C u1 p0 c0 {1,S} {3,S} {8,S}
+3 C u0 p0 c0 {2,S} {4,T}
+4 C u0 p0 c0 {3,T} {9,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {1,S}
+7 H u0 p0 c0 {1,S}
+8 H u0 p0 c0 {2,S}
+9 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C8H15(311)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {8,S} {11,S} {12,S}
+4  C u0 p0 c0 {5,S} {7,S} {15,S} {16,S}
+5  C u0 p0 c0 {4,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {2,S} {7,D} {20,S}
+7  C u0 p0 c0 {4,S} {6,D} {21,S}
+8  C u1 p0 c0 {3,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(46722)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,D}
+2  O u0 p2 c0 {8,D}
+3  C u0 p0 c0 {4,S} {8,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {5,D} {12,S}
+5  C u0 p0 c0 {4,D} {6,S} {14,S}
+6  C u0 p0 c0 {1,D} {5,S} {7,S}
+7  C u0 p0 c0 {6,S} {9,D} {13,S}
+8  C u0 p0 c0 {2,D} {3,S} {15,S}
+9  C u0 p0 c0 {7,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(46727)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {7,D}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,D} {13,S}
+6  C u0 p0 c0 {5,D} {7,S} {15,S}
+7  C u0 p0 c0 {2,D} {6,S} {8,S}
+8  C u0 p0 c0 {7,S} {9,D} {14,S}
+9  C u0 p0 c0 {8,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(46152)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {6,D}
+3  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+4  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,D} {14,S}
+6  C u0 p0 c0 {2,D} {3,S} {8,S}
+7  C u0 p0 c0 {4,S} {5,D} {13,S}
+8  C u0 p0 c0 {6,S} {9,D} {15,S}
+9  C u0 p0 c0 {8,D} {16,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(46721)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {8,S} {17,S}
+2  O u0 p2 c0 {4,D}
+3  C u0 p0 c0 {5,D} {6,S} {13,S}
+4  C u0 p0 c0 {2,D} {5,S} {7,S}
+5  C u0 p0 c0 {3,D} {4,S} {12,S}
+6  C u0 p0 c0 {3,S} {8,D} {10,S}
+7  C u0 p0 c0 {4,S} {9,D} {11,S}
+8  C u0 p0 c0 {1,S} {6,D} {14,S}
+9  C u0 p0 c0 {7,D} {15,S} {16,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='C8H15(312)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {1,S} {8,D} {19,S}
+7  C u1 p0 c0 {4,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(313)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+4  C u0 p0 c0 {5,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {4,S} {17,S} {18,S} {19,S}
+6  C u1 p0 c0 {2,S} {4,S} {20,S}
+7  C u0 p0 c0 {3,S} {8,D} {21,S}
+8  C u0 p0 c0 {7,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(314)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {14,S} {15,S}
+4  C u0 p0 c0 {1,S} {7,S} {12,S} {13,S}
+5  C u0 p0 c0 {2,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {3,S} {8,D} {19,S}
+7  C u1 p0 c0 {4,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(315)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {4,S} {8,D} {19,S}
+7  C u1 p0 c0 {1,S} {20,S} {21,S}
+8  C u0 p0 c0 {6,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(956)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {1,S} {3,S} {7,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u1 p0 c0 {5,S} {9,S} {18,S}
+8  C u0 p0 c0 {6,S} {9,D} {17,S}
+9  C u0 p0 c0 {7,S} {8,D} {19,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='O2(1556)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,D}
+2 O u0 p2 c0 {1,D}
+        """),
+)
+
+
+species(
+    label='S(3880)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
 1 O u0 p2 c0 {3,S} {7,S}
-2 O u1 p2 c0 {4,S}
-3 C u0 p0 c0 {1,S} {4,D} {5,S}
-4 C u0 p0 c0 {2,S} {3,D} {6,S}
+2 O u0 p2 c0 {4,D}
+3 C u1 p0 c0 {1,S} {4,S} {5,S}
+4 C u0 p0 c0 {2,D} {3,S} {6,S}
 5 H u0 p0 c0 {3,S}
 6 H u0 p0 c0 {4,S}
 7 H u0 p0 c0 {1,S}
@@ -20597,140 +20744,282 @@ multiplicity 2
 
 
 species(
-    label='S(25470)',
+    label='S(48836)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {3,S} {8,S}
-2  O u0 p2 c0 {9,D}
-3  C u0 p0 c0 {1,S} {4,S} {5,D}
-4  C u0 p0 c0 {3,S} {7,D} {11,S}
-5  C u0 p0 c0 {3,D} {6,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,D} {13,S}
-7  C u0 p0 c0 {4,D} {9,S} {10,S}
-8  C u0 p0 c0 {1,S} {6,D} {14,S}
-9  C u0 p0 c0 {2,D} {7,S} {15,S}
-10 H u0 p0 c0 {7,S}
+1  O u0 p2 c0 {2,S} {5,S}
+2  O u0 p2 c0 {1,S} {7,S}
+3  C u0 p0 c0 {4,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {1,S} {3,S} {8,S} {14,S}
+6  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+7  C u0 p0 c0 {2,S} {6,S} {9,S} {17,S}
+8  C u0 p0 c0 {5,S} {9,D} {18,S}
+9  C u0 p0 c0 {7,S} {8,D} {19,S}
+10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(25483)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {8,S}
-2  O u0 p2 c0 {4,S} {9,S}
-3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
-4  C u0 p0 c0 {2,S} {3,S} {6,S} {11,S}
-5  C u1 p0 c0 {3,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {1,S} {6,D} {15,S}
-9  C u0 p0 c0 {2,S} {7,D} {16,S}
-10 H u0 p0 c0 {3,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(25696)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {7,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {7,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {8,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {8,S} {11,S} {13,S}
-7  C u0 p0 c0 {1,S} {3,S} {10,S} {14,S}
-8  C u1 p0 c0 {5,S} {6,S} {15,S}
-9  C u0 p0 c0 {5,S} {10,D} {16,S}
-10 C u0 p0 c0 {7,S} {9,D} {17,S}
-11 C u0 p0 c0 {4,D} {6,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(26003)',
+    label='S(48886)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
-1  O u0 p2 c0 {5,S} {10,S}
-2  O u0 p2 c0 {4,S} {5,S}
-3  O u0 p2 c0 {11,D}
-4  O u1 p2 c0 {2,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u1 p0 c0 {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {12,S}
-8  C u0 p0 c0 {6,S} {10,D} {15,S}
-9  C u0 p0 c0 {7,D} {11,S} {14,S}
-10 C u0 p0 c0 {1,S} {8,D} {16,S}
-11 C u0 p0 c0 {3,D} {9,S} {17,S}
-12 H u0 p0 c0 {7,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
+1  O u1 p2 c0 {6,S}
+2  O u1 p2 c0 {7,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {1,S} {4,S} {8,S} {16,S}
+7  C u0 p0 c0 {2,S} {5,S} {9,S} {17,S}
+8  C u0 p0 c0 {6,S} {9,D} {18,S}
+9  C u0 p0 c0 {7,S} {8,D} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(10739)',
+    label='C8H15(316)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {6,S}
-3  O u0 p2 c0 {10,D}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {10,S} {11,S} {16,S}
-6  C u0 p0 c0 {2,S} {9,S} {11,S} {17,S}
-7  C u0 p0 c0 {8,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {7,S} {9,S} {12,S} {13,S}
-9  C u1 p0 c0 {6,S} {8,S} {18,S}
-10 C u0 p0 c0 {3,D} {5,S} {7,S}
-11 C u0 p0 c0 {4,D} {5,S} {6,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {5,S}
-17 H u0 p0 c0 {6,S}
-18 H u0 p0 c0 {9,S}
+1  C u0 p0 c0 {2,S} {3,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {4,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {7,S} {18,S} {19,S} {20,S}
+6  C u1 p0 c0 {3,S} {8,S} {21,S}
+7  C u0 p0 c0 {5,S} {8,D} {22,S}
+8  C u0 p0 c0 {6,S} {7,D} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(18580)',
+    label='S(48904)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u1 p2 c0 {8,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {9,S} {17,S}
+5  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
+7  C u0 p0 c0 {6,S} {8,S} {15,S} {16,S}
+8  C u0 p0 c0 {2,S} {7,S} {9,S} {18,S}
+9  C u1 p0 c0 {4,S} {8,S} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(48913)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {4,S} {19,S}
+2  O u1 p2 c0 {6,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {8,S} {12,S}
+5  C u0 p0 c0 {3,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {2,S} {7,S} {9,S} {15,S}
+7  C u1 p0 c0 {5,S} {6,S} {16,S}
+8  C u0 p0 c0 {4,S} {9,D} {17,S}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(48907)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {4,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {6,S} {14,S}
+5  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
+6  C u0 p0 c0 {4,S} {7,D} {15,S}
+7  C u0 p0 c0 {6,D} {9,S} {16,S}
+8  C u1 p0 c0 {5,S} {17,S} {18,S}
+9  C u0 p0 c0 {2,D} {7,S} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='C6H11(317)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {7,S} {8,S}
+3  C u0 p0 c0 {5,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {5,D} {14,S}
+5  C u0 p0 c0 {3,S} {4,D} {15,S}
+6  C u1 p0 c0 {2,S} {16,S} {17,S}
+7  H u0 p0 c0 {2,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(318)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+2  C u0 p0 c0 {4,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {2,S} {6,D}
+5  C u1 p0 c0 {2,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(319)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
+2  C u0 p0 c0 {5,S} {6,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {5,D} {15,S}
+5  C u0 p0 c0 {2,S} {4,D} {14,S}
+6  C u1 p0 c0 {2,S} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(1353)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u0 p2 c0 {3,S} {4,S}
+2 O u0 p2 c0 {4,D}
+3 O u1 p2 c0 {1,S}
+4 C u0 p0 c0 {1,S} {2,D} {5,S}
+5 C u1 p0 c0 {4,S} {6,S} {7,S}
+6 H u0 p0 c0 {5,S}
+7 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(38513)',
     reactive=True,
     structure=adjacencyList(
         """
@@ -20749,1719 +21038,2812 @@ multiplicity 2
 
 
 species(
-    label='S(13602)',
+    label='C8H15(320)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {5,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {5,S} {6,D} {15,S}
-8  C u0 p0 c0 {4,S} {10,D} {14,S}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {16,S}
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {18,S} {19,S} {20,S}
+5  C u0 p0 c0 {3,S} {15,S} {16,S} {17,S}
+6  C u1 p0 c0 {2,S} {8,S} {21,S}
+7  C u0 p0 c0 {3,S} {8,D} {22,S}
+8  C u0 p0 c0 {6,S} {7,D} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(322)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {11,S} {12,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,S} {13,S} {14,S}
+4  C u0 p0 c0 {2,S} {6,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {7,D} {20,S}
+7  C u0 p0 c0 {6,D} {8,S} {21,S}
+8  C u1 p0 c0 {7,S} {22,S} {23,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {1,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(1084)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {5,S} {8,S} {9,S}
+2  C u0 p0 c0 {4,S} {6,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {4,D} {12,S}
+4  C u0 p0 c0 {2,S} {3,D} {14,S}
+5  C u0 p0 c0 {1,S} {7,D} {13,S}
+6  C u1 p0 c0 {2,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,D} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C8H15(323)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {3,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {1,S} {7,D} {20,S}
+7  C u0 p0 c0 {6,D} {8,S} {21,S}
+8  C u1 p0 c0 {7,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C8H15(324)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {7,D} {20,S}
+7  C u0 p0 c0 {6,D} {8,S} {21,S}
+8  C u1 p0 c0 {7,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(2983)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {8,D}
+2  C u0 p0 c0 {3,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {5,S} {7,D}
+7  C u0 p0 c0 {6,D} {8,S} {17,S}
+8  C u1 p0 c0 {1,D} {7,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C3H6(1148)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
+2 C u1 p0 c0 {1,S} {6,S} {7,S}
+3 C u1 p0 c0 {1,S} {8,S} {9,S}
+4 H u0 p0 c0 {1,S}
+5 H u0 p0 c0 {1,S}
+6 H u0 p0 c0 {2,S}
+7 H u0 p0 c0 {2,S}
+8 H u0 p0 c0 {3,S}
+9 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(3571)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {5,D}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {8,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,D} {3,S} {6,S}
+6  C u0 p0 c0 {5,S} {7,D} {14,S}
+7  C u0 p0 c0 {6,D} {9,S} {15,S}
+8  C u1 p0 c0 {4,S} {16,S} {17,S}
+9  C u0 p0 c0 {2,D} {7,S} {18,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(48983)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {3,S} {6,S}
+2  O u0 p2 c0 {9,D}
+3  C u0 p0 c0 {1,S} {4,S} {7,S} {14,S}
+4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
+5  C u0 p0 c0 {4,S} {6,S} {12,S} {13,S}
+6  C u0 p0 c0 {1,S} {5,S} {15,S} {16,S}
+7  C u0 p0 c0 {3,S} {8,D} {17,S}
+8  C u0 p0 c0 {7,D} {9,S} {18,S}
+9  C u0 p0 c0 {2,D} {8,S} {19,S}
+10 H u0 p0 c0 {4,S}
 11 H u0 p0 c0 {4,S}
 12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(17502)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {7,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {5,S} {20,S}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {3,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {6,S} {10,S} {15,S}
-8  C u0 p0 c0 {2,S} {5,S} {9,D}
-9  C u0 p0 c0 {8,D} {11,S} {16,S}
-10 C u0 p0 c0 {4,D} {7,S} {17,S}
-11 C u1 p0 c0 {9,S} {18,S} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(26803)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {20,S}
-2  O u1 p2 c0 {7,S}
-3  O u0 p2 c0 {8,D}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {5,S} {7,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,S} {6,S} {10,S} {15,S}
-8  C u0 p0 c0 {3,D} {5,S} {9,S}
-9  C u0 p0 c0 {8,S} {11,D} {16,S}
-10 C u0 p0 c0 {4,D} {7,S} {17,S}
-11 C u0 p0 c0 {9,D} {18,S} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(26890)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {10,S} {20,S}
-3  O u1 p2 c0 {8,S}
-4  O u0 p2 c0 {7,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {4,D} {5,S} {9,S}
-8  C u0 p0 c0 {3,S} {6,S} {10,D}
-9  C u0 p0 c0 {7,S} {11,D} {15,S}
-10 C u0 p0 c0 {2,S} {8,D} {16,S}
-11 C u0 p0 c0 {9,D} {17,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(5092)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {10,S} {11,S}
-2  O u0 p2 c0 {5,S} {20,S}
-3  O u0 p2 c0 {4,S} {6,S}
-4  O u1 p2 c0 {3,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {3,S} {5,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,S} {9,S} {14,S} {15,S}
-8  C u0 p0 c0 {6,S} {11,D} {17,S}
-9  C u0 p0 c0 {7,S} {10,D} {16,S}
-10 C u0 p0 c0 {1,S} {9,D} {18,S}
-11 C u0 p0 c0 {1,S} {8,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {8,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(26855)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {19,S}
-2  O u0 p2 c0 {7,D}
-3  O u0 p2 c0 {8,D}
-4  O u0 p2 c0 {10,D}
-5  C u0 p0 c0 {1,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
-7  C u0 p0 c0 {2,D} {5,S} {9,S}
-8  C u0 p0 c0 {3,D} {6,S} {10,S}
-9  C u0 p0 c0 {7,S} {11,D} {15,S}
-10 C u0 p0 c0 {4,D} {8,S} {16,S}
-11 C u0 p0 c0 {9,D} {17,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
-    label='S(11962)',
+    label='S(48984)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 3
 1  O u0 p2 c0 {3,S} {4,S}
-2  O u0 p2 c0 {5,D}
-3  O u1 p2 c0 {1,S}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {2,D} {4,S} {7,S}
-6  C u0 p0 c0 {4,S} {8,D} {12,S}
-7  C u0 p0 c0 {5,S} {10,D} {13,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u1 p0 c0 {8,S} {10,S} {15,S}
-10 C u0 p0 c0 {7,D} {9,S} {14,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {10,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(26840)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {4,S}
-2  O u1 p2 c0 {5,S}
-3  O u0 p2 c0 {9,D}
-4  C u0 p0 c0 {1,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {2,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {5,S} {6,D} {15,S}
-8  C u0 p0 c0 {4,S} {10,D} {14,S}
-9  C u0 p0 c0 {3,D} {5,S} {10,S}
-10 C u0 p0 c0 {8,D} {9,S} {16,S}
-11 H u0 p0 c0 {4,S}
+2  O u1 p2 c0 {9,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {10,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {11,S} {12,S}
+6  C u0 p0 c0 {5,S} {8,S} {14,S} {15,S}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u1 p0 c0 {6,S} {17,S} {18,S}
+9  C u0 p0 c0 {2,S} {7,D} {19,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {5,S}
 12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(26842)',
+    label='C8H15(325)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 3
-1  O u0 p2 c0 {2,S} {4,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,D} {12,S}
-6  C u1 p0 c0 {4,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,D} {8,S} {14,S}
-8  C u1 p0 c0 {2,S} {7,S} {15,S}
-9  C u0 p0 c0 {6,S} {10,D} {16,S}
-10 C u0 p0 c0 {3,D} {9,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {7,S} {11,S} {12,S}
+3  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {3,S} {18,S} {19,S} {20,S}
+6  C u0 p0 c0 {3,S} {7,D} {8,S}
+7  C u0 p0 c0 {2,S} {6,D} {21,S}
+8  C u1 p0 c0 {6,S} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {5,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
         """),
 )
 
 
 species(
-    label='S(27221)',
+    label='C6H10(326)',
     reactive=True,
     structure=adjacencyList(
         """
-multiplicity 3
-1  O u1 p2 c0 {4,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {7,D} {12,S}
-6  C u1 p0 c0 {4,S} {8,S} {13,S}
-7  C u0 p0 c0 {5,D} {9,S} {14,S}
-8  C u0 p0 c0 {6,S} {10,D} {15,S}
-9  C u0 p0 c0 {2,D} {7,S} {16,S}
-10 C u0 p0 c0 {3,D} {8,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27253)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {10,S}
-3  O u0 p2 c0 {6,D}
-4  C u0 p0 c0 {5,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {3,D} {4,S} {9,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {4,S} {10,D} {14,S}
-9  C u0 p0 c0 {6,S} {7,D} {15,S}
-10 C u0 p0 c0 {2,S} {8,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(26854)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {9,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {5,S} {13,S}
-7  C u0 p0 c0 {4,S} {9,D} {14,S}
-8  C u0 p0 c0 {5,S} {10,D} {15,S}
-9  C u0 p0 c0 {2,S} {7,D} {16,S}
-10 C u0 p0 c0 {3,D} {8,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27300)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {9,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,D} {12,S}
-6  C u0 p0 c0 {4,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {9,S} {15,S}
-8  C u0 p0 c0 {5,D} {10,S} {14,S}
-9  C u0 p0 c0 {1,S} {2,D} {7,S}
-10 C u0 p0 c0 {3,D} {8,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(27299)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {10,D} {15,S}
-8  C u0 p0 c0 {6,D} {9,S} {14,S}
-9  C u0 p0 c0 {2,D} {8,S} {16,S}
-10 C u0 p0 c0 {3,D} {7,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27331)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {9,S} {10,S}
-2  O u1 p2 c0 {4,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {2,S} {5,S} {6,S} {11,S}
-5  C u1 p0 c0 {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {9,D} {14,S}
-8  C u0 p0 c0 {6,D} {10,S} {15,S}
-9  C u0 p0 c0 {1,S} {7,D} {16,S}
-10 C u0 p0 c0 {1,S} {3,D} {8,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27296)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,D}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
-5  C u0 p0 c0 {1,D} {4,S} {6,S}
-6  C u0 p0 c0 {5,S} {7,D} {13,S}
-7  C u0 p0 c0 {6,D} {9,S} {14,S}
-8  C u0 p0 c0 {4,S} {10,D} {15,S}
-9  C u0 p0 c0 {2,D} {7,S} {16,S}
-10 C u0 p0 c0 {3,D} {8,D}
-11 H u0 p0 c0 {4,S}
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {9,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,D}
+4  C u0 p0 c0 {3,S} {6,D} {12,S}
+5  C u0 p0 c0 {3,D} {15,S} {16,S}
+6  C u0 p0 c0 {4,D} {13,S} {14,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
 12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27482)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {6,S} {7,S}
-2  O u1 p2 c0 {9,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,D} {11,S}
-5  C u0 p0 c0 {4,S} {9,D} {12,S}
-6  C u0 p0 c0 {1,S} {4,D} {13,S}
-7  C u1 p0 c0 {1,S} {8,S} {14,S}
-8  C u0 p0 c0 {7,S} {10,D} {15,S}
-9  C u0 p0 c0 {2,S} {5,D} {16,S}
-10 C u0 p0 c0 {3,D} {8,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(27325)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {5,S}
-2  O u0 p2 c0 {6,D}
-3  O u1 p2 c0 {10,S}
-4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {2,D} {4,S} {9,S}
-7  C u0 p0 c0 {4,S} {10,D} {14,S}
-8  C u0 p0 c0 {5,S} {9,D} {13,S}
-9  C u0 p0 c0 {6,S} {8,D} {15,S}
-10 C u0 p0 c0 {3,S} {7,D} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(27525)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u1 p2 c0 {9,S}
-2  O u1 p2 c0 {7,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {6,S} {7,S} {10,S} {11,S}
-5  C u0 p0 c0 {8,S} {9,S} {12,S} {13,S}
-6  C u0 p0 c0 {4,S} {9,D} {14,S}
-7  C u0 p0 c0 {2,S} {4,S} {8,D}
-8  C u0 p0 c0 {5,S} {7,D} {15,S}
-9  C u0 p0 c0 {1,S} {5,S} {6,D}
-10 C u0 p0 c0 {3,D} {4,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
         """),
 )
 
 
 species(
-    label='S(27490)',
+    label='S(5118)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {5,D}
+multiplicity 2
+1  O u0 p2 c0 {2,S} {4,S}
+2  O u1 p2 c0 {1,S}
 3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {10,S} {11,S}
-5  C u0 p0 c0 {2,D} {4,S} {7,S}
-6  C u0 p0 c0 {4,S} {8,D} {12,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {1,S} {6,D} {14,S}
-9  C u0 p0 c0 {1,S} {7,D} {15,S}
-10 C u0 p0 c0 {3,D} {4,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(27806)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {9,S}
-2  O u0 p2 c0 {6,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,S} {6,S} {11,S}
-5  C u0 p0 c0 {4,S} {8,D} {12,S}
-6  C u0 p0 c0 {2,D} {4,S} {7,S}
-7  C u0 p0 c0 {6,S} {9,D} {14,S}
-8  C u0 p0 c0 {5,D} {10,S} {13,S}
-9  C u0 p0 c0 {1,S} {7,D} {15,S}
-10 C u0 p0 c0 {3,D} {8,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
+8  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
+9  C u0 p0 c0 {4,S} {10,D} {19,S}
+10 C u0 p0 c0 {3,D} {9,D}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
 13 H u0 p0 c0 {8,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(27805)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {8,S}
-2  O u0 p2 c0 {9,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {9,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-6  C u0 p0 c0 {4,S} {8,D} {13,S}
-7  C u0 p0 c0 {5,S} {10,D} {14,S}
-8  C u0 p0 c0 {1,S} {6,D} {15,S}
-9  C u0 p0 c0 {2,D} {4,S} {16,S}
-10 C u0 p0 c0 {3,D} {7,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {9,S}
-        """),
-)
-
-
-species(
-    label='S(28088)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {4,S} {9,S}
-2  O u0 p2 c0 {5,S} {16,S}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {1,S} {5,D} {6,S}
-5  C u0 p0 c0 {2,S} {4,D} {7,S}
-6  C u0 p0 c0 {4,S} {8,D} {11,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {6,D} {10,S} {12,S}
-9  C u0 p0 c0 {1,S} {7,D} {14,S}
-10 C u0 p0 c0 {3,D} {8,S} {15,S}
-11 H u0 p0 c0 {6,S}
-12 H u0 p0 c0 {8,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {10,S}
-16 H u0 p0 c0 {2,S}
-        """),
-)
-
-
-species(
-    label='S(27530)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,D}
-2  O u0 p2 c0 {8,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {8,S} {11,S}
-5  C u0 p0 c0 {1,D} {4,S} {7,S}
-6  C u0 p0 c0 {4,S} {10,D} {12,S}
-7  C u0 p0 c0 {5,S} {9,D} {13,S}
-8  C u0 p0 c0 {2,D} {4,S} {14,S}
-9  C u0 p0 c0 {7,D} {15,S} {16,S}
-10 C u0 p0 c0 {3,D} {6,D}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
 14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {9,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
 species(
-    label='S(27384)',
+    label='S(15233)',
     reactive=True,
     structure=adjacencyList(
         """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {7,D}
-3  O u0 p2 c0 {10,D}
-4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
-5  C u0 p0 c0 {1,S} {4,S} {8,S} {12,S}
-6  C u0 p0 c0 {1,S} {4,S} {10,S} {13,S}
-7  C u0 p0 c0 {2,D} {4,S} {9,S}
-8  C u0 p0 c0 {5,S} {9,D} {14,S}
-9  C u0 p0 c0 {7,S} {8,D} {15,S}
-10 C u0 p0 c0 {3,D} {6,S} {16,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(25661)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {6,S} {10,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {18,S}
-4  O u1 p2 c0 {11,S}
-5  C u0 p0 c0 {2,S} {6,S} {7,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,D}
-7  C u0 p0 c0 {5,S} {10,D} {13,S}
-8  C u0 p0 c0 {6,D} {9,S} {14,S}
-9  C u0 p0 c0 {8,S} {11,D} {15,S}
-10 C u0 p0 c0 {1,S} {7,D} {16,S}
-11 C u0 p0 c0 {4,S} {9,D} {17,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {9,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {3,S}
-        """),
-)
-
-
-species(
-    label='S(3285)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {3,S} {6,S}
-2  O u1 p2 c0 {9,S}
-3  C u0 p0 c0 {1,S} {4,S} {7,S} {12,S}
-4  C u0 p0 c0 {3,S} {5,S} {10,S} {11,S}
-5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
-6  C u0 p0 c0 {1,S} {5,S} {8,D}
-7  C u0 p0 c0 {3,S} {9,D} {15,S}
-8  C u0 p0 c0 {6,D} {9,S} {16,S}
-9  C u0 p0 c0 {2,S} {7,D} {8,S}
-10 H u0 p0 c0 {4,S}
-11 H u0 p0 c0 {4,S}
-12 H u0 p0 c0 {3,S}
+1  O u0 p2 c0 {4,S} {18,S}
+2  O u0 p2 c0 {8,S} {19,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {1,S} {3,S} {7,S} {12,S}
+5  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {5,S} {8,D} {15,S}
+7  C u0 p0 c0 {4,S} {9,D} {16,S}
+8  C u0 p0 c0 {2,S} {6,D} {9,S}
+9  C u0 p0 c0 {7,D} {8,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
 13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {5,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-        """),
-)
-
-
-species(
-    label='S(11482)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {7,S} {8,S}
-2  O u0 p2 c0 {3,S} {8,S}
-3  O u0 p2 c0 {2,S} {7,S}
-4  O u0 p2 c0 {5,S} {20,S}
-5  C u0 p0 c0 {4,S} {6,S} {10,S} {12,S}
-6  C u0 p0 c0 {5,S} {9,S} {13,S} {14,S}
-7  C u0 p0 c0 {1,S} {3,S} {9,S} {16,S}
-8  C u0 p0 c0 {1,S} {2,S} {11,S} {15,S}
-9  C u1 p0 c0 {6,S} {7,S} {17,S}
-10 C u0 p0 c0 {5,S} {11,D} {18,S}
-11 C u0 p0 c0 {8,S} {10,D} {19,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {6,S}
-15 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {7,S}
 17 H u0 p0 c0 {9,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(29125)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {5,S}
-4  O u0 p2 c0 {10,S} {20,S}
-5  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
-6  C u0 p0 c0 {1,S} {2,S} {7,S} {12,S}
-7  C u1 p0 c0 {6,S} {9,S} {15,S}
-8  C u0 p0 c0 {5,S} {11,D} {14,S}
-9  C u0 p0 c0 {7,S} {10,D} {16,S}
-10 C u0 p0 c0 {4,S} {9,D} {17,S}
-11 C u0 p0 c0 {8,D} {18,S} {19,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {11,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {4,S}
-        """),
-)
-
-
-species(
-    label='S(29148)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-1  O u0 p2 c0 {5,S} {6,S}
-2  O u0 p2 c0 {3,S} {6,S}
-3  O u0 p2 c0 {2,S} {5,S}
-4  O u0 p2 c0 {11,D}
-5  C u0 p0 c0 {1,S} {3,S} {8,S} {13,S}
-6  C u0 p0 c0 {1,S} {2,S} {7,S} {12,S}
-7  C u0 p0 c0 {6,S} {9,D} {15,S}
-8  C u0 p0 c0 {5,S} {10,D} {14,S}
-9  C u0 p0 c0 {7,D} {11,S} {16,S}
-10 C u0 p0 c0 {8,D} {18,S} {19,S}
-11 C u0 p0 c0 {4,D} {9,S} {17,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {5,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {9,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {10,S}
-19 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(16016)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1  O u0 p2 c0 {4,S} {5,S}
-2  O u0 p2 c0 {5,S} {19,S}
-3  O u0 p2 c0 {10,D}
-4  O u1 p2 c0 {1,S}
-5  C u0 p0 c0 {1,S} {2,S} {6,S} {7,S}
-6  C u1 p0 c0 {5,S} {9,S} {12,S}
-7  C u0 p0 c0 {5,S} {8,D} {13,S}
-8  C u0 p0 c0 {7,D} {10,S} {15,S}
-9  C u0 p0 c0 {6,S} {11,D} {14,S}
-10 C u0 p0 c0 {3,D} {8,S} {16,S}
-11 C u0 p0 c0 {9,D} {17,S} {18,S}
-12 H u0 p0 c0 {6,S}
-13 H u0 p0 c0 {7,S}
-14 H u0 p0 c0 {9,S}
-15 H u0 p0 c0 {8,S}
-16 H u0 p0 c0 {10,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {11,S}
+18 H u0 p0 c0 {1,S}
 19 H u0 p0 c0 {2,S}
         """),
 )
 
 
 species(
-    label='S(27031)',
+    label='S(49070)',
     reactive=True,
     structure=adjacencyList(
         """
 multiplicity 2
-1  O u0 p2 c0 {2,S} {5,S}
-2  O u0 p2 c0 {1,S} {6,S}
-3  O u0 p2 c0 {7,D}
-4  O u1 p2 c0 {9,S}
-5  C u0 p0 c0 {1,S} {7,S} {9,S} {12,S}
-6  C u0 p0 c0 {2,S} {7,S} {8,S} {13,S}
-7  C u0 p0 c0 {3,D} {5,S} {6,S}
-8  C u0 p0 c0 {6,S} {11,D} {14,S}
-9  C u0 p0 c0 {4,S} {5,S} {10,D}
-10 C u0 p0 c0 {9,D} {17,S} {18,S}
-11 C u0 p0 c0 {8,D} {15,S} {16,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {8,S}
-15 H u0 p0 c0 {11,S}
-16 H u0 p0 c0 {11,S}
-17 H u0 p0 c0 {10,S}
-18 H u0 p0 c0 {10,S}
-        """),
-)
-
-
-species(
-    label='S(27033)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {2,S} {6,S}
-2  O u0 p2 c0 {1,S} {8,S}
-3  O u0 p2 c0 {10,D}
-4  O u0 p2 c0 {9,D}
-5  C u0 p0 c0 {6,S} {7,S} {11,S} {12,S}
-6  C u0 p0 c0 {1,S} {5,S} {9,S} {13,S}
-7  C u0 p0 c0 {5,S} {10,S} {14,S} {15,S}
-8  C u0 p0 c0 {2,S} {9,S} {10,S} {16,S}
-9  C u0 p0 c0 {4,D} {6,S} {8,S}
-10 C u0 p0 c0 {3,D} {7,S} {8,S}
-11 C u1 p0 c0 {5,S} {17,S} {18,S}
-12 H u0 p0 c0 {5,S}
-13 H u0 p0 c0 {6,S}
-14 H u0 p0 c0 {7,S}
-15 H u0 p0 c0 {7,S}
-16 H u0 p0 c0 {8,S}
-17 H u0 p0 c0 {11,S}
-18 H u0 p0 c0 {11,S}
-        """),
-)
-
-
-species(
-    label='S(22771)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 2
-1  O u0 p2 c0 {8,S} {9,S}
-2  O u0 p2 c0 {3,S} {5,S}
-3  O u0 p2 c0 {2,S} {7,S}
-4  O u0 p2 c0 {13,D}
-5  C u0 p0 c0 {2,S} {8,S} {10,S} {14,S}
-6  C u0 p0 c0 {9,S} {11,S} {15,S} {16,S}
-7  C u0 p0 c0 {3,S} {13,S} {17,S} {18,S}
-8  C u0 p0 c0 {1,S} {5,S} {12,D}
-9  C u0 p0 c0 {1,S} {6,S} {10,D}
-10 C u0 p0 c0 {5,S} {9,D} {20,S}
-11 C u1 p0 c0 {6,S} {12,S} {19,S}
-12 C u0 p0 c0 {8,D} {11,S} {21,S}
-13 C u0 p0 c0 {4,D} {7,S} {22,S}
+1  O u0 p2 c0 {3,S} {10,S}
+2  O u0 p2 c0 {10,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
+8  C u0 p0 c0 {6,S} {7,S} {9,D}
+9  C u0 p0 c0 {8,D} {10,S} {19,S}
+10 C u0 p0 c0 {1,S} {2,D} {9,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
 14 H u0 p0 c0 {5,S}
 15 H u0 p0 c0 {6,S}
 16 H u0 p0 c0 {6,S}
 17 H u0 p0 c0 {7,S}
 18 H u0 p0 c0 {7,S}
-19 H u0 p0 c0 {11,S}
-20 H u0 p0 c0 {10,S}
-21 H u0 p0 c0 {12,S}
-22 H u0 p0 c0 {13,S}
+19 H u0 p0 c0 {9,S}
         """),
 )
 
 
+species(
+    label='S(49013)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {2,S} {11,S} {12,S}
+4  C u0 p0 c0 {5,S} {6,S} {13,S} {14,S}
+5  C u1 p0 c0 {1,S} {4,S} {15,S}
+6  C u0 p0 c0 {4,S} {7,D} {16,S}
+7  C u0 p0 c0 {6,D} {17,S} {18,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(49198)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {8,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {9,S} {17,S} {18,S}
+8  C u0 p0 c0 {1,S} {9,S} {10,S} {19,S}
+9  C u1 p0 c0 {6,S} {7,S} {8,S}
+10 C u0 p0 c0 {2,S} {3,D} {8,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='S(49279)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {9,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
+8  C u0 p0 c0 {6,S} {7,S} {9,D}
+9  C u0 p0 c0 {1,S} {8,D} {10,S}
+10 C u0 p0 c0 {2,S} {3,D} {9,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(49278)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {6,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {7,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {8,S} {14,S} {15,S}
+6  C u0 p0 c0 {1,S} {8,S} {10,S} {13,S}
+7  C u0 p0 c0 {4,S} {9,S} {16,S} {17,S}
+8  C u0 p0 c0 {5,S} {6,S} {9,D}
+9  C u0 p0 c0 {7,S} {8,D} {18,S}
+10 C u0 p0 c0 {2,S} {3,D} {6,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(49284)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {9,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
+8  C u0 p0 c0 {6,S} {7,S} {9,D}
+9  C u0 p0 c0 {1,S} {8,D} {19,S}
+10 C u1 p0 c0 {2,S} {3,D}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+19 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(49295)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {2,S} {7,S}
+2  O u0 p2 c0 {1,S} {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {7,S} {11,S}
+5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
+7  C u0 p0 c0 {1,S} {4,S} {10,S} {12,S}
+8  C u0 p0 c0 {5,S} {9,S} {17,S} {18,S}
+9  C u0 p0 c0 {6,S} {8,S} {19,S} {20,S}
+10 C u0 p0 c0 {2,S} {3,D} {7,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {9,S}
+20 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(5797)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u1 p2 c0 {7,S}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {5,S} {7,D}
+7  C u0 p0 c0 {1,S} {6,D} {16,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(49552)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {9,D}
+2  O u1 p2 c0 {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {8,S} {15,S} {16,S}
+7  C u0 p0 c0 {5,S} {8,S} {17,S} {18,S}
+8  C u1 p0 c0 {6,S} {7,S} {9,S}
+9  C u0 p0 c0 {1,D} {8,S} {10,S}
+10 C u0 p0 c0 {2,S} {3,D} {9,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(49184)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {6,S} {18,S}
+2  O u0 p2 c0 {7,S} {19,S}
+3  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {3,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {1,S} {4,S} {8,D}
+7  C u0 p0 c0 {2,S} {5,S} {9,D}
+8  C u0 p0 c0 {6,D} {9,S} {16,S}
+9  C u0 p0 c0 {7,D} {8,S} {17,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {1,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='CO2(12610)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u1 p2 c0 {3,S}
+2 O u0 p2 c0 {3,D}
+3 C u1 p0 c0 {1,S} {2,D}
+        """),
+)
+
+
+species(
+    label='C8H15(327)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {9,S} {10,S}
+2  C u0 p0 c0 {1,S} {6,S} {13,S} {14,S}
+3  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {18,S} {19,S} {20,S}
+5  C u0 p0 c0 {3,S} {15,S} {16,S} {17,S}
+6  C u1 p0 c0 {2,S} {3,S} {7,S}
+7  C u0 p0 c0 {6,S} {8,D} {21,S}
+8  C u0 p0 c0 {7,D} {22,S} {23,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {4,S}
+19 H u0 p0 c0 {4,S}
+20 H u0 p0 c0 {4,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {8,S}
+23 H u0 p0 c0 {8,S}
+        """),
+)
+
+
+species(
+    label='C7H15(328)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {5,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {6,S} {13,S} {14,S}
+5  C u0 p0 c0 {1,S} {15,S} {16,S} {17,S}
+6  C u0 p0 c0 {4,S} {18,S} {19,S} {20,S}
+7  C u1 p0 c0 {1,S} {21,S} {22,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {7,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H15(329)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {7,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {1,S} {16,S} {17,S} {18,S}
+6  C u0 p0 c0 {7,S} {19,S} {20,S} {21,S}
+7  C u1 p0 c0 {3,S} {6,S} {22,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+21 H u0 p0 c0 {6,S}
+22 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H14(330)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,S} {17,S} {18,S}
+4  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {6,S} {13,S} {14,S}
+6  C u0 p0 c0 {3,S} {5,S} {15,S} {16,S}
+7  C u0 p0 c0 {1,S} {19,S} {20,S} {21,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {3,S}
+18 H u0 p0 c0 {3,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H14(331)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {4,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {6,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {7,S} {17,S} {18,S} {19,S}
+6  C u0 p0 c0 {3,S} {7,D} {21,S}
+7  C u0 p0 c0 {5,S} {6,D} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+20 H u0 p0 c0 {7,S}
+21 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C7H13(333)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {10,S} {11,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {7,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {7,S} {16,S} {17,S}
+6  C u0 p0 c0 {7,S} {18,S} {19,S} {20,S}
+7  C u1 p0 c0 {4,S} {5,S} {6,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(49575)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {7,S}
+2  O u1 p2 c0 {10,S}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+6  C u0 p0 c0 {4,S} {9,S} {15,S} {16,S}
+7  C u0 p0 c0 {1,S} {8,S} {10,S} {17,S}
+8  C u0 p0 c0 {5,S} {7,S} {9,D}
+9  C u0 p0 c0 {6,S} {8,D} {18,S}
+10 C u0 p0 c0 {2,S} {3,D} {7,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {6,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(49950)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {10,S} {18,S}
+2  O u0 p2 c0 {9,D}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {5,S} {6,S} {11,S} {12,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,S} {13,S} {14,S}
+7  C u0 p0 c0 {5,S} {8,D} {9,S}
+8  C u0 p0 c0 {6,S} {7,D} {17,S}
+9  C u0 p0 c0 {2,D} {7,S} {10,S}
+10 C u0 p0 c0 {1,S} {3,D} {9,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {1,S}
+        """),
+)
+
+
+species(
+    label='S(49942)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {5,S} {7,D}
+7  C u0 p0 c0 {1,D} {6,D}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(49557)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {4,S} {10,S}
+2  O u0 p2 c0 {9,D}
+3  O u0 p2 c0 {10,D}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {4,S} {8,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,S} {8,S} {11,S} {12,S}
+8  C u0 p0 c0 {6,S} {7,S} {13,S} {14,S}
+9  C u0 p0 c0 {2,D} {4,S} {10,S}
+10 C u0 p0 c0 {1,S} {3,D} {9,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {7,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {8,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(49945)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {14,S} {15,S}
+6  C u1 p0 c0 {4,S} {5,S} {7,S}
+7  C u1 p0 c0 {1,D} {6,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C7H13(334)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {6,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {13,S} {14,S}
+3  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {5,S} {9,S} {10,S}
+5  C u0 p0 c0 {4,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {1,S} {17,S} {18,S} {19,S}
+7  C u1 p0 c0 {1,S} {5,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {4,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {2,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(335)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {6,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {11,S} {12,S}
+3  C u0 p0 c0 {2,S} {5,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,S} {7,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {1,S} {17,S} {18,S} {19,S}
+7  C u1 p0 c0 {4,S} {5,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(32085)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  O u0 p2 c0 {7,D}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {6,D} {7,S}
+6  C u0 p0 c0 {4,S} {5,D} {14,S}
+7  C u0 p0 c0 {1,D} {5,S} {15,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='S(50151)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u0 p2 c0 {9,D}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {9,S}
+5  C u0 p0 c0 {4,S} {7,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {8,S} {16,S} {17,S}
+7  C u0 p0 c0 {5,S} {8,S} {10,S} {11,S}
+8  C u0 p0 c0 {6,S} {7,S} {12,S} {13,S}
+9  C u0 p0 c0 {2,D} {4,S} {18,S}
+10 H u0 p0 c0 {7,S}
+11 H u0 p0 c0 {7,S}
+12 H u0 p0 c0 {8,S}
+13 H u0 p0 c0 {8,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {9,S}
+        """),
+)
+
+
+species(
+    label='S(49944)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u1 p2 c0 {7,S}
+2  C u0 p0 c0 {3,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {6,S} {7,D}
+6  C u1 p0 c0 {4,S} {5,S} {14,S}
+7  C u0 p0 c0 {1,S} {5,D} {15,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {6,S}
+15 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(336)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {7,S} {13,S} {14,S}
+5  C u0 p0 c0 {3,S} {7,S} {15,S} {16,S}
+6  C u0 p0 c0 {1,S} {17,S} {18,S} {19,S}
+7  C u1 p0 c0 {4,S} {5,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(337)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {5,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {4,S} {7,D}
+6  C u1 p0 c0 {3,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(338)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {7,S} {10,S} {11,S}
+4  C u0 p0 c0 {6,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {6,D} {17,S}
+6  C u0 p0 c0 {4,S} {5,D} {18,S}
+7  C u1 p0 c0 {3,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(339)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {6,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {1,S} {7,D} {16,S}
+6  C u1 p0 c0 {3,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(340)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {12,S} {13,S}
+3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {5,S} {14,S} {15,S} {16,S}
+5  C u1 p0 c0 {2,S} {4,S} {17,S}
+6  C u0 p0 c0 {3,S} {7,D} {18,S}
+7  C u0 p0 c0 {6,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {2,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(341)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {5,S} {11,S} {12,S}
+3  C u0 p0 c0 {1,S} {6,S} {9,S} {10,S}
+4  C u0 p0 c0 {1,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {2,S} {7,D} {16,S}
+6  C u1 p0 c0 {3,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {2,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(342)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {4,S} {6,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {5,S} {11,S} {12,S}
+4  C u0 p0 c0 {1,S} {13,S} {14,S} {15,S}
+5  C u0 p0 c0 {3,S} {7,D} {16,S}
+6  C u1 p0 c0 {1,S} {17,S} {18,S}
+7  C u0 p0 c0 {5,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(343)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {2,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {1,S} {6,D} {17,S}
+6  C u0 p0 c0 {5,D} {7,S} {18,S}
+7  C u1 p0 c0 {6,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(344)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {4,S} {8,S}
+2  C u0 p0 c0 {1,S} {5,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {11,S} {12,S} {13,S}
+4  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+5  C u0 p0 c0 {2,S} {6,D} {17,S}
+6  C u0 p0 c0 {5,D} {7,S} {18,S}
+7  C u1 p0 c0 {6,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {5,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(345)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {6,S} {15,S} {16,S} {17,S}
+5  C u1 p0 c0 {2,S} {7,S} {18,S}
+6  C u0 p0 c0 {4,S} {7,D} {19,S}
+7  C u0 p0 c0 {5,S} {6,D} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {6,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H9(346)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {3,S} {4,S} {6,S} {7,S}
+2  C u0 p0 c0 {3,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {2,S} {5,D}
+4  C u1 p0 c0 {1,S} {11,S} {12,S}
+5  C u0 p0 c0 {3,D} {13,S} {14,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C7H13(347)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {5,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {4,S} {6,D} {7,S}
+6  C u0 p0 c0 {2,S} {5,D} {18,S}
+7  C u1 p0 c0 {5,S} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H8(348)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {6,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {4,D}
+3  C u0 p0 c0 {2,S} {5,D} {9,S}
+4  C u0 p0 c0 {2,D} {12,S} {13,S}
+5  C u0 p0 c0 {3,D} {10,S} {11,S}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {5,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C7H13(349)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {8,S} {9,S}
+2  C u0 p0 c0 {1,S} {5,S} {10,S} {11,S}
+3  C u0 p0 c0 {1,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {5,S} {15,S} {16,S} {17,S}
+5  C u1 p0 c0 {2,S} {4,S} {6,S}
+6  C u0 p0 c0 {5,S} {7,D} {18,S}
+7  C u0 p0 c0 {6,D} {19,S} {20,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {1,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {2,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C7H13(350)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {4,S} {5,S} {10,S} {11,S}
+2  C u0 p0 c0 {3,S} {6,S} {8,S} {9,S}
+3  C u0 p0 c0 {2,S} {12,S} {13,S} {14,S}
+4  C u0 p0 c0 {1,S} {15,S} {16,S} {17,S}
+5  C u0 p0 c0 {1,S} {6,D} {7,S}
+6  C u0 p0 c0 {2,S} {5,D} {18,S}
+7  C u1 p0 c0 {5,S} {19,S} {20,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {1,S}
+11 H u0 p0 c0 {1,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {3,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {4,S}
+16 H u0 p0 c0 {4,S}
+17 H u0 p0 c0 {4,S}
+18 H u0 p0 c0 {6,S}
+19 H u0 p0 c0 {7,S}
+20 H u0 p0 c0 {7,S}
+        """),
+)
+
+
+species(
+    label='C5H8(351)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {8,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {5,D} {11,S}
+4  C u0 p0 c0 {5,D} {12,S} {13,S}
+5  C u0 p0 c0 {3,D} {4,D}
+6  H u0 p0 c0 {1,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(49240)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1 O u0 p2 c0 {2,S} {4,S}
+2 O u0 p2 c0 {1,S} {5,S}
+3 O u0 p2 c0 {5,D}
+4 C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5 C u0 p0 c0 {2,S} {3,D} {4,S}
+6 H u0 p0 c0 {4,S}
+7 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='S(2555)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1 O u1 p2 c0 {4,S}
+2 O u1 p2 c0 {5,S}
+3 O u0 p2 c0 {5,D}
+4 C u0 p0 c0 {1,S} {5,S} {6,S} {7,S}
+5 C u0 p0 c0 {2,S} {3,D} {4,S}
+6 H u0 p0 c0 {4,S}
+7 H u0 p0 c0 {4,S}
+        """),
+)
+
+
+species(
+    label='C6H12(352)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {6,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {3,S} {9,S} {10,S}
+3  C u0 p0 c0 {2,S} {4,S} {11,S} {12,S}
+4  C u0 p0 c0 {3,S} {5,S} {13,S} {14,S}
+5  C u0 p0 c0 {4,S} {6,S} {15,S} {16,S}
+6  C u0 p0 c0 {1,S} {5,S} {17,S} {18,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {4,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+18 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='S(353)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u0 p2 c0 {1,S} {19,S}
+3  C u0 p0 c0 {1,S} {5,S} {8,S} {9,S}
+4  C u0 p0 c0 {5,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {3,S} {4,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,S} {7,S} {10,S} {11,S}
+7  C u0 p0 c0 {6,S} {8,S} {16,S} {17,S}
+8  C u1 p0 c0 {3,S} {7,S} {18,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {6,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {7,S}
+17 H u0 p0 c0 {7,S}
+18 H u0 p0 c0 {8,S}
+19 H u0 p0 c0 {2,S}
+        """),
+)
+
+
+species(
+    label='S(354)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {2,S} {3,S}
+2  O u1 p2 c0 {1,S}
+3  C u0 p0 c0 {1,S} {4,S} {5,S} {9,S}
+4  C u0 p0 c0 {3,S} {6,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {8,S} {18,S} {19,S}
+6  C u0 p0 c0 {4,S} {7,S} {12,S} {13,S}
+7  C u0 p0 c0 {6,S} {8,S} {14,S} {15,S}
+8  C u0 p0 c0 {5,S} {7,S} {16,S} {17,S}
+9  H u0 p0 c0 {3,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {7,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {8,S}
+18 H u0 p0 c0 {5,S}
+19 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='S(355)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  O u0 p2 c0 {3,S} {5,S}
+2  O u0 p2 c0 {4,S} {6,S}
+3  O u0 p2 c0 {1,S} {21,S}
+4  O u1 p2 c0 {2,S}
+5  C u0 p0 c0 {1,S} {6,S} {8,S} {12,S}
+6  C u0 p0 c0 {2,S} {5,S} {7,S} {11,S}
+7  C u0 p0 c0 {6,S} {9,S} {13,S} {14,S}
+8  C u0 p0 c0 {5,S} {10,S} {19,S} {20,S}
+9  C u0 p0 c0 {7,S} {10,S} {15,S} {16,S}
+10 C u0 p0 c0 {8,S} {9,S} {17,S} {18,S}
+11 H u0 p0 c0 {6,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {9,S}
+16 H u0 p0 c0 {9,S}
+17 H u0 p0 c0 {10,S}
+18 H u0 p0 c0 {10,S}
+19 H u0 p0 c0 {8,S}
+20 H u0 p0 c0 {8,S}
+21 H u0 p0 c0 {3,S}
+        """),
+)
+
+
+species(
+    label='S(356)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 3
+1  O u0 p2 c0 {3,S} {4,S}
+2  O u1 p2 c0 {6,S}
+3  O u1 p2 c0 {1,S}
+4  C u0 p0 c0 {1,S} {5,S} {6,S} {10,S}
+5  C u0 p0 c0 {4,S} {7,S} {11,S} {12,S}
+6  C u0 p0 c0 {2,S} {4,S} {9,S} {19,S}
+7  C u0 p0 c0 {5,S} {8,S} {13,S} {14,S}
+8  C u0 p0 c0 {7,S} {9,S} {15,S} {16,S}
+9  C u0 p0 c0 {6,S} {8,S} {17,S} {18,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {5,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {7,S}
+14 H u0 p0 c0 {7,S}
+15 H u0 p0 c0 {8,S}
+16 H u0 p0 c0 {8,S}
+17 H u0 p0 c0 {9,S}
+18 H u0 p0 c0 {9,S}
+19 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(357)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {6,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {5,S} {14,S} {15,S}
+4  C u0 p0 c0 {2,S} {5,S} {10,S} {11,S}
+5  C u0 p0 c0 {3,S} {4,S} {12,S} {13,S}
+6  C u1 p0 c0 {1,S} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {4,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {5,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {3,S}
+15 H u0 p0 c0 {3,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(358)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {6,S} {10,S} {11,S}
+4  C u0 p0 c0 {2,S} {6,S} {12,S} {13,S}
+5  C u0 p0 c0 {1,S} {14,S} {15,S} {16,S}
+6  C u1 p0 c0 {3,S} {4,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {5,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H11(359)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {5,S} {7,S}
+2  C u0 p0 c0 {1,S} {4,S} {8,S} {9,S}
+3  C u0 p0 c0 {1,S} {10,S} {11,S} {12,S}
+4  C u0 p0 c0 {2,S} {6,D} {13,S}
+5  C u1 p0 c0 {1,S} {14,S} {15,S}
+6  C u0 p0 c0 {4,D} {16,S} {17,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {2,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {3,S}
+13 H u0 p0 c0 {4,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+16 H u0 p0 c0 {6,S}
+17 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+species(
+    label='C6H9(360)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+multiplicity 2
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,D} {9,S}
+3  C u0 p0 c0 {1,S} {5,D} {10,S}
+4  C u0 p0 c0 {2,D} {6,S} {11,S}
+5  C u0 p0 c0 {3,D} {14,S} {15,S}
+6  C u1 p0 c0 {4,S} {12,S} {13,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {3,S}
+11 H u0 p0 c0 {4,S}
+12 H u0 p0 c0 {6,S}
+13 H u0 p0 c0 {6,S}
+14 H u0 p0 c0 {5,S}
+15 H u0 p0 c0 {5,S}
+        """),
+)
+
+
+species(
+    label='C6H8(361)',
+    reactive=True,
+    structure=adjacencyList(
+        """
+1  C u0 p0 c0 {2,S} {3,S} {7,S} {8,S}
+2  C u0 p0 c0 {1,S} {4,S} {9,S} {10,S}
+3  C u0 p0 c0 {1,S} {6,D} {11,S}
+4  C u0 p0 c0 {2,S} {5,D} {12,S}
+5  C u0 p0 c0 {4,D} {6,S} {13,S}
+6  C u0 p0 c0 {3,D} {5,S} {14,S}
+7  H u0 p0 c0 {1,S}
+8  H u0 p0 c0 {1,S}
+9  H u0 p0 c0 {2,S}
+10 H u0 p0 c0 {2,S}
+11 H u0 p0 c0 {3,S}
+12 H u0 p0 c0 {4,S}
+13 H u0 p0 c0 {5,S}
+14 H u0 p0 c0 {6,S}
+        """),
+)
+
+
+
+
 # Reaction systems
 simpleReactor(
-    temperature=[(600,'K'),(1000,'K')],
-    pressure=[(20.0,'bar'),(40.0,'bar')],
-    nSims=8,
+    temperature=[(600,'K'),(1500,'K')],
+    pressure=[(10.0,'bar'),(40.0,'bar')],
+    nSims=6,
     initialMoleFractions={
         #"C7H10": 1,
-        "O2(2)":   0.1010803, # phi=1 means 9.5 O2 per C7H10
-        "N2(1)":   0.36, # 8.1 times as much N2 as O2
-        "CHPD(1)":0.00989, # Cycloheptadiene C7H10  
-        "C7H16":0.00946, 
-"Ar(2)": 0,
-"He(3)": 0,
-"Ne(4)": 0,
-"HO2(3)": 0,
-"C7H9(5)": 0,
-"C7H10(9)": 0,
-"OO(8)": 0,
-"H(12)": 0,
-"C7H9O2(20)": 0,
-"C7H9O2(19)": 0,
-"S(36)": 0,
-"S(35)": 0,
-"C7H9O(53)": 0,
-"OH(D)(44)": 0,
-"C7H10O(67)": 0,
-"C7H9O(69)": 0,
-"C7H9O3(82)": 0,
-"C7H9O3(83)": 0,
-"C7H9O3(84)": 0,
-"S(94)": 0,
-"S(93)": 0,
-"S(92)": 0,
-"S(133)": 0,
-"S(98)": 0,
-"S(97)": 0,
-"S(99)": 0,
-"C7H9O(45)": 0,
-"C7H8O(75)": 0,
-"C7H8O3(85)": 0,
-"S(101)": 0,
-"S(179)": 0,
-"S(180)": 0,
-"S(108)": 0,
-"S(183)": 0,
-"S(126)": 0,
-"S(134)": 0,
-"S(221)": 0,
-"S(222)": 0,
-"S(234)": 0,
-"S(226)": 0,
-"S(225)": 0,
-"S(255)": 0,
-"S(245)": 0,
-"S(273)": 0,
-"S(184)": 0,
-"S(191)": 0,
-"S(188)": 0,
-"S(151)": 0,
-"S(279)": 0,
-"S(312)": 0,
-"S(310)": 0,
-"S(311)": 0,
-"S(309)": 0,
-"S(330)": 0,
-"S(314)": 0,
-"S(315)": 0,
-"S(313)": 0,
-"S(301)": 0,
-"S(362)": 0,
-"S(363)": 0,
-"S(335)": 0,
-"S(324)": 0,
-"S(317)": 0,
-"S(366)": 0,
-"S(323)": 0,
-"S(331)": 0,
-"S(365)": 0,
-"S(355)": 0,
-"S(316)": 0,
-"S(339)": 0,
-"S(404)": 0,
-"S(401)": 0,
-"S(388)": 0,
-"S(427)": 0,
-"S(426)": 0,
-"S(436)": 0,
-"C7H11(85)": 0,
-"C7H11(86)": 0,
-"S(111)": 0,
-"C7H8(110)": 0,
-"S(150)": 0,
-"S(113)": 0,
-"H2O(204)": 0,
-"C7H9O(175)": 0,
-"S(256)": 0,
-"S(334)": 0,
-"S(349)": 0,
-"S(425)": 0,
-"S(418)": 0,
-"S(420)": 0,
-"S(493)": 0,
-"S(480)": 0,
-"S(164)": 0,
-"S(524)": 0,
-"S(553)": 0,
-"C7H8O(215)": 0,
-"S(612)": 0,
-"S(555)": 0,
-"S(635)": 0,
-"S(661)": 0,
-"S(577)": 0,
-"S(519)": 0,
-"S(766)": 0,
-"S(532)": 0,
-"S(770)": 0,
-"S(771)": 0,
-"S(869)": 0,
-"S(495)": 0,
-"S(890)": 0,
-"S(899)": 0,
-"S(931)": 0,
-"S(950)": 0,
-"C7H9(93)": 0,
-"S(985)": 0,
-"S(151)": 0,
-"S(140)": 0,
-"S(230)": 0,
-"C7H8O(212)": 0,
-"S(231)": 0,
-"C7H8O(222)": 0,
-"S(191)": 0,
-"S(177)": 0,
-"S(189)": 0,
-"S(235)": 0,
-"S(419)": 0,
-"S(239)": 0,
-"S(178)": 0,
-"S(238)": 0,
-"S(683)": 0,
-"S(237)": 0,
-"S(686)": 0,
-"S(518)": 0,
-"S(401)": 0,
-"S(420)": 0,
-"C7H11(292)": 0,
-"S(556)": 0,
-"C7H9O(286)": 0,
-"S(656)": 0,
-"S(1074)": 0,
-"S(661)": 0,
-"S(1299)": 0,
-"S(1287)": 0,
-"S(1298)": 0,
-"S(1347)": 0,
-"S(1346)": 0,
-"S(1382)": 0,
-"S(1364)": 0,
-"S(1493)": 0,
-"S(1457)": 0,
-"S(1492)": 0,
-"S(1586)": 0,
-"S(1584)": 0,
-"S(1587)": 0,
-"S(1577)": 0,
-"S(1581)": 0,
-"S(1630)": 0,
-"S(1628)": 0,
-"S(1678)": 0,
-"S(1749)": 0,
-"O(T)(511)": 0,
-"S(1734)": 0,
-"S(1185)": 0,
-"S(500)": 0,
-"S(1052)": 0,
-"S(994)": 0,
-"S(1057)": 0,
-"S(1122)": 0,
-"S(1854)": 0,
-"S(1717)": 0,
-"S(1108)": 0,
-"S(1930)": 0,
-"S(1143)": 0,
-"S(1908)": 0,
-"S(1852)": 0,
-"S(1962)": 0,
-"S(1953)": 0,
-"S(1965)": 0,
-"S(1997)": 0,
-"S(1402)": 0,
-"S(1579)": 0,
-"S(2064)": 0,
-"S(2072)": 0,
-"S(2094)": 0,
-"S(2095)": 0,
-"S(2093)": 0,
-"S(1624)": 0,
-"S(2143)": 0,
-"S(2124)": 0,
-"S(2135)": 0,
-"S(2117)": 0,
-"S(2186)": 0,
-"S(2170)": 0,
-"S(2200)": 0,
-"S(2192)": 0,
-"S(1036)": 0,
-"S(2233)": 0,
-"S(1853)": 0,
-"S(1306)": 0,
-"S(2299)": 0,
-"S(1172)": 0,
-"S(2308)": 0,
-"S(2309)": 0,
-"S(2377)": 0,
-"S(2375)": 0,
-"S(2251)": 0,
-"S(2376)": 0,
-"S(1448)": 0,
-"S(2359)": 0,
-"S(2358)": 0,
-"S(2357)": 0,
-"S(2457)": 0,
-"S(2454)": 0,
-"S(2455)": 0,
-"S(2522)": 0,
-"S(2493)": 0,
-"S(2524)": 0,
-"S(2523)": 0,
-"S(2355)": 0,
-"S(2578)": 0,
-"S(2577)": 0,
-"S(2575)": 0,
-"S(2630)": 0,
-"S(2613)": 0,
-"S(2621)": 0,
-"S(2638)": 0,
-"S(2494)": 0,
-"S(2479)": 0,
-"S(2353)": 0,
-"S(2352)": 0,
-"S(1857)": 0,
-"S(2567)": 0,
-"S(1401)": 0,
-"S(2698)": 0,
-"S(2451)": 0,
-"S(2509)": 0,
-"S(2596)": 0,
-"S(2552)": 0,
-"S(2829)": 0,
-"S(2812)": 0,
-"S(2828)": 0,
-"S(2819)": 0,
-"S(835)": 0,
-"S(977)": 0,
-"S(2428)": 0,
-"S(2729)": 0,
-"S(2525)": 0,
-"S(2476)": 0,
-"S(2859)": 0,
-"S(2915)": 0,
-"S(2546)": 0,
-"S(2913)": 0,
-"S(2936)": 0,
-"S(2955)": 0,
-"S(2962)": 0,
-"S(2925)": 0,
-"S(3019)": 0,
-"S(3017)": 0,
-"S(2995)": 0,
-"S(3014)": 0,
-"S(2295)": 0,
-"S(933)": 0,
-"S(961)": 0,
-"S(1313)": 0,
-"S(3112)": 0,
-"S(3111)": 0,
-"S(3113)": 0,
-"S(3114)": 0,
-"S(3117)": 0,
-"S(3116)": 0,
-"S(3035)": 0,
-"S(3044)": 0,
-"S(2475)": 0,
-"S(3082)": 0,
-"S(1311)": 0,
-"S(930)": 0,
-"S(3269)": 0,
-"S(2415)": 0,
-"S(3267)": 0,
-"S(3270)": 0,
-"S(3312)": 0,
-"S(3237)": 0,
-"S(3238)": 0,
-"S(3239)": 0,
-"S(2409)": 0,
-"S(3061)": 0,
-"S(3384)": 0,
-"S(3370)": 0,
-"S(3396)": 0,
-"S(3305)": 0,
-"S(2288)": 0,
-"S(3311)": 0,
-"S(2315)": 0,
-"S(3163)": 0,
-"S(2396)": 0,
-"S(3147)": 0,
-"S(2434)": 0,
-"S(2220)": 0,
-"S(1056)": 0,
-"S(1848)": 0,
-"S(2252)": 0,
-"S(3552)": 0,
-"S(2248)": 0,
-"S(3553)": 0,
-"S(2078)": 0,
-"S(3240)": 0,
-"S(1300)": 0,
-"S(3554)": 0,
-"S(3630)": 0,
-"S(3651)": 0,
-"S(3650)": 0,
-"S(3609)": 0,
-"S(2730)": 0,
-"S(3531)": 0,
-"S(2727)": 0,
-"S(2728)": 0,
-"S(3730)": 0,
-"S(2731)": 0,
-"S(2978)": 0,
-"S(3366)": 0,
-"S(3555)": 0,
-"S(2977)": 0,
-"S(934)": 0,
-"S(1301)": 0,
-"S(2313)": 0,
-"S(1417)": 0,
-"S(1419)": 0,
-"S(2432)": 0,
-"S(3805)": 0,
-"S(2394)": 0,
-"S(2425)": 0,
-"S(637)": 0,
-"S(2713)": 0,
-"S(3626)": 0,
-"S(3901)": 0,
-"S(3900)": 0,
-"S(3898)": 0,
-"S(3899)": 0,
-"S(3937)": 0,
-"S(905)": 0,
-"S(2429)": 0,
-"S(3628)": 0,
-"S(2427)": 0,
-"S(3992)": 0,
-"S(2569)": 0,
-"S(3993)": 0,
-"S(3989)": 0,
-"S(3355)": 0,
-"S(1438)": 0,
-"S(3990)": 0,
-"S(3368)": 0,
-"S(4040)": 0,
-"S(4033)": 0,
-"S(4038)": 0,
-"S(4035)": 0,
-"S(2430)": 0,
-"S(4039)": 0,
-"S(4032)": 0,
-"S(4074)": 0,
-"S(3927)": 0,
-"S(4116)": 0,
-"S(1807)": 0,
-"S(3693)": 0,
-"S(4129)": 0,
-"S(3353)": 0,
-"S(3991)": 0,
-"S(4117)": 0,
-"S(4206)": 0,
-"S(4219)": 0,
-"S(1568)": 0,
-"S(4165)": 0,
-"S(4041)": 0,
-"S(2426)": 0,
-"S(956)": 0,
-"S(3101)": 0,
-"S(3604)": 0,
-"S(3592)": 0,
-"S(3350)": 0,
-"S(4303)": 0,
-"S(4295)": 0,
-"S(2474)": 0,
-"S(3063)": 0,
-"S(3067)": 0,
-"S(4338)": 0,
-"S(4339)": 0,
-"S(3530)": 0,
-"S(3528)": 0,
-"S(3731)": 0,
-"S(144)": 0,
-"S(2909)": 0,
-"S(3533)": 0,
-"S(4378)": 0,
-"C7H8(122)": 0,
-"C7H8O(213)": 0,
-"S(318)": 0,
-"S(298)": 0,
-"S(4358)": 0,
-"S(3728)": 0,
-"S(3407)": 0,
-"S(4269)": 0,
-"S(4377)": 0,
-"S(3732)": 0,
-"S(4460)": 0,
-"S(4270)": 0,
-"S(2973)": 0,
-"S(458)": 0,
-"S(2089)": 0,
-"S(4357)": 0,
-"S(1871)": 0,
-"S(131)": 0,
-"S(4489)": 0,
-"S(2121)": 0,
-"S(2118)": 0,
-"S(3470)": 0,
-"S(4565)": 0,
-"S(4581)": 0,
-"S(4582)": 0,
-"S(4589)": 0,
-"S(4585)": 0,
-"S(4607)": 0,
-"S(4636)": 0,
-"S(4587)": 0,
-"S(4606)": 0,
-"S(3882)": 0,
-"S(2181)": 0,
-"S(4555)": 0,
-"S(4696)": 0,
-"S(4703)": 0,
-"S(2182)": 0,
-"S(4701)": 0,
-"S(4145)": 0,
-"S(4733)": 0,
-"S(4698)": 0,
-"S(4740)": 0,
-"S(4143)": 0,
-"S(4540)": 0,
-"S(4541)": 0,
-"S(974)": 0,
-"S(4790)": 0,
-"S(4780)": 0,
-"S(4375)": 0,
-"S(4811)": 0,
-"S(4379)": 0,
-"S(4142)": 0,
-"S(4823)": 0,
-"S(4822)": 0,
-"S(4261)": 0,
-"S(970)": 0,
-"S(4820)": 0,
-"S(4858)": 0,
-"S(4894)": 0,
-"S(4895)": 0,
-"S(4893)": 0,
-"S(3627)": 0,
-"S(1799)": 0,
-"S(3897)": 0,
-"S(1798)": 0,
-"S(2283)": 0,
-"S(904)": 0,
-"S(2489)": 0,
-"S(3729)": 0,
-"S(2256)": 0,
-"S(2477)": 0,
-"C7H10(480)": 0,
-"C7H10(483)": 0,
-"C7H12(578)": 0,
-"C7H11(509)": 0,
-"C7H11(510)": 0,
-"S(651)": 0,
-"S(650)": 0,
-"S(620)": 0,
-"C7H11(508)": 0,
-"S(889)": 0,
-"S(1046)": 0,
-"S(810)": 0,
-"S(901)": 0,
-"S(1297)": 0,
-"S(1363)": 0,
-"S(1346)": 0,
-"S(1296)": 0,
-"C7H10(526)": 0,
-"C7H10(529)": 0,
-"S(1794)": 0,
-"C7H9(500)": 0,
-"S(1101)": 0,
-"S(1437)": 0,
-"S(1546)": 0,
-"S(1435)": 0,
-"S(1584)": 0,
-"S(2672)": 0,
-"S(1457)": 0,
-"S(2550)": 0,
-"S(2918)": 0,
-"S(2818)": 0,
-"S(1004)": 0,
-"S(2919)": 0,
-"S(3521)": 0,
-"S(3116)": 0,
-"S(3520)": 0,
-"S(3098)": 0,
-"S(1746)": 0,
-"S(1208)": 0,
-"S(3230)": 0,
-"C7H9(817)": 0,
-"C7H9(821)": 0,
-"S(3547)": 0,
-"S(1722)": 0,
-"S(3465)": 0,
-"S(3461)": 0,
-"S(4386)": 0,
-"S(3029)": 0,
-"S(4697)": 0,
-"S(4761)": 0,
-"S(3158)": 0,
-"S(1141)": 0,
-"S(5256)": 0,
-"S(5229)": 0,
-"S(3221)": 0,
-"S(5260)": 0,
-"S(3883)": 0,
-"C4H5(2168)": 0,
-"S(4452)": 0,
-"S(3991)": 0,
-"S(2728)": 0,
-"S(1782)": 0,
-"S(5518)": 0,
-"S(5530)": 0,
-"S(2192)": 0,
-"S(4947)": 0,
-"C7H9(2271)": 0,
-"S(3300)": 0,
-"S(5684)": 0,
-"C2H4(516)": 0,
-"C7H8(642)": 0,
-"C5H5(2269)": 0,
-"S(6120)": 0,
-"C5H6(6116)": 0,
-"S(6143)": 0,
-"S(1990)": 0,
-"S(6376)": 0,
-"S(6375)": 0,
-"S(5940)": 0,
-"S(6377)": 0,
-"S(6485)": 0,
-"S(6486)": 0,
-"S(1443)": 0,
-"S(5102)": 0,
-"C6H9(674)": 0,
-"S(6588)": 0,
-"S(6589)": 0,
-"CH2O(6573)": 0,
-"S(1788)": 0,
-"S(3871)": 0,
-"S(6713)": 0,
-"S(6675)": 0,
-"S(7117)": 0,
-"C6H8(3463)": 0,
-"S(7169)": 0,
-"S(4682)": 0,
-"S(6680)": 0,
-"S(6336)": 0,
-"S(7301)": 0,
-"S(4453)": 0,
-"S(7459)": 0,
-"S(7469)": 0,
-"S(7517)": 0,
-"S(7470)": 0,
-"S(4332)": 0,
-"S(3091)": 0,
+        "O2(2)": 0.00622, # phi=1 means 9.5 O2 per C7H10
+        "N2":   0.36, # 8.1 times as much N2 as O2
+        "CHPD(1)":0.00989, # Cycloheptadiene C7H10    
+        "C7H16(177)": 0.00463,
+"H(19)": 0,
+"O(20)": 0,
+"OH(21)": 0,
+"H2(22)": 0,
+"H2O(23)": 0,
+"Ar(24)": 0,
+"He(25)": 0,
+"HO2(26)": 0,
+"H2O2(27)": 0,
+"CO(28)": 0,
+"CO2(29)": 0,
+"HCO(30)": 0,
+"C(T)(31)": 0,
+"CH(32)": 0,
+"CH2(T)(33)": 0,
+"CH3(34)": 0,
+"CH2O(35)": 0,
+"HCCO(36)": 0,
+"C2H(37)": 0,
+"C2H2(38)": 0,
+"H2CC(39)": 0,
+"CH2(S)(40)": 0,
+"CH3OH(41)": 0,
+"CH3O(42)": 0,
+"CH2CO(43)": 0,
+"C2H3(44)": 0,
+"C2H4(45)": 0,
+"CH4(46)": 0,
+"C2H6(47)": 0,
+"C2H5(48)": 0,
+"CH2OH(49)": 0,
+"CH3CO(50)": 0,
+"CH2CHO(51)": 0,
+"CH3CHO(52)": 0,
+"Ne": 0,
+"C7H9(3)": 0,
+"C7H10(4)": 0,
+"C7H11(5)": 0,
+"C5H7O2(6)": 0,
+"C6H12O(7)": 0,
+"C7H9O2(8)": 0,
+"C7H9O(9)": 0,
+"C7H9O2(2)": 0,
+"C7H8(11)": 0,
+"S(12)": 0,
+"C7H8O(1)": 0,
+"C7H8O(2)": 0,
+"C7H9O4(15)": 0,
+"C7H8O3(16)": 0,
+"S(17)": 0,
+"S(18)": 0,
+"C7H10(950)": 0,
+"C7H10(953)": 0,
+"C7H9(937)": 0,
+"C7H11(954)": 0,
+"S(1027)": 0,
+"S(1107)": 0,
+"S(1026)": 0,
+"S(1182)": 0,
+"S(1136)": 0,
+"lC5H7(105)": 0,
+"S(1396)": 0,
+"S(1423)": 0,
+"C7H9(1021)": 0,
 "S(1395)": 0,
-"S(3140)": 0,
-"S(7527)": 0,
-"S(7756)": 0,
-"S(7411)": 0,
-"S(7682)": 0,
-"S(1403)": 0,
-"S(4099)": 0,
-"S(4476)": 0,
-"S(7165)": 0,
-"S(4063)": 0,
-"S(1928)": 0,
-"S(1823)": 0,
-"S(5235)": 0,
-"C6H7(4420)": 0,
-"S(8312)": 0,
-"S(8307)": 0,
-"S(8301)": 0,
-"C6H6(8362)": 0,
-"S(8420)": 0,
-"S(8419)": 0,
-"C6H7(8368)": 0,
-"CH3(3464)": 0,
-"CH4(8506)": 0,
-"S(8508)": 0,
+"S(1147)": 0,
+"C7H8(1072)": 0,
+"S(1189)": 0,
+"S(1660)": 0,
+"S(2171)": 0,
+"S(2308)": 0,
+"S(2380)": 0,
+"S(2504)": 0,
+"S(2317)": 0,
+"S(2325)": 0,
+"S(1122)": 0,
+"S(1558)": 0,
+"S(2823)": 0,
+"C5H6(960)": 0,
+"S(2292)": 0,
+"C5H6(2966)": 0,
+"C5H6(118)": 0,
+"S(2795)": 0,
+"S(3354)": 0,
+"S(3382)": 0,
+"S(1055)": 0,
+"S(1190)": 0,
+"S(2980)": 0,
+"S(2999)": 0,
+"S(4179)": 0,
+"S(4177)": 0,
+"S(4178)": 0,
+"S(2929)": 0,
+"S(4584)": 0,
+"S(4586)": 0,
+"S(4585)": 0,
+"S(2907)": 0,
+"S(4183)": 0,
+"S(4181)": 0,
+"S(4182)": 0,
+"S(2408)": 0,
+"S(5142)": 0,
+"S(5164)": 0,
+"C5H7(596)": 0,
+"S(3269)": 0,
+"C7H9(1521)": 0,
+"C5H5(98)": 0,
+"S(5256)": 0,
+"S(5475)": 0,
+"S(5116)": 0,
+"S(4588)": 0,
+"S(3423)": 0,
 "S(5668)": 0,
-"S(8617)": 0,
-"S(1142)": 0,
+"S(3863)": 0,
+"S(5102)": 0,
+"S(5729)": 0,
 "S(5680)": 0,
-"S(2569)": 0,
-"S(9111)": 0,
-"S(4080)": 0,
-"S(4820)": 0,
-"S(7861)": 0,
-"S(8607)": 0,
-"S(3191)": 0,
-"S(7855)": 0,
-"S(4818)": 0,
-"S(3594)": 0,
-"S(5182)": 0,
-"S(4657)": 0,
-"S(1611)": 0,
-"S(7643)": 0,
-"S(10545)": 0,
-"S(10551)": 0,
-"S(10834)": 0,
-"S(10861)": 0,
-"S(10843)": 0,
-"S(10958)": 0,
-"S(5339)": 0,
-"S(10960)": 0,
-"S(10959)": 0,
-"S(1146)": 0,
-"S(5091)": 0,
-"S(10431)": 0,
-"S(7164)": 0,
-"S(11562)": 0,
-"S(11589)": 0,
-"S(11590)": 0,
-"S(11563)": 0,
-"S(11588)": 0,
-"S(11640)": 0,
-"S(11641)": 0,
-"S(4692)": 0,
-"S(11450)": 0,
-"S(11763)": 0,
-"S(11762)": 0,
-"S(3811)": 0,
-"S(4957)": 0,
-"S(8391)": 0,
-"S(11905)": 0,
-"S(11991)": 0,
-"S(11993)": 0,
-"S(12057)": 0,
-"S(11992)": 0,
-"S(12059)": 0,
-"S(12055)": 0,
-"S(12292)": 0,
-"S(12239)": 0,
-"S(3810)": 0,
-"S(3323)": 0,
-"S(12556)": 0,
-"S(3827)": 0,
-"S(3303)": 0,
-"S(13028)": 0,
-"S(11940)": 0,
-"S(12668)": 0,
-"CHO(1454)": 0,
-"S(13180)": 0,
-"S(13185)": 0,
-"S(13349)": 0,
-"S(13693)": 0,
-"S(13335)": 0,
-"S(13641)": 0,
-"S(13639)": 0,
-"CO2(14144)": 0,
-"S(14288)": 0,
-"S(15325)": 0,
-"S(927)": 0,
-"S(1929)": 0,
-"S(15495)": 0,
-"S(15398)": 0,
-"S(15496)": 0,
-"S(11692)": 0,
-"S(15669)": 0,
-"S(12051)": 0,
-"S(15693)": 0,
-"S(12050)": 0,
-"S(15692)": 0,
-"S(15968)": 0,
-"S(16171)": 0,
-"S(16170)": 0,
-"S(15619)": 0,
-"S(15592)": 0,
-"S(15406)": 0,
-"S(15593)": 0,
-"S(15740)": 0,
-"S(12695)": 0,
-"S(15739)": 0,
-"S(15741)": 0,
-"S(15395)": 0,
-"S(17121)": 0,
-"S(16045)": 0,
-"S(15612)": 0,
-"S(17500)": 0,
-"S(12089)": 0,
-"S(17499)": 0,
-"S(17507)": 0,
-"S(17706)": 0,
-"S(6491)": 0,
-"S(17652)": 0,
-"S(16159)": 0,
-"S(13332)": 0,
-"S(18012)": 0,
-"S(16583)": 0,
-"S(1853)": 0,
-"S(18577)": 0,
-"S(5501)": 0,
-"S(18731)": 0,
-"S(17996)": 0,
-"S(5524)": 0,
-"S(17741)": 0,
-"S(5528)": 0,
-"S(18073)": 0,
-"S(1446)": 0,
-"S(23417)": 0,
-"S(23418)": 0,
-"S(23416)": 0,
-"S(23996)": 0,
-"S(23975)": 0,
-"S(23366)": 0,
-"S(23369)": 0,
-"S(24575)": 0,
-"S(24577)": 0,
-"S(24574)": 0,
-"S(24578)": 0,
-"S(24639)": 0,
-"S(24648)": 0,
-"S(24635)": 0,
-"S(24650)": 0,
-"S(17563)": 0,
-"S(18091)": 0,
-"S(21284)": 0,
+"S(3425)": 0,
+"S(5535)": 0,
+"S(6339)": 0,
+"S(6025)": 0,
+"S(1590)": 0,
+"S(6567)": 0,
+"S(6576)": 0,
+"S(6568)": 0,
+"S(6577)": 0,
+"S(6673)": 0,
+"S(6575)": 0,
+"S(6463)": 0,
+"S(6441)": 0,
+"S(7159)": 0,
+"S(7158)": 0,
+"S(6769)": 0,
+"S(6460)": 0,
+"S(7425)": 0,
+"S(7426)": 0,
+"S(6844)": 0,
+"S(6794)": 0,
+"C6H7(363)": 0,
+"C5H5O(143)": 0,
+"S(8088)": 0,
+"S(8087)": 0,
+"S(7883)": 0,
+"S(7884)": 0,
+"C6H7(7867)": 0,
+"C6H6(100)": 0,
+"S(8095)": 0,
+"C5H4O(142)": 0,
+"S(7443)": 0,
+"S(3596)": 0,
+"C6H6(7863)": 0,
+"S(8171)": 0,
+"S(2953)": 0,
+"S(2954)": 0,
+"S(4610)": 0,
+"S(3429)": 0,
+"S(3385)": 0,
+"S(8779)": 0,
+"S(8926)": 0,
+"S(8925)": 0,
+"S(3570)": 0,
+"S(8137)": 0,
+"S(5511)": 0,
+"S(1604)": 0,
+"S(9457)": 0,
+"S(9465)": 0,
+"S(1209)": 0,
+"S(9656)": 0,
+"S(10145)": 0,
+"S(9964)": 0,
+"S(10199)": 0,
+"S(10144)": 0,
+"S(7901)": 0,
+"S(9472)": 0,
+"S(8372)": 0,
+"S(10568)": 0,
+"S(10726)": 0,
+"S(1585)": 0,
+"S(1397)": 0,
+"S(10864)": 0,
+"S(11105)": 0,
+"S(11104)": 0,
+"S(11116)": 0,
+"S(11125)": 0,
+"S(11364)": 0,
+"S(11373)": 0,
+"S(10567)": 0,
+"S(11278)": 0,
+"S(11483)": 0,
+"CH3OO(57)": 0,
+"S(10210)": 0,
+"S(11446)": 0,
+"S(10576)": 0,
+"HCCOH(53)": 0,
+"S(11847)": 0,
+"S(6034)": 0,
+"S(3657)": 0,
+"HOC2H2(54)": 0,
+"S(10227)": 0,
+"S(11846)": 0,
+"S(10230)": 0,
+"S(3569)": 0,
+"S(12205)": 0,
+"S(9078)": 0,
+"S(9433)": 0,
+"HOCO(55)": 0,
+"CH3OOH(56)": 0,
+"C2H5O(58)": 0,
+"cC2H4O(59)": 0,
+"S(3597)": 0,
+"S(2819)": 0,
+"S(6674)": 0,
+"C2H3O2(60)": 0,
+"S(12794)": 0,
+"S(12545)": 0,
+"S(9125)": 0,
+"S(12558)": 0,
+"C2(61)": 0,
+"C2O(62)": 0,
+"S(6317)": 0,
+"S(12938)": 0,
+"S(12937)": 0,
+"S(12555)": 0,
+"S(12939)": 0,
+"S(3652)": 0,
+"S(9900)": 0,
+"S(8981)": 0,
+"S(1496)": 0,
+"S(13750)": 0,
+"S(13818)": 0,
+"S(13927)": 0,
+"S(13817)": 0,
+"S(13868)": 0,
+"S(13736)": 0,
+"C2H6O(63)": 0,
+"S(3386)": 0,
+"S(4224)": 0,
+"S(13821)": 0,
+"S(13723)": 0,
+"S(13877)": 0,
+"S(14214)": 0,
+"S(14206)": 0,
+"S(14213)": 0,
+"S(14837)": 0,
+"S(13344)": 0,
+"S(11447)": 0,
+"S(14679)": 0,
+"C2H5O(64)": 0,
+"S(13770)": 0,
+"S(14182)": 0,
+"S(4240)": 0,
+"S(6855)": 0,
+"S(14951)": 0,
+"S(3799)": 0,
+"S(14950)": 0,
+"S(14952)": 0,
+"S(12935)": 0,
+"S(15164)": 0,
+"S(15738)": 0,
+"S(15736)": 0,
+"C2H5O(65)": 0,
+"S(14682)": 0,
+"S(394)": 0,
+"S(14342)": 0,
+"S(1184)": 0,
+"S(6893)": 0,
+"S(14886)": 0,
+"C2H4O(66)": 0,
+"cC2H3O(67)": 0,
+"OCHCHO(68)": 0,
+"C2H6O2(69)": 0,
+"S(14373)": 0,
+"S(14327)": 0,
+"S(12924)": 0,
+"S(13833)": 0,
+"C2H5O2(70)": 0,
+"C2H5O2(71)": 0,
+"S(16697)": 0,
+"S(1649)": 0,
+"S(17376)": 0,
+"S(17377)": 0,
+"S(1653)": 0,
+"S(14370)": 0,
+"S(16896)": 0,
+"S(17375)": 0,
+"S(16286)": 0,
+"S(16253)": 0,
+"S(19452)": 0,
+"S(19451)": 0,
+"S(19568)": 0,
+"C2H4O2(72)": 0,
+"C3H6O(73)": 0,
+"C2H5CO(74)": 0,
+"S(19454)": 0,
+"S(20155)": 0,
+"S(20203)": 0,
+"S(20445)": 0,
+"S(20818)": 0,
+"S(5811)": 0,
+"S(20947)": 0,
+"S(20771)": 0,
+"C3H6(75)": 0,
+"S(20811)": 0,
+"S(16854)": 0,
+"S(20232)": 0,
+"S(20813)": 0,
+"C3H4(76)": 0,
+"C3H5(77)": 0,
+"S(20094)": 0,
+"C3H5(78)": 0,
+"C3H5(79)": 0,
+"C3H4O(80)": 0,
+"H3CCCH(81)": 0,
+"C3H4O(82)": 0,
+"H2CCCH(83)": 0,
+"C3H2(84)": 0,
+"H2CC(85)": 0,
+"S(5810)": 0,
+"S(21071)": 0,
+"S(21064)": 0,
+"S(19487)": 0,
+"S(21649)": 0,
+"S(20106)": 0,
+"S(21215)": 0,
+"S(21213)": 0,
+"S(21190)": 0,
+"S(22524)": 0,
+"C4H2(86)": 0,
+"nC4H3(87)": 0,
+"iC4H3(88)": 0,
+"C4H4(89)": 0,
+"C4H6(90)": 0,
+"S(22782)": 0,
+"nC4H5(91)": 0,
+"iC4H5(92)": 0,
+"nC3H7(93)": 0,
+"C4H7(94)": 0,
+"C3H8(95)": 0,
+"S(23384)": 0,
+"S(20164)": 0,
+"S(23383)": 0,
+"S(21631)": 0,
+"C4H81(96)": 0,
+"S(23699)": 0,
+"S(22863)": 0,
 "S(23382)": 0,
-"S(21283)": 0,
-"S(21363)": 0,
-"S(15853)": 0,
-"S(23991)": 0,
-"S(25512)": 0,
-"S(13287)": 0,
-"S(25491)": 0,
-"S(25513)": 0,
-"S(18548)": 0,
-"S(25470)": 0,
-"S(25483)": 0,
-"S(25696)": 0,
-"S(26003)": 0,
-"S(10739)": 0,
-"S(18580)": 0,
-"S(13602)": 0,
-"S(17502)": 0,
-"S(26803)": 0,
-"S(26890)": 0,
-"S(5092)": 0,
-"S(26855)": 0,
-"S(11962)": 0,
-"S(26840)": 0,
-"S(26842)": 0,
-"S(27221)": 0,
-"S(27253)": 0,
-"S(26854)": 0,
-"S(27300)": 0,
-"S(27299)": 0,
-"S(27331)": 0,
-"S(27296)": 0,
-"S(27482)": 0,
-"S(27325)": 0,
-"S(27525)": 0,
-"S(27490)": 0,
-"S(27806)": 0,
-"S(27805)": 0,
-"S(28088)": 0,
-"S(27530)": 0,
-"S(27384)": 0,
-"S(25661)": 0,
-"S(3285)": 0,
-"S(11482)": 0,
-"S(29125)": 0,
-"S(29148)": 0,
-"S(16016)": 0,
-"S(27031)": 0,
-"S(27033)": 0,
-"S(22771)": 0,
+"S(21148)": 0,
+"C4H612(97)": 0,
+"C6H5(99)": 0,
+"C7H7(101)": 0,
+"C7H8(102)": 0,
+"C6H5O(138)": 0,
+"S(583)": 0,
+"S(24214)": 0,
+"S(24003)": 0,
+"S(24213)": 0,
+"S(23997)": 0,
+"S(24545)": 0,
+"S(588)": 0,
+"S(24544)": 0,
+"S(24044)": 0,
+"S(24609)": 0,
+"S(24558)": 0,
+"S(24566)": 0,
+"S(24561)": 0,
+"S(24923)": 0,
+"S(25021)": 0,
+"S(24565)": 0,
+"S(25016)": 0,
+"S(25096)": 0,
+"S(25092)": 0,
+"S(141)": 0,
+"S(24928)": 0,
+"iC4H7(103)": 0,
+"cC3H4(104)": 0,
+"iC4H8(106)": 0,
+"iC3H7(107)": 0,
+"S(24603)": 0,
+"S(25709)": 0,
+"S(25576)": 0,
+"S(25710)": 0,
+"C3H6O(108)": 0,
+"S(25532)": 0,
+"S(25550)": 0,
+"S(25542)": 0,
+"C3H3O(109)": 0,
+"S(25873)": 0,
+"S(24564)": 0,
+"S(25881)": 0,
+"S(26372)": 0,
+"S(25994)": 0,
+"S(26654)": 0,
+"S(26715)": 0,
+"S(25129)": 0,
+"S(26369)": 0,
+"S(26365)": 0,
+"S(26367)": 0,
+"S(26371)": 0,
+"C3H6O(110)": 0,
+"H2C4O(111)": 0,
+"C6H2(112)": 0,
+"C6H3(113)": 0,
+"C6H4(114)": 0,
+"C6H4(115)": 0,
+"C4H5O(116)": 0,
+"C4H5(117)": 0,
+"C4H5O(119)": 0,
+"S(22271)": 0,
+"S(25788)": 0,
+"S(26366)": 0,
+"C4H6O(120)": 0,
+"S(27339)": 0,
+"S(26686)": 0,
+"S(26660)": 0,
+"S(25852)": 0,
+"C4H6O(121)": 0,
+"C4H6(122)": 0,
+"C4H6O(123)": 0,
+"C4H6O(124)": 0,
+"C4H4O(125)": 0,
+"pC4H9(126)": 0,
+"sC4H9(127)": 0,
+"C4H82(128)": 0,
+"S(27643)": 0,
+"S(27644)": 0,
+"S(582)": 0,
+"S(25947)": 0,
+"iC4H9(129)": 0,
+"C4H10(130)": 0,
+"C4H10(131)": 0,
+"tC4H9(132)": 0,
+"C7H7(133)": 0,
+"C7H7O(134)": 0,
+"S(27807)": 0,
+"S(27812)": 0,
+"S(27789)": 0,
+"S(27314)": 0,
+"S(28121)": 0,
+"S(28063)": 0,
+"S(28079)": 0,
+"S(28120)": 0,
+"S(28324)": 0,
+"S(28266)": 0,
+"S(28321)": 0,
+"S(28658)": 0,
+"S(29234)": 0,
+"S(29272)": 0,
+"S(29273)": 0,
+"S(29265)": 0,
+"S(29377)": 0,
+"S(28268)": 0,
+"S(29232)": 0,
+"S(28260)": 0,
+"C7H6O(135)": 0,
+"S(24207)": 0,
+"C7H8O(136)": 0,
+"C6H6O(137)": 0,
+"C7H8O(139)": 0,
+"C7H5O(140)": 0,
+"C5H5O(144)": 0,
+"C5H5O(145)": 0,
+"S(29864)": 0,
+"S(29422)": 0,
+"S(23118)": 0,
+"S(29421)": 0,
+"S(30089)": 0,
+"S(17259)": 0,
+"S(30129)": 0,
+"S(11427)": 0,
+"C5H5O(592)": 0,
+"S(28329)": 0,
+"S(30818)": 0,
+"S(30866)": 0,
+"C5H6O(146)": 0,
+"C4H5(147)": 0,
+"C5H9(148)": 0,
+"C5H8(149)": 0,
+"C5H10(150)": 0,
+"S(27152)": 0,
+"cC5H9(151)": 0,
+"cC5H8(152)": 0,
+"S(1097)": 0,
+"C5H9(153)": 0,
+"C5H8(154)": 0,
+"C5H9(155)": 0,
+"C5H9(156)": 0,
+"C5H11(157)": 0,
+"C5H11(158)": 0,
+"S(30985)": 0,
+"S(16923)": 0,
+"S(31016)": 0,
+"C7H9(1019)": 0,
+"C5H11(159)": 0,
+"S(7919)": 0,
+"S(31426)": 0,
+"C5H12(160)": 0,
+"S(31045)": 0,
+"C6H11(161)": 0,
+"C6H10(162)": 0,
+"C6H12(163)": 0,
+"C6H11(164)": 0,
+"C6H11(165)": 0,
+"C6H11(166)": 0,
+"C6H13(167)": 0,
+"C6H13(168)": 0,
+"S(23905)": 0,
+"S(23820)": 0,
+"S(23795)": 0,
+"S(23807)": 0,
+"C6H13(169)": 0,
+"S(31869)": 0,
+"S(32442)": 0,
+"S(1123)": 0,
+"S(32443)": 0,
+"C6H14(170)": 0,
+"C7H13(171)": 0,
+"C7H14(172)": 0,
+"C7H15(173)": 0,
+"C7H15(174)": 0,
+"C7H15(175)": 0,
+"C7H15(176)": 0,
+"S(30079)": 0,
+"S(9973)": 0,
+"S(31888)": 0,
+"S(31010)": 0,
+"S(9915)": 0,
+"S(33011)": 0,
+"C7H9(1525)": 0,
+"C7H9(1939)": 0,
+"C8H15(178)": 0,
+"C8H16(179)": 0,
+"C8H17(180)": 0,
+"C8H17(181)": 0,
+"C8H17(182)": 0,
+"C8H17(183)": 0,
+"S(33085)": 0,
+"S(33029)": 0,
+"S(33030)": 0,
+"S(2835)": 0,
+"S(5985)": 0,
+"S(33038)": 0,
+"S(33549)": 0,
+"S(33087)": 0,
+"C8H18(184)": 0,
+"S(33550)": 0,
+"C9H17(185)": 0,
+"C9H18(186)": 0,
+"C7H9(8388)": 0,
+"S(33322)": 0,
+"S(34440)": 0,
+"C9H19(187)": 0,
+"C9H19(188)": 0,
+"S(2570)": 0,
+"S(33910)": 0,
+"S(6403)": 0,
+"S(33965)": 0,
+"S(3379)": 0,
+"S(34749)": 0,
+"S(34760)": 0,
+"S(34744)": 0,
+"S(8001)": 0,
+"S(35144)": 0,
+"S(35143)": 0,
+"S(34771)": 0,
+"S(33332)": 0,
+"C6H11(321)": 0,
+"S(34706)": 0,
+"S(33975)": 0,
+"C9H19(189)": 0,
+"C9H19(190)": 0,
+"C9H19(191)": 0,
+"S(28322)": 0,
+"S(34185)": 0,
+"S(27153)": 0,
+"S(34187)": 0,
+"C9H20(192)": 0,
+"S(36048)": 0,
+"S(36061)": 0,
+"S(36040)": 0,
+"S(36062)": 0,
+"S(36256)": 0,
+"S(35475)": 0,
+"S(193)": 0,
+"C4H7(332)": 0,
+"S(194)": 0,
+"S(3333)": 0,
+"S(34723)": 0,
+"S(34003)": 0,
+"S(7726)": 0,
+"S(3535)": 0,
+"S(195)": 0,
+"S(196)": 0,
+"S(197)": 0,
+"S(28348)": 0,
+"S(27170)": 0,
+"S(36998)": 0,
+"S(29930)": 0,
+"S(198)": 0,
+"S(199)": 0,
+"S(200)": 0,
+"S(201)": 0,
+"S(202)": 0,
+"S(30452)": 0,
+"S(30103)": 0,
+"S(203)": 0,
+"S(204)": 0,
+"S(205)": 0,
+"S(206)": 0,
+"S(34024)": 0,
+"S(207)": 0,
+"S(208)": 0,
+"S(209)": 0,
+"S(210)": 0,
+"S(211)": 0,
+"S(212)": 0,
+"S(213)": 0,
+"S(214)": 0,
+"S(215)": 0,
+"S(216)": 0,
+"S(217)": 0,
+"S(218)": 0,
+"S(219)": 0,
+"S(220)": 0,
+"S(221)": 0,
+"S(20127)": 0,
+"S(37603)": 0,
+"S(37605)": 0,
+"S(36500)": 0,
+"C9H17(222)": 0,
+"S(223)": 0,
+"C8H15(224)": 0,
+"C7H13(225)": 0,
+"C6H11(226)": 0,
+"S(37726)": 0,
+"S(37730)": 0,
+"S(37725)": 0,
+"S(37775)": 0,
+"S(29306)": 0,
+"S(38213)": 0,
+"S(37708)": 0,
+"S(227)": 0,
+"S(228)": 0,
+"C7H13(229)": 0,
+"C7H13(230)": 0,
+"C7H14(231)": 0,
+"S(232)": 0,
+"S(39999)": 0,
+"S(12629)": 0,
+"S(28649)": 0,
+"S(39153)": 0,
+"S(233)": 0,
+"S(234)": 0,
+"S(235)": 0,
+"S(236)": 0,
+"S(237)": 0,
+"S(41373)": 0,
+"S(41371)": 0,
+"S(238)": 0,
+"S(21432)": 0,
+"S(2982)": 0,
+"S(41366)": 0,
+"S(41449)": 0,
+"S(43582)": 0,
+"S(239)": 0,
+"C9H16(240)": 0,
+"C8H14(241)": 0,
+"S(242)": 0,
+"C7H12(243)": 0,
+"S(244)": 0,
+"C6H10(245)": 0,
+"S(246)": 0,
+"S(3101)": 0,
+"S(247)": 0,
+"S(44328)": 0,
+"CHCHO(393)": 0,
+"S(44330)": 0,
+"S(248)": 0,
+"S(249)": 0,
+"S(250)": 0,
+"S(251)": 0,
+"C8H15(252)": 0,
+"S(253)": 0,
+"C8H15(254)": 0,
+"S(255)": 0,
+"C8H15(256)": 0,
+"S(257)": 0,
+"C8H15(258)": 0,
+"S(259)": 0,
+"C7H12(260)": 0,
+"S(261)": 0,
+"C8H15(262)": 0,
+"S(263)": 0,
+"C6H10(264)": 0,
+"C7H12(265)": 0,
+"C8H14(266)": 0,
+"C8H14(267)": 0,
+"S(1086)": 0,
+"C7H12(268)": 0,
+"S(1085)": 0,
+"S(44543)": 0,
+"S(1117)": 0,
+"S(44547)": 0,
+"S(44550)": 0,
+"S(1115)": 0,
+"S(44690)": 0,
+"S(44884)": 0,
+"S(44885)": 0,
+"S(44670)": 0,
+"S(44698)": 0,
+"C9H18(269)": 0,
+"C9H18(270)": 0,
+"C9H18(271)": 0,
+"C6H11(272)": 0,
+"C6H12(273)": 0,
+"C9H17(274)": 0,
+"S(44641)": 0,
+"C9H17(275)": 0,
+"S(44655)": 0,
+"S(44654)": 0,
+"C9H17(276)": 0,
+"C9H17(277)": 0,
+"C9H17(278)": 0,
+"C9H17(279)": 0,
+"C9H17(280)": 0,
+"C9H17(281)": 0,
+"C9H17(282)": 0,
+"C9H17(283)": 0,
+"C9H17(284)": 0,
+"C9H17(285)": 0,
+"C9H17(286)": 0,
+"C7H13(287)": 0,
+"C9H17(288)": 0,
+"C9H17(289)": 0,
+"C7H13(290)": 0,
+"S(1082)": 0,
+"C9H17(291)": 0,
+"C7H13(292)": 0,
+"C9H17(293)": 0,
+"C9H17(294)": 0,
+"S(36444)": 0,
+"C7H13(295)": 0,
+"C7H9(958)": 0,
+"C9H17(296)": 0,
+"C9H17(297)": 0,
+"C6H10(298)": 0,
+"C8H16(299)": 0,
+"C8H16(300)": 0,
+"C8H16(301)": 0,
+"C5H9(302)": 0,
+"C5H10(303)": 0,
+"C8H15(304)": 0,
+"C8H15(305)": 0,
+"S(45160)": 0,
+"S(45036)": 0,
+"S(45159)": 0,
+"S(45037)": 0,
+"C8H15(306)": 0,
+"S(45280)": 0,
+"S(45262)": 0,
+"S(45279)": 0,
+"C8H15(307)": 0,
+"C8H15(308)": 0,
+"C8H15(309)": 0,
+"S(45205)": 0,
+"S(45554)": 0,
+"S(45553)": 0,
+"S(45501)": 0,
+"S(45480)": 0,
+"S(45483)": 0,
+"S(45260)": 0,
+"C8H15(310)": 0,
+"S(46144)": 0,
+"S(5707)": 0,
+"S(23031)": 0,
+"C8H15(311)": 0,
+"S(46722)": 0,
+"S(46727)": 0,
+"S(46152)": 0,
+"S(46721)": 0,
+"C8H15(312)": 0,
+"C8H15(313)": 0,
+"C8H15(314)": 0,
+"C8H15(315)": 0,
+"S(956)": 0,
+"O2(1556)": 0,
+"S(3880)": 0,
+"S(48836)": 0,
+"S(48886)": 0,
+"C8H15(316)": 0,
+"S(48904)": 0,
+"S(48913)": 0,
+"S(48907)": 0,
+"C6H11(317)": 0,
+"C6H11(318)": 0,
+"C6H11(319)": 0,
+"S(1353)": 0,
+"S(38513)": 0,
+"C8H15(320)": 0,
+"C8H15(322)": 0,
+"S(1084)": 0,
+"C8H15(323)": 0,
+"C8H15(324)": 0,
+"S(2983)": 0,
+"C3H6(1148)": 0,
+"S(3571)": 0,
+"S(48983)": 0,
+"S(48984)": 0,
+"C8H15(325)": 0,
+"C6H10(326)": 0,
+"S(5118)": 0,
+"S(15233)": 0,
+"S(49070)": 0,
+"S(49013)": 0,
+"S(49198)": 0,
+"S(49279)": 0,
+"S(49278)": 0,
+"S(49284)": 0,
+"S(49295)": 0,
+"S(5797)": 0,
+"S(49552)": 0,
+"S(49184)": 0,
+"CO2(12610)": 0,
+"C8H15(327)": 0,
+"C7H15(328)": 0,
+"C7H15(329)": 0,
+"C7H14(330)": 0,
+"C7H14(331)": 0,
+"C7H13(333)": 0,
+"S(49575)": 0,
+"S(49950)": 0,
+"S(49942)": 0,
+"S(49557)": 0,
+"S(49945)": 0,
+"C7H13(334)": 0,
+"C7H13(335)": 0,
+"S(32085)": 0,
+"S(50151)": 0,
+"S(49944)": 0,
+"C7H13(336)": 0,
+"C7H13(337)": 0,
+"C7H13(338)": 0,
+"C7H13(339)": 0,
+"C7H13(340)": 0,
+"C7H13(341)": 0,
+"C7H13(342)": 0,
+"C7H13(343)": 0,
+"C7H13(344)": 0,
+"C7H13(345)": 0,
+"C5H9(346)": 0,
+"C7H13(347)": 0,
+"C5H8(348)": 0,
+"C7H13(349)": 0,
+"C7H13(350)": 0,
+"C5H8(351)": 0,
+"S(49240)": 0,
+"S(2555)": 0,
+"C6H12(352)": 0,
+"S(353)": 0,
+"S(354)": 0,
+"S(355)": 0,
+"S(356)": 0,
+"C6H11(357)": 0,
+"C6H11(358)": 0,
+"C6H11(359)": 0,
+"C6H9(360)": 0,
+"C6H8(361)": 0,
 
+
+        
     },
     terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'C7H16': 0.99,
-        },
+                'CHPD(1)': 0.99,
+    },
 )
 
 simulator(
@@ -22472,17 +23854,16 @@ simulator(
 
 model(
     toleranceKeepInEdge=0, # No pruning to start
-    toleranceMoveToCore=0.7,
+    toleranceMoveToCore=0.8,
     toleranceInterruptSimulation=1,
-    maxNumObjsPerIter=2, 
+    maxNumObjsPerIter=2,      #
     terminateAtMaxObjects=True,
-    maxNumSpecies=100, # first stage is until core reaches 100 species
+    maxNumSpecies=800, # first stage is until core reaches 100 species
     filterReactions=True, # should speed up model generation
     filterThreshold=2e8,
 )
-
 model(
-    toleranceMoveToCore=0.4,
+    toleranceMoveToCore=0.6,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=100000,
@@ -22501,6 +23882,8 @@ options(
     generatePlots=True,
     saveSimulationProfiles=True,
     saveEdgeSpecies=False,
-    #generateSeedEachIteration=True,
+    generateSeedEachIteration=False,
 )
+
+
 
