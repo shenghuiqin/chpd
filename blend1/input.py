@@ -7735,20 +7735,6 @@ multiplicity 2
 
 
 species(
-    label='H2CC(85)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 C u0 p0 c0 {2,D} {3,S} {4,S}
-2 C u2 p0 c0 {1,D}
-3 H u0 p0 c0 {1,S}
-4 H u0 p0 c0 {1,S}
-        """),
-)
-
-
-species(
     label='S(5810)',
     reactive=True,
     structure=adjacencyList(
@@ -23260,7 +23246,6 @@ simpleReactor(
 "H3CCCH(81)": 0,
 "C3H4O(82)": 0,
 "H2CCCH(83)": 0,
-"H2CC(85)": 0,
 "S(5810)": 0,
 "S(21071)": 0,
 "S(21064)": 0,
