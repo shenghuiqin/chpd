@@ -5281,19 +5281,7 @@ multiplicity 3
         """),
 )
 
-"""
-species(
-    label='C2O(62)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 O u0 p2 c0 {2,D}
-2 C u0 p0 c0 {1,D} {3,D}
-3 C u2 p0 c0 {2,D}
-        """),
-)
-"""
+
 
 species(
     label='S(6317)',
@@ -7743,19 +7731,7 @@ multiplicity 2
 )
 
 
-species(
-    label='C3H2(84)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 C u0 p0 c0 {2,S} {3,T}
-2 C u2 p0 c0 {1,S} {5,S}
-3 C u0 p0 c0 {1,T} {4,S}
-4 H u0 p0 c0 {3,S}
-5 H u0 p0 c0 {2,S}
-        """),
-)
+
 
 
 species(
@@ -23284,7 +23260,6 @@ simpleReactor(
 "H3CCCH(81)": 0,
 "C3H4O(82)": 0,
 "H2CCCH(83)": 0,
-"C3H2(84)": 0,
 "H2CC(85)": 0,
 "S(5810)": 0,
 "S(21071)": 0,
