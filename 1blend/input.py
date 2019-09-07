@@ -1,7 +1,7 @@
 #Data sources
 database(
     thermoLibraries =['BurkeH2O2','FFCM1(-)','thermo_DFT_CCSDTF12_BAC','CBS_QB3_1dHR','DFT_QCI_thermo','primaryThermoLibrary'], # 'FFCM1(-)','primaryThermoLibrary', 'BurkeH2O2','DFT_QCI_thermo','CBS_QB3_1dHR'
-    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False),('JetSurF2.0',False),('CurranPentane',False),('2009_Sharma_C5H5_CH3_highP',False),('2015_Buras_C2H3_C4H6_highP',False)], # 
+    reactionLibraries = [('2005_Senosiain_OH_C2H2',False),('Glarborg/C3', False)], # 
     seedMechanisms = ['BurkeH2O2inN2','FFCM1(-)'], #
     kineticsDepositories = ['training'], 
     kineticsFamilies = ['default'],
@@ -1367,17 +1367,6 @@ multiplicity 3
 )
 
 
-species(
-    label='C2O(46)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 O u0 p2 c0 {2,D}
-2 C u0 p0 c0 {1,D} {3,D}
-3 C u2 p0 c0 {2,D}
-        """),
-)
 
 
 species(
@@ -2347,19 +2336,6 @@ multiplicity 2
 )
 
 
-species(
-    label='C3H2(68)',
-    reactive=True,
-    structure=adjacencyList(
-        """
-multiplicity 3
-1 C u0 p0 c0 {2,S} {3,T}
-2 C u2 p0 c0 {1,S} {5,S}
-3 C u0 p0 c0 {1,T} {4,S}
-4 H u0 p0 c0 {3,S}
-5 H u0 p0 c0 {2,S}
-        """),
-)
 
 
 species(
@@ -19017,7 +18993,6 @@ simpleReactor(
 "C2(45)": 0,
 "CHO3(486)": 0,
 "S(412)": 0,
-"C2O(46)": 0,
 "CHO4(489)": 0,
 "C4H7(639)": 0,
 "S(1246)": 0,
@@ -19063,7 +19038,6 @@ simpleReactor(
 "C3H4O(66)": 0,
 "S(3313)": 0,
 "H2CCCH(67)": 0,
-"C3H2(68)": 0,
 "S(3121)": 0,
 "S(3901)": 0,
 "S(3912)": 0,
