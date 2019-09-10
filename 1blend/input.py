@@ -40974,7 +40974,7 @@ simpleReactor(
     terminationTime = (5.0, 's'),
     terminationRateRatio = 0.01,
     terminationConversion={
-                'C7H16(1)': 0.99,
+                'C7H16(1)': 0.9,
     },
 )
 
@@ -40995,7 +40995,7 @@ model(
     filterThreshold=2e8,
 )
 model(
-    toleranceMoveToCore=0.5,
+    toleranceMoveToCore=0.7,
     toleranceInterruptSimulation=1e8,
     toleranceKeepInEdge=0.01, # Pruning enabled for stage 2
     maximumEdgeSpecies=100000,
