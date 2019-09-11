@@ -79,7 +79,7 @@ species(
 
 species(
     label='Ar(8)',
-    reactive=True,
+    reactive=False,
     structure=adjacencyList(
         """
 1 Ar u0 p4 c0
@@ -89,7 +89,7 @@ species(
 
 species(
     label='He(9)',
-    reactive=True,
+    reactive=False,
     structure=adjacencyList(
         """
 1 He u0 p1 c0
@@ -474,7 +474,7 @@ species(
 
 species(
     label='N2',
-    reactive=True,
+    reactive=False,
     structure=adjacencyList(
         """
 1 N u0 p1 c0 {2,T}
@@ -485,7 +485,7 @@ species(
 
 species(
     label='Ne',
-    reactive=True,
+    reactive=False,
     structure=adjacencyList(
         """
 1 Ne u0 p4 c0
@@ -40972,7 +40972,7 @@ simpleReactor(
 
     },
     terminationTime = (5.0, 's'),
-    terminationRateRatio = 0.05,
+    terminationRateRatio = 0.02,
     terminationConversion={
                 'C7H16(1)': 0.99,
     },
